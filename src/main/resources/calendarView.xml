@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xwikidoc>
+  <web>Meeting</web>
+  <name>calendarView</name>
+  <language/>
+  <defaultLanguage/>
+  <translation>0</translation>
+  <parent>Meeting.WebHome</parent>
+  <creator>xwiki:XWiki.Admin</creator>
+  <author>xwiki:XWiki.Admin</author>
+  <customClass/>
+  <contentAuthor>xwiki:XWiki.Admin</contentAuthor>
+  <creationDate>1355132950000</creationDate>
+  <date>1355759699000</date>
+  <contentUpdateDate>1355759699000</contentUpdateDate>
+  <version>1.1</version>
+  <title>$msg.get('contrib.meeting.calendarView.title')</title>
+  <template/>
+  <defaultTemplate/>
+  <validationScript/>
+  <comment/>
+  <minorEdit>false</minorEdit>
+  <syntaxId>xwiki/2.1</syntaxId>
+  <hidden>false</hidden>
+  <content>{{velocity}}
+#if($xwiki.exists('Calendar.Macro'))
+
+{{calendar classname="Meeting.MeetingClass" startfield="startDate" durationfield="duration" defaultView="agendaWeek" firstHour="8" minTime="8" maxTime="21" language="fr" editable="true" /}}
+
+#elseif($isAdmin)
+  $msg.get('contrib.meeting.calendarView.noMacro.admin') : [[FullCalendar&gt;&gt;XWiki.XWikiPreferences||queryString="section=XWiki.AddExtensions&amp;search=FullCalendar&amp;repo="]]
+#else
+  $msg.get('contrib.meeting.calendarView.noMacro.noAdmin')
+#end
+{{/velocity}}</content>
+</xwikidoc>
