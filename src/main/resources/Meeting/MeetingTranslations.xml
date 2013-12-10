@@ -12,8 +12,8 @@
   <customClass/>
   <contentAuthor>xwiki:XWiki.Admin</contentAuthor>
   <creationDate>1386682903000</creationDate>
-  <date>1386683067000</date>
-  <contentUpdateDate>1386683067000</contentUpdateDate>
+  <date>1386683757000</date>
+  <contentUpdateDate>1386683757000</contentUpdateDate>
   <version>1.1</version>
   <title>MeetingTranslations</title>
   <defaultTemplate/>
@@ -62,6 +62,7 @@
 Meeting.MeetingClass_status_value1=In preparation
 Meeting.MeetingClass_status_value2=Active
 Meeting.MeetingClass_status_value3=Cancelled
+Meeting.MeetingClass_status_value4=Finished
 
 contrib.meeting.application.title=Meetings
 contrib.meeting.calendarView=Calendar View
