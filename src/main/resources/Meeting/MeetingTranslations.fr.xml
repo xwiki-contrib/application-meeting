@@ -2,21 +2,20 @@
 
 <xwikidoc>
   <web>Meeting</web>
-  <name>Translation</name>
+  <name>MeetingTranslations</name>
   <language>fr</language>
   <defaultLanguage/>
   <translation>1</translation>
-  <parent>Meeting.WebHome</parent>
+  <parent/>
   <creator>xwiki:XWiki.Admin</creator>
   <author>xwiki:XWiki.Admin</author>
   <customClass/>
   <contentAuthor>xwiki:XWiki.Admin</contentAuthor>
-  <creationDate>1355131401000</creationDate>
-  <date>1355760014000</date>
-  <contentUpdateDate>1355760014000</contentUpdateDate>
+  <creationDate>1386682903000</creationDate>
+  <date>1386683560000</date>
+  <contentUpdateDate>1386683560000</contentUpdateDate>
   <version>1.1</version>
   <title/>
-  <template/>
   <defaultTemplate/>
   <validationScript/>
   <comment/>
@@ -35,12 +34,13 @@ contrib.meeting.calendarView.title=Vue calendaire
 contrib.meeting.calendarView.noMacro.admin=Pour pouvoir avoir une vue calendaire des réunions, il faut installer la Macro FullCalendar sur ce Wiki :
 contrib.meeting.calendarView.noMacro.noAdmin=Il manque la macro nécessaire à l'affichage calendaire. Demandez à l'administrateur de votre wiki d'installer la Macro "FullCalendar".
 
-contrib.meeting.livetable.title=Titre
-contrib.meeting.livetable.leader=Responsable
-contrib.meeting.livetable.place=Lieu
-contrib.meeting.livetable.duration=Durée
-contrib.meeting.livetable.startDate=Horaire
-contrib.meeting.livetable.status=Statut
+meeting.livetable.doc.name=Titre
+meeting.livetable.leader=Responsable
+meeting.livetable.place=Lieu
+meeting.livetable.duration=Durée
+meeting.livetable.startDate=Horaire
+meeting.livetable.status=Statut
+meeting.livetable.emptyvalue=-
 
 contrib.meeting.field.leader=Responsable
 contrib.meeting.field.place=Lieu

@@ -2,7 +2,7 @@
 
 <xwikidoc>
   <web>Meeting</web>
-  <name>Translation</name>
+  <name>MeetingTranslations</name>
   <language/>
   <defaultLanguage/>
   <translation>0</translation>
@@ -11,12 +11,11 @@
   <author>xwiki:XWiki.Admin</author>
   <customClass/>
   <contentAuthor>xwiki:XWiki.Admin</contentAuthor>
-  <creationDate>1355131193000</creationDate>
-  <date>1355759985000</date>
-  <contentUpdateDate>1355759985000</contentUpdateDate>
+  <creationDate>1386682903000</creationDate>
+  <date>1386683067000</date>
+  <contentUpdateDate>1386683067000</contentUpdateDate>
   <version>1.1</version>
-  <title>Translation</title>
-  <template/>
+  <title>MeetingTranslations</title>
   <defaultTemplate/>
   <validationScript/>
   <comment/>
@@ -50,10 +49,10 @@
         <classType>com.xpn.xwiki.objects.classes.StaticListClass</classType>
       </scope>
     </class>
-    <name>Meeting.Translation</name>
+    <name>Meeting.MeetingTranslations</name>
     <number>0</number>
     <className>XWiki.TranslationDocumentClass</className>
-    <guid>1f92956b-3c0d-4655-8a99-5db42d2172a1</guid>
+    <guid>bcb86ee4-b4cc-4585-9851-e87d0b262954</guid>
     <property>
       <scope>WIKI</scope>
     </property>
@@ -70,12 +69,12 @@ contrib.meeting.calendarView.title=Calendar View
 contrib.meeting.calendarView.noMacro.admin=To display the calendar view of the meetings, you need to install the Full Calendar Macro on this wiki :
 contrib.meeting.calendarView.noMacro.noAdmin=We are missing the macro displaying the calendar view. Ask this wiki administrator to install the "FullCalendar" Macro.
 
-contrib.meeting.livetable.title=Title
-contrib.meeting.livetable.leader=Leader
-contrib.meeting.livetable.place=Place
-contrib.meeting.livetable.duration=Duration
-contrib.meeting.livetable.startDate=Start
-contrib.meeting.livetable.status=Status
+meeting.livetable.title=Title
+meeting.livetable.leader=Leader
+meeting.livetable.place=Place
+meeting.livetable.duration=Duration
+meeting.livetable.startDate=Start
+meeting.livetable.status=Status
 
 contrib.meeting.field.leader=Leader
 contrib.meeting.field.place=Place
