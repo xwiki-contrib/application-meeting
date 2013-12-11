@@ -11,12 +11,11 @@
   <author>xwiki:XWiki.Admin</author>
   <customClass/>
   <contentAuthor>xwiki:XWiki.Admin</contentAuthor>
-  <creationDate>1355129793000</creationDate>
-  <date>1355760300000</date>
-  <contentUpdateDate>1355760300000</contentUpdateDate>
+  <creationDate>1386768327000</creationDate>
+  <date>1386772816000</date>
+  <contentUpdateDate>1386772816000</contentUpdateDate>
   <version>1.1</version>
   <title/>
-  <template/>
   <defaultTemplate/>
   <validationScript/>
   <comment/>
@@ -103,6 +102,9 @@ $xwiki.ssx.use('Meeting.SkinExtension')
   ; &lt;label for="Meeting.MeetingClass_0_participants"&gt;$msg.get('contrib.meeting.field.participants')&lt;/label&gt;##
     (% class="xHint" %)$msg.get('')
   : $doc.display('participants')
+  ; &lt;label for="Meeting.MeetingClass_0_notes"&gt;$msg.get('contrib.meeting.field.notes')&lt;/label&gt;##
+    (% class="xHint" %)$msg.get('')
+  : $doc.display('notes')
   #if($doc.isCurrentUserCreator() &amp;&amp; $doc.getValue('participants')!='' &amp;&amp; $context.action=='view')
   &lt;form id="sendNotification" action='' method='post'&gt;
     &lt;div class='presentation'&gt;

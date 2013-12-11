@@ -11,9 +11,9 @@
   <author>xwiki:XWiki.Admin</author>
   <customClass/>
   <contentAuthor>xwiki:XWiki.Admin</contentAuthor>
-  <creationDate>1386682748000</creationDate>
-  <date>1386688930000</date>
-  <contentUpdateDate>1386682748000</contentUpdateDate>
+  <creationDate>1386768326000</creationDate>
+  <date>1386772474000</date>
+  <contentUpdateDate>1386772474000</contentUpdateDate>
   <version>1.1</version>
   <title>Meeting Class</title>
   <defaultTemplate/>
@@ -202,6 +202,21 @@ $doc.save()
       <validationRegExp/>
       <classType>com.xpn.xwiki.objects.classes.UsersClass</classType>
     </leader>
+    <notes>
+      <customDisplay/>
+      <disabled>0</disabled>
+      <editor>---</editor>
+      <name>notes</name>
+      <number>14</number>
+      <picker>0</picker>
+      <prettyName>notes</prettyName>
+      <rows>5</rows>
+      <size>40</size>
+      <unmodifiable>0</unmodifiable>
+      <validationMessage/>
+      <validationRegExp/>
+      <classType>com.xpn.xwiki.objects.classes.TextAreaClass</classType>
+    </notes>
     <participants>
       <cache>0</cache>
       <customDisplay/>

@@ -11,9 +11,9 @@
   <author>xwiki:XWiki.Admin</author>
   <customClass/>
   <contentAuthor>xwiki:XWiki.Admin</contentAuthor>
-  <creationDate>1386767374000</creationDate>
-  <date>1386767662000</date>
-  <contentUpdateDate>1386767662000</contentUpdateDate>
+  <creationDate>1386768328000</creationDate>
+  <date>1386773687000</date>
+  <contentUpdateDate>1386773687000</contentUpdateDate>
   <version>1.1</version>
   <title>MeetingTranslations</title>
   <defaultTemplate/>
@@ -84,6 +84,7 @@ contrib.meeting.field.duration=Duration
 contrib.meeting.field.startDate=Start Date
 contrib.meeting.field.description=Description
 contrib.meeting.field.participants=Participants
+contrib.meeting.field.notes=Meeting notes
 contrib.meeting.field.status=Status
 
 contrib.meeting.notification.success=A notification email has successfully been sent to the participants.
