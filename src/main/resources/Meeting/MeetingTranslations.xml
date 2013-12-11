@@ -11,9 +11,9 @@
   <author>xwiki:XWiki.Admin</author>
   <customClass/>
   <contentAuthor>xwiki:XWiki.Admin</contentAuthor>
-  <creationDate>1386756612000</creationDate>
-  <date>1386762765000</date>
-  <contentUpdateDate>1386762765000</contentUpdateDate>
+  <creationDate>1386767374000</creationDate>
+  <date>1386767662000</date>
+  <contentUpdateDate>1386767662000</contentUpdateDate>
   <version>1.1</version>
   <title>MeetingTranslations</title>
   <defaultTemplate/>
@@ -73,7 +73,7 @@ contrib.meeting.calendarView.noMacro.noAdmin=We are missing the macro displaying
 meeting.livetable.doc.name=Title
 meeting.livetable.leader=Leader
 meeting.livetable.place=Place
-meeting.livetable.duration=Duration
+meeting.livetable.durationString=Duration
 meeting.livetable.startDate=Start
 meeting.livetable.status=Status
 meeting.livetable.emptyvalue=-

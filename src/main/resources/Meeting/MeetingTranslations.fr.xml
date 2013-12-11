@@ -11,9 +11,9 @@
   <author>xwiki:XWiki.Admin</author>
   <customClass/>
   <contentAuthor>xwiki:XWiki.Admin</contentAuthor>
-  <creationDate>1386682903000</creationDate>
-  <date>1386690147000</date>
-  <contentUpdateDate>1386690147000</contentUpdateDate>
+  <creationDate>1386767374000</creationDate>
+  <date>1386767673000</date>
+  <contentUpdateDate>1386767673000</contentUpdateDate>
   <version>1.1</version>
   <title/>
   <defaultTemplate/>
@@ -38,7 +38,7 @@ contrib.meeting.calendarView.noMacro.noAdmin=Il manque la macro nécessaire à l
 meeting.livetable.doc.name=Titre
 meeting.livetable.leader=Responsable
 meeting.livetable.place=Lieu
-meeting.livetable.duration=Durée
+meeting.livetable.durationString=Durée
 meeting.livetable.startDate=Horaire
 meeting.livetable.status=Statut
 meeting.livetable.emptyvalue=-

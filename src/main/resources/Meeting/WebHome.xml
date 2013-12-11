@@ -11,9 +11,9 @@
   <author>xwiki:XWiki.Admin</author>
   <customClass/>
   <contentAuthor>xwiki:XWiki.Admin</contentAuthor>
-  <creationDate>1386682748000</creationDate>
-  <date>1386682951000</date>
-  <contentUpdateDate>1386682951000</contentUpdateDate>
+  <creationDate>1386767374000</creationDate>
+  <date>1386767586000</date>
+  <contentUpdateDate>1386767586000</contentUpdateDate>
   <version>1.1</version>
   <title>$msg.get('platform.appwithinminutes.appHomePageTitle', $doc.space)</title>
   <defaultTemplate/>
@@ -82,7 +82,7 @@
       <class>Meeting.MeetingClass</class>
     </property>
     <property>
-      <columns>doc.name leader place startDate duration status</columns>
+      <columns>doc.name leader place startDate durationString status</columns>
     </property>
     <property>
       <description>{{velocity}}
@@ -185,7 +185,7 @@ icon=icon:calendar</parameters>
   'leader': {"type":"text","size":10,"html":true},
   'place': {"type":"text","size":10},
   'startDate': {"type":"text","size":10},
-  'duration': {"type":"list","size":10},
+  'durationString': {"type":"text","filterable":true,"sortable":false,"html":true},
   'status': {"type":"list","size":10}
 })
 #set ($options = {
@@ -198,7 +198,7 @@ icon=icon:calendar</parameters>
   'selectedColumn': 'doc.name',
   'defaultOrder': 'asc'
 })
-#set ($columns = ['doc.name', 'leader', 'place', 'startDate', 'duration', 'status'])
+#set ($columns = ['doc.name', 'leader', 'place', 'startDate', 'durationString', 'status'])
 #livetable('meeting' $columns $columnsProperties $options)
 {{/velocity}}</content>
 </xwikidoc>
