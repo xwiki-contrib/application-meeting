@@ -11,9 +11,9 @@
   <author>xwiki:XWiki.Admin</author>
   <customClass/>
   <contentAuthor>xwiki:XWiki.Admin</contentAuthor>
-  <creationDate>1386768327000</creationDate>
-  <date>1386772816000</date>
-  <contentUpdateDate>1386772816000</contentUpdateDate>
+  <creationDate>1386850720000</creationDate>
+  <date>1386851227000</date>
+  <contentUpdateDate>1386851214000</contentUpdateDate>
   <version>1.1</version>
   <title/>
   <defaultTemplate/>
@@ -29,7 +29,7 @@ $xwiki.ssx.use('Meeting.SkinExtension')
 #set($discard = $doc.use('Meeting.MeetingClass'))
 #set($durationHour = $mathtool.floor($mathtool.div($doc.getValue('duration'),60)))
 #set($durationMinutes = $mathtool.sub($doc.getValue('duration'),$mathtool.mul(60,$durationHour)))
-#if($context.action=='view' &amp;&amp; $doc.get('hasBeenEdited')=='Yes')
+#if($context.action=='view' &amp;&amp; $doc.get('hasBeenEdited') == 1)
   #set($duration = $mathtool.add($mathtool.mul(60,$doc.getValue('durationHour')), $doc.getValue('durationMinutes')))
   $doc.set('duration', "$duration.toString()")
   $doc.set('durationString', $doc.get('calc'))
