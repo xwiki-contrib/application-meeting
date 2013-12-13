@@ -35,9 +35,17 @@
   <name>Meeting application</name>
   <version>1.1-SNAPSHOT</version>
   <description>Provides XWiki users with a Meeting Application</description>
+  <properties>
+    <xwiki.extension.features>tdelafosse:meeting-application</xwiki.extension.features>
+  </properties>
   <developers>
     <developer>
+      <id>tdelafosse</id>
       <name>Thomas Delafosse</name>
+    </developer>
+    <developer>
+      <id>vrachieru</id>
+      <name>Victor Rachieru</name>
     </developer>
   </developers>
   <scm>
