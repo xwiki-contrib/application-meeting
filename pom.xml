@@ -33,7 +33,7 @@
   <artifactId>application-meeting</artifactId>
   <packaging>xar</packaging>
   <name>Meeting application</name>
-  <version>1.1-SNAPSHOT</version>
+  <version>1.2.1</version>
   <description>Provides XWiki users with a Meeting Application</description>
   <properties>
     <xwiki.extension.features>tdelafosse:meeting-application</xwiki.extension.features>
