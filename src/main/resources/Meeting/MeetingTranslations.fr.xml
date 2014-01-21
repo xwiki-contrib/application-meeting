@@ -11,9 +11,9 @@
   <author>xwiki:XWiki.Admin</author>
   <customClass/>
   <contentAuthor>xwiki:XWiki.Admin</contentAuthor>
-  <creationDate>1386768327000</creationDate>
-  <date>1386773706000</date>
-  <contentUpdateDate>1386773706000</contentUpdateDate>
+  <creationDate>1356994800000</creationDate>
+  <date>1356994800000</date>
+  <contentUpdateDate>1356994800000</contentUpdateDate>
   <version>1.1</version>
   <title/>
   <defaultTemplate/>
@@ -45,9 +45,9 @@ meeting.livetable.emptyvalue=-
 
 contrib.meeting.field.leader=Responsable
 contrib.meeting.field.place=Lieu
-contrib.meeting.field.duration=Durée
-contrib.meeting.field.startDate=Horaire
-contrib.meeting.field.description=Description
+contrib.meeting.field.duration=Durée de l'évènement
+contrib.meeting.field.startDate=Date de début
+contrib.meeting.field.description=Ordre du jour
 contrib.meeting.field.participants=Participants
 contrib.meeting.field.notes=Compte rendu
 contrib.meeting.field.status=Statut
