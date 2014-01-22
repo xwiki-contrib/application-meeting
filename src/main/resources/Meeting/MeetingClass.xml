@@ -202,6 +202,19 @@ $doc.save()
       <validationRegExp/>
       <classType>com.xpn.xwiki.objects.classes.UsersClass</classType>
     </leader>
+    <meetingTitle>
+      <customDisplay>{{include reference="AppWithinMinutes.Title"/}}</customDisplay>
+      <disabled>0</disabled>
+      <name>meetingTitle</name>
+      <number>1</number>
+      <picker>0</picker>
+      <prettyName>Title</prettyName>
+      <size>30</size>
+      <unmodifiable>0</unmodifiable>
+      <validationMessage/>
+      <validationRegExp/>
+      <classType>com.xpn.xwiki.objects.classes.StringClass</classType>
+    </meetingTitle>
     <notes>
       <customDisplay/>
       <disabled>0</disabled>
@@ -287,19 +300,6 @@ $doc.save()
       <values>value1=In preparation|value2=Active|value3=Cancelled|value4=Finished</values>
       <classType>com.xpn.xwiki.objects.classes.StaticListClass</classType>
     </status>
-    <title1>
-      <customDisplay>{{include reference="AppWithinMinutes.Title"/}}</customDisplay>
-      <disabled>0</disabled>
-      <name>title1</name>
-      <number>1</number>
-      <picker>0</picker>
-      <prettyName>Title</prettyName>
-      <size>30</size>
-      <unmodifiable>0</unmodifiable>
-      <validationMessage/>
-      <validationRegExp/>
-      <classType>com.xpn.xwiki.objects.classes.StringClass</classType>
-    </title1>
   </class>
   <object>
     <class>
