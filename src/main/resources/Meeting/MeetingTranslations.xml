@@ -72,14 +72,14 @@ contrib.meeting.calendarView.noMacro.noAdmin=We are missing the macro displaying
 
 meeting.livetable.doc.name=Title
 meeting.livetable.leader=Leader
-meeting.livetable.place=Place
+meeting.livetable.place=Location
 meeting.livetable.durationString=Duration
 meeting.livetable.startDate=Start
 meeting.livetable.status=Status
 meeting.livetable.emptyvalue=-
 
 contrib.meeting.field.leader=Leader
-contrib.meeting.field.place=Place
+contrib.meeting.field.place=Location
 contrib.meeting.field.duration=Duration
 contrib.meeting.field.startDate=Start Date
 contrib.meeting.field.description=Description
