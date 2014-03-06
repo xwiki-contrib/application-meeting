@@ -43,6 +43,7 @@ meeting.livetable.startDate=Horaire
 meeting.livetable.status=Statut
 meeting.livetable.emptyvalue=-
 
+contrib.meeting.field.meetingTitle=Titre
 contrib.meeting.field.leader=Responsable
 contrib.meeting.field.place=Lieu
 contrib.meeting.field.duration=Durée de l'évènement

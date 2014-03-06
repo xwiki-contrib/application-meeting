@@ -80,7 +80,7 @@ $xwiki.ssx.use('Meeting.SkinExtension')
 (((
   ## Add a title of event in edit mode
   #if($xcontext.action=='edit')
-      ; &lt;label for="Meeting.MeetingClass_0_meetingTitle"&gt;$escapetool.xml($doc.displayPrettyName('meetingTitle', false, false))&lt;/label&gt;
+      ; &lt;label for="Meeting.MeetingClass_0_meetingTitle"&gt;$msg.get('contrib.meeting.field.meetingTitle')&lt;/label&gt;
       : $doc.display('meetingTitle')
   #end
   ; &lt;label for="Meeting.MeetingClass_0_startDate"&gt;$msg.get('contrib.meeting.field.startDate')&lt;/label&gt;##

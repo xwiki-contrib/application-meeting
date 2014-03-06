@@ -78,6 +78,7 @@ meeting.livetable.startDate=Start
 meeting.livetable.status=Status
 meeting.livetable.emptyvalue=-
 
+contrib.meeting.field.meetingTitle=Title
 contrib.meeting.field.leader=Leader
 contrib.meeting.field.place=Location
 contrib.meeting.field.duration=Duration
