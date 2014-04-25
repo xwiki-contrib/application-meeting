@@ -38,6 +38,15 @@
   <properties>
     <xwiki.extension.features>tdelafosse:meeting-application</xwiki.extension.features>
   </properties>
+  <dependencies>
+    <dependency>
+      <groupId>org.xwiki.contrib</groupId>
+      <artifactId>macro-fullcalendar</artifactId>
+      <version>1.1.7</version>
+      <type>xar</type>
+      <scope>runtime</scope>
+    </dependency>
+  </dependencies>
   <developers>
     <developer>
       <id>tdelafosse</id>
