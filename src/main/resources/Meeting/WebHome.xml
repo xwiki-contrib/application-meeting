@@ -186,7 +186,8 @@ icon=icon:calendar</parameters>
   'place': {"type":"text","size":10},
   'startDate': {"type":"text","size":10},
   'durationString': {"type":"text","filterable":true,"sortable":false,"html":true},
-  'status': {"type":"list","size":10}
+  'status': {"type":"list","size":10},
+  '_actions': {"sortable":false,"filterable":false,"html":true,"actions":["edit","delete"]}
 })
 #set ($options = {
   'className': 'Meeting.MeetingClass',
@@ -198,7 +199,7 @@ icon=icon:calendar</parameters>
   'selectedColumn': 'doc.name',
   'defaultOrder': 'asc'
 })
-#set ($columns = ['doc.name', 'leader', 'place', 'startDate', 'durationString', 'status'])
+#set ($columns = ['doc.name', 'leader', 'place', 'startDate', 'durationString', 'status', '_actions'])
 #livetable('meeting' $columns $columnsProperties $options)
 {{/velocity}}</content>
 </xwikidoc>
