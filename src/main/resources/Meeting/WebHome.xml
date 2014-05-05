@@ -187,7 +187,7 @@ icon=icon:calendar</parameters>
   'startDate': {"type":"text","size":10},
   'durationString': {"type":"text","filterable":true,"sortable":false,"html":true},
   'status': {"type":"list","size":10},
-  '_actions': {"sortable":false,"filterable":false,"html":true,"actions":["edit","delete"]}
+  '_actions': {"sortable":false,"filterable":false,"html":true,"actions":["delete"]}
 })
 #set ($options = {
   'className': 'Meeting.MeetingClass',
