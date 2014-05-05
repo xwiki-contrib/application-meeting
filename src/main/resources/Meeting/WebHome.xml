@@ -181,7 +181,7 @@ icon=icon:calendar</parameters>
 #set ($discard = $services.localization.use('document', 'Meeting.MeetingTranslations'))
 #set ($discard = $xwiki.ssfx.use('uicomponents/widgets/userpicker/userPicker.css'))
 #set ($columnsProperties = {
-  'doc.name': {"type":"text","size":10,"link":"view"},
+  'doc.title': {"type":"text","size":10,"link":"view"},
   'leader': {"type":"text","size":10,"html":true},
   'place': {"type":"text","size":10},
   'startDate': {"type":"text","size":10},
@@ -196,10 +196,10 @@ icon=icon:calendar</parameters>
   'tagCloud': true,
   'rowCount': 15,
   'maxPages': 10,
-  'selectedColumn': 'doc.name',
+  'selectedColumn': 'doc.title',
   'defaultOrder': 'asc'
 })
-#set ($columns = ['doc.name', 'leader', 'place', 'startDate', 'durationString', 'status', '_actions'])
+#set ($columns = ['doc.title', 'leader', 'place', 'startDate', 'durationString', 'status', '_actions'])
 #livetable('meeting' $columns $columnsProperties $options)
 {{/velocity}}</content>
 </xwikidoc>

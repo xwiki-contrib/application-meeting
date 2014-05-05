@@ -35,7 +35,7 @@ contrib.meeting.calendarView.title=Vue calendaire
 contrib.meeting.calendarView.noMacro.admin=Pour pouvoir avoir une vue calendaire des réunions, il faut installer la Macro FullCalendar sur ce Wiki :
 contrib.meeting.calendarView.noMacro.noAdmin=Il manque la macro nécessaire à l'affichage calendaire. Demandez à l'administrateur de votre wiki d'installer la Macro "FullCalendar".
 
-meeting.livetable.doc.name=Titre
+meeting.livetable.doc.title=Réunion
 meeting.livetable.leader=Responsable
 meeting.livetable.place=Lieu
 meeting.livetable.durationString=Durée
