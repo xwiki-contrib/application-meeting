@@ -101,36 +101,36 @@
       <category>Information</category>
     </property>
     <property>
-      <content>{{velocity}}&#xd;
-{{html wiki="true"}}&#xd;
-#if($context.action != 'inline')&#xd;
-  #panelheader("$msg.get('contrib.meeting.panel.title')")&#xd;
-  #set($sql = ", BaseObject as obj, DateProperty as startDate where obj.name=doc.fullName and obj.className='Meeting.MeetingClass' and obj.name&lt;&gt;'Meeting.MeetingTemplate' and obj.id=startDate.id.id and startDate.id.name='startDate' order by startDate.value asc")&#xd;
-  #set($i = 0)&#xd;
-  #foreach($item in $xwiki.searchDocuments($sql))  &#xd;
-    #set($document = $xwiki.getDocument($item))&#xd;
-    #set($meetingDate = $document.getValue('startDate'))&#xd;
-    #if($xwiki.getDocument($item).hasAccessLevel('view', $context.user) == 'true' &amp;&amp; $meetingDate.compareTo($xwiki.getDate())==1)&#xd;
-    &lt;ul class="list-unstyled">&#xd;
-      &lt;li>&#xd;
-        &lt;span class="glyphicon glyphicon-time text-muted">&lt;/span> &lt;strong>[[$xwiki.getDocument($item).name>>$item]]&lt;/strong>&#xd;
-        &lt;br>&#xd;
-        &lt;span class="glyphicon">&amp;nbsp;&lt;/span> &lt;span class="text-muted">$xwiki.getDocument($item).display('startDate','view')&lt;/span>&#xd;
-      &lt;/li>&#xd;
-       #set($i = $i + 1)&#xd;
-       #if($i==5)&#xd;
-         #break&#xd;
-       #end&#xd;
-    &lt;/ul>&#xd;
-    #end&#xd;
-  #end&#xd;
-  #if($i==0)&#xd;
-    $msg.get('contrib.meeting.panel.noMeetings')&#xd;
-  #end&#xd;
-  #panelfooter()&#xd;
-#end&#xd;
-{{/html}}&#xd;
-{{/velocity}}&#xd;
+      <content>{{velocity}}
+{{html wiki="true"}}
+#if($context.action != 'inline')
+  #panelheader("$msg.get('contrib.meeting.panel.title')")
+  #set($sql = ", BaseObject as obj, DateProperty as startDate where obj.name=doc.fullName and obj.className='Meeting.MeetingClass' and obj.name&lt;&gt;'Meeting.MeetingTemplate' and obj.id=startDate.id.id and startDate.id.name='startDate' order by startDate.value asc")
+  #set($i = 0)
+  #foreach($item in $xwiki.searchDocuments($sql)) 
+    #set($document = $xwiki.getDocument($item))
+    #set($meetingDate = $document.getValue('startDate'))
+    #if($xwiki.getDocument($item).hasAccessLevel('view', $context.user) == 'true' &amp;&amp; $meetingDate.compareTo($xwiki.getDate())==1)
+    &lt;ul class="list-unstyled">
+      &lt;li>
+        &lt;span class="glyphicon glyphicon-time text-muted">&lt;/span> &lt;strong>[[$xwiki.getDocument($item).name>>$item]]&lt;/strong>
+        &lt;br>
+        &lt;span class="glyphicon">&amp;nbsp;&lt;/span> &lt;span class="text-muted">$xwiki.getDocument($item).display('startDate','view')&lt;/span>
+      &lt;/li>
+       #set($i = $i + 1)
+       #if($i==5)
+         #break
+       #end
+    &lt;/ul>
+    #end
+  #end
+  #if($i==0)
+    $msg.get('contrib.meeting.panel.noMeetings')
+  #end
+  #panelfooter()
+#end
+{{/html}}
+{{/velocity}}
 </content>
     </property>
     <property>
