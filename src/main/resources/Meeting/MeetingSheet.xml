@@ -1,28 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <xwikidoc>
-  <web>Meeting</web>
-  <name>MeetingSheet</name>
-  <language/>
-  <defaultLanguage/>
-  <translation>0</translation>
-  <parent>Meeting.MeetingClass</parent>
-  <creator>xwiki:XWiki.Admin</creator>
-  <author>xwiki:XWiki.Admin</author>
-  <customClass/>
-  <contentAuthor>xwiki:XWiki.Admin</contentAuthor>
-  <creationDate>1356994800000</creationDate>
-  <date>1356994800000</date>
-  <contentUpdateDate>1356994800000</contentUpdateDate>
-  <version>1.1</version>
-  <title/>
-  <defaultTemplate/>
-  <validationScript/>
-  <comment/>
-  <minorEdit>false</minorEdit>
-  <syntaxId>xwiki/2.1</syntaxId>
-  <hidden>true</hidden>
-  <content>{{velocity}}
+<web>Meeting</web>
+<name>MeetingSheet</name>
+<language></language>
+<defaultLanguage></defaultLanguage>
+<translation>0</translation>
+<parent>Meeting.MeetingClass</parent>
+<creator>XWiki.Admin</creator>
+<author>XWiki.Admin</author>
+<customClass></customClass>
+<contentAuthor>XWiki.Admin</contentAuthor>
+<creationDate>1356994800000</creationDate>
+<date>1356994800000</date>
+<contentUpdateDate>1356994800000</contentUpdateDate>
+<version>1.1</version>
+<title></title>
+<defaultTemplate></defaultTemplate>
+<validationScript></validationScript>
+<comment></comment>
+<minorEdit>false</minorEdit>
+<syntaxId>xwiki/2.1</syntaxId>
+<hidden>true</hidden>
+<content>{{velocity}}
 {{html wiki="true"}}
 $xwiki.ssx.use('AppWithinMinutes.ClassSheetGenerator')
 $xwiki.ssx.use('Meeting.SkinExtension')
@@ -69,7 +68,8 @@ $xwiki.ssx.use('Meeting.SkinExtension')
       #set($to = "$to $email,")
     #end
   #end
-  #if($xwiki.mailsender.sendHtmlMessage("$context.user", $to, $xwiki.null, $xwiki.null, $title, "$message &lt;br&gt; &lt;a href=$link&gt; $msg.get('contrib.meeting.notification.link') &lt;/a&gt;", "", "")==0)
+  #set($defaultMail = $xwiki.getXWikiPreference('admin_email', 'mailer@xwiki.localdomain.com'))
+  #if($xwiki.mailsender.sendHtmlMessage("$defaultMail", $to, $xwiki.null, $xwiki.null, $title, "$message &lt;br&gt; &lt;a href=$link&gt; $msg.get('contrib.meeting.notification.link') &lt;/a&gt;", "", "")==0)
     $msg.get('contrib.meeting.notification.success')
   #else
     {{warning}}$msg.get('contrib.meeting.notification.failure'){{/warning}}
@@ -152,5 +152,4 @@ $xwiki.ssx.use('Meeting.SkinExtension')
 )))
 {{/html}}
 {{/velocity}}
-</content>
-</xwikidoc>
+</content></xwikidoc>
