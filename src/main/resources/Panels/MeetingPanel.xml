@@ -1,29 +1,29 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<xwikidoc>
+<?xml version='1.0' encoding='UTF-8'?>
+<xwikidoc version="1.1">
   <web>Panels</web>
   <name>MeetingPanel</name>
   <language/>
   <defaultLanguage/>
   <translation>0</translation>
+  <creator>XWiki.Admin</creator>
+  <creationDate>1398818805000</creationDate>
   <parent>Meeting.WebHome</parent>
-  <creator>xwiki:XWiki.Admin</creator>
-  <author>xwiki:XWiki.Admin</author>
-  <customClass/>
-  <contentAuthor>xwiki:XWiki.Admin</contentAuthor>
-  <creationDate>1355235669000</creationDate>
-  <date>1355418541000</date>
-  <contentUpdateDate>1355235669000</contentUpdateDate>
-  <version>1.1</version>
+  <author>XWiki.Admin</author>
+  <contentAuthor>XWiki.Admin</contentAuthor>
+  <date>1399840426000</date>
+  <contentUpdateDate>1399840422000</contentUpdateDate>
+  <version>2.13</version>
   <title/>
-  <template/>
-  <defaultTemplate/>
-  <validationScript/>
   <comment/>
-  <minorEdit>false</minorEdit>
+  <minorEdit>true</minorEdit>
   <syntaxId>xwiki/2.0</syntaxId>
-  <hidden>true</hidden>
+  <hidden>false</hidden>
+  <content>{{include document="Panels.PanelSheet"/}}</content>
   <object>
+    <name>Panels.MeetingPanel</name>
+    <number>0</number>
+    <className>Panels.PanelClass</className>
+    <guid>a4e63b32-4bab-452c-9835-df2a0c7e7729</guid>
     <class>
       <name>Panels.PanelClass</name>
       <customClass/>
@@ -56,7 +56,7 @@
         <number>4</number>
         <prettyName>Content</prettyName>
         <rows>25</rows>
-        <size>60</size>
+        <size>120</size>
         <unmodifiable>0</unmodifiable>
         <classType>com.xpn.xwiki.objects.classes.TextAreaClass</classType>
       </content>
@@ -97,28 +97,31 @@
         <classType>com.xpn.xwiki.objects.classes.StaticListClass</classType>
       </type>
     </class>
-    <name>Panels.MeetingPanel</name>
-    <number>0</number>
-    <className>Panels.PanelClass</className>
-    <guid>a4e63b32-4bab-452c-9835-df2a0c7e7729</guid>
     <property>
       <category>Information</category>
     </property>
     <property>
       <content>{{velocity}}
+{{html wiki="true"}}
 #if($context.action != 'inline')
   #panelheader("$msg.get('contrib.meeting.panel.title')")
   #set($sql = ", BaseObject as obj, DateProperty as startDate where obj.name=doc.fullName and obj.className='Meeting.MeetingClass' and obj.name&lt;&gt;'Meeting.MeetingTemplate' and obj.id=startDate.id.id and startDate.id.name='startDate' order by startDate.value asc")
   #set($i = 0)
-  #foreach($item in $xwiki.searchDocuments($sql))  
+  #foreach($item in $xwiki.searchDocuments($sql)) 
     #set($document = $xwiki.getDocument($item))
     #set($meetingDate = $document.getValue('startDate'))
     #if($xwiki.getDocument($item).hasAccessLevel('view', $context.user) == 'true' &amp;&amp; $meetingDate.compareTo($xwiki.getDate())==1)
-       * $xwiki.getDocument($item).display('startDate','view') : [[$xwiki.getDocument($item).name&gt;&gt;$item]]
+    &lt;ul class="list-unstyled">
+      &lt;li>
+        &lt;span class="glyphicon glyphicon-time text-muted">&lt;/span> &lt;strong>[[$xwiki.getDocument($item).name>>$item]]&lt;/strong>
+        &lt;br>
+        &lt;span class="glyphicon">&amp;nbsp;&lt;/span> &lt;span class="text-muted">$xwiki.getDocument($item).display('startDate','view')&lt;/span>
+      &lt;/li>
        #set($i = $i + 1)
        #if($i==5)
          #break
        #end
+    &lt;/ul>
     #end
   #end
   #if($i==0)
@@ -126,6 +129,7 @@
   #end
   #panelfooter()
 #end
+{{/html}}
 {{/velocity}}
 </content>
     </property>
@@ -139,5 +143,4 @@
       <type>view</type>
     </property>
   </object>
-  <content>{{include document="Panels.PanelSheet"/}}</content>
 </xwikidoc>
