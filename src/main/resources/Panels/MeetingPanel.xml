@@ -27,12 +27,12 @@
   <defaultLanguage/>
   <translation>0</translation>
   <creator>xwiki:XWiki.Admin</creator>
-  <creationDate>1398818805000</creationDate>
+  <creationDate>1400754296000</creationDate>
   <parent>Meeting.WebHome</parent>
   <author>xwiki:XWiki.Admin</author>
   <contentAuthor>xwiki:XWiki.Admin</contentAuthor>
-  <date>1399840426000</date>
-  <contentUpdateDate>1399840422000</contentUpdateDate>
+  <date>1401061089000</date>
+  <contentUpdateDate>1355235669000</contentUpdateDate>
   <version>1.1</version>
   <title/>
   <comment/>
@@ -125,30 +125,31 @@
       <content>{{velocity}}
 {{html wiki="true"}}
 #if($context.action != 'inline')
-  #panelheader("$msg.get('contrib.meeting.panel.title')")
-  #set($sql = ", BaseObject as obj, DateProperty as startDate where obj.name=doc.fullName and obj.className='Meeting.MeetingClass' and obj.name&lt;&gt;'Meeting.MeetingTemplate' and obj.id=startDate.id.id and startDate.id.name='startDate' order by startDate.value asc")
-  #set($i = 0)
-  #foreach($item in $xwiki.searchDocuments($sql))  
-    #set($document = $xwiki.getDocument($item))
-    #set($meetingDate = $document.getValue('startDate'))
-    #if($xwiki.getDocument($item).hasAccessLevel('view', $context.user) == 'true' &amp;&amp; $meetingDate.compareTo($xwiki.getDate())==1)
-    &lt;ul class="list-unstyled"&gt;
-      &lt;li&gt;
-        &lt;span class="glyphicon glyphicon-time text-muted"&gt;&lt;/span&gt; &lt;strong&gt;[[$xwiki.getDocument($item).name&gt;&gt;$item]]&lt;/strong&gt;
-        &lt;br&gt;
-        &lt;span class="glyphicon"&gt;&amp;nbsp;&lt;/span&gt; &lt;span class="text-muted"&gt;$xwiki.getDocument($item).display('startDate','view')&lt;/span&gt;
-      &lt;/li&gt;
-       #set($i = $i + 1)
-       #if($i==5)
-         #break
-       #end
-    &lt;/ul&gt;
-    #end
-  #end
-  #if($i==0)
-    $msg.get('contrib.meeting.panel.noMeetings')
-  #end
-  #panelfooter()
+	#panelheader("$msg.get('contrib.meeting.panel.title')")
+	#set($sql = ", BaseObject as obj, DateProperty as startDate where obj.name=doc.fullName and obj.className='Meeting.MeetingClass' and obj.name&lt;&gt;'Meeting.MeetingTemplate' and obj.id=startDate.id.id and startDate.id.name='startDate' order by startDate.value asc")
+	#set($i = 0)
+	#foreach($item in $xwiki.searchDocuments($sql))  
+    	#set($document = $xwiki.getDocument($item))
+    	#set($meetingDate = $document.getValue('startDate'))
+    	#if($xwiki.getDocument($item).hasAccessLevel('view', $context.user) == 'true' &amp;&amp; $meetingDate.compareTo($xwiki.getDate())==1)
+	    &lt;ul class="list-unstyled"&gt;
+	      &lt;li&gt;
+	        &lt;span class="glyphicon glyphicon-time text-muted"&gt;&lt;/span&gt; &lt;strong&gt;[[$xwiki.getDocument($item).name&gt;&gt;$item]]&lt;/strong&gt;
+	        &lt;br&gt;
+				
+	        &lt;span class="glyphicon"&gt;&amp;nbsp;&lt;/span&gt; &lt;span class="text-muted"&gt;$xwiki.getDocument($item).display('startDate','view')&lt;/span&gt;
+	      &lt;/li&gt;
+	       #set($i = $i + 1)
+	       #if($i==5)
+	         #break
+	       #end
+	    &lt;/ul&gt;
+    	#end
+  	#end
+  	#if($i==0)
+    	$msg.get('contrib.meeting.panel.noMeetings')
+  	#end
+  	#panelfooter()
 #end
 {{/html}}
 {{/velocity}}
