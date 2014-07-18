@@ -27,7 +27,7 @@
   <parent>
     <groupId>org.xwiki.platform</groupId>
     <artifactId>xwiki-platform-core</artifactId>
-    <version>4.1.4</version>
+    <version>6.2-SNAPSHOT</version>
   </parent>
   <groupId>org.xwiki.contrib</groupId>
   <artifactId>application-meeting</artifactId>
@@ -36,7 +36,14 @@
   <version>1.3-SNAPSHOT</version>
   <description>Provides XWiki users with a Meeting Application</description>
   <properties>
-    <xwiki.extension.features>tdelafosse:meeting-application</xwiki.extension.features>
+    <platform.version>${commons.version}</platform.version>
+    <!-- Old names of this module used for retro compatibility when resolving dependencies of old extensions -->
+    <xwiki.extension.features>
+      tdelafosse:meeting-application,
+      org.xwiki.contrib:application-meeting
+    </xwiki.extension.features>
+    <!-- Don't run CLIRR here since there's no Java code. -->
+    <xwiki.clirr.skip>true</xwiki.clirr.skip>
   </properties>
   <dependencies>
     <dependency>
@@ -45,6 +52,43 @@
       <version>1.1.7</version>
       <type>xar</type>
       <scope>runtime</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.xwiki.platform</groupId>
+      <artifactId>xwiki-platform-mail</artifactId>
+      <version>${platform.version}</version>
+      <scope>runtime</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.xwiki.platform</groupId>
+      <artifactId>xwiki-platform-rendering-macro-velocity</artifactId>
+      <version>${commons.version}</version>
+      <scope>runtime</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.xwiki.platform</groupId>
+      <artifactId>xwiki-platform-rendering-macro-include</artifactId>
+      <version>${commons.version}</version>
+      <scope>runtime</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.xwiki.rendering</groupId>
+      <artifactId>xwiki-rendering-macro-html</artifactId>
+      <version>${commons.version}</version>
+      <scope>runtime</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.xwiki.platform</groupId>
+      <artifactId>xwiki-platform-localization-source-wiki</artifactId>
+      <version>${commons.version}</version>
+      <scope>runtime</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.xwiki.platform</groupId>
+      <artifactId>xwiki-platform-sheet-ui</artifactId>
+      <version>${commons.version}</version>
+      <scope>runtime</scope>
+      <type>xar</type>
     </dependency>
   </dependencies>
   <developers>
@@ -55,6 +99,10 @@
     <developer>
       <id>vrachieru</id>
       <name>Victor Rachieru</name>
+    </developer>
+    <developer>
+      <id>bandoulyes</id>
+      <name>Lyes Bandou</name>
     </developer>
   </developers>
   <scm>
@@ -69,4 +117,22 @@
      <url>http://nexus.xwiki.org/nexus/service/local/staging/deploy/maven2/</url>
    </repository>
  </distributionManagement>
+   <build>
+    <!-- Needed to add support for the XAR packaging -->
+    <extensions>
+      <extension>
+        <groupId>org.xwiki.commons</groupId>
+        <artifactId>xwiki-commons-tool-xar-handlers</artifactId>
+        <version>${commons.version}</version>
+      </extension>
+    </extensions>
+    <plugins>
+      <!-- The XAR packaging uses the XAR plugin and thus we need to define what version to use -->
+      <plugin>
+        <groupId>org.xwiki.commons</groupId>
+        <artifactId>xwiki-commons-tool-xar-plugin</artifactId>
+        <version>${commons.version}</version>
+      </plugin>
+    </plugins>
+  </build>
 </project>
