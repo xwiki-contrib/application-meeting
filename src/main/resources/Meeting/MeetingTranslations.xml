@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <!--
  * See the NOTICE file distributed with this work for additional
  * information regarding copyright ownership.
@@ -32,10 +31,10 @@
   <customClass/>
   <contentAuthor>xwiki:XWiki.Admin</contentAuthor>
   <creationDate>1405343909000</creationDate>
-  <date>1405674538000</date>
-  <contentUpdateDate>1405674538000</contentUpdateDate>
+  <date>1405677708000</date>
+  <contentUpdateDate>1405677708000</contentUpdateDate>
   <version>1.1</version>
-  <title>MeetingTranslations</title>
+  <title/>
   <defaultTemplate/>
   <validationScript/>
   <comment/>
@@ -119,7 +118,7 @@ contrib.meeting.notification.link=See the meeting page on XWiki.
 contrib.meeting.notification.view.event = View your event at
 contrib.meeting.notification.submit=Send an invitation email to these users
 contrib.meeting.notification.additionalMessage=Type here the message you want to send to the participants (optional) :
-contrib.hr.notification.additionalPart=His/her message :
+contrib.hr.notification.additionalPart=His/her message:
 
 
 contrib.meeting.panel.title=Next meetings

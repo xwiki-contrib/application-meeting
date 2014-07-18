@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <!--
  * See the NOTICE file distributed with this work for additional
  * information regarding copyright ownership.
@@ -61,17 +60,17 @@ $xwiki.ssx.use('Meeting.SkinExtension')
   $doc.set('durationHour', $durationHour.toString())
   $doc.set('durationMinutes', $durationMinutes.toString())
   $doc.set('hasBeenEdited', 1)
-  $doc.save() 
+  $doc.save()
 #elseif(!$isGuest)   ##context==view &amp;&amp; !hasBeenEdited if duration has been changed through the calendar view
   $doc.set('durationString', $doc.get('calc'))
   $doc.set('durationHour', $durationHour.toString())
   $doc.set('durationMinutes', $durationMinutes.toString())
   $doc.save()
 #end
-#if($request.createPoll == 'true') 
+#if($request.createPoll == 'true')
   $doc.set('hasPoll', 1)
   $doc.save()
-  #set($title="XPoll for the Meeting $doc.name") 
+  #set($title="XPoll for the Meeting $doc.name")
   #set($newPollReference = $services.model.createDocumentReference('', 'XPoll', $title))
   $response.sendRedirect($xwiki.getURL($newPollReference, 'edit', "$!{request.queryString}"))
 #end
@@ -84,10 +83,10 @@ $xwiki.ssx.use('Meeting.SkinExtension')
   #set($title = $msg.get('contrib.meeting.notification.title'))
   #set($link = $doc.getExternalURL())
 
-  ## Reterive participants emails 
+  ## Retrieve participants emails
   #set($to = '')
   #set($participants = $doc.getValue('participants'))
-  #set($listParticipants = $util.split($participants, ','))  
+  #set($listParticipants = $participants.split(','))
   #foreach($element in $listParticipants)
     #set($email = $xwiki.getUserName($element, '$email', false))
     #if($email != '$email' &amp;&amp; $email!='')
@@ -95,7 +94,7 @@ $xwiki.ssx.use('Meeting.SkinExtension')
     #end
   #end
 
-  ## Reterive default From email 
+  ## Retrieve default From email
   #set($serverName = "$!request.serverName")
   #set($curentUserName = $xwiki.getUserName($xcontext.user, false))
   #if($serverName != '')
@@ -133,7 +132,7 @@ $xwiki.ssx.use('Meeting.SkinExtension')
   #if($context.action=='view')
     : $doc.display('durationString')
   #else
-    ##: $doc.display('duration') 
+    ##: $doc.display('duration')
     ##; &lt;label for="Meeting.MeetingClass_0_durationHour"&gt; $msg.get('contrib.meeting.field.duration')&lt;/label&gt;
     : &lt;div id=durationEdit&gt; $doc.display('durationHour') h $doc.display('durationMinutes') min&lt;/div&gt;
   #end
