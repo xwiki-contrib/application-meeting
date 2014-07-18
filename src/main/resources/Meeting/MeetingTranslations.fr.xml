@@ -32,8 +32,8 @@
   <customClass/>
   <contentAuthor>xwiki:XWiki.Admin</contentAuthor>
   <creationDate>1405343909000</creationDate>
-  <date>1405344946000</date>
-  <contentUpdateDate>1405344943000</contentUpdateDate>
+  <date>1405674996000</date>
+  <contentUpdateDate>1405674996000</contentUpdateDate>
   <version>1.1</version>
   <title/>
   <defaultTemplate/>
@@ -79,6 +79,7 @@ contrib.meeting.notification.success=Un courrier de notification a bien été en
 contrib.meeting.notification.failure=Une erreur est survenue lors de l'envoi des courriels de notification.
 contrib.meeting.notification.body={0} vous invite a participer à la réunion {1}.
 contrib.meeting.notification.link=Voir la page de la réunion sur XWiki.
+contrib.meeting.notification.view.event = Voir l'évènement sur
 contrib.meeting.notification.submit=Envoyer un courriel d'invitation à ces utilisateurs
 contrib.meeting.notification.additionalMessage=Tapez ici le message que vous voulez envoyer à ces utilisateurs (optionnel) :
 contrib.hr.notification.additionalPart=Son message :
