@@ -20,21 +20,21 @@
 -->
 
 <xwikidoc>
-  <web>Meeting</web>
-  <name>MeetingTemplateProvider</name>
+  <web>Panels</web>
+  <name>MeetingPanel</name>
   <language/>
   <defaultLanguage/>
   <translation>0</translation>
-  <parent>XWiki.TemplateProviderClass</parent>
+  <parent>Meeting.WebHome</parent>
   <creator>xwiki:XWiki.Admin</creator>
   <author>xwiki:XWiki.Admin</author>
   <customClass/>
   <contentAuthor>xwiki:XWiki.Admin</contentAuthor>
-  <creationDate>1355416566000</creationDate>
-  <date>1355418901000</date>
-  <contentUpdateDate>1355418901000</contentUpdateDate>
+  <creationDate>1355235669000</creationDate>
+  <date>1355418541000</date>
+  <contentUpdateDate>1355235669000</contentUpdateDate>
   <version>1.1</version>
-  <title>MeetingTemplateProvider</title>
+  <title/>
   <template/>
   <defaultTemplate/>
   <validationScript/>
@@ -44,7 +44,7 @@
   <hidden>true</hidden>
   <object>
     <class>
-      <name>XWiki.TemplateProviderClass</name>
+      <name>Panels.PanelClass</name>
       <customClass/>
       <customMapping/>
       <defaultViewSheet/>
@@ -52,121 +52,111 @@
       <defaultWeb/>
       <nameField/>
       <validationScript/>
-      <action>
+      <category>
         <cache>0</cache>
-        <customDisplay/>
         <disabled>0</disabled>
         <displayType>select</displayType>
         <multiSelect>0</multiSelect>
-        <name>action</name>
+        <name>category</name>
         <number>5</number>
-        <picker>0</picker>
-        <prettyName>Action on create</prettyName>
+        <prettyName>Category</prettyName>
         <relationalStorage>0</relationalStorage>
         <separator> </separator>
         <separators> ,|</separators>
         <size>1</size>
-        <sort>none</sort>
         <unmodifiable>0</unmodifiable>
-        <validationMessage/>
-        <validationRegExp/>
-        <values>edit|saveandedit</values>
+        <values>Information|Navigation|Tools|Administration|Other</values>
         <classType>com.xpn.xwiki.objects.classes.StaticListClass</classType>
-      </action>
+      </category>
+      <content>
+        <disabled>0</disabled>
+        <editor>Text</editor>
+        <name>content</name>
+        <number>4</number>
+        <prettyName>Content</prettyName>
+        <rows>25</rows>
+        <size>60</size>
+        <unmodifiable>0</unmodifiable>
+        <classType>com.xpn.xwiki.objects.classes.TextAreaClass</classType>
+      </content>
+      <description>
+        <disabled>0</disabled>
+        <editor>Text</editor>
+        <name>description</name>
+        <number>3</number>
+        <prettyName>Description</prettyName>
+        <rows>5</rows>
+        <size>40</size>
+        <unmodifiable>0</unmodifiable>
+        <classType>com.xpn.xwiki.objects.classes.TextAreaClass</classType>
+      </description>
       <name>
-        <customDisplay/>
         <disabled>0</disabled>
         <name>name</name>
         <number>1</number>
-        <picker>0</picker>
-        <prettyName>name</prettyName>
-        <size>30</size>
+        <prettyName>Name</prettyName>
+        <size>40</size>
         <unmodifiable>0</unmodifiable>
-        <validationMessage/>
-        <validationRegExp/>
         <classType>com.xpn.xwiki.objects.classes.StringClass</classType>
       </name>
-      <spaces>
-        <cache>0</cache>
-        <classname/>
-        <customDisplay/>
-        <disabled>0</disabled>
-        <displayType>checkbox</displayType>
-        <idField/>
-        <multiSelect>1</multiSelect>
-        <name>spaces</name>
-        <number>4</number>
-        <picker>0</picker>
-        <prettyName>spaces</prettyName>
-        <relationalStorage>0</relationalStorage>
-        <separator> </separator>
-        <separators/>
-        <size>10</size>
-        <sort>none</sort>
-        <sql>select distinct doc.web from XWikiDocument doc order by doc.web</sql>
-        <unmodifiable>0</unmodifiable>
-        <validationMessage/>
-        <validationRegExp/>
-        <valueField/>
-        <classType>com.xpn.xwiki.objects.classes.DBListClass</classType>
-      </spaces>
-      <template>
-        <customDisplay/>
-        <disabled>0</disabled>
-        <name>template</name>
-        <number>2</number>
-        <picker>0</picker>
-        <prettyName>template</prettyName>
-        <size>30</size>
-        <unmodifiable>0</unmodifiable>
-        <validationMessage/>
-        <validationRegExp/>
-        <classType>com.xpn.xwiki.objects.classes.StringClass</classType>
-      </template>
       <type>
         <cache>0</cache>
-        <customDisplay/>
         <disabled>0</disabled>
         <displayType>select</displayType>
         <multiSelect>0</multiSelect>
         <name>type</name>
-        <number>3</number>
-        <picker>0</picker>
-        <prettyName>type</prettyName>
+        <number>2</number>
+        <prettyName>Panel type</prettyName>
         <relationalStorage>0</relationalStorage>
         <separator> </separator>
         <separators> ,|</separators>
         <size>1</size>
-        <sort>none</sort>
         <unmodifiable>0</unmodifiable>
-        <validationMessage/>
-        <validationRegExp/>
-        <values>page|space</values>
+        <values>view|edit</values>
         <classType>com.xpn.xwiki.objects.classes.StaticListClass</classType>
       </type>
     </class>
-    <name>Meeting.MeetingTemplateProvider</name>
+    <name>Panels.MeetingPanel</name>
     <number>0</number>
-    <className>XWiki.TemplateProviderClass</className>
-    <guid>00d98a57-d20e-44d5-9f58-7abf8bc3e8fd</guid>
+    <className>Panels.PanelClass</className>
+    <guid>a4e63b32-4bab-452c-9835-df2a0c7e7729</guid>
     <property>
-      <action>edit</action>
+      <category>Information</category>
     </property>
     <property>
-      <name>Meeting Template Provider</name>
+      <content>{{velocity}}
+#if($context.action != 'inline')
+  #panelheader("$msg.get('contrib.meeting.panel.title')")
+  #set($sql = ", BaseObject as obj, DateProperty as startDate where obj.name=doc.fullName and obj.className='Meeting.MeetingClass' and obj.name&lt;&gt;'Meeting.MeetingTemplate' and obj.id=startDate.id.id and startDate.id.name='startDate' order by startDate.value asc")
+  #set($i = 0)
+  #foreach($item in $xwiki.searchDocuments($sql))  
+    #set($document = $xwiki.getDocument($item))
+    #set($meetingDate = $document.getValue('startDate'))
+    #if($xwiki.getDocument($item).hasAccessLevel('view', $context.user) == 'true' &amp;&amp; $meetingDate.compareTo($xwiki.getDate())==1)
+       * $xwiki.getDocument($item).display('startDate','view') : [[$xwiki.getDocument($item).name&gt;&gt;$item]]
+       #set($i = $i + 1)
+       #if($i==5)
+         #break
+       #end
+    #end
+  #end
+  #if($i==0)
+    $msg.get('contrib.meeting.panel.noMeetings')
+  #end
+  #panelfooter()
+#end
+{{/velocity}}
+</content>
     </property>
     <property>
-      <spaces>
-        <value>Meeting</value>
-      </spaces>
+      <description>To see the 5 next meetings</description>
     </property>
     <property>
-      <template>Meeting.MeetingTemplate</template>
+      <name>MeetingPanel</name>
     </property>
     <property>
-      <type>page</type>
+      <type>view</type>
     </property>
   </object>
-  <content>{{include document="XWiki.TemplateProviderSheet"/}}
-</content>
+  <content>{{include reference="Panels.PanelSheet"/}}</content>
 </xwikidoc>
