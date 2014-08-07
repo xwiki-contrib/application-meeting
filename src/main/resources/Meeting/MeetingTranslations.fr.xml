@@ -41,7 +41,7 @@
   <minorEdit>false</minorEdit>
   <syntaxId>xwiki/2.1</syntaxId>
   <hidden>true</hidden>
-  <content>contrib.meeting.home.presentation=Bienvenue sur l'application Réunion de XWiki. Vous pouvez voir ci-dessous la liste des réunions planifiées, et en cliquant sur "Ajouter une entrée", vous pouvez créer votre propre réunion!
+  <content>contrib.meeting.home.presentation=Bienvenue sur l'application Réunion de XWiki. Vous pouvez créer votre propre réunion en cliquant sur "Ajouter une nouvelle entrée". Vous pouvez également consulter un [[**Calendrier**>>calendarView]] de toutes les réunions.
 
 Meeting.MeetingClass_status_value1=En cours de préparation
 Meeting.MeetingClass_status_value2=Actif
