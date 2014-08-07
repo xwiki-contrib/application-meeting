@@ -23,7 +23,7 @@
   <web>Meeting</web>
   <name>MeetingTranslations</name>
   <language>fr</language>
-  <defaultLanguage>en</defaultLanguage>
+  <defaultLanguage/>
   <translation>1</translation>
   <parent>Meeting.WebHome</parent>
   <creator>xwiki:XWiki.Admin</creator>
