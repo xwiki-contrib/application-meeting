@@ -22,31 +22,28 @@
  *
 -->
 
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <parent>
-    <groupId>org.xwiki.platform</groupId>
-    <artifactId>xwiki-platform-core</artifactId>
-    <version>4.1.4</version>
+    <groupId>org.xwiki.commons</groupId>
+    <artifactId>xwiki-commons-pom</artifactId>
+    <version>6.2-SNAPSHOT</version>
   </parent>
   <groupId>org.xwiki.contrib</groupId>
   <artifactId>application-meeting</artifactId>
-  <packaging>xar</packaging>
+  <packaging>pom</packaging>
   <name>Meeting application</name>
   <version>1.3-SNAPSHOT</version>
-  <description>Provides XWiki users with a Meeting Application</description>
+  <description>Organise meetings (create, view, modify) and send invitations</description>
   <properties>
+    <platform.version>${commons.version}</platform.version>
+    <rendering.version>${commons.version}</rendering.version>
+    <!-- Old names of this module used for retro compatibility when resolving dependencies of old extensions -->
     <xwiki.extension.features>tdelafosse:meeting-application</xwiki.extension.features>
+    <!-- Name to display by the Extension Manager -->
+    <xwiki.extension.name>Meeting Application</xwiki.extension.name>
   </properties>
-  <dependencies>
-    <dependency>
-      <groupId>org.xwiki.contrib</groupId>
-      <artifactId>macro-fullcalendar</artifactId>
-      <version>1.1.7</version>
-      <type>xar</type>
-      <scope>runtime</scope>
-    </dependency>
-  </dependencies>
   <developers>
     <developer>
       <id>tdelafosse</id>
@@ -56,17 +53,32 @@
       <id>vrachieru</id>
       <name>Victor Rachieru</name>
     </developer>
+    <developer>
+      <id>bandoulyes</id>
+      <name>Lyes Bandou</name>
+    </developer>
   </developers>
   <scm>
-   <connection>scm:git:git://github.com/xwiki-contrib/application-meeting.git</connection>
-   <developerConnection>scm:git:git@github.com:xwiki-contrib/application-meeting.git</developerConnection>
-   <url>https://github.com/xwiki-contrib/application-meeting</url>
- </scm>
- <distributionManagement>
-   <repository>
-     <id>xwiki-staging</id>
-     <name>XWiki Staging Repository</name>
-     <url>http://nexus.xwiki.org/nexus/service/local/staging/deploy/maven2/</url>
-   </repository>
- </distributionManagement>
+    <connection>scm:git:git://github.com/xwiki-contrib/application-meeting.git</connection>
+    <developerConnection>scm:git:git@github.com:xwiki-contrib/application-meeting.git</developerConnection>
+    <url>https://github.com/xwiki-contrib/application-meeting</url>
+  </scm>
+  <distributionManagement>
+    <repository>
+      <id>xwiki-staging</id>
+      <name>XWiki Staging Repository</name>
+      <url>http://nexus.xwiki.org/nexus/service/local/staging/deploy/maven2/</url>
+    </repository>
+  </distributionManagement>
+  <modules>
+    <module>ui</module>
+  </modules>
+  <profiles>
+    <profile>
+      <id>integration-tests</id>
+      <modules>
+        <module>test</module>
+      </modules>
+    </profile>
+  </profiles>
 </project>

@@ -45,5 +45,5 @@
 $services.localization.use('document', 'Meeting.MeetingTranslations')
 {{/velocity}}
 
-{{include document="XWiki.LiveTableResults" /}}</content>
+{{include reference="XWiki.LiveTableResults" /}}</content>
 </xwikidoc>
