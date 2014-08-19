@@ -23,7 +23,7 @@
   <web>Meeting</web>
   <name>MeetingTranslations</name>
   <language/>
-  <defaultLanguage>en</defaultLanguage>
+  <defaultLanguage/>
   <translation>0</translation>
   <parent>Meeting.WebHome</parent>
   <creator>xwiki:XWiki.Admin</creator>
@@ -76,8 +76,7 @@
       <scope>WIKI</scope>
     </property>
   </object>
-  <content>
-contrib.meeting.home.presentation=Welcome to the XWiki Meeting Application. You can see below all the meetings scheduled so far, and by clicking on "Add a new Entry", you can create your own meeting!
+  <content>contrib.meeting.home.presentation=Welcome to the XWiki Meeting Application. Create your own meeting by clicking on "Add New Entry". You can also check out a [[**Calendar**>>calendarView]] of all the meetings.
 
 Meeting.MeetingClass_status_value1=In preparation
 Meeting.MeetingClass_status_value2=Active
