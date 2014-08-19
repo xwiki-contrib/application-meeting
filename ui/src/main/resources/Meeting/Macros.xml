@@ -52,14 +52,12 @@
     #foreach($element in $listParticipants)
         #set($email = $xwiki.getUserName($element, '$email', false))
         #set($name = $xwiki.getUserName($element, false))
-        #if($email != '$email' &amp;&amp; $email!='')
+        #if ("$!email" != '')
           #set($to = "$to $email,")
           #set($icsParticipants = $icsParticipants +"ATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;CN=${name};X-NUM-GUESTS=0:mailto:${email}
                    ")
         #end
     #end
-
-    #set ($return = $NULL)
     #setVariable("$return" {
         'to': $!{to},
         'icsParticipants': $!{icsParticipants}
@@ -81,8 +79,6 @@
     #set($sstartDate = $datetool.format($dateFormat, $startDate))
     #set($sendDate = $datetool.format($dateFormat, $endDate))
     #set($smodDate = $datetool.format($dateFormat, $modDate))
-
-    #set ($return = $NULL)
     #setVariable("$return" {
         'smodDate': $!{smodDate},
         'sstartDate': $!{sstartDate},
@@ -99,8 +95,6 @@
 
     #getMeetingDates($meetingDoc, $dates)
     #getParticipants($meetingDoc, $participants)
-
-    #set ($return = $NULL)
     #setVariable("$return" {
         'place': "$!{place}",
         'organizer': "$!{organizer}",
@@ -119,7 +113,6 @@
 
 #macro (getVCalendarContent $meetingDoc $return)
     #getMeetingInfos($meetingDoc, $meeting)
-
     #set($description = "$msg.get('contrib.meeting.notification.view.event') $!{meetingDoc.getExternalURL()}")
     #set($vcalendar = "
       BEGIN:VCALENDAR
@@ -149,8 +142,6 @@
       END:VEVENT
       END:VCALENDAR
     ")
-
-    #set ($return = $NULL)
     #setVariable("$return" $vcalendar)
 #end
 

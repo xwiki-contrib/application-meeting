@@ -48,13 +48,12 @@
       <artifactId>xwiki-platform-mail-send-default</artifactId>
       <version>${platform.version}</version>
     </dependency>
-    <!-- Test dependencies -->
     <dependency>
       <groupId>org.xwiki.platform</groupId>
       <artifactId>xwiki-platform-test</artifactId>
       <version>${platform.version}</version>
-      <scope>test</scope>
     </dependency>
+    <!-- Test dependencies -->
     <dependency>
       <groupId>com.icegreen</groupId>
       <artifactId>greenmail</artifactId>
@@ -80,6 +79,7 @@
     </dependency>
   </dependencies>
   <build>
+    <sourceDirectory>src/main/po</sourceDirectory>
     <testSourceDirectory>src/test/it</testSourceDirectory>
     <plugins>
       <plugin>

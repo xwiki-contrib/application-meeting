@@ -167,6 +167,6 @@
       <type>page</type>
     </property>
   </object>
-  <content>{{reference document="XWiki.TemplateProviderSheet"/}}
+  <content>{{include reference="XWiki.TemplateProviderSheet"/}}
 </content>
 </xwikidoc>
