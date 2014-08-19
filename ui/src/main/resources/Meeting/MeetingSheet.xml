@@ -89,7 +89,7 @@ $xwiki.ssx.use('Meeting.SkinExtension')
   #set($listParticipants = $participants.split(','))
   #foreach($element in $listParticipants)
     #set($email = $xwiki.getUserName($element, '$email', false))
-    #if($email != '$email' &amp;&amp; $email!='')
+    #if ("$!email" != '')
       #set($to = "$to $email,")
     #end
   #end
@@ -110,7 +110,7 @@ $xwiki.ssx.use('Meeting.SkinExtension')
   #set ($discard = $mailmsg.addPart('text/calendar;method=CANCEL', $vCalendar, {"headers" : {"Content-Class" : "urn:content-classes:calendarmessage"}}))
   #set ($discard = $mailmsg.send())
 
-  #if($mailmsg.getErrors().size()==0)
+  #if($mailmsg.getErrors().size() == 0)
     $msg.get('contrib.meeting.notification.success')
   #else
     {{warning}}$msg.get('contrib.meeting.notification.failure'){{/warning}}

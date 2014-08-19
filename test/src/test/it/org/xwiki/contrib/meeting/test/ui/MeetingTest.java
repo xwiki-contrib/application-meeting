@@ -20,23 +20,23 @@
 package org.xwiki.contrib.meeting.test.ui;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 
-import javax.mail.Message;
-
 import org.junit.After;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
-import org.openqa.selenium.By;
+import org.xwiki.contrib.meeting.test.ui.po.MeetingEntryInlinePage;
+import org.xwiki.contrib.meeting.test.ui.po.MeetingEntryPage;
+import org.xwiki.contrib.meeting.test.ui.po.MeetingHomePage;
 import org.xwiki.test.ui.AbstractTest;
 import org.xwiki.test.ui.SuperAdminAuthenticationRule;
+import org.xwiki.test.ui.po.ViewPage;
 
 import com.icegreen.greenmail.util.GreenMail;
 import com.icegreen.greenmail.util.ServerSetupTest;
-
-import static org.junit.Assert.assertArrayEquals;
-import static org.junit.Assert.assertEquals;
 
 /**
  * UI tests for the Meeting application feature.
@@ -64,7 +64,7 @@ public class MeetingTest extends AbstractTest
     }
 
     @Test
-    public void testMeetingSendInvitation() throws Exception
+    public void sendMeetingInvitation() throws Exception
     {
         // Configure the SMTP host/port for the wiki so that it points to GreenMail.
         getUtil().addObject("XWiki", "XWikiPreferences", "XWiki.XWikiPreferences");
@@ -81,36 +81,49 @@ public class MeetingTest extends AbstractTest
         getUtil().createUserAndLogin("JohnDoe", "password", "email", "john@xwiki.org", "first_name", "John",
             "last_name", "Doe");
 
-        getUtil().gotoPage("Meeting", "WebHome");
+        // Remove existing meeting
+        getUtil().deletePage("Meeting", "Meeting 01");
 
-        //// Remove existing meeting
-        getUtil().deletePage("Meeting", "Meeting01");
-        getUtil().createPage("Meeting", "Meeting01", null, "Meeting 01");
+        // Create new meeting
+        MeetingHomePage meetingHomePage = MeetingHomePage.gotoPage();
+        meetingHomePage.clickAddNewEntryLink();
+        meetingHomePage.setEntryName("Meeting 01");
 
-        // Configure the SMTP host/port for the wiki so that it points to GreenMail.
-        getUtil().addObject("Meeting", "Meeting01", "Meeting.MeetingClass");
-        getUtil().updateObject("Meeting", "Meeting01", "Meeting.MeetingClass", 0, "meetingTitle", "Meeting 01");
-        getUtil().updateObject("Meeting", "Meeting01", "Meeting.MeetingClass", 0, "startDate", getDateTomorrow());
-        getUtil().updateObject("Meeting", "Meeting01", "Meeting.MeetingClass", 0, "place", "Paris");
-        getUtil()
-            .updateObject("Meeting", "Meeting01", "Meeting.MeetingClass", 0, "description", "First meeting in paris");
-        getUtil().updateObject("Meeting", "Meeting01", "Meeting.MeetingClass", 0, "leader", "XWiki.JohnDoe");
+        MeetingEntryInlinePage meetingEntryInlinePage = meetingHomePage.clickAddEntry();
+        meetingEntryInlinePage.setTitle("Meeting 01");
+        meetingEntryInlinePage.setStartDate(getDateTomorrow());
+        meetingEntryInlinePage.setDurationHour("2");
+        meetingEntryInlinePage.setDurationMinutes("00");
+        meetingEntryInlinePage.setPlace("Paris");
+        meetingEntryInlinePage.setDescription("First meeting in paris");
+        meetingEntryInlinePage.setNotes("Lorem ipsum dolor sit amet, consectetur adipiscing elit.");
+        meetingEntryInlinePage.setStatus("In preparation");
+        meetingEntryInlinePage.setLeader("John Doe");
 
-        getUtil().updateObject("Meeting", "Meeting01", "Meeting.MeetingClass", 0, "duration", "60");
-        getUtil().updateObject("Meeting", "Meeting01", "Meeting.MeetingClass", 0, "participants",
-            "XWiki.participant1,XWiki.participant2");
-        getUtil().updateObject("Meeting", "Meeting01", "Meeting.MeetingClass", 0, "status", "value1");
+        ArrayList<String> participants = new ArrayList<String>();
+        participants.add("participant1 Doe");
+        participants.add("participant2 Doe");
+        meetingEntryInlinePage.setParticipants(participants);
 
-        // Send email notification
-        getUtil().findElementWithoutWaiting(getDriver(), By.id("sendNotification")).findElement(By.tagName("textarea"))
-            .sendKeys("Lorem ipsum dolor sit amet, consectetur adipiscing elit.");
-        getUtil().findElementWithoutWaiting(getDriver(), By.id("sendNotification")).submit();
+        ViewPage viewPage = meetingEntryInlinePage.clickSaveAndView();
+
+        MeetingEntryPage meetingEntryPage = new MeetingEntryPage();
+
+        // Send invitation message
+        meetingEntryPage.setMessage("Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy " +
+            "eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua");
+        meetingEntryPage.sendMessage();
+
+        Assert.assertTrue(meetingEntryPage.getContent()
+            .contains("A notification email has successfully been sent to the participants."));
 
         // Verify that the mail has been received.
         this.mail.waitForIncomingEmail(10000L, 2);
-        assertEquals(2, this.mail.getReceivedMessages().length);
-        assertEquals("You are invited to participate in a meeting", this.mail.getReceivedMessages()[0].getSubject());
-        assertEquals("You are invited to participate in a meeting", this.mail.getReceivedMessages()[1].getSubject());
+        Assert.assertEquals(2, this.mail.getReceivedMessages().length);
+        Assert.assertEquals("You are invited to participate in a meeting",
+            this.mail.getReceivedMessages()[0].getSubject());
+        Assert.assertEquals("You are invited to participate in a meeting",
+            this.mail.getReceivedMessages()[1].getSubject());
     }
 
     private String getDateTomorrow()
