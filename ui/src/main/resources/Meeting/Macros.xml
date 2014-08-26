@@ -75,7 +75,7 @@
     #set($discard = $calendar.add(12, $util.parseInt($duration)))
     #set($endDate = $calendar.getTime())
 
-    #set($dateFormat = "yyyyMMdd'T'HHmmssZ")
+    #set($dateFormat = "yyyyMMdd'T'HHmmss'Z'")
     #set($sstartDate = $datetool.format($dateFormat, $startDate))
     #set($sendDate = $datetool.format($dateFormat, $endDate))
     #set($smodDate = $datetool.format($dateFormat, $modDate))
