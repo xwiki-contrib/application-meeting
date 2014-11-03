@@ -127,7 +127,7 @@
       <content>{{velocity}}
 #if($context.action != 'inline')
   #panelheader("$msg.get('contrib.meeting.panel.title')")
-  #set($sql = ", BaseObject as obj, DateProperty as startDate where obj.name=doc.fullName and obj.className='Meeting.MeetingClass' and obj.name&lt;&gt;'Meeting.MeetingTemplate' and obj.id=startDate.id.id and startDate.id.name='startDate' order by startDate.value asc")
+  #set($sql = ", BaseObject as obj, DateProperty as startDate, StringProperty as status where obj.name=doc.fullName and obj.className='Meeting.MeetingClass' and obj.name&lt;&gt;'Meeting.MeetingTemplate' and obj.id=startDate.id.id and startDate.id.name='startDate' and obj.id=status.id.id and status.id.name='status' and status.value in ('value1','value2') order by startDate.value asc")
   #set($i = 0)
   #foreach($item in $xwiki.searchDocuments($sql))  
     #set($document = $xwiki.getDocument($item))
