@@ -136,7 +136,7 @@
     #set($document = $xwiki.getDocument($item))
     #set($meetingDate = $document.getValue('startDate'))
     #if($xwiki.getDocument($item).hasAccessLevel('view', $context.user) == 'true' &amp;&amp; $meetingDate.compareTo($xwiki.getDate())==1)
-       * $xwiki.getDocument($item).display('startDate','view') : [[$xwiki.getDocument($item).name&gt;&gt;$item]]
+       * $xwiki.getDocument($item).display('startDate','view') : [[$xwiki.getDocument($item).getDisplayTitle()&gt;&gt;$item]]
        #set($i = $i + 1)
        #if($i==5)
          #break
