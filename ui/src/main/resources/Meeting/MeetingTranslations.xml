@@ -111,7 +111,7 @@ contrib.meeting.field.status=Status
 
 contrib.meeting.notification.success=A notification email has successfully been sent to the participants.
 contrib.meeting.notification.failure=An error occured while sending the notification emails.
-contrib.meeting.notification.title=You are invited to participate in a meeting
+contrib.meeting.notification.title=You are invited to participate in a meeting: {0}
 contrib.meeting.notification.body={0} invited you to participate in the meeting {1}.
 contrib.meeting.notification.link=See the meeting page on XWiki.
 contrib.meeting.notification.view.event = View your event at

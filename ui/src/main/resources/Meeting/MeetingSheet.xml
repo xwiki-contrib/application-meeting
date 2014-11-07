@@ -76,11 +76,11 @@ $xwiki.ssx.use('Meeting.SkinExtension')
 #end
 #if($request.sendNotification=='true')
 
-  #set($message = $msg.get('contrib.meeting.notification.body', ["$xwiki.getUserName($context.user)","&lt;strong&gt;$doc.name&lt;/strong&gt;"]))
+  #set($message = $msg.get('contrib.meeting.notification.body', ["$xwiki.getUserName($context.user)","&lt;strong&gt;$doc.getDisplayTitle()&lt;/strong&gt;"]))
   #if($request.additionalMessage!='')
     #set($message = "$message &lt;br&gt; $msg.get('contrib.hr.notification.additionalPart') $request.additionalMessage")
   #end
-  #set($title = $msg.get('contrib.meeting.notification.title'))
+  #set($title = $msg.get('contrib.meeting.notification.title', ["$doc.getDisplayTitle()"]))
   #set($link = $doc.getExternalURL())
 
   ## Retrieve participants emails
