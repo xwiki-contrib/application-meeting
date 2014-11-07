@@ -137,8 +137,16 @@ $xwiki.ssx.use('Meeting.SkinExtension')
     : &lt;div id=durationEdit&gt; $doc.display('durationHour') h $doc.display('durationMinutes') min&lt;/div&gt;
   #end
   ; &lt;label for="Meeting.MeetingClass_0_place"&gt;$msg.get('contrib.meeting.field.place')&lt;/label&gt;##
+  #if($xcontext.action=='view')
+
+
+  {{map location="$doc.getValue('place')" width="500" height="300"}}$doc.display('place'){{/map}}
+
+  &lt;br /&gt;
+  #else
     (% class="xHint" %)$msg.get('')
   : $doc.display('place')
+  #end
   ; &lt;label for="Meeting.MeetingClass_0_description"&gt;$msg.get('contrib.meeting.field.description')&lt;/label&gt;##
     (% class="xHint" %)$msg.get('')
   : $doc.display('description')
