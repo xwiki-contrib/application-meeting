@@ -102,6 +102,7 @@ meeting.livetable._actions=Actions
 contrib.meeting.field.meetingTitle=Title
 contrib.meeting.field.leader=Leader
 contrib.meeting.field.place=Place
+contrib.meeting.field.displayMap=Display map
 contrib.meeting.field.duration=Duration
 contrib.meeting.field.startDate=Start Date
 contrib.meeting.field.description=Description

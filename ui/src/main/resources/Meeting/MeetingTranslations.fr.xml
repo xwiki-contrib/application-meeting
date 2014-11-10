@@ -67,6 +67,7 @@ meeting.livetable._actions=Actions
 contrib.meeting.field.meetingTitle=Titre
 contrib.meeting.field.leader=Responsable
 contrib.meeting.field.place=Lieu
+contrib.meeting.field.displayMap=Afficher la carte
 contrib.meeting.field.duration=Durée de l'évènement
 contrib.meeting.field.startDate=Date de début
 contrib.meeting.field.description=Ordre du jour
