@@ -54,7 +54,7 @@
       <customDisplay/>
       <disabled>0</disabled>
       <name>calc</name>
-      <number>11</number>
+      <number>12</number>
       <prettyName>calc</prettyName>
       <script>{{velocity}}
 #set($obj = $doc.getObject('Meeting.MeetingClass'))
@@ -84,7 +84,7 @@ $doc.save()
       <disabled>0</disabled>
       <editor>---</editor>
       <name>description</name>
-      <number>4</number>
+      <number>5</number>
       <picker>0</picker>
       <prettyName>Description</prettyName>
       <rows>5</rows>
@@ -94,6 +94,20 @@ $doc.save()
       <validationRegExp/>
       <classType>com.xpn.xwiki.objects.classes.TextAreaClass</classType>
     </description>
+    <displayMap>
+      <customDisplay/>
+      <defaultValue/>
+      <disabled>0</disabled>
+      <displayFormType>checkbox</displayFormType>
+      <displayType/>
+      <name>displayMap</name>
+      <number>4</number>
+      <prettyName>displayMap</prettyName>
+      <unmodifiable>0</unmodifiable>
+      <validationMessage/>
+      <validationRegExp/>
+      <classType>com.xpn.xwiki.objects.classes.BooleanClass</classType>
+    </displayMap>
     <duration>
       <cache>0</cache>
       <customDisplay/>
@@ -101,7 +115,7 @@ $doc.save()
       <displayType>select</displayType>
       <multiSelect>0</multiSelect>
       <name>duration</name>
-      <number>6</number>
+      <number>7</number>
       <picker>0</picker>
       <prettyName>Duration</prettyName>
       <relationalStorage>0</relationalStorage>
@@ -122,7 +136,7 @@ $doc.save()
       <displayType>select</displayType>
       <multiSelect>0</multiSelect>
       <name>durationHour</name>
-      <number>12</number>
+      <number>13</number>
       <picker>0</picker>
       <prettyName>durationHour</prettyName>
       <relationalStorage>0</relationalStorage>
@@ -143,7 +157,7 @@ $doc.save()
       <displayType>select</displayType>
       <multiSelect>0</multiSelect>
       <name>durationMinutes</name>
-      <number>13</number>
+      <number>14</number>
       <picker>0</picker>
       <prettyName>durationMinutes</prettyName>
       <relationalStorage>0</relationalStorage>
@@ -162,7 +176,7 @@ $doc.save()
       <disabled>0</disabled>
       <editor>---</editor>
       <name>durationString</name>
-      <number>10</number>
+      <number>11</number>
       <picker>0</picker>
       <prettyName>durationString</prettyName>
       <rows>5</rows>
@@ -179,7 +193,7 @@ $doc.save()
       <displayFormType>select</displayFormType>
       <displayType>int</displayType>
       <name>hasBeenEdited</name>
-      <number>14</number>
+      <number>15</number>
       <prettyName>hasBeenEdited</prettyName>
       <unmodifiable>0</unmodifiable>
       <validationMessage/>
@@ -193,7 +207,7 @@ $doc.save()
       <displayFormType>select</displayFormType>
       <displayType/>
       <name>hasPoll</name>
-      <number>9</number>
+      <number>10</number>
       <prettyName>hasPoll</prettyName>
       <unmodifiable>0</unmodifiable>
       <validationMessage/>
@@ -207,7 +221,7 @@ $doc.save()
       <displayType>select</displayType>
       <multiSelect>0</multiSelect>
       <name>leader</name>
-      <number>5</number>
+      <number>6</number>
       <picker>0</picker>
       <prettyName>Leader</prettyName>
       <relationalStorage>0</relationalStorage>
@@ -239,7 +253,7 @@ $doc.save()
       <disabled>0</disabled>
       <editor>---</editor>
       <name>notes</name>
-      <number>15</number>
+      <number>16</number>
       <picker>0</picker>
       <prettyName>notes</prettyName>
       <rows>5</rows>
@@ -256,7 +270,7 @@ $doc.save()
       <displayType>input</displayType>
       <multiSelect>1</multiSelect>
       <name>participants</name>
-      <number>7</number>
+      <number>8</number>
       <picker>1</picker>
       <prettyName>Participants</prettyName>
       <relationalStorage>0</relationalStorage>
@@ -305,7 +319,7 @@ $doc.save()
       <displayType>select</displayType>
       <multiSelect>0</multiSelect>
       <name>status</name>
-      <number>8</number>
+      <number>9</number>
       <picker>0</picker>
       <prettyName>Status</prettyName>
       <relationalStorage>0</relationalStorage>
