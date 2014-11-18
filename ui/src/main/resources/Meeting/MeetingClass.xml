@@ -266,7 +266,22 @@ $doc.save()
     </notes>
     <participants>
       <cache>0</cache>
-      <customDisplay/>
+      <customDisplay>{{velocity}}
+{{html}}
+#if($value.indexOf($xcontext.user) &gt; 0)
+  #set ($values = $value.split('\s*,\s*'))
+  #set ($participants = [$xcontext.user])
+  #foreach ($val in $values)
+    #if ($val.length() &gt; 0 &amp;&amp; $val != $xcontext.user)
+      #set ($discard = $participants.add($val))
+    #end
+  #end
+  #set ($value = $stringtool.join($participants, ','))
+#end
+##
+#template('displayer_users.vm')
+{{/html}}
+{{/velocity}}</customDisplay>
       <disabled>0</disabled>
       <displayType>input</displayType>
       <multiSelect>1</multiSelect>
