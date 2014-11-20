@@ -118,92 +118,137 @@ $xwiki.ssx.use('Meeting.SkinExtension')
   #end
 #end
 ## We don't have access to the form element to set the CSS class for the vertical form layout standard.
-(% class="xform" %)
+(% class="container-fluid form-group" %)
 (((
-  ## Add a title of event in edit mode
-  #if($xcontext.action=='edit')
-      ; &lt;label for="Meeting.MeetingClass_0_meetingTitle"&gt;$msg.get('contrib.meeting.field.meetingTitle')&lt;/label&gt;
-      : $doc.display('meetingTitle')
-  #end
-  ; &lt;label for="Meeting.MeetingClass_0_startDate"&gt;$msg.get('contrib.meeting.field.startDate')&lt;/label&gt;##
-    (% class="xHint" %)$msg.get('')
-  : $doc.display('startDate')
-  ; &lt;label for="Meeting.MeetingClass_0_calc"&gt;$msg.get('contrib.meeting.field.duration')&lt;/label&gt;##
-    (% class="xHint" %)$msg.get('')
-  #if($context.action=='view')
-    : $doc.display('durationString')
-  #else
-    ##: $doc.display('duration')
-    ##; &lt;label for="Meeting.MeetingClass_0_durationHour"&gt; $msg.get('contrib.meeting.field.duration')&lt;/label&gt;
-    : &lt;div id=durationEdit&gt; $doc.display('durationHour') h $doc.display('durationMinutes') min&lt;/div&gt;
-  #end
-  ; &lt;label for="Meeting.MeetingClass_0_place"&gt;$msg.get('contrib.meeting.field.place')&lt;/label&gt;##
-  #if($xcontext.action=='view' &amp;&amp; $doc.getValue('displayMap') == 1 &amp;&amp; "${doc.getValue('place')}"!="")
+  (% class="xform" %)
+  (((
 
+    (% class="row" %)
+    (((
+      (% class="col-md-12 col-sm-12 col-xs-12" %)
+      (((
+      ## Add a title of event in edit modetime
+      #if($xcontext.action=='edit')
+          ; &lt;label for="Meeting.MeetingClass_0_meetingTitle"&gt;&lt;span class="fa fa-header"&gt;&lt;/span&gt; $escapetool.xml($doc.displayPrettyName('meetingTitle', false, false))&lt;/label&gt;
+          : $doc.display('meetingTitle')
+      #end
+      )))
+    )))
 
-  {{map location="$doc.getValue('place')" width="500" height="300"}}$doc.display('place'){{/map}}
+    (% class="row" %)
+    (((
+      (% class="col-md-4 col-sm-12 col-xs-12" %)
+      (((
+      ; &lt;label for="Meeting.MeetingClass_0_startDate"&gt;&lt;span class="fa fa-calendar"&gt;&lt;/span&gt; $msg.get('contrib.meeting.field.startDate')&lt;/label&gt;##
+        (% class="xHint" %)$msg.get('')
+      : $doc.display('startDate')
+      )))
+      (% class="col-md-4 col-sm-12 col-xs-12" %)
+      (((
+      ; &lt;label for="Meeting.MeetingClass_0_status"&gt;&lt;span class="fa fa-play-circle"&gt;&lt;/span&gt; $msg.get('contrib.meeting.field.status')&lt;/label&gt;##
+        (% class="xHint" %)$msg.get('')
+      #if($context.action=='view')
+        : &lt;h5&gt;&lt;span class="label label-warning"&gt;$doc.display('status')&lt;/span&gt;&lt;/h5&gt;
+      #else
+        : $doc.display('status')
+      #end
+      )))
+      (% class="col-md-4 col-sm-12 col-xs-12" %)
+      (((
+      )))
+    )))
 
-  #else
-    (% class="xHint" %)$msg.get('')
-  : $doc.display('place')
-  #end
-  #if($context.action!='view')
-  ; &lt;label for="Meeting.MeetingClass_0_displayMap"&gt;$msg.get('contrib.meeting.field.displayMap')&lt;/label&gt;##
-    (% class="xHint" %)$msg.get('')
-  : $doc.display('displayMap')
-  #end
-  ; &lt;label for="Meeting.MeetingClass_0_description"&gt;$msg.get('contrib.meeting.field.description')&lt;/label&gt;##
-    (% class="xHint" %)$msg.get('')
-  : $doc.display('description')
-  ; &lt;label for="Meeting.MeetingClass_0_leader"&gt;$msg.get('contrib.meeting.field.leader')&lt;/label&gt;##
-    (% class="xHint" %)$msg.get('')
-  : $doc.display('leader')
-  ; &lt;label for="Meeting.MeetingClass_0_participants"&gt;$msg.get('contrib.meeting.field.participants')&lt;/label&gt;##
-    (% class="xHint" %)$msg.get('')
-  : $doc.display('participants')
-  ; &lt;label for="Meeting.MeetingClass_0_notes"&gt;$msg.get('contrib.meeting.field.notes')&lt;/label&gt;##
-    (% class="xHint" %)$msg.get('')
-  : $doc.display('notes')
-  #if($doc.isCurrentUserCreator() &amp;&amp; $doc.getValue('participants')!='' &amp;&amp; $context.action=='view')
-  &lt;form id="sendNotification" action='' method='post'&gt;
-    &lt;div class='presentation'&gt;
-      &lt;input type='hidden' name='sendNotification' value='true'&gt;
-      &lt;p&gt;&lt;label for='additionalMessage'&gt;$msg.get('contrib.meeting.notification.additionalMessage')&lt;/label&gt;&lt;/p&gt;
-      &lt;textarea name="additionalMessage" cols='40' rows='4'&gt;&lt;/textarea&gt;&lt;br&gt;
-      &lt;span class='buttonwrapper'&gt;
-        &lt;input type='submit' class='button' value="$msg.get('contrib.meeting.notification.submit')"/&gt;
-      &lt;/span&gt;
-    &lt;/div&gt;
-  &lt;/form&gt;
-  #end
-  ; &lt;label for="Meeting.MeetingClass_0_status"&gt;$msg.get('contrib.meeting.field.status')&lt;/label&gt;##
-    (% class="xHint" %)$msg.get('')
-  : $doc.display('status')
-  #if($doc.isCurrentUserCreator() &amp;&amp; $xwiki.exists('XPoll.WebHome') &amp;&amp; $doc.getValue('status')=='value1' &amp;&amp; $context.action=='view')
-    #if($doc.getValue('hasPoll')==0)
-      &lt;form id="createXPoll" action='' method='get'&gt;
+    (% class="row" %)
+    (((
+      (% class="col-md-4 col-sm-12 col-xs-12" %)
+      (((
+      ; &lt;label for="Meeting.MeetingClass_0_place"&gt;&lt;span class="fa fa-map-marker"&gt;&lt;/span&gt; $msg.get('contrib.meeting.field.place')&lt;/label&gt;##
+        (% class="xHint" %)$msg.get('')
+      : $doc.display('place')
+      )))
+      (% class="col-md-4 col-sm-12 col-xs-12" %)
+      (((
+      ; &lt;label for="Meeting.MeetingClass_0_calc"&gt;&lt;span class="fa fa-clock-o"&gt;&lt;/span&gt; $msg.get('contrib.meeting.field.duration')&lt;/label&gt;##
+        (% class="xHint" %)$msg.get('')
+      #if($context.action=='view')
+        : $doc.display('durationString')
+      #else
+        ##: $doc.display('duration')
+        ##; &lt;label for="Meeting.MeetingClass_0_durationHour"&gt;$msg.get('contrib.meeting.field.duration')&lt;/label&gt;
+        : &lt;div id="durationEdit"&gt; $doc.display('durationHour') h $doc.display('durationMinutes') min&lt;/div&gt;
+      #end
+      )))
+      (% class="col-md-4 col-sm-12 col-xs-12" %)
+      (((
+      ; &lt;label for="Meeting.MeetingClass_0_leader"&gt;&lt;span class="fa fa-user"&gt;&lt;/span&gt; $msg.get('contrib.meeting.field.leader')&lt;/label&gt;##
+        (% class="xHint" %)$msg.get('')
+      : $doc.display('leader')
+      )))
+    )))
+
+    (% class="row" %)
+    (((
+      (% class="col-md-8 col-sm-12 col-xs-12" %)
+      (((
+      ; &lt;label for="Meeting.MeetingClass_0_description"&gt;&lt;span class="fa fa-list-alt"&gt;&lt;/span&gt; $msg.get('contrib.meeting.field.description')&lt;/label&gt;##
+        (% class="xHint" %)$msg.get('')
+      : $doc.display('description')
+      ; &lt;label for="Meeting.MeetingClass_0_notes"&gt;&lt;span class="fa fa-list-alt"&gt;&lt;/span&gt; $msg.get('contrib.meeting.field.notes')&lt;/label&gt;##
+        (% class="xHint" %)$msg.get('')
+      : $doc.display('notes')
+      )))
+
+      (% class="col-md-4 col-sm-12 col-xs-12" %)
+      (((
+      ; &lt;label for="Meeting.MeetingClass_0_participants"&gt;&lt;span class="fa fa-user"&gt;&lt;/span&gt; $msg.get('contrib.meeting.field.participants')&lt;/label&gt;##
+        (% class="xHint" %)$msg.get('')
+      : $doc.display('participants')
+
+      #if($doc.isCurrentUserCreator() &amp;&amp; $doc.getValue('participants')!='' &amp;&amp; $context.action=='edit')
+      &lt;form id="sendNotification" action='' method='post' class="form form-control"&gt;
         &lt;div class='presentation'&gt;
-          &lt;input type='hidden' name='createPoll' value='true'&gt;
-          &lt;input type="hidden" name="parent" value="Meeting.WebHome" /&gt;
-          &lt;input type="hidden" name="template" value="XPoll.XPollTemplate" /&gt;
+          &lt;input type='hidden' name='sendNotification' value='true'&gt;
+          ; &lt;label for='additionalMessage'&gt;&lt;span class="fa fa-list-alt"&gt;&lt;/span&gt; Notification&lt;/label&gt;
+          : &lt;textarea name="additionalMessage" cols='40' rows='4' placeholder="$msg.get('contrib.meeting.notification.additionalMessage')"&gt;&lt;/textarea&gt;
           &lt;span class='buttonwrapper'&gt;
-            &lt;input type='submit' class='button' value="$msg.get('contrib.meeting.createPoll')"/&gt;
+            &lt;input type='submit' class='button' value="$msg.get('contrib.meeting.notification.submit')"/&gt;
           &lt;/span&gt;
         &lt;/div&gt;
       &lt;/form&gt;
-    #else
-      #set($url = $xwiki.getURL("XPoll.XPoll for the Meeting $doc.name"))
-      &lt;form action=$url method='post'&gt;
-        &lt;div class='presentation'&gt;
-          &lt;p&gt;&lt;label&gt;$msg.get('contrib.meeting.poll.explanation')&lt;/label&gt;&lt;/p&gt;
-          &lt;span class='buttonwrapper'&gt;
-            &lt;input type='submit' class='button' value="$msg.get('contrib.meeting.poll.go')"/&gt;
-          &lt;/span&gt;
-        &lt;/div&gt;
-      &lt;/form&gt;
+      #end
+      )))
+    )))
+
+    (% class="row" %)
+    (((
+    #if($doc.isCurrentUserCreator() &amp;&amp; $xwiki.exists('XPoll.WebHome') &amp;&amp; $doc.getValue('status')=='value1' &amp;&amp; $context.action=='view')
+      #if($doc.getValue('hasPoll')==0)
+        &lt;form id="createXPoll" action='' method='get'&gt;
+          &lt;div class='presentation'&gt;
+            &lt;input type='hidden' name='createPoll' value='true'&gt;
+            &lt;input type="hidden" name="parent" value="Meeting.WebHome" /&gt;
+            &lt;input type="hidden" name="template" value="XPoll.XPollTemplate" /&gt;
+            &lt;span class='buttonwrapper'&gt;
+              &lt;input type='submit' class='button' value="$msg.get('contrib.meeting.createPoll')"/&gt;
+            &lt;/span&gt;
+          &lt;/div&gt;
+        &lt;/form&gt;
+      #else
+        #set($url = $xwiki.getURL("XPoll.XPoll for the Meeting $doc.name"))
+        &lt;form action=$url method='post'&gt;
+          &lt;div class='presentation'&gt;
+            &lt;p&gt;&lt;label&gt;$msg.get('contrib.meeting.poll.explanation')&lt;/label&gt;&lt;/p&gt;
+            &lt;span class='buttonwrapper'&gt;
+              &lt;input type='submit' class='button' value="$msg.get('contrib.meeting.poll.go')"/&gt;
+            &lt;/span&gt;
+          &lt;/div&gt;
+        &lt;/form&gt;
+      #end
     #end
-  #end
-)))
+    )))
+
+  ))) ## end of .xform
+))) ## end of .container-fluid
 {{/html}}
 {{/velocity}}</content>
 </xwikidoc>
