@@ -113,6 +113,8 @@ $xwiki.ssx.use('Meeting.SkinExtension')
 
   #if($mailmsg.getErrors().size() == 0)
     $msg.get('contrib.meeting.notification.success')
+    $doc.set('lastEmailSent', $util.getDate())
+    $doc.save()
   #else
     {{warning}}$msg.get('contrib.meeting.notification.failure'){{/warning}}
   #end
@@ -170,6 +172,9 @@ $xwiki.ssx.use('Meeting.SkinExtension')
       &lt;input type='hidden' name='sendNotification' value='true'&gt;
       &lt;p&gt;&lt;label for='additionalMessage'&gt;$msg.get('contrib.meeting.notification.additionalMessage')&lt;/label&gt;&lt;/p&gt;
       &lt;textarea name="additionalMessage" cols='40' rows='4'&gt;&lt;/textarea&gt;&lt;br&gt;
+      #if($doc.getValue('lastEmailSent'))
+        &lt;p&gt;$msg.get('contrib.meeting.field.lastEmailSent') &lt;b&gt;$doc.display('lastEmailSent')&lt;/b&gt;&lt;/p&gt;
+      #end
       &lt;span class='buttonwrapper'&gt;
         &lt;input type='submit' class='button' value="$msg.get('contrib.meeting.notification.submit')"/&gt;
       &lt;/span&gt;
