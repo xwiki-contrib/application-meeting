@@ -90,5 +90,6 @@ contrib.meeting.panel.noMeetings=Il n'y a aucune réunion à venir.
 
 contrib.meeting.createPoll=Créer un sondage pour cette réunion
 contrib.meeting.poll.explanation=Un sondage a été créé pour définir les modalités de cette réunion. Cliquez sur le lien ci-dessous pour y accéder.
-contrib.meeting.poll.go=Aller au sondage</content>
+contrib.meeting.poll.go=Aller au sondage
+platform.livetable._actions.delete=Supprimer</content>
 </xwikidoc>

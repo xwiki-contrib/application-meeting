@@ -128,5 +128,6 @@ contrib.meeting.panel.noMeetings=There are no upcoming meetings.
 contrib.meeting.createPoll=Create a poll for this meeting
 contrib.meeting.poll.explanation=A poll has been created in order to define the meeting details. Click on the link below to access it.
 contrib.meeting.poll.go=Go to the poll
+platform.livetable._actions.delete=Delete
 </content>
 </xwikidoc>
