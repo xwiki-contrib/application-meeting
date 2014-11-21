@@ -41,25 +41,26 @@
   <comment/>
   <minorEdit>false</minorEdit>
   <syntaxId>xwiki/2.1</syntaxId>
-  <hidden>false</hidden>
+  <hidden>true</hidden>
   <content>{{velocity}}
 #set($meetingDoc = $xwiki.getDocumentAsAuthor($request.meetingDoc))
 #set($meetingObj = $meetingDoc.getObject('Meeting.MeetingClass'))
 ##
 #set($error = $request.error)
-#set($errorMessage = 'Automatically deactivated map display:')
 ##
 #if($error == 'GMAPS:ZERO_RESULTS')
-  #set($errorMessage = "$errorMessage no results found!")
+  #set($errorMessage = $services.localization.render('contrib.meeting.map.error.zeroResults'))
 #elseif($error == 'GMAPS:OVER_QUERY_LIMIT')
-  #set($errorMessage = "$errorMessage exceeded quota!")
+  #set($errorMessage = $services.localization.render('contrib.meeting.map.error.overQueryLimit'))
 #elseif($error == 'GMAPS:REQUEST_DENIED')
-  #set($errorMessage = "$errorMessage request denied!")
+  #set($errorMessage = $services.localization.render('contrib.meeting.map.error.requestDenied'))
 #elseif($error == 'GMAPS:INVALID_REQUEST')
-  #set($errorMessage = "$errorMessage invalid request!")
+  #set($errorMessage = $services.localization.render('contrib.meeting.map.error.invalidRequest'))
 #elseif($error == 'GMAPS:UNKNOWN_ERROR')
-  #set($errorMessage = "$errorMessage unknown error!")
+  #set($errorMessage = $services.localization.render('contrib.meeting.map.error.unknownError'))
 #end
+##
+#set($errorMessage = $services.localization.render('contrib.meeting.map.error.deactivation', [$errorMessage]))
 ##
 #if("$!errorMessage" != '')
   #set($discard = $meetingObj.set('displayMap', 0))

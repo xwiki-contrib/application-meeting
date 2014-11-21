@@ -90,5 +90,13 @@ contrib.meeting.panel.noMeetings=Il n'y a aucune réunion à venir.
 
 contrib.meeting.createPoll=Créer un sondage pour cette réunion
 contrib.meeting.poll.explanation=Un sondage a été créé pour définir les modalités de cette réunion. Cliquez sur le lien ci-dessous pour y accéder.
-contrib.meeting.poll.go=Aller au sondage</content>
+contrib.meeting.poll.go=Aller au sondage
+
+contrib.meeting.map.error.deactivation=La carte n'a pas été affichée: {0}
+contrib.meeting.map.error.zeroResults=aucun résultat trouvé!
+contrib.meeting.map.error.overQueryLimit=quota dépassé!
+contrib.meeting.map.error.requestDenied=demande refusée!
+contrib.meeting.map.error.invalidRequest=demande invalide!
+contrib.meeting.map.error.unknownError=erreur inconnue!
+</content>
 </xwikidoc>
