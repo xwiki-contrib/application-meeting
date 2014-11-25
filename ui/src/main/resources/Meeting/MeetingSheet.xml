@@ -142,32 +142,6 @@ $xwiki.jsx.use('Meeting.MeetingSheet')
     )))
     (% class="col-md-4 col-sm-12 col-xs-12" %)
     (((
-    ; &lt;label for="Meeting.MeetingClass_0_status"&gt;#if($services.icon)$services.icon.render('control_play') #end $msg.get('contrib.meeting.field.status')&lt;/label&gt;##
-      (% class="xHint" %)$msg.get('')
-    #if($context.action=='view')
-      : &lt;h5&gt;&lt;span class="label label-warning"&gt;$doc.display('status')&lt;/span&gt;&lt;/h5&gt;
-    #else
-      : $doc.display('status')
-    #end
-    )))
-    (% class="col-md-4 col-sm-12 col-xs-12" %)
-    (((
-    ; &lt;label for="Meeting.MeetingClass_0_leader"&gt;#if($services.icon)$services.icon.render('user') #end $msg.get('contrib.meeting.field.leader')&lt;/label&gt;##
-      (% class="xHint" %)$msg.get('')
-    : $doc.display('leader')
-    )))
-  )))
-
-  (% class="row" %)
-  (((
-    (% class="col-md-4 col-sm-12 col-xs-12" %)
-    (((
-    ; &lt;label for="Meeting.MeetingClass_0_place"&gt;#if($services.icon)$services.icon.render('map') #end $msg.get('contrib.meeting.field.place')&lt;/label&gt;##
-      (% class="xHint" %)$msg.get('')
-    : $doc.display('place')
-    )))
-    (% class="col-md-4 col-sm-12 col-xs-12" %)
-    (((
     ; &lt;label for="Meeting.MeetingClass_0_calc"&gt;#if($services.icon)$services.icon.render('clock') #end $msg.get('contrib.meeting.field.duration')&lt;/label&gt;##
       (% class="xHint" %)$msg.get('')
     #if($context.action=='view')
@@ -180,40 +154,63 @@ $xwiki.jsx.use('Meeting.MeetingSheet')
     )))
     (% class="col-md-4 col-sm-12 col-xs-12" %)
     (((
-    ; &lt;label for="Meeting.MeetingClass_0_participants"&gt;#if($services.icon)$services.icon.render('user') #end $msg.get('contrib.meeting.field.participants')&lt;/label&gt;##
+    ; &lt;label for="Meeting.MeetingClass_0_status"&gt;#if($services.icon)$services.icon.render('control_play') #end $msg.get('contrib.meeting.field.status')&lt;/label&gt;##
       (% class="xHint" %)$msg.get('')
-    : $doc.display('participants')
+    #if($context.action=='view')
+      : &lt;h5&gt;&lt;span class="label label-warning"&gt;$doc.display('status')&lt;/span&gt;&lt;/h5&gt;
+    #else
+      : $doc.display('status')
+    #end
     )))
   )))
-
-  #if($context.action=='view')
-    (% class="row" %)
-    (((
-      (% class="col-md-8 col-sm-12 col-xs-12" %)
-      (((
-        {{map location="$doc.getValue('place')" width="500" height="300"}}$doc.display('place'){{/map}}
-      )))
-    )))
-    &lt;br /&gt;
-  #end
-
 
   (% class="row" %)
   (((
     (% class="col-md-8 col-sm-12 col-xs-12" %)
     (((
-    ; &lt;label for="Meeting.MeetingClass_0_description"&gt;#if($services.icon)$services.icon.render('application_view_list') #end $msg.get('contrib.meeting.field.description')&lt;/label&gt;##
-      (% class="xHint" %)$msg.get('')
-    : $doc.display('description')
-    ; &lt;label for="Meeting.MeetingClass_0_notes"&gt;#if($services.icon)$services.icon.render('application_view_list') #end $msg.get('contrib.meeting.field.notes')&lt;/label&gt;##
-      (% class="xHint" %)$msg.get('')
-    : $doc.display('notes')
+      (% class="row" %)
+      (((
+        (% class="col-sm-6 col-xs-12 " %)
+        (((
+          ; &lt;label for="Meeting.MeetingClass_0_place"&gt;#if($services.icon)$services.icon.render('map') #end $msg.get('contrib.meeting.field.place')&lt;/label&gt;##
+          (% class="xHint" %)$msg.get('')
+          : $doc.display('place')
+        )))
+        (% class="col-sm-6 col-xs-12 " %)
+        (((
+          #if($context.action=="edit")
+            ; &lt;label for="Meeting.MeetingClass_0_displayMap"&gt;#if($services.icon)$services.icon.render('map') #end $msg.get('contrib.meeting.field.displayMap')&lt;/label&gt;##
+            (% class="xHint" %)$msg.get('')
+            : $doc.display('displayMap') $doc.display('displayMapError')
+          #end
+        )))
+      )))
+      (% class="row" %)
+      (((
+        (% class="col-sm-12 col-xs-12" %)
+        (((
+          #if($context.action=="view" &amp;&amp; $doc.getValue('displayMap') == 1 &amp;&amp; "${doc.getValue('place')}"!="")
+            ((({{map location="$doc.getValue('place')" width="500" height="300"}}$doc.display('place'){{/map}})))
+          #end
+          ; &lt;label for="Meeting.MeetingClass_0_description"&gt;#if($services.icon)$services.icon.render('application_view_list') #end     $msg.get('contrib.meeting.field.description')&lt;/label&gt;##
+          (% class="xHint" %)$msg.get('')
+          : $doc.display('description')
+          ; &lt;label for="Meeting.MeetingClass_0_notes"&gt;#if($services.icon)$services.icon.render('application_view_list') #end $msg.get('contrib.meeting.field.notes')&lt;/label&gt;##
+          (% class="xHint" %)$msg.get('')
+          : $doc.display('notes')
+        )))
+      )))
     )))
 
     (% class="col-md-4 col-sm-12 col-xs-12" %)
     (((
-
-    #if($doc.isCurrentUserCreator() &amp;&amp; $doc.getValue('participants')!='' &amp;&amp; $context.action=='edit')
+      ; &lt;label for="Meeting.MeetingClass_0_leader"&gt;#if($services.icon)$services.icon.render('user') #end $msg.get('contrib.meeting.field.leader')&lt;/label&gt;##
+      (% class="xHint" %)$msg.get('')
+      : $doc.display('leader')
+      ; &lt;label for="Meeting.MeetingClass_0_participants"&gt;#if($services.icon)$services.icon.render('user') #end $msg.get('contrib.meeting.field.participants')&lt;/label&gt;##
+      (% class="xHint" %)$msg.get('')
+      : $doc.display('participants')
+      #if($doc.isCurrentUserCreator() &amp;&amp; $doc.getValue('participants')!='' &amp;&amp; $context.action=='edit')
     &lt;form id="sendNotification" action='' method='post' class="form form-control"&gt;
       &lt;div class='presentation'&gt;
         &lt;input type='hidden' name='sendNotification' value='true'&gt;
