@@ -42,6 +42,223 @@
   <minorEdit>false</minorEdit>
   <syntaxId>xwiki/2.1</syntaxId>
   <hidden>true</hidden>
+  <content>{{include reference="Meeting.Macros" /}}
+
+{{velocity}}
+{{html wiki="true"}}
+$xwiki.ssx.use('AppWithinMinutes.ClassSheetGenerator')
+$xwiki.ssx.use('Meeting.SkinExtension')
+#set($discard = $doc.use('Meeting.MeetingClass'))
+#set($durationHour = $mathtool.floor($mathtool.div($doc.getValue('duration'),60)))
+#set($durationMinutes = $mathtool.sub($doc.getValue('duration'),$mathtool.mul(60,$durationHour)))
+#if($context.action=='view' &amp;&amp; $doc.get('hasBeenEdited') == 1)
+  #set($duration = $mathtool.add($mathtool.mul(60,$doc.getValue('durationHour')), $doc.getValue('durationMinutes')))
+  $doc.set('duration', "$duration.toString()")
+  $doc.set('durationString', $doc.get('calc'))
+  $doc.set('hasBeenEdited', 0)
+  $doc.save()
+#elseif($context.action!='view')
+  $doc.set('durationHour', $durationHour.toString())
+  $doc.set('durationMinutes', $durationMinutes.toString())
+  $doc.set('hasBeenEdited', 1)
+  $doc.save()
+#elseif(!$isGuest)   ##context==view &amp;&amp; !hasBeenEdited if duration has been changed through the calendar view
+  $doc.set('durationString', $doc.get('calc'))
+  $doc.set('durationHour', $durationHour.toString())
+  $doc.set('durationMinutes', $durationMinutes.toString())
+  $doc.save()
+#end
+#if($request.createPoll == 'true')
+  $doc.set('hasPoll', 1)
+  $doc.save()
+  #set($title="XPoll for the Meeting $doc.name")
+  #set($newPollReference = $services.model.createDocumentReference('', 'XPoll', $title))
+  $response.sendRedirect($xwiki.getURL($newPollReference, 'edit', "$!{request.queryString}"))
+#end
+#if($request.sendNotification=='true')
+
+  #set($message = $msg.get('contrib.meeting.notification.body', ["$xwiki.getUserName($context.user)","&lt;strong&gt;$doc.getDisplayTitle()&lt;/strong&gt;"]))
+  #if($request.additionalMessage!='')
+    #set($message = "$message &lt;br&gt; $msg.get('contrib.hr.notification.additionalPart') $request.additionalMessage")
+  #end
+  #set($title = $msg.get('contrib.meeting.notification.title', ["$doc.getDisplayTitle()"]))
+  #set($link = $doc.getExternalURL())
+
+  ## Retrieve participants emails
+  #set($to = '')
+  #set($participants = $doc.getValue('participants'))
+  #set($listParticipants = $participants.split(','))
+  #foreach($element in $listParticipants)
+    #set($email = $xwiki.getUserName($element, '$email', false))
+    #if ("$!email" != '')
+      #set($to = "$to $email,")
+    #end
+  #end
+
+  ## Retrieve default From email
+  #set($serverName = "$!request.serverName")
+  #set($curentUserName = $xwiki.getUserName($xcontext.user, false))
+  #if($serverName != '')
+    #set($sender = "$!{escapetool.xml($curentUserName)} &lt;no-reply@$!{serverName}&gt;")
+  #else
+    #set($sender = "$!{escapetool.xml($curentUserName)} &lt;no-reply@xwiki.localdomain.com&gt;")
+  #end
+  #set($defaultMail = $xwiki.getXWikiPreference('admin_email', "$sender"))
+
+  #set($mailmsg = $services.mailsender.createMessage($defaultMail, $to, $title))
+  #set ($discard = $mailmsg.addPart('text/html', "$message &lt;br&gt; &lt;a href=$link&gt; $msg.get('contrib.meeting.notification.link') &lt;/a&gt;"))
+  #getVCalendarContent($doc, $vCalendar)
+  #set ($discard = $mailmsg.addPart('text/calendar;method=CANCEL', $vCalendar, {"headers" : {"Content-Class" : "urn:content-classes:calendarmessage"}}))
+  #set ($discard = $mailmsg.send())
+
+  #if($mailmsg.getErrors().size() == 0)
+    $msg.get('contrib.meeting.notification.success')
+  #else
+    {{warning}}$msg.get('contrib.meeting.notification.failure'){{/warning}}
+  #end
+#end
+## We don't have access to the form element to set the CSS class for the vertical form layout standard.
+(% class="xform" %)
+(((
+
+  (% class="row" %)
+  (((
+    (% class="col-md-12 col-sm-12 col-xs-12" %)
+    (((
+    ## Add a title of event in edit modetime
+    #if($xcontext.action=='edit')
+        ; &lt;label for="Meeting.MeetingClass_0_meetingTitle"&gt;#if($services.icon)$services.icon.render('font') #end $escapetool.xml($doc.displayPrettyName('meetingTitle', false, false))&lt;/label&gt;
+        : $doc.display('meetingTitle')
+    #end
+    )))
+  )))
+
+  (% class="row" %)
+  (((
+    (% class="col-md-4 col-sm-12 col-xs-12" %)
+    (((
+    ; &lt;label for="Meeting.MeetingClass_0_startDate"&gt;#if($services.icon)$services.icon.render('calendar') #end $msg.get('contrib.meeting.field.startDate')&lt;/label&gt;##
+      (% class="xHint" %)$msg.get('')
+    : $doc.display('startDate')
+    )))
+    (% class="col-md-4 col-sm-12 col-xs-12" %)
+    (((
+    ; &lt;label for="Meeting.MeetingClass_0_status"&gt;#if($services.icon)$services.icon.render('control_play') #end $msg.get('contrib.meeting.field.status')&lt;/label&gt;##
+      (% class="xHint" %)$msg.get('')
+    #if($context.action=='view')
+      : &lt;h5&gt;&lt;span class="label label-warning"&gt;$doc.display('status')&lt;/span&gt;&lt;/h5&gt;
+    #else
+      : $doc.display('status')
+    #end
+    )))
+    (% class="col-md-4 col-sm-12 col-xs-12" %)
+    (((
+    ; &lt;label for="Meeting.MeetingClass_0_leader"&gt;#if($services.icon)$services.icon.render('user') #end $msg.get('contrib.meeting.field.leader')&lt;/label&gt;##
+      (% class="xHint" %)$msg.get('')
+    : $doc.display('leader')
+    )))
+  )))
+
+  (% class="row" %)
+  (((
+    (% class="col-md-4 col-sm-12 col-xs-12" %)
+    (((
+    ; &lt;label for="Meeting.MeetingClass_0_place"&gt;#if($services.icon)$services.icon.render('map') #end $msg.get('contrib.meeting.field.place')&lt;/label&gt;##
+      (% class="xHint" %)$msg.get('')
+    : $doc.display('place')
+    )))
+    (% class="col-md-4 col-sm-12 col-xs-12" %)
+    (((
+    ; &lt;label for="Meeting.MeetingClass_0_calc"&gt;#if($services.icon)$services.icon.render('clock') #end $msg.get('contrib.meeting.field.duration')&lt;/label&gt;##
+      (% class="xHint" %)$msg.get('')
+    #if($context.action=='view')
+      : $doc.display('durationString')
+    #else
+      ##: $doc.display('duration')
+      ##; &lt;label for="Meeting.MeetingClass_0_durationHour"&gt;$msg.get('contrib.meeting.field.duration')&lt;/label&gt;
+      : &lt;div id="durationEdit"&gt; $doc.display('durationHour') h $doc.display('durationMinutes') min&lt;/div&gt;
+    #end
+    )))
+    (% class="col-md-4 col-sm-12 col-xs-12" %)
+    (((
+    ; &lt;label for="Meeting.MeetingClass_0_participants"&gt;#if($services.icon)$services.icon.render('user') #end $msg.get('contrib.meeting.field.participants')&lt;/label&gt;##
+      (% class="xHint" %)$msg.get('')
+    : $doc.display('participants')
+    )))
+  )))
+
+  #if($context.action=='view')
+    (% class="row" %)
+    (((
+      (% class="col-md-8 col-sm-12 col-xs-12" %)
+      (((
+        {{map location="$doc.getValue('place')" width="500" height="300"}}$doc.display('place'){{/map}}
+      )))
+    )))
+    &lt;br /&gt;
+  #end
+
+
+  (% class="row" %)
+  (((
+    (% class="col-md-8 col-sm-12 col-xs-12" %)
+    (((
+    ; &lt;label for="Meeting.MeetingClass_0_description"&gt;#if($services.icon)$services.icon.render('application_view_list') #end $msg.get('contrib.meeting.field.description')&lt;/label&gt;##
+      (% class="xHint" %)$msg.get('')
+    : $doc.display('description')
+    ; &lt;label for="Meeting.MeetingClass_0_notes"&gt;#if($services.icon)$services.icon.render('application_view_list') #end $msg.get('contrib.meeting.field.notes')&lt;/label&gt;##
+      (% class="xHint" %)$msg.get('')
+    : $doc.display('notes')
+    )))
+
+    (% class="col-md-4 col-sm-12 col-xs-12" %)
+    (((
+
+    #if($doc.isCurrentUserCreator() &amp;&amp; $doc.getValue('participants')!='' &amp;&amp; $context.action=='edit')
+    &lt;form id="sendNotification" action='' method='post' class="form form-control"&gt;
+      &lt;div class='presentation'&gt;
+        &lt;input type='hidden' name='sendNotification' value='true'&gt;
+        ; &lt;label for='additionalMessage'&gt;#if($services.icon)$services.icon.render('application_view_list') #end Notification&lt;/label&gt;
+        : &lt;textarea name="additionalMessage" cols='40' rows='4' placeholder="$msg.get('contrib.meeting.notification.additionalMessage')"&gt;&lt;/textarea&gt;
+        &lt;span class='buttonwrapper'&gt;
+          &lt;input type='submit' class='button' value="$msg.get('contrib.meeting.notification.submit')"/&gt;
+        &lt;/span&gt;
+      &lt;/div&gt;
+    &lt;/form&gt;
+    #end
+    )))
+  )))
+
+  (% class="row" %)
+  (((
+  #if($doc.isCurrentUserCreator() &amp;&amp; $xwiki.exists('XPoll.WebHome') &amp;&amp; $doc.getValue('status')=='value1' &amp;&amp; $context.action=='view')
+    #if($doc.getValue('hasPoll')==0)
+      &lt;form id="createXPoll" action='' method='get'&gt;
+        &lt;div class='presentation'&gt;
+          &lt;input type='hidden' name='createPoll' value='true'&gt;
+          &lt;input type="hidden" name="parent" value="Meeting.WebHome" /&gt;
+          &lt;input type="hidden" name="template" value="XPoll.XPollTemplate" /&gt;
+          &lt;span class='buttonwrapper'&gt;
+            &lt;input type='submit' class='button' value="$msg.get('contrib.meeting.createPoll')"/&gt;
+          &lt;/span&gt;
+        &lt;/div&gt;
+      &lt;/form&gt;
+    #else
+      #set($url = $xwiki.getURL("XPoll.XPoll for the Meeting $doc.name"))
+      &lt;form action=$url method='post'&gt;
+        &lt;div class='presentation'&gt;
+          &lt;p&gt;&lt;label&gt;$msg.get('contrib.meeting.poll.explanation')&lt;/label&gt;&lt;/p&gt;
+          &lt;span class='buttonwrapper'&gt;
+            &lt;input type='submit' class='button' value="$msg.get('contrib.meeting.poll.go')"/&gt;
+          &lt;/span&gt;
+        &lt;/div&gt;
+      &lt;/form&gt;
+    #end
+  #end
+
+))) ## end of .xform
+{{/html}}
+{{/velocity}}</content>
   <object>
     <class>
       <name>XWiki.JavaScriptExtension</name>
@@ -183,174 +400,4 @@ if(displayMap) {
       <use>onDemand</use>
     </property>
   </object>
-  <content>{{include reference="Meeting.Macros" /}}
-
-{{velocity}}
-{{html wiki="true"}}
-$xwiki.ssx.use('AppWithinMinutes.ClassSheetGenerator')
-$xwiki.ssx.use('Meeting.SkinExtension')
-$xwiki.jsx.use('Meeting.MeetingSheet')
-#set($discard = $doc.use('Meeting.MeetingClass'))
-#set($durationHour = $mathtool.floor($mathtool.div($doc.getValue('duration'),60)))
-#set($durationMinutes = $mathtool.sub($doc.getValue('duration'),$mathtool.mul(60,$durationHour)))
-#if($context.action=='view' &amp;&amp; $doc.get('hasBeenEdited') == 1)
-  #set($duration = $mathtool.add($mathtool.mul(60,$doc.getValue('durationHour')), $doc.getValue('durationMinutes')))
-  $doc.set('duration', "$duration.toString()")
-  $doc.set('durationString', $doc.get('calc'))
-  $doc.set('hasBeenEdited', 0)
-  $doc.save()
-#elseif($context.action!='view')
-  $doc.set('durationHour', $durationHour.toString())
-  $doc.set('durationMinutes', $durationMinutes.toString())
-  $doc.set('hasBeenEdited', 1)
-  $doc.save()
-#elseif(!$isGuest)   ##context==view &amp;&amp; !hasBeenEdited if duration has been changed through the calendar view
-  $doc.set('durationString', $doc.get('calc'))
-  $doc.set('durationHour', $durationHour.toString())
-  $doc.set('durationMinutes', $durationMinutes.toString())
-  $doc.save()
-#end
-#if($request.createPoll == 'true')
-  $doc.set('hasPoll', 1)
-  $doc.save()
-  #set($title="XPoll for the Meeting $doc.name")
-  #set($newPollReference = $services.model.createDocumentReference('', 'XPoll', $title))
-  $response.sendRedirect($xwiki.getURL($newPollReference, 'edit', "$!{request.queryString}"))
-#end
-#if($request.sendNotification=='true')
-
-  #set($message = $msg.get('contrib.meeting.notification.body', ["$xwiki.getUserName($context.user)","&lt;strong&gt;$doc.getDisplayTitle()&lt;/strong&gt;"]))
-  #if($request.additionalMessage!='')
-    #set($message = "$message &lt;br&gt; $msg.get('contrib.hr.notification.additionalPart') $request.additionalMessage")
-  #end
-  #set($title = $msg.get('contrib.meeting.notification.title', ["$doc.getDisplayTitle()"]))
-  #set($link = $doc.getExternalURL())
-
-  ## Retrieve participants emails
-  #set($to = '')
-  #set($participants = $doc.getValue('participants'))
-  #set($listParticipants = $participants.split(','))
-  #foreach($element in $listParticipants)
-    #set($email = $xwiki.getUserName($element, '$email', false))
-    #if ("$!email" != '')
-      #set($to = "$to $email,")
-    #end
-  #end
-
-  ## Retrieve default From email
-  #set($serverName = "$!request.serverName")
-  #set($curentUserName = $xwiki.getUserName($xcontext.user, false))
-  #if($serverName != '')
-    #set($sender = "$!{escapetool.xml($curentUserName)} &lt;no-reply@$!{serverName}&gt;")
-  #else
-    #set($sender = "$!{escapetool.xml($curentUserName)} &lt;no-reply@xwiki.localdomain.com&gt;")
-  #end
-  #set($defaultMail = $xwiki.getXWikiPreference('admin_email', "$sender"))
-
-  #set($mailmsg = $services.mailsender.createMessage($defaultMail, $to, $title))
-  #set ($discard = $mailmsg.addPart('text/html', "$message &lt;br&gt; &lt;a href=$link&gt; $msg.get('contrib.meeting.notification.link') &lt;/a&gt;"))
-  #getVCalendarContent($doc, $vCalendar)
-  #set ($discard = $mailmsg.addPart('text/calendar;method=CANCEL', $vCalendar, {"headers" : {"Content-Class" : "urn:content-classes:calendarmessage"}}))
-  #set ($discard = $mailmsg.send())
-
-  #if($mailmsg.getErrors().size() == 0)
-    $msg.get('contrib.meeting.notification.success')
-    $doc.set('lastEmailSent', $util.getDate())
-    $doc.save()
-  #else
-    {{warning}}$msg.get('contrib.meeting.notification.failure'){{/warning}}
-  #end
-#end
-## We don't have access to the form element to set the CSS class for the vertical form layout standard.
-(% class="xform" %)
-(((
-  ## Add a title of event in edit mode
-  #if($xcontext.action=='edit')
-      ; &lt;label for="Meeting.MeetingClass_0_meetingTitle"&gt;$msg.get('contrib.meeting.field.meetingTitle')&lt;/label&gt;
-      : $doc.display('meetingTitle')
-  #end
-  ; &lt;label for="Meeting.MeetingClass_0_startDate"&gt;$msg.get('contrib.meeting.field.startDate')&lt;/label&gt;##
-    (% class="xHint" %)$msg.get('')
-  : $doc.display('startDate')
-  ; &lt;label for="Meeting.MeetingClass_0_calc"&gt;$msg.get('contrib.meeting.field.duration')&lt;/label&gt;##
-    (% class="xHint" %)$msg.get('')
-  #if($context.action=='view')
-    : $doc.display('durationString')
-  #else
-    ##: $doc.display('duration')
-    ##; &lt;label for="Meeting.MeetingClass_0_durationHour"&gt; $msg.get('contrib.meeting.field.duration')&lt;/label&gt;
-    : &lt;div id=durationEdit&gt; $doc.display('durationHour') h $doc.display('durationMinutes') min&lt;/div&gt;
-  #end
-  ; &lt;label for="Meeting.MeetingClass_0_place"&gt;$msg.get('contrib.meeting.field.place')&lt;/label&gt;##
-  #if($xcontext.action=='view' &amp;&amp; $doc.getValue('displayMap') == 1 &amp;&amp; "${doc.getValue('place')}"!="")
-
-
-  {{map location="$doc.getValue('place')" width="500" height="300" errors="hide"}}$doc.display('place'){{/map}}
-
-  #else
-    (% class="xHint" %)$msg.get('')
-  : $doc.display('place')
-  #end
-  #if($context.action!='view')
-  ; &lt;label for="Meeting.MeetingClass_0_displayMap"&gt;$msg.get('contrib.meeting.field.displayMap')&lt;/label&gt;##
-    (% class="xHint" %)$msg.get('')
-  : $doc.display('displayMap') $doc.display('displayMapError')
-  #end
-  ; &lt;label for="Meeting.MeetingClass_0_description"&gt;$msg.get('contrib.meeting.field.description')&lt;/label&gt;##
-    (% class="xHint" %)$msg.get('')
-  : $doc.display('description')
-  ; &lt;label for="Meeting.MeetingClass_0_leader"&gt;$msg.get('contrib.meeting.field.leader')&lt;/label&gt;##
-    (% class="xHint" %)$msg.get('')
-  : $doc.display('leader')
-  ; &lt;label for="Meeting.MeetingClass_0_participants"&gt;$msg.get('contrib.meeting.field.participants')&lt;/label&gt;##
-    (% class="xHint" %)$msg.get('')
-  : $doc.display('participants')
-  ; &lt;label for="Meeting.MeetingClass_0_notes"&gt;$msg.get('contrib.meeting.field.notes')&lt;/label&gt;##
-    (% class="xHint" %)$msg.get('')
-  : $doc.display('notes')
-  #if($doc.isCurrentUserCreator() &amp;&amp; $doc.getValue('participants')!='' &amp;&amp; $context.action=='view')
-  &lt;form id="sendNotification" action='' method='post'&gt;
-    &lt;div class='presentation'&gt;
-      &lt;input type='hidden' name='sendNotification' value='true'&gt;
-      &lt;p&gt;&lt;label for='additionalMessage'&gt;$msg.get('contrib.meeting.notification.additionalMessage')&lt;/label&gt;&lt;/p&gt;
-      &lt;textarea name="additionalMessage" cols='40' rows='4'&gt;&lt;/textarea&gt;&lt;br&gt;
-      #if($doc.getValue('lastEmailSent'))
-        &lt;p&gt;$msg.get('contrib.meeting.field.lastEmailSent') &lt;b&gt;$doc.display('lastEmailSent')&lt;/b&gt;&lt;/p&gt;
-      #end
-      &lt;span class='buttonwrapper'&gt;
-        &lt;input type='submit' class='button' value="$msg.get('contrib.meeting.notification.submit')"/&gt;
-      &lt;/span&gt;
-    &lt;/div&gt;
-  &lt;/form&gt;
-  #end
-  ; &lt;label for="Meeting.MeetingClass_0_status"&gt;$msg.get('contrib.meeting.field.status')&lt;/label&gt;##
-    (% class="xHint" %)$msg.get('')
-  : $doc.display('status')
-  #if($doc.isCurrentUserCreator() &amp;&amp; $xwiki.exists('XPoll.WebHome') &amp;&amp; $doc.getValue('status')=='value1' &amp;&amp; $context.action=='view')
-    #if($doc.getValue('hasPoll')==0)
-      &lt;form id="createXPoll" action='' method='get'&gt;
-        &lt;div class='presentation'&gt;
-          &lt;input type='hidden' name='createPoll' value='true'&gt;
-          &lt;input type="hidden" name="parent" value="Meeting.WebHome" /&gt;
-          &lt;input type="hidden" name="template" value="XPoll.XPollTemplate" /&gt;
-          &lt;span class='buttonwrapper'&gt;
-            &lt;input type='submit' class='button' value="$msg.get('contrib.meeting.createPoll')"/&gt;
-          &lt;/span&gt;
-        &lt;/div&gt;
-      &lt;/form&gt;
-    #else
-      #set($url = $xwiki.getURL("XPoll.XPoll for the Meeting $doc.name"))
-      &lt;form action=$url method='post'&gt;
-        &lt;div class='presentation'&gt;
-          &lt;p&gt;&lt;label&gt;$msg.get('contrib.meeting.poll.explanation')&lt;/label&gt;&lt;/p&gt;
-          &lt;span class='buttonwrapper'&gt;
-            &lt;input type='submit' class='button' value="$msg.get('contrib.meeting.poll.go')"/&gt;
-          &lt;/span&gt;
-        &lt;/div&gt;
-      &lt;/form&gt;
-    #end
-  #end
-)))
-{{/html}}
-{{/velocity}}</content>
 </xwikidoc>
