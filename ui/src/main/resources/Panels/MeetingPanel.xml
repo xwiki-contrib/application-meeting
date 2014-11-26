@@ -127,7 +127,7 @@
     <property>
       <content>{{velocity}}
 #if($context.action != 'inline')
-  #panelheader("$msg.get('contrib.meeting.panel.title')")
+  #panelheader("$services.localization.render('contrib.meeting.panel.title')")
   #set($sql = ", BaseObject as obj, DateProperty as startDate, StringProperty as status where obj.name=doc.fullName
   and obj.className='Meeting.MeetingClass' and obj.name&lt;&gt;'Meeting.MeetingTemplate' and obj.id=startDate.id.id
   and startDate.id.name='startDate' and obj.id=status.id.id and status.id.name='status' and status.value in
@@ -145,7 +145,7 @@
     #end
   #end
   #if($i==0)
-    $msg.get('contrib.meeting.panel.noMeetings')
+    $services.localization.render('contrib.meeting.panel.noMeetings')
   #end
   #panelfooter()
 #end
