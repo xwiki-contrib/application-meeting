@@ -190,7 +190,7 @@ $xwiki.jsx.use('Meeting.MeetingSheet')
         (% class="col-sm-12 col-xs-12" %)
         (((
           #if($context.action=="view" &amp;&amp; $doc.getValue('displayMap') == 1 &amp;&amp; "${doc.getValue('place')}"!="")
-            ((({{map location="$doc.getValue('place')" width="500" height="300"}}$doc.display('place'){{/map}})))
+            ((({{map location="$doc.getValue('place')" width="500" height="300" errors="hide"}}$doc.display('place'){{/map}})))
           #end
           ; &lt;label for="Meeting.MeetingClass_0_description"&gt;#if($services.icon)$services.icon.render('application_view_list') #end     $msg.get('contrib.meeting.field.description')&lt;/label&gt;##
           (% class="xHint" %)$msg.get('')
