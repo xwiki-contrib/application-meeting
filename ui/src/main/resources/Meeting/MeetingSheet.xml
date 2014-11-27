@@ -210,18 +210,21 @@ $xwiki.jsx.use('Meeting.MeetingSheet')
       ; &lt;label for="Meeting.MeetingClass_0_participants"&gt;#if($services.icon)$services.icon.render('user') #end $msg.get('contrib.meeting.field.participants')&lt;/label&gt;##
       (% class="xHint" %)$msg.get('')
       : $doc.display('participants')
-      #if($doc.isCurrentUserCreator() &amp;&amp; $doc.getValue('participants')!='' &amp;&amp; $context.action=='edit')
-    &lt;form id="sendNotification" action='' method='post' class="form form-control"&gt;
-      &lt;div class='presentation'&gt;
-        &lt;input type='hidden' name='sendNotification' value='true'&gt;
-        ; &lt;label for='additionalMessage'&gt;#if($services.icon)$services.icon.render('application_view_list') #end Notification&lt;/label&gt;
-        : &lt;textarea name="additionalMessage" cols='40' rows='4' placeholder="$msg.get('contrib.meeting.notification.additionalMessage')"&gt;&lt;/textarea&gt;
-        &lt;span class='buttonwrapper'&gt;
-          &lt;input type='submit' class='button' value="$msg.get('contrib.meeting.notification.submit')"/&gt;
-        &lt;/span&gt;
-      &lt;/div&gt;
-    &lt;/form&gt;
-    #end
+      #if($doc.isCurrentUserCreator() &amp;&amp; $doc.getValue('participants')!='' &amp;&amp; $context.action=='view')
+        &lt;form id="sendNotification" action='' method='post'&gt;
+          &lt;div class='presentation'&gt;
+            &lt;input type='hidden' name='sendNotification' value='true'&gt;
+            &lt;label for='additionalMessage'&gt;$services.localization.render('contrib.meeting.notification.additionalMessage')&lt;/label&gt;&lt;br/&gt;
+            &lt;textarea name="additionalMessage" cols='40' rows='4'&gt;&lt;/textarea&gt;&lt;br/&gt;
+            #if($doc.getValue('lastEmailSent'))
+              &lt;p&gt;$services.localization.render('contrib.meeting.field.lastEmailSent') &lt;b&gt;$doc.display('lastEmailSent')&lt;/b&gt;&lt;/p&gt;
+            #end
+            &lt;span class='buttonwrapper'&gt;
+              &lt;input type='submit' class='button' value="$services.localization.render('contrib.meeting.notification.submit')"/&gt;
+            &lt;/span&gt;
+          &lt;/div&gt;
+        &lt;/form&gt;
+      #end
     )))
   )))
 
