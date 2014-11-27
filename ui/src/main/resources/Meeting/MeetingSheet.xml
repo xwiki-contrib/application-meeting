@@ -337,6 +337,13 @@ if(displayMap) {
       $('Meeting.MeetingClass_0_displayMapError').remove();
     }
   });
+
+   //Upon updating location remove message
+  $('Meeting.MeetingClass_0_place').observe('change', function() {
+    if(!$('Meeting.MeetingClass_0_displayMapError')) {
+      displayMap.insert({ after: '&lt;input type="hidden" value="" name="Meeting.MeetingClass_0_displayMapError" id="Meeting.MeetingClass_0_displayMapError"&gt;' });
+    }
+  });
   }</code>
     </property>
     <property>
