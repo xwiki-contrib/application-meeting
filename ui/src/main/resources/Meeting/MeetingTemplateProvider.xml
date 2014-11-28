@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <!--
  * See the NOTICE file distributed with this work for additional
  * information regarding copyright ownership.
@@ -20,30 +19,32 @@
  * 02110-1301 USA, or see the FSF site: http://www.fsf.org.
 -->
 
-<xwikidoc>
+<xwikidoc version="1.1">
   <web>Meeting</web>
   <name>MeetingTemplateProvider</name>
   <language/>
   <defaultLanguage/>
   <translation>0</translation>
-  <parent>XWiki.TemplateProviderClass</parent>
   <creator>xwiki:XWiki.Admin</creator>
+  <parent>XWiki.TemplateProviderClass</parent>
   <author>xwiki:XWiki.Admin</author>
-  <customClass/>
   <contentAuthor>xwiki:XWiki.Admin</contentAuthor>
   <creationDate>1355416566000</creationDate>
   <date>1355418901000</date>
   <contentUpdateDate>1355418901000</contentUpdateDate>
   <version>1.1</version>
   <title>MeetingTemplateProvider</title>
-  <template/>
-  <defaultTemplate/>
-  <validationScript/>
   <comment/>
   <minorEdit>false</minorEdit>
   <syntaxId>xwiki/2.0</syntaxId>
   <hidden>true</hidden>
+  <content>{{include reference="XWiki.TemplateProviderSheet"/}}
+</content>
   <object>
+    <name>Meeting.MeetingTemplateProvider</name>
+    <number>0</number>
+    <className>XWiki.TemplateProviderClass</className>
+    <guid>00d98a57-d20e-44d5-9f58-7abf8bc3e8fd</guid>
     <class>
       <name>XWiki.TemplateProviderClass</name>
       <customClass/>
@@ -146,10 +147,6 @@
         <classType>com.xpn.xwiki.objects.classes.StaticListClass</classType>
       </type>
     </class>
-    <name>Meeting.MeetingTemplateProvider</name>
-    <number>0</number>
-    <className>XWiki.TemplateProviderClass</className>
-    <guid>00d98a57-d20e-44d5-9f58-7abf8bc3e8fd</guid>
     <property>
       <action>edit</action>
     </property>
@@ -168,6 +165,4 @@
       <type>page</type>
     </property>
   </object>
-  <content>{{include reference="XWiki.TemplateProviderSheet"/}}
-</content>
 </xwikidoc>
