@@ -57,6 +57,10 @@
       <id>bandoulyes</id>
       <name>Lyes Bandou</name>
     </developer>
+    <developer>
+      <id>gabrielasmeria</id>
+      <name>Gabriela Smeria</name>
+    </developer>
   </developers>
   <scm>
     <connection>scm:git:git://github.com/xwiki-contrib/application-meeting.git</connection>
