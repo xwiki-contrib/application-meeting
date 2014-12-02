@@ -110,7 +110,7 @@
 
 #macro (getVCalendarContent $meetingDoc $return)
     #getMeetingInfos($meetingDoc, $meeting)
-    #set($description = "$msg.get('contrib.meeting.notification.view.event') $!{meetingDoc.getExternalURL()}")
+    #set($description = "$services.localization.render('contrib.meeting.notification.view.event') $!{meetingDoc.getExternalURL()}")
     #set($vcalendar = "
       BEGIN:VCALENDAR
       METHOD:REQUEST
