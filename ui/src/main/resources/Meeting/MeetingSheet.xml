@@ -198,6 +198,30 @@ $xwiki.jsx.use('Meeting.MeetingSheet')
           ; &lt;label for="Meeting.MeetingClass_0_notes"&gt;#if($services.icon)$services.icon.render('application_view_list') #end $msg.get('contrib.meeting.field.notes')&lt;/label&gt;##
           (% class="xHint" %)$msg.get('')
           : $doc.display('notes')
+          #if($doc.isCurrentUserCreator() &amp;&amp; $xwiki.exists('XPoll.WebHome') &amp;&amp; $doc.getValue('status')=='value1' &amp;&amp; $context.action=='view')
+            #if($doc.getValue('hasPoll')==0)
+              &lt;form id="createXPoll" action='' method='get'&gt;
+                &lt;div class='presentation'&gt;
+                  &lt;input type='hidden' name='createPoll' value='true'&gt;
+                  &lt;input type="hidden" name="parent" value="Meeting.WebHome" /&gt;
+                  &lt;input type="hidden" name="template" value="XPoll.XPollTemplate" /&gt;
+                  &lt;span class='buttonwrapper'&gt;
+                    &lt;input type='submit' class='button' value="$msg.get('contrib.meeting.createPoll')"/&gt;
+                  &lt;/span&gt;
+                &lt;/div&gt;
+              &lt;/form&gt;
+            #else
+              #set($url = $xwiki.getURL("XPoll.XPoll for the Meeting $doc.name"))
+                &lt;form action=$url method='post'&gt;
+                  &lt;div class='presentation'&gt;
+                    &lt;p&gt;&lt;label&gt;$msg.get('contrib.meeting.poll.explanation')&lt;/label&gt;&lt;/p&gt;
+                    &lt;span class='buttonwrapper'&gt;
+                      &lt;input type='submit' class='button' value="$msg.get('contrib.meeting.poll.go')"/&gt;
+                    &lt;/span&gt;
+                  &lt;/div&gt;
+                &lt;/form&gt;
+            #end
+          #end
         )))
       )))
     )))
@@ -227,34 +251,6 @@ $xwiki.jsx.use('Meeting.MeetingSheet')
       #end
     )))
   )))
-
-  (% class="row" %)
-  (((
-  #if($doc.isCurrentUserCreator() &amp;&amp; $xwiki.exists('XPoll.WebHome') &amp;&amp; $doc.getValue('status')=='value1' &amp;&amp; $context.action=='view')
-    #if($doc.getValue('hasPoll')==0)
-      &lt;form id="createXPoll" action='' method='get'&gt;
-        &lt;div class='presentation'&gt;
-          &lt;input type='hidden' name='createPoll' value='true'&gt;
-          &lt;input type="hidden" name="parent" value="Meeting.WebHome" /&gt;
-          &lt;input type="hidden" name="template" value="XPoll.XPollTemplate" /&gt;
-          &lt;span class='buttonwrapper'&gt;
-            &lt;input type='submit' class='button' value="$msg.get('contrib.meeting.createPoll')"/&gt;
-          &lt;/span&gt;
-        &lt;/div&gt;
-      &lt;/form&gt;
-    #else
-      #set($url = $xwiki.getURL("XPoll.XPoll for the Meeting $doc.name"))
-      &lt;form action=$url method='post'&gt;
-        &lt;div class='presentation'&gt;
-          &lt;p&gt;&lt;label&gt;$msg.get('contrib.meeting.poll.explanation')&lt;/label&gt;&lt;/p&gt;
-          &lt;span class='buttonwrapper'&gt;
-            &lt;input type='submit' class='button' value="$msg.get('contrib.meeting.poll.go')"/&gt;
-          &lt;/span&gt;
-        &lt;/div&gt;
-      &lt;/form&gt;
-    #end
-  #end
-
 ))) ## end of .xform
 {{/html}}
 {{/velocity}}</content>
