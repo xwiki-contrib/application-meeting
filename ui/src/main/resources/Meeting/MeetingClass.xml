@@ -348,7 +348,7 @@ $doc.save()
       <customDisplay/>
       <dateFormat>dd/MM/yyyy HH:mm</dateFormat>
       <disabled>0</disabled>
-      <emptyIsToday>0</emptyIsToday>
+      <emptyIsToday>1</emptyIsToday>
       <name>startDate</name>
       <number>2</number>
       <picker>1</picker>
