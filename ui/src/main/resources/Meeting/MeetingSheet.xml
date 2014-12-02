@@ -157,7 +157,7 @@ $xwiki.jsx.use('Meeting.MeetingSheet')
     ; &lt;label for="Meeting.MeetingClass_0_status"&gt;#if($services.icon)$services.icon.render('control_play') #end $services.localization.render('contrib.meeting.field.status')&lt;/label&gt;##
       (% class="xHint" %)$services.localization.render('')
     #if($context.action=='view')
-      : &lt;h5&gt;&lt;span class="label label-warning"&gt;$doc.display('status')&lt;/span&gt;&lt;/h5&gt;
+      : &lt;span class="label label-warning"&gt;$doc.display('status')&lt;/span&gt;
     #else
       : $doc.display('status')
     #end
