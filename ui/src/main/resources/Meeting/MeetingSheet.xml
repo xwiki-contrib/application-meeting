@@ -109,9 +109,11 @@ $xwiki.jsx.use('Meeting.MeetingSheet')
   #set ($discard = $mailmsg.send())
 
   #if($mailmsg.getErrors().size() == 0)
-    $services.localization.render('contrib.meeting.notification.success')
     $doc.set('lastEmailSent', $util.getDate())
     $doc.save()
+    &lt;script type='text/javascript'&gt;
+      new XWiki.widgets.Notification('$services.localization.render('contrib.meeting.notification.success')', 'done', {'timeout': 5});
+    &lt;/script&gt;
   #else
     {{warning}}$services.localization.render('contrib.meeting.notification.failure'){{/warning}}
   #end
