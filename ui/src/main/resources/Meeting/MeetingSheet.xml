@@ -194,12 +194,20 @@ $xwiki.jsx.use('Meeting.MeetingSheet')
           #if($context.action=="view" &amp;&amp; $doc.getValue('displayMap') == 1 &amp;&amp; "${doc.getValue('place')}"!="")
             ((({{map location="$doc.getValue('place')" width="500" height="300" errors="hide"}}$doc.display('place'){{/map}})))
           #end
-          #if ("$!doc.display('description')" != '')
+          #if (("$!doc.getValue('description').trim()" != '') &amp;&amp; ($context.action=="view"))
+            ; &lt;label for="Meeting.MeetingClass_0_description"&gt;#if($services.icon)$services.icon.render('application_view_list') #end     $services.localization.render('contrib.meeting.field.description')&lt;/label&gt;
+            : $doc.getValue('description')
+          #end
+          #if ($context.action=="edit")
             ; &lt;label for="Meeting.MeetingClass_0_description"&gt;#if($services.icon)$services.icon.render('application_view_list') #end     $services.localization.render('contrib.meeting.field.description')&lt;/label&gt;##
             (% class="xHint" %)$services.localization.render('')
             : $doc.display('description')
           #end
-          #if ("$!doc.display('notes')" != '')
+          #if (("$!doc.getValue('notes').trim()" != '') &amp;&amp; ($context.action=="view"))
+            ; &lt;label for="Meeting.MeetingClass_0_notes"&gt;#if($services.icon)$services.icon.render('application_view_list') #end $services.localization.render('contrib.meeting.field.notes')&lt;/label&gt;
+            : $doc.getValue('notes')
+          #end
+          #if ($context.action=="edit")
             ; &lt;label for="Meeting.MeetingClass_0_notes"&gt;#if($services.icon)$services.icon.render('application_view_list') #end $services.localization.render('contrib.meeting.field.notes')&lt;/label&gt;##
             (% class="xHint" %)$services.localization.render('')
             : $doc.display('notes')
