@@ -172,9 +172,11 @@ $xwiki.jsx.use('Meeting.MeetingSheet')
       (((
         (% class="col-sm-6 col-xs-12 " %)
         (((
-          ; &lt;label for="Meeting.MeetingClass_0_place"&gt;#if($services.icon)$services.icon.render('map') #end $services.localization.render('contrib.meeting.field.place')&lt;/label&gt;##
-          (% class="xHint" %)$services.localization.render('')
-          : $doc.display('place')
+          #if ("$!doc.display('place')" != '')
+            ; &lt;label for="Meeting.MeetingClass_0_place"&gt;#if($services.icon)$services.icon.render('map') #end $services.localization.render('contrib.meeting.field.place')&lt;/label&gt;##
+            (% class="xHint" %)$services.localization.render('')
+            : $doc.display('place')
+          #end
         )))
         (% class="col-sm-6 col-xs-12 " %)
         (((
@@ -192,12 +194,16 @@ $xwiki.jsx.use('Meeting.MeetingSheet')
           #if($context.action=="view" &amp;&amp; $doc.getValue('displayMap') == 1 &amp;&amp; "${doc.getValue('place')}"!="")
             ((({{map location="$doc.getValue('place')" width="500" height="300" errors="hide"}}$doc.display('place'){{/map}})))
           #end
-          ; &lt;label for="Meeting.MeetingClass_0_description"&gt;#if($services.icon)$services.icon.render('application_view_list') #end     $services.localization.render('contrib.meeting.field.description')&lt;/label&gt;##
-          (% class="xHint" %)$services.localization.render('')
-          : $doc.display('description')
-          ; &lt;label for="Meeting.MeetingClass_0_notes"&gt;#if($services.icon)$services.icon.render('application_view_list') #end $services.localization.render('contrib.meeting.field.notes')&lt;/label&gt;##
-          (% class="xHint" %)$services.localization.render('')
-          : $doc.display('notes')
+          #if ("$!doc.display('description')" != '')
+            ; &lt;label for="Meeting.MeetingClass_0_description"&gt;#if($services.icon)$services.icon.render('application_view_list') #end     $services.localization.render('contrib.meeting.field.description')&lt;/label&gt;##
+            (% class="xHint" %)$services.localization.render('')
+            : $doc.display('description')
+          #end
+          #if ("$!doc.display('notes')" != '')
+            ; &lt;label for="Meeting.MeetingClass_0_notes"&gt;#if($services.icon)$services.icon.render('application_view_list') #end $services.localization.render('contrib.meeting.field.notes')&lt;/label&gt;##
+            (% class="xHint" %)$services.localization.render('')
+            : $doc.display('notes')
+          #end
           #if($doc.isCurrentUserCreator() &amp;&amp; $xwiki.exists('XPoll.WebHome') &amp;&amp; $doc.getValue('status')=='value1' &amp;&amp; $context.action=='view')
             #if($doc.getValue('hasPoll')==0)
               &lt;form id="createXPoll" action='' method='get'&gt;
@@ -228,12 +234,16 @@ $xwiki.jsx.use('Meeting.MeetingSheet')
 
     (% class="col-md-4 col-sm-12 col-xs-12" %)
     (((
-      ; &lt;label for="Meeting.MeetingClass_0_leader"&gt;#if($services.icon)$services.icon.render('user') #end $services.localization.render('contrib.meeting.field.leader')&lt;/label&gt;##
-      (% class="xHint" %)$services.localization.render('')
-      : $doc.display('leader')
-      ; &lt;label for="Meeting.MeetingClass_0_participants"&gt;#if($services.icon)$services.icon.render('user') #end $services.localization.render('contrib.meeting.field.participants')&lt;/label&gt;##
-      (% class="xHint" %)$services.localization.render('')
-      : $doc.display('participants')
+      #if ("$!doc.getValue('leader')" != '')
+        ; &lt;label for="Meeting.MeetingClass_0_leader"&gt;#if($services.icon)$services.icon.render('user') #end $services.localization.render('contrib.meeting.field.leader')&lt;/label&gt;##
+        (% class="xHint" %)$services.localization.render('')
+        : $doc.display('leader')
+      #end
+      #if ("$!doc.getValue('participants')" != '')
+        ; &lt;label for="Meeting.MeetingClass_0_participants"&gt;#if($services.icon)$services.icon.render('user') #end $services.localization.render('contrib.meeting.field.participants')&lt;/label&gt;##
+        (% class="xHint" %)$services.localization.render('')
+        : $doc.display('participants')
+      #end
       #if($doc.isCurrentUserCreator() &amp;&amp; $doc.getValue('participants')!='' &amp;&amp; $context.action=='view')
         &lt;form id="sendNotification" action='' method='post'&gt;
           &lt;div class='presentation'&gt;
