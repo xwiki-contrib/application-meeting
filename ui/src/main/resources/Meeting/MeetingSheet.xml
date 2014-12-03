@@ -243,12 +243,20 @@ $xwiki.jsx.use('Meeting.MeetingSheet')
 
     (% class="col-md-4 col-sm-12 col-xs-12" %)
     (((
-      #if ("$!doc.getValue('leader')" != '')
+      #if ("$!doc.getValue('leader')" != '' &amp;&amp; ($context.action=="view"))
+        ; &lt;label for="Meeting.MeetingClass_0_leader"&gt;#if($services.icon)$services.icon.render('user') #end $services.localization.render('contrib.meeting.field.leader')&lt;/label&gt;
+        : $doc.display('leader')
+      #end
+      #if($context.action == 'edit')
         ; &lt;label for="Meeting.MeetingClass_0_leader"&gt;#if($services.icon)$services.icon.render('user') #end $services.localization.render('contrib.meeting.field.leader')&lt;/label&gt;##
         (% class="xHint" %)$services.localization.render('')
         : $doc.display('leader')
       #end
-      #if ("$!doc.getValue('participants')" != '')
+      #if ("$!doc.getValue('participants')" != '' &amp;&amp; ($context.action=="view"))
+        ; &lt;label for="Meeting.MeetingClass_0_participants"&gt;#if($services.icon)$services.icon.render('user') #end $services.localization.render('contrib.meeting.field.participants')&lt;/label&gt;
+        : $doc.display('participants')
+      #end
+      #if($context.action == 'edit')
         ; &lt;label for="Meeting.MeetingClass_0_participants"&gt;#if($services.icon)$services.icon.render('user') #end $services.localization.render('contrib.meeting.field.participants')&lt;/label&gt;##
         (% class="xHint" %)$services.localization.render('')
         : $doc.display('participants')
