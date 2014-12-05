@@ -135,13 +135,13 @@ $xwiki.jsx.use('Meeting.MeetingSheet')
 
   (% class="row" %)
   (((
-    (% class="col-md-4 col-sm-12 col-xs-12" %)
+    (% class="col-xs-12 col-sm-4" %)
     (((
     ; &lt;label for="Meeting.MeetingClass_0_startDate"&gt;#if($services.icon)$services.icon.render('calendar') #end $services.localization.render('contrib.meeting.field.startDate')&lt;/label&gt;##
       (% class="xHint" %)$services.localization.render('')
     : $doc.display('startDate')
     )))
-    (% class="col-md-4 col-sm-12 col-xs-12" %)
+    (% class="col-xs-12 col-sm-4" %)
     (((
     ; &lt;label for="Meeting.MeetingClass_0_calc"&gt;#if($services.icon)$services.icon.render('clock') #end $services.localization.render('contrib.meeting.field.duration')&lt;/label&gt;##
       (% class="xHint" %)$services.localization.render('')
@@ -153,7 +153,7 @@ $xwiki.jsx.use('Meeting.MeetingSheet')
       : &lt;div id="durationEdit"&gt; $doc.display('durationHour') h $doc.display('durationMinutes') min&lt;/div&gt;
     #end
     )))
-    (% class="col-md-4 col-sm-12 col-xs-12" %)
+    (% class="col-xs-12 col-sm-4" %)
     (((
     ; &lt;label for="Meeting.MeetingClass_0_status"&gt;#if($services.icon)$services.icon.render('control_play') #end $services.localization.render('contrib.meeting.field.status')&lt;/label&gt;##
       (% class="xHint" %)$services.localization.render('')
@@ -167,11 +167,11 @@ $xwiki.jsx.use('Meeting.MeetingSheet')
 
   (% class="row" %)
   (((
-    (% class="col-md-8 col-sm-12 col-xs-12" %)
+    (% class="col-md-8 col-sm-8 col-xs-12" %)
     (((
       (% class="row" %)
       (((
-        (% class="col-sm-6 col-xs-12 " %)
+        (% class="col-md-6 col-sm-6 col-xs-12" %)
         (((
           #if ("$!doc.display('place')" != '')
             ; &lt;label for="Meeting.MeetingClass_0_place"&gt;#if($services.icon)$services.icon.render('map') #end $services.localization.render('contrib.meeting.field.place')&lt;/label&gt;##
@@ -179,7 +179,7 @@ $xwiki.jsx.use('Meeting.MeetingSheet')
             : $doc.display('place')
           #end
         )))
-        (% class="col-sm-6 col-xs-12 " %)
+        (% class="col-md-6 col-sm-6 col-xs-12" %)
         (((
           #if($context.action=="edit")
             ; &lt;label for="Meeting.MeetingClass_0_displayMap"&gt;#if($services.icon)$services.icon.render('map') #end $services.localization.render('contrib.meeting.field.displayMap')&lt;/label&gt;##
@@ -241,7 +241,7 @@ $xwiki.jsx.use('Meeting.MeetingSheet')
       )))
     )))
 
-    (% class="col-md-4 col-sm-12 col-xs-12" %)
+    (% class="col-xs-12 col-sm-4" %)
     (((
       #if ("$!doc.getValue('leader')" != '' &amp;&amp; ($context.action=="view"))
         ; &lt;label for="Meeting.MeetingClass_0_leader"&gt;#if($services.icon)$services.icon.render('user') #end $services.localization.render('contrib.meeting.field.leader')&lt;/label&gt;
