@@ -48,7 +48,7 @@
   'leader': {"type":"text","size":10,"html":true},
   'place': {"type":"text","size":10},
   'startDate': {"type":"text","size":10},
-  'durationString': {"type":"text","filterable":true,"sortable":false,"html":true},
+  'durationString': {"type":"text","filterable":true,"sortable":true,"html":true},
   'status': {"type":"list","size":10},
   '_actions': {"sortable":false,"filterable":false,"html":true,"actions":["delete"]}
 })
