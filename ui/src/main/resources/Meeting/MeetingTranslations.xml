@@ -46,7 +46,8 @@ Meeting.MeetingClass_status_value2=Active
 Meeting.MeetingClass_status_value3=Cancelled
 Meeting.MeetingClass_status_value4=Finished
 
-contrib.meeting.application.title=Meetings
+contrib.meeting.app.title=Meetings
+contrib.meeting.home.title=Meetings
 contrib.meeting.calendarView=Calendar View
 contrib.meeting.calendarView.title=Calendar View
 contrib.meeting.calendarView.noMacro.admin=To display the calendar view of the meetings, you need to install the Full Calendar Macro on this wiki :
