@@ -125,25 +125,7 @@
       <content>{{velocity}}
 #if($context.action != 'inline')
   #panelheader("$services.localization.render('contrib.meeting.panel.title')")
-  #set($sql = ", BaseObject as obj, DateProperty as startDate, StringProperty as status where obj.name=doc.fullName
-  and obj.className='Meeting.MeetingClass' and obj.name&lt;&gt;'Meeting.MeetingTemplate' and obj.id=startDate.id.id
-  and startDate.id.name='startDate' and obj.id=status.id.id and status.id.name='status' and status.value in
-  ('value1','value2') order by startDate.value asc")
-  #set($i = 0)
-  #foreach($item in $xwiki.searchDocuments($sql))  
-    #set($document = $xwiki.getDocument($item))
-    #set($meetingDate = $document.getValue('startDate'))
-    #if($xwiki.getDocument($item).hasAccessLevel('view', $context.user) == 'true' &amp;&amp; $meetingDate.compareTo($xwiki.getDate())==1)
-       * $xwiki.getDocument($item).display('startDate','view') : [[$xwiki.getDocument($item).getDisplayTitle()&gt;&gt;$item]]
-       #set($i = $i + 1)
-       #if($i==5)
-         #break
-       #end
-    #end
-  #end
-  #if($i==0)
-    $services.localization.render('contrib.meeting.panel.noMeetings')
-  #end
+  {{nextmeetings/}}
   #panelfooter()
 #end
 {{/velocity}}

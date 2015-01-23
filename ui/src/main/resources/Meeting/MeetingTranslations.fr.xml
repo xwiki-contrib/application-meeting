@@ -84,6 +84,8 @@ contrib.hr.notification.additionalPart=Son message :
 
 contrib.meeting.panel.title=Prochaines réunions
 contrib.meeting.panel.noMeetings=Il n'y a aucune réunion à venir.
+contrib.meeting.panel.addmeeting=Ajouter réunion
+contrib.meeting.panel.viewallmeetings=Voir toutes les réunions
 
 contrib.meeting.createPoll=Créer un sondage pour cette réunion
 contrib.meeting.poll.explanation=Un sondage a été créé pour définir les modalités de cette réunion. Cliquez sur le lien ci-dessous pour y accéder.

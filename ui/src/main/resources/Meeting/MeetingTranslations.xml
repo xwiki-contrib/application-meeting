@@ -84,9 +84,10 @@ contrib.meeting.notification.submit=Send an invitation email to these users
 contrib.meeting.notification.additionalMessage=Type here the message you want to send to the participants (optional) :
 contrib.hr.notification.additionalPart=His/her message:
 
-
 contrib.meeting.panel.title=Next meetings
 contrib.meeting.panel.noMeetings=There are no upcoming meetings.
+contrib.meeting.panel.addmeeting=Add meeting
+contrib.meeting.panel.viewallmeetings=View all meetings
 
 contrib.meeting.createPoll=Create a poll for this meeting
 contrib.meeting.poll.explanation=A poll has been created in order to define the meeting details. Click on the link below to access it.
