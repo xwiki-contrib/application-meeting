@@ -47,7 +47,7 @@ Meeting.MeetingClass_status_value3=Annulé
 Meeting.MeetingClass_status_value4=Fini
 
 contrib.meeting.app.title=Réunions
-contrib.meeting.home.title=Réunion
+contrib.meeting.home.title=Réunions
 contrib.meeting.calendarView=Vue calendaire
 contrib.meeting.calendarView.title=Vue calendaire
 contrib.meeting.calendarView.noMacro.admin=Pour pouvoir avoir une vue calendaire des réunions, il faut installer la Macro FullCalendar sur ce Wiki :
