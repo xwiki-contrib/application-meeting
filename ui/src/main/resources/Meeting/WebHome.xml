@@ -34,7 +34,7 @@
   <date>1386767586000</date>
   <contentUpdateDate>1386767586000</contentUpdateDate>
   <version>1.1</version>
-  <title>$services.localization.render('platform.appwithinminutes.appHomePageTitle', $doc.space)</title>
+  <title>$services.localization.render('contrib.meeting.home.title')</title>
   <comment/>
   <minorEdit>false</minorEdit>
   <syntaxId>xwiki/2.0</syntaxId>
@@ -244,7 +244,7 @@
       <name>platform.panels.MeetingApplication</name>
     </property>
     <property>
-      <parameters>label=Meeting
+      <parameters>label=$services.localization.render('contrib.meeting.app.title')
 target=Meeting.WebHome
 icon=icon:calendar</parameters>
     </property>
