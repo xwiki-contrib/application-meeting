@@ -119,18 +119,18 @@
       <cache>long</cache>
     </property>
     <property>
-      <code>ul.meeting-nextmeetings {
+      <code>.meetings-next {
   margin: 0;
   overflow: hidden;
   padding: 0;
 }
 
-ul.meeting-nextmeetings li {
+.meetings-next li {
   list-style-type: none;
   padding: 0.1em 0;
 }
 
-ul.meeting-nextmeetings li a.homelink {
+.meetings-next li a.homelink {
   display: inline-block;
   margin-top: 10px;
 }</code>
@@ -266,7 +266,7 @@ ul.meeting-nextmeetings li a.homelink {
 #set($sql = ", BaseObject as obj, DateProperty as startDate, StringProperty as status where obj.name=doc.fullName and obj.className='Meeting.MeetingClass' and obj.name&lt;&gt;'Meeting.MeetingTemplate' and obj.id=startDate.id.id and startDate.id.name='startDate' and obj.id=status.id.id and status.id.name='status' and status.value in ('value1','value2') order by startDate.value asc")
 #set($i = 0)
 ##
-(% class="meeting-nextmeetings" %)
+(% class="meetings-next" %)
 #foreach($item in $xwiki.searchDocuments($sql))  
   #set($document = $xwiki.getDocument($item))
   #set($meetingDate = $document.getValue('startDate'))
