@@ -34,7 +34,7 @@
   <artifactId>application-meeting</artifactId>
   <packaging>pom</packaging>
   <name>Meeting application</name>
-  <version>1.6-SNAPSHOT</version>
+  <version>1.5.1</version>
   <description>Organise meetings (create, view, modify) and send invitations</description>
   <properties>
     <platform.version>${commons.version}</platform.version>
@@ -66,7 +66,7 @@
     <connection>scm:git:git://github.com/xwiki-contrib/application-meeting.git</connection>
     <developerConnection>scm:git:git@github.com:xwiki-contrib/application-meeting.git</developerConnection>
     <url>https://github.com/xwiki-contrib/application-meeting</url>
-    <tag>HEAD</tag>
+    <tag>application-meeting-1.5.1</tag>
   </scm>
   <distributionManagement>
     <repository>
