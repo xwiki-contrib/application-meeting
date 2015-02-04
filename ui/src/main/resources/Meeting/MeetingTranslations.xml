@@ -85,7 +85,7 @@ contrib.meeting.notification.submit=Send an invitation email to these users
 contrib.meeting.notification.additionalMessage=Type here the message you want to send to the participants (optional) :
 contrib.hr.notification.additionalPart=His/her message:
 
-contrib.meeting.panel.title=Next meetings
+contrib.meeting.panel.title=Next Meetings
 contrib.meeting.panel.noMeetings=There are no upcoming meetings.
 contrib.meeting.panel.addmeeting=Add meeting
 contrib.meeting.panel.viewallmeetings=View all meetings

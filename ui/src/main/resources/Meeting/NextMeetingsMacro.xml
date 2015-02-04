@@ -119,10 +119,13 @@
       <cache>long</cache>
     </property>
     <property>
-      <code>.meetings-next {
-  margin: 0;
+      <code>#template('colorThemeInit.vm')
+
+.meetings-next {
+  color: $theme.textSecondaryColor;
+  margin: 0 !important;
   overflow: hidden;
-  padding: 0;
+  padding: 0 !important;
 }
 
 .meetings-next li {
@@ -139,7 +142,7 @@
       <name/>
     </property>
     <property>
-      <parse>0</parse>
+      <parse>1</parse>
     </property>
     <property>
       <use>onDemand</use>
