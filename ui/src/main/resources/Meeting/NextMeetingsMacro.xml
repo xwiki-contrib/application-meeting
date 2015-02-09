@@ -291,7 +291,9 @@
 ##
 #if($xcontext.macro.params.homelink == 'show')
   #if($i == 0)
-    * [[$services.localization.render('contrib.meeting.panel.addmeeting')&gt;&gt;Meeting.WebHome||class="homelink"]]
+    #if($hasEdit)
+      * [[$services.localization.render('contrib.meeting.panel.addmeeting')&gt;&gt;Meeting.WebHome||class="homelink"]]
+    #end
   #else
     * [[$services.localization.render('contrib.meeting.panel.viewallmeetings')&gt;&gt;Meeting.WebHome||class="homelink"]]
   #end
