@@ -291,7 +291,8 @@
 ##
 #if($xcontext.macro.params.homelink == 'show')
   #if($i == 0)
-    #if($hasEdit)
+    #set($spaceReference = $services.model.resolveSpace("Meeting"))
+    #if($services.security.authorization.hasAccess("edit", $spaceReference))
       * [[$services.localization.render('contrib.meeting.panel.addmeeting')&gt;&gt;Meeting.WebHome||class="homelink"]]
     #end
   #else
