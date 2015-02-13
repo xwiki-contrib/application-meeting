@@ -71,7 +71,7 @@
   $obj.set('durationString',"$durationMinutes min")
   $durationMinutes min
 #end
-$doc.save()
+$doc.saveAsAuthor()
 {{/velocity}}</script>
       <unmodifiable>0</unmodifiable>
       <validationMessage/>

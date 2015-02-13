@@ -62,7 +62,7 @@
 #if("$!errorMessage" != '')
   #set($discard = $meetingObj.set('displayMap', 0))
   #set($discard = $meetingObj.set('displayMapError', $errorMessage))
-  #set($discard = $meetingDoc.save($errorMessage))
+  #set($discard = $meetingDoc.saveAsAuthor($errorMessage))
 #end
 {{/velocity}}</content>
 </xwikidoc>
