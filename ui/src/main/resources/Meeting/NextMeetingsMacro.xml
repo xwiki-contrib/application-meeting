@@ -270,10 +270,10 @@
 #set($i = 0)
 ##
 (% class="meetings-next" %)
-#foreach($item in $xwiki.searchDocuments($sql))  
+#foreach($item in $services.query.hql($sql).execute())
   #set($document = $xwiki.getDocument($item))
   #set($meetingDate = $document.getValue('startDate'))
-  #if($xwiki.getDocument($item).hasAccessLevel('view', $context.user) == 'true' &amp;&amp; $meetingDate.compareTo($xwiki.getDate())==1)
+  #if($xwiki.getDocument($item).hasAccessLevel('view', $xcontext.user) == 'true' &amp;&amp; $meetingDate.compareTo($datetool.date)==1)
     #if($xcontext.macro.params.status == 'show')
       #set($status = "- $services.localization.render('contrib.meeting.field.status') : $document.display('status', 'view')")
     #end

@@ -40,7 +40,6 @@
   <syntaxId>xwiki/2.0</syntaxId>
   <hidden>false</hidden>
   <content>{{velocity}}
-#set ($discard = $services.localization.use('document', 'Meeting.MeetingTranslations'))
 #set ($discard = $xwiki.ssfx.use('uicomponents/widgets/userpicker/userPicker.css'))
 #set ($discard = $xwiki.ssfx.use('uicomponents/pagination/pagination.css', 'true'))
 #set ($columnsProperties = {
@@ -54,7 +53,6 @@
 })
 #set ($options = {
   'className': 'Meeting.MeetingClass',
-  'resultPage': 'Meeting.MeetingLiveTableResults',
   'translationPrefix': 'meeting.livetable.',
   'tagCloud': true,
   'rowCount': 15,
