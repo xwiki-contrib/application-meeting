@@ -375,11 +375,6 @@ function handleMapError(event) {
   // Hide the map area which in this case is just whitespace
   map.hide();
 
-  // Add the location as text under the appropriate label
-  $$('label[for="Meeting.MeetingClass_0_place"]').each(function(elem) {
-    elem.up().insert({ after: '&lt;dd&gt;&lt;p&gt;' + map.title + '&lt;/p&gt;&lt;/dd&gt;' });
-  });
-
   // Set the displayMap property to false and add a message next to it in edit mode
   new Ajax.Request
   (
