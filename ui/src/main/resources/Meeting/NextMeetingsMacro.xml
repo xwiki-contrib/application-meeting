@@ -308,7 +308,7 @@
       <contentType>No content</contentType>
     </property>
     <property>
-      <defaultCategory>content</defaultCategory>
+      <defaultCategory></defaultCategory>
     </property>
     <property>
       <description>Displays a defined number of upcoming meetings</description>
