@@ -94,7 +94,7 @@ contrib.meeting.createPoll=Create a poll for this meeting
 contrib.meeting.poll.explanation=A poll has been created in order to define the meeting details. Click on the link below to access it.
 contrib.meeting.poll.go=Go to the poll
 
-contrib.meeting.map.error.deactivation=Map could not be displayed: {0}
+contrib.meeting.map.error.deactivation=Map could not be displayed:
 contrib.meeting.map.error.zeroResults=no results found!
 contrib.meeting.map.error.overQueryLimit=exceeded quota!
 contrib.meeting.map.error.requestDenied=request denied!

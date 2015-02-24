@@ -110,8 +110,11 @@ $doc.saveAsAuthor()
     <displayMapError>
       <customDisplay>{{velocity}}
 #if("$!value" != '')
+  #set($errorMessage = $services.localization.render($value))
+  #set($errorMessage = "$services.localization.render('contrib.meeting.map.error.deactivation') $errorMessage")
+  ##
   {{html clean=false wiki=true}}
-    &lt;label for="Meeting.MeetingClass_0_displayMap"&gt;{{info}}$value{{/info}}&lt;/label&gt;
+    &lt;label for="Meeting.MeetingClass_0_displayMap"&gt;{{info}}$errorMessage{{/info}}&lt;/label&gt;
   {{/html}}
 #end
 {{/velocity}}</customDisplay>

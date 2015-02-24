@@ -46,22 +46,23 @@
 #set($error = $request.error)
 ##
 #if($error == 'GMAPS:ZERO_RESULTS')
-  #set($errorMessage = $services.localization.render('contrib.meeting.map.error.zeroResults'))
+  #set($errorKey = 'contrib.meeting.map.error.zeroResults')
 #elseif($error == 'GMAPS:OVER_QUERY_LIMIT')
-  #set($errorMessage = $services.localization.render('contrib.meeting.map.error.overQueryLimit'))
+  #set($errorKey = 'contrib.meeting.map.error.overQueryLimit')
 #elseif($error == 'GMAPS:REQUEST_DENIED')
-  #set($errorMessage = $services.localization.render('contrib.meeting.map.error.requestDenied'))
+  #set($errorKey = 'contrib.meeting.map.error.requestDenied')
 #elseif($error == 'GMAPS:INVALID_REQUEST')
-  #set($errorMessage = $services.localization.render('contrib.meeting.map.error.invalidRequest'))
+  #set($errorKey = 'contrib.meeting.map.error.invalidRequest')
 #elseif($error == 'GMAPS:UNKNOWN_ERROR')
-  #set($errorMessage = $services.localization.render('contrib.meeting.map.error.unknownError'))
+  #set($errorKey = 'contrib.meeting.map.error.unknownError')
 #end
 ##
-#set($errorMessage = $services.localization.render('contrib.meeting.map.error.deactivation', [$errorMessage]))
+#set($errorMessage = $services.localization.render($errorKey))
+#set($errorMessage = "$services.localization.render('contrib.meeting.map.error.deactivation') $errorMessage")
 ##
-#if("$!errorMessage" != '')
+#if("$!errorKey" != '')
   #set($discard = $meetingObj.set('displayMap', 0))
-  #set($discard = $meetingObj.set('displayMapError', $errorMessage))
+  #set($discard = $meetingObj.set('displayMapError', $errorKey))
   #set($discard = $meetingDoc.saveAsAuthor($errorMessage))
 #end
 {{/velocity}}</content>
