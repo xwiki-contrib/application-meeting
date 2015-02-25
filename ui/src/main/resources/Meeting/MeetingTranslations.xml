@@ -34,7 +34,7 @@
   <date>1405677708000</date>
   <contentUpdateDate>1405677708000</contentUpdateDate>
   <version>1.1</version>
-  <title/>
+  <title>Meetings Translations</title>
   <comment/>
   <minorEdit>false</minorEdit>
   <syntaxId>xwiki/2.1</syntaxId>
@@ -85,15 +85,28 @@ contrib.meeting.notification.submit=Send an invitation email to these users
 contrib.meeting.notification.additionalMessage=Type here the message you want to send to the participants (optional) :
 contrib.hr.notification.additionalPart=His/her message:
 
+# Next Meetings panel
 contrib.meeting.panel.title=Next Meetings
 contrib.meeting.panel.noMeetings=There are no upcoming meetings.
 contrib.meeting.panel.addmeeting=Add meeting
 contrib.meeting.panel.viewallmeetings=View all meetings
 
+# Next Meetings macro
+rendering.macro.nextmeetings.name=Next Meetings
+rendering.macro.nextmeetings.description=Displays a defined number of upcoming meetings
+rendering.macro.nextmeetings.parameter.limit.name=Limit
+rendering.macro.nextmeetings.parameter.limit.description=Number of maximum entries.
+rendering.macro.nextmeetings.parameter.homelink.name=Home Link
+rendering.macro.nextmeetings.parameter.homelink.description=Show a link pointing to the Meetings homepage.
+rendering.macro.nextmeetings.parameter.status.name=Status
+rendering.macro.nextmeetings.parameter.status.description=Show the status of the meeting.
+
+# XPoll Application
 contrib.meeting.createPoll=Create a poll for this meeting
 contrib.meeting.poll.explanation=A poll has been created in order to define the meeting details. Click on the link below to access it.
 contrib.meeting.poll.go=Go to the poll
 
+# Map Macro
 contrib.meeting.map.error.deactivation=Map could not be displayed:
 contrib.meeting.map.error.zeroResults=no results found!
 contrib.meeting.map.error.overQueryLimit=exceeded quota!
@@ -125,7 +138,7 @@ contrib.meeting.map.error.unknownError=unknown error!
         <prettyName>Scope</prettyName>
         <relationalStorage>0</relationalStorage>
         <separator> </separator>
-        <separators> ,|</separators>
+        <separators>|, </separators>
         <size>1</size>
         <unmodifiable>0</unmodifiable>
         <values>GLOBAL|WIKI|USER|ON_DEMAND</values>
