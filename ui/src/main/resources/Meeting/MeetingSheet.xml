@@ -47,24 +47,45 @@ $xwiki.ssx.use('AppWithinMinutes.ClassSheetGenerator')
 $xwiki.ssx.use('Meeting.SkinExtension')
 $xwiki.jsx.use('Meeting.MeetingSheet')
 #set($discard = $doc.use('Meeting.MeetingClass'))
+#set($previousDurationHour = $doc.getValue("durationHour"))
+#set($previousDurationMinutes = $doc.getValue("durationMinutes"))
+#set($previousDuration = $doc.getValue("duration"))
+#set($previousDurationString = $doc.getValue("durationString"))
 #set($durationHour = $mathtool.floor($mathtool.div($doc.getValue('duration'),60)))
 #set($durationMinutes = $mathtool.sub($doc.getValue('duration'),$mathtool.mul(60,$durationHour)))
-#if($xcontext.action=='view' &amp;&amp; $doc.get('hasBeenEdited') == 1)
-  #set($duration = $mathtool.add($mathtool.mul(60,$doc.getValue('durationHour')), $doc.getValue('durationMinutes')))
-  $doc.set('duration', "$duration.toString()")
-  $doc.set('durationString', $doc.get('calc'))
-  $doc.set('hasBeenEdited', 0)
-  $doc.saveAsAuthor()
+#if($xcontext.action=='view' &amp;&amp; $doc.get('hasBeenEdited') == 1) ## editing via inline mode
+  #set($durationHour = $doc.getValue('durationHour'))
+  #set($durationMinutes = $doc.getValue('durationMinutes'))
+  #set($duration = $mathtool.add($mathtool.mul(60,$durationHour), $durationMinutes))
+  ## Create durationString from the durationHour, durationMinutes properties
+  #if($durationHour != 0)
+    #if($durationMinutes != 0)
+      #set($durationString = "$durationHour h $durationMinutes min")
+    #else
+      #set($durationString = "$durationHour h")
+    #end
+  #else
+    #set($durationString = "$durationMinutes min")
+  #end
+  #if($previousDuration != $duration.toString() || $previousDurationString != $durationString)
+    $doc.set('duration', "$duration.toString()")
+    $doc.set('durationString', "$durationString")
+    $doc.set('hasBeenEdited', 0)
+    $doc.saveAsAuthor()
+  #end
 #elseif($xcontext.action!='view' &amp;&amp; !$tdoc.isNew())
-  $doc.set('durationHour', $durationHour.toString())
-  $doc.set('durationMinutes', $durationMinutes.toString())
-  $doc.set('hasBeenEdited', 1)
-  $doc.saveAsAuthor()
-#elseif(!$isGuest &amp;&amp; !$tdoc.isNew())   ##xcontext==view &amp;&amp; !hasBeenEdited if duration has been changed through the calendar view
-  $doc.set('durationString', $doc.get('calc'))
-  $doc.set('durationHour', $durationHour.toString())
-  $doc.set('durationMinutes', $durationMinutes.toString())
-  $doc.saveAsAuthor()
+  #if($previousDurationHour != $durationHour.toString() || $previousDurationMinutes != $durationMinutes.toString())
+    $doc.set('durationHour', $durationHour.toString())
+    $doc.set('durationMinutes', $durationMinutes.toString())
+    $doc.saveAsAuthor()
+  #end
+#elseif(!$tdoc.isNew()) ## editing via calendar view
+  #if($previousDurationHour != $durationHour.toString() || $previousDurationMinutes != $durationMinutes.toString())
+    $doc.set('durationString', $doc.get('calc'))
+    $doc.set('durationHour', $durationHour.toString())
+    $doc.set('durationMinutes', $durationMinutes.toString())
+    $doc.saveAsAuthor()
+  #end
 #end
 #if($request.createPoll == 'true')
   $doc.set('hasPoll', 1)
@@ -125,6 +146,10 @@ $xwiki.jsx.use('Meeting.MeetingSheet')
   (((
     (% class="col-md-12 col-sm-12 col-xs-12" %)
     (((
+    ## Set the edit flag
+    #if ($xcontext.action=='edit')
+      &lt;input name="Meeting.MeetingClass_0_hasBeenEdited" type="hidden" value="1" /&gt;
+    #end
     ## Add a title of event in edit modetime
     #if($xcontext.action=='edit')
         ; &lt;label for="Meeting.MeetingClass_0_meetingTitle"&gt;#if($services.icon)$services.icon.render('font') #end $escapetool.xml($doc.displayPrettyName('meetingTitle', false, false))&lt;/label&gt;

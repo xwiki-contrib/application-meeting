@@ -56,22 +56,20 @@
       <number>13</number>
       <prettyName>calc</prettyName>
       <script>{{velocity}}
-#set($obj = $doc.getObject('Meeting.MeetingClass'))
 #set($durationHour = $mathtool.floor($mathtool.div($doc.getValue('duration'),60)))
 #set($durationMinutes = $mathtool.sub($doc.getValue('duration'),$mathtool.mul(60,$durationHour)))
-#if($durationHour!=0)
-  #if($durationMinutes!=0)
-    $obj.set('durationString',"$durationHour h $durationMinutes min")
-    $durationHour h $durationMinutes min
+##
+#if($durationHour != 0)
+  #if($durationMinutes != 0)
+    #set($durationString = "$durationHour h $durationMinutes min")
   #else
-    $obj.set('durationString', "$durationHour h")
-    $durationHour h
+    #set($durationString = "$durationHour h")
   #end
 #else
-  $obj.set('durationString',"$durationMinutes min")
-  $durationMinutes min
+    #set($durationString = "$durationMinutes min")
 #end
-$doc.saveAsAuthor()
+##
+$durationString
 {{/velocity}}</script>
       <unmodifiable>0</unmodifiable>
       <validationMessage/>
