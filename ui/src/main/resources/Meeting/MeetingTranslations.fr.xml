@@ -39,64 +39,67 @@
   <minorEdit>false</minorEdit>
   <syntaxId>xwiki/2.1</syntaxId>
   <hidden>true</hidden>
-  <content>contrib.meeting.home.presentation=Bienvenue sur l'application Réunion de XWiki. Vous pouvez créer votre propre réunion en cliquant sur "Ajouter une nouvelle entrée". Vous pouvez également consulter un [[**Calendrier**&gt;&gt;calendarView]] de toutes les réunions.
-
+  <content>## XWiki Translation for language fr generated from http://www.l10n.xwiki.org
 Meeting.MeetingClass_status_value1=En cours de préparation
 Meeting.MeetingClass_status_value2=Actif
 Meeting.MeetingClass_status_value3=Annulé
 Meeting.MeetingClass_status_value4=Fini
-
+contrib.hr.notification.additionalPart=Son message\:
 contrib.meeting.app.title=Réunions
-contrib.meeting.home.title=Réunions
 contrib.meeting.calendarView=Vue calendaire
-contrib.meeting.calendarView.title=Vue calendaire
-contrib.meeting.calendarView.noMacro.admin=Pour pouvoir avoir une vue calendaire des réunions, il faut installer la Macro FullCalendar sur ce Wiki :
+contrib.meeting.calendarView.noMacro.admin=Pour pouvoir avoir une vue calendaire des réunions, il faut installer la Macro FullCalendar sur ce Wiki\:
 contrib.meeting.calendarView.noMacro.noAdmin=Il manque la macro nécessaire à l'affichage calendaire. Demandez à l'administrateur de votre wiki d'installer la Macro "FullCalendar".
-
-meeting.livetable.doc.title=Réunion
-meeting.livetable.doc.name=Titre
-meeting.livetable.leader=Responsable
-meeting.livetable.place=Lieu
-meeting.livetable.durationString=Durée
-meeting.livetable.startDate=Horaire
-meeting.livetable.status=Statut
-meeting.livetable.emptyvalue=-
-meeting.livetable._actions=Actions
-
-contrib.meeting.field.meetingTitle=Titre
-contrib.meeting.field.leader=Responsable
-contrib.meeting.field.place=Lieu
+contrib.meeting.calendarView.title=Vue calendaire
+contrib.meeting.createPoll=Créer un sondage pour cette réunion
+contrib.meeting.field.description=Ordre du jour
 contrib.meeting.field.displayMap=Afficher la carte
 contrib.meeting.field.duration=Durée de l'évènement
-contrib.meeting.field.startDate=Date de début
-contrib.meeting.field.description=Ordre du jour
-contrib.meeting.field.participants=Participants
+contrib.meeting.field.lastEmailSent=Dernier mail envoyé sur le
+contrib.meeting.field.leader=Responsable
+contrib.meeting.field.meetingTitle=Titre
 contrib.meeting.field.notes=Compte rendu
+contrib.meeting.field.participants=Participants
+contrib.meeting.field.place=Lieu
+contrib.meeting.field.startDate=Date de début
 contrib.meeting.field.status=Statut
-
-contrib.meeting.notification.success=Un courrier de notification a bien été envoyé aux participants.
-contrib.meeting.notification.failure=Une erreur est survenue lors de l'envoi des courriels de notification.
+contrib.meeting.home.presentation=Bienvenue sur l'application Réunion de XWiki. Vous pouvez créer votre propre réunion en cliquant sur "Ajouter une nouvelle entrée". Vous pouvez également consulter un [[**Calendrier**&gt;&gt;calendarView]] de toutes les réunions.
+contrib.meeting.home.title=Réunions
+contrib.meeting.map.error.deactivation=La carte n'a pas été affichée\:
+contrib.meeting.map.error.invalidRequest=demande invalide\!
+contrib.meeting.map.error.overQueryLimit=quota dépassé\!
+contrib.meeting.map.error.requestDenied=demande refusée\!
+contrib.meeting.map.error.unknownError=erreur inconnue\!
+contrib.meeting.map.error.zeroResults=aucun résultat trouvé\!
+contrib.meeting.notification.additionalMessage=Tapez ici le message que vous voulez envoyer à ces utilisateurs (optionnel)\:
 contrib.meeting.notification.body={0} vous invite a participer à la réunion {1}.
+contrib.meeting.notification.failure=Une erreur est survenue lors de l'envoi des courriels de notification.
 contrib.meeting.notification.link=Voir la page de la réunion sur XWiki.
-contrib.meeting.notification.view.event = Voir l'événement sur
 contrib.meeting.notification.submit=Envoyer un courriel d'invitation à ces utilisateurs
-contrib.meeting.notification.additionalMessage=Tapez ici le message que vous voulez envoyer à ces utilisateurs (optionnel) :
-contrib.hr.notification.additionalPart=Son message :
-
-contrib.meeting.panel.title=Prochaines réunions
-contrib.meeting.panel.noMeetings=Il n'y a aucune réunion à venir.
+contrib.meeting.notification.success=Un courrier de notification a bien été envoyé aux participants.
+contrib.meeting.notification.title=Vous êtes invités à participer à une réunion\: {0}
+contrib.meeting.notification.view.event=Voir l'événement sur
 contrib.meeting.panel.addmeeting=Ajouter réunion
+contrib.meeting.panel.noMeetings=Il n'y a aucune réunion à venir.
+contrib.meeting.panel.title=Prochaines réunions
 contrib.meeting.panel.viewallmeetings=Voir toutes les réunions
-
-contrib.meeting.createPoll=Créer un sondage pour cette réunion
 contrib.meeting.poll.explanation=Un sondage a été créé pour définir les modalités de cette réunion. Cliquez sur le lien ci-dessous pour y accéder.
 contrib.meeting.poll.go=Aller au sondage
-
-contrib.meeting.map.error.deactivation=La carte n'a pas été affichée:
-contrib.meeting.map.error.zeroResults=aucun résultat trouvé!
-contrib.meeting.map.error.overQueryLimit=quota dépassé!
-contrib.meeting.map.error.requestDenied=demande refusée!
-contrib.meeting.map.error.invalidRequest=demande invalide!
-contrib.meeting.map.error.unknownError=erreur inconnue!
+meeting.livetable._actions=Actions
+meeting.livetable.doc.name=Titre
+meeting.livetable.doc.title=Réunion
+meeting.livetable.durationString=Durée
+meeting.livetable.emptyvalue=-
+meeting.livetable.leader=Responsable
+meeting.livetable.place=Lieu
+meeting.livetable.startDate=Horaire
+meeting.livetable.status=Statut
+rendering.macro.nextmeetings.description=Afficher un nombre défini de prochains réunions
+rendering.macro.nextmeetings.name=Prochaines réunions
+rendering.macro.nextmeetings.parameter.homelink.description=Afficher un lien vers la page d'accueil des réunions
+rendering.macro.nextmeetings.parameter.homelink.name=Lien Accueil
+rendering.macro.nextmeetings.parameter.limit.description=Nombre maximum d'entrées.
+rendering.macro.nextmeetings.parameter.limit.name=Limite
+rendering.macro.nextmeetings.parameter.status.description=Afficher le status de la réunion.
+rendering.macro.nextmeetings.parameter.status.name=Statut
 </content>
 </xwikidoc>
