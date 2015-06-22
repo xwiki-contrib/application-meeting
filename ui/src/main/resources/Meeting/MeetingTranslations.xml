@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <!--
  * See the NOTICE file distributed with this work for additional
  * information regarding copyright ownership.
@@ -70,7 +69,8 @@ contrib.meeting.field.displayMap=Display map
 contrib.meeting.field.duration=Duration
 contrib.meeting.field.startDate=Start Date
 contrib.meeting.field.description=Description
-contrib.meeting.field.participants=Participants
+contrib.meeting.field.participants=Participating members
+contrib.meeting.field.groups=Participating groups
 contrib.meeting.field.notes=Meeting notes
 contrib.meeting.field.status=Status
 contrib.meeting.field.lastEmailSent=Last mail sent on the

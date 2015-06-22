@@ -106,7 +106,27 @@ $xwiki.jsx.use('Meeting.MeetingSheet')
   ## Retrieve participants emails
   #set($to = '')
   #set($participants = $doc.getValue('participants'))
-  #set($listParticipants = $participants.split(','))
+  #set($groups = $doc.getValue('groups'))
+  #set($listParticipants = $util.split($participants, ','))
+  #set($listGroups = $util.split($groups, ','))
+  #set($list =[])
+  ## Add members to the recipient list
+  #foreach($member in $listParticipants)
+    #if($xwiki.exists("$member") &amp;&amp; !$list.contains("$member"))
+      #set($discard = $list.add("$member"))
+    #end
+  #end
+  ## Add the users of the groups to the recipient list
+  #foreach($group in $listGroups)
+    #if($xwiki.exists($group))
+      #set($curentGroupDoc = $xwiki.getDocument("$group"))
+      #foreach($xGoup in $curentGroupDoc.getObjects('XWiki.XWikiGroups'))
+        #if("$!xGoup.member" != '' &amp;&amp; $xwiki.exists("$!xGoup.member") &amp;&amp; !$list.contains("$!xGoup.member"))
+          #set($discard = $list.add("$!xGoup.member"))
+        #end
+      #end
+    #end
+  #end
   #foreach($element in $listParticipants)
     #set($email = $xwiki.getUserName($element, '$email', false))
     #if ("$!email" != '')
@@ -285,6 +305,16 @@ $xwiki.jsx.use('Meeting.MeetingSheet')
         ; &lt;label for="Meeting.MeetingClass_0_participants"&gt;#if($services.icon)$services.icon.render('user') #end $services.localization.render('contrib.meeting.field.participants')&lt;/label&gt;##
         (% class="xHint" %)$services.localization.render('')
         : $doc.display('participants')
+      #end
+       #if ("$!doc.getValue('groups')" != '' &amp;&amp; ($xcontext.action=="view"))
+        ; &lt;label for="Meeting.MeetingClass_0_groups"&gt;#if($services.icon)$services.icon.render('group') #end $services.localization.render('contrib.meeting.field.groups')&lt;/label&gt;##
+        (% class="xHint" %)$services.localization.render('')
+        : $doc.display('groups')
+      #end
+      #if ($xcontext.action=="edit")
+        ; &lt;label for="Meeting.MeetingClass_0_groups"&gt;#if($services.icon)$services.icon.render('group') #end $services.localization.render('contrib.meeting.field.groups')&lt;/label&gt;##
+        (% class="xHint" %)$services.localization.render('')
+        : $doc.display('groups')
       #end
       #if($doc.isCurrentUserCreator() &amp;&amp; $doc.getValue('participants')!='' &amp;&amp; $xcontext.action=='view')
         &lt;form id="sendNotification" action='' method='post'&gt;
