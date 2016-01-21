@@ -147,7 +147,7 @@
     #end
   #end
   #if($i==0)
-    $msg.get('contrib.meeting.panel.noMeetings')
+    &lt;span class="noitems"&gt;$msg.get('contrib.meeting.panel.noMeetings')&lt;/span&gt;
   #end
   #panelfooter()
 #end
