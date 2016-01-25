@@ -133,6 +133,9 @@
 
 #durationEdit select{
    width:auto ;
+}
+.col-sm-12.col-xs-12 label {
+  padding-top: 12px;
 }</code>
     </property>
     <property>
