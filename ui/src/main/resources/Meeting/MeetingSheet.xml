@@ -148,10 +148,10 @@ $xwiki.jsx.use('Meeting.MeetingSheet')
   #set ($discard = $mailmsg.addPart('text/html', "$message &lt;br&gt; &lt;a href=$link&gt; $services.localization.render('contrib.meeting.notification.link') &lt;/a&gt;"))
   #getVCalendarContent($doc, $vCalendar)
   #set ($discard = $mailmsg.addPart('text/calendar;method=CANCEL', $vCalendar, {"headers" : {"Content-Class" : "urn:content-classes:calendarmessage"}}))
-  #set ($discard = $mailmsg.send())
+  #set ($result = $services.mailsender.send($mailmsg))
 
-  #if($mailmsg.getErrors().size() == 0)
-    $services.localization.render('contrib.meeting.notification.success')
+  #if (!$services.mailsender.lastError)
+    {{success}}$services.localization.render('contrib.meeting.notification.success'){{/success}}
     $doc.set('lastEmailSent', $util.getDate())
     $doc.saveAsAuthor()
   #else
