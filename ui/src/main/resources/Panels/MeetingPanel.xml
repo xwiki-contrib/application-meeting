@@ -124,14 +124,14 @@
     <property>
       <content>{{velocity}}
 {{html wiki="true"}}
-#if($context.action != 'inline')
-  #panelheader("$msg.get('contrib.meeting.panel.title')")
+#if($xcontext.action != 'inline')
+  #panelheader("$services.localization.render('contrib.meeting.panel.title')")
   #set($sql = ", BaseObject as obj, DateProperty as startDate where obj.name=doc.fullName and obj.className='Meeting.MeetingClass' and obj.name&lt;&gt;'Meeting.MeetingTemplate' and obj.id=startDate.id.id and startDate.id.name='startDate' order by startDate.value asc")
   #set($i = 0)
-  #foreach($item in $xwiki.searchDocuments($sql))
+  #foreach($item in $services.query.hql($sql).execute())
     #set($document = $xwiki.getDocument($item))
     #set($meetingDate = $document.getValue('startDate'))
-    #if($xwiki.getDocument($item).hasAccessLevel('view', $context.user) == 'true' &amp;&amp; $meetingDate.compareTo($xwiki.getDate())==1)
+    #if($xwiki.getDocument($item).hasAccessLevel('view', $context.user) == 'true' &amp;&amp; $meetingDate.compareTo($datetool.date)==1)
       &lt;ul class="list-unstyled"&gt;
         &lt;li&gt;
           &lt;span class="glyphicon glyphicon-time text-muted"&gt;&lt;/span&gt; &lt;strong&gt;[[$xwiki.getDocument($item).name&gt;&gt;$item]]&lt;/strong&gt;
@@ -147,7 +147,7 @@
     #end
   #end
   #if($i==0)
-    &lt;span class="noitems"&gt;$msg.get('contrib.meeting.panel.noMeetings')&lt;/span&gt;
+    &lt;span class="noitems"&gt; $services.localization.render('contrib.meeting.panel.noMeetings')&lt;/span&gt;
   #end
   #panelfooter()
 #end
