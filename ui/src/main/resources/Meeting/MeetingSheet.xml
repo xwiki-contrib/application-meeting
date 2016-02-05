@@ -94,70 +94,6 @@ $xwiki.jsx.use('Meeting.MeetingSheet')
   #set($newPollReference = $services.model.createDocumentReference('', 'XPoll', $title))
   $response.sendRedirect($xwiki.getURL($newPollReference, 'edit', "$!{request.queryString}"))
 #end
-#if($request.sendNotification=='true')
-
-  #set($message = $services.localization.render('contrib.meeting.notification.body', ["$xwiki.getUserName($xcontext.user)","&lt;strong&gt;$doc.getDisplayTitle()&lt;/strong&gt;"]))
-  #if($request.additionalMessage!='')
-    #set($message = "$message &lt;br&gt; $services.localization.render('contrib.hr.notification.additionalPart') $request.additionalMessage")
-  #end
-  #set($title = $services.localization.render('contrib.meeting.notification.title', ["$doc.getDisplayTitle()"]))
-  #set($link = $doc.getExternalURL())
-
-  ## Retrieve participants emails
-  #set($to = '')
-  #set($participants = $doc.getValue('participants'))
-  #set($groups = $doc.getValue('groups'))
-  #set($listParticipants = $util.split($participants, ','))
-  #set($listGroups = $util.split($groups, ','))
-  #set($list =[])
-  ## Add members to the recipient list
-  #foreach($member in $listParticipants)
-    #if($xwiki.exists("$member") &amp;&amp; !$list.contains("$member"))
-      #set($discard = $list.add("$member"))
-    #end
-  #end
-  ## Add the users of the groups to the recipient list
-  #foreach($group in $listGroups)
-    #if($xwiki.exists($group))
-      #set($curentGroupDoc = $xwiki.getDocument("$group"))
-      #foreach($xGoup in $curentGroupDoc.getObjects('XWiki.XWikiGroups'))
-        #if("$!xGoup.member" != '' &amp;&amp; $xwiki.exists("$!xGoup.member") &amp;&amp; !$list.contains("$!xGoup.member"))
-          #set($discard = $list.add("$!xGoup.member"))
-        #end
-      #end
-    #end
-  #end
-  #foreach($element in $listParticipants)
-    #set($email = $xwiki.getUserName($element, '$email', false))
-    #if ("$!email" != '')
-      #set($to = "$to $email,")
-    #end
-  #end
-
-  ## Retrieve default From email
-  #set($serverName = "$!request.serverName")
-  #set($curentUserName = $xwiki.getUserName($xcontext.user, false))
-  #if($serverName != '')
-    #set($sender = "$!{escapetool.xml($curentUserName)} &lt;no-reply@$!{serverName}&gt;")
-  #else
-    #set($sender = "$!{escapetool.xml($curentUserName)} &lt;no-reply@xwiki.localdomain.com&gt;")
-  #end
-  #set($defaultMail = $xwiki.getXWikiPreference('admin_email', "$sender"))
-
-  #set($mailmsg = $services.mailsender.createMessage($defaultMail, $to, $title))
-  #set ($discard = $mailmsg.addPart('text/html', "$message &lt;br&gt; &lt;a href=$link&gt; $services.localization.render('contrib.meeting.notification.link') &lt;/a&gt;"))
-  #getVCalendarContent($doc, $vCalendar)
-  #set ($discard = $mailmsg.addPart('text/calendar;method=CANCEL', $vCalendar, {"headers" : {"Content-Class" : "urn:content-classes:calendarmessage"}}))
-  #set ($result = $services.mailsender.send($mailmsg))
-
-  #if (!$services.mailsender.lastError)
-    {{success}}$services.localization.render('contrib.meeting.notification.success'){{/success}}
-    $doc.set('lastEmailSent', $util.getDate())
-    $doc.saveAsAuthor()
-  #else
-    {{warning}}$services.localization.render('contrib.meeting.notification.failure'){{/warning}}
-  #end
-#end
 ## We don't have access to the form element to set the CSS class for the vertical form layout standard.
 (% class="xform" %)
 (((
@@ -317,9 +253,10 @@ $xwiki.jsx.use('Meeting.MeetingSheet')
         : $doc.display('groups')
       #end
       #if($doc.isCurrentUserCreator() &amp;&amp; $doc.getValue('participants')!='' &amp;&amp; $xcontext.action=='view')
-        &lt;form id="sendNotification" action='' method='post'&gt;
+        &lt;form id="sendNotification" action="$xwiki.getURL('MeetingCode.SendInvitationEmail', 'get', 'outputSyntax=plain')" method='post'&gt;
           &lt;div class='presentation'&gt;
             &lt;input type='hidden' name='sendNotification' value='true'&gt;
+            &lt;input type='hidden' name='doc' value="${escapetool.xml($doc)}"&gt;
             &lt;label for='additionalMessage'&gt;$services.localization.render('contrib.meeting.notification.additionalMessage')&lt;/label&gt;&lt;br/&gt;
             &lt;textarea name="additionalMessage" cols='40' rows='4'&gt;&lt;/textarea&gt;&lt;br/&gt;
             #if($doc.getValue('lastEmailSent'))
@@ -471,6 +408,110 @@ if(displayMap) {
     </property>
     <property>
       <name>Handle map errors</name>
+    </property>
+    <property>
+      <parse>1</parse>
+    </property>
+    <property>
+      <use>onDemand</use>
+    </property>
+  </object>
+  <object>
+    <name>Meeting.MeetingSheet</name>
+    <number>1</number>
+    <className>XWiki.JavaScriptExtension</className>
+    <guid>69b9a167-c278-4843-ba9c-f6d6a8250024</guid>
+    <class>
+      <name>XWiki.JavaScriptExtension</name>
+      <customClass/>
+      <customMapping/>
+      <defaultViewSheet/>
+      <defaultEditSheet/>
+      <defaultWeb/>
+      <nameField/>
+      <validationScript/>
+      <cache>
+        <cache>0</cache>
+        <disabled>0</disabled>
+        <displayType>select</displayType>
+        <multiSelect>0</multiSelect>
+        <name>cache</name>
+        <number>5</number>
+        <prettyName>Caching policy</prettyName>
+        <relationalStorage>0</relationalStorage>
+        <separator> </separator>
+        <separators>|, </separators>
+        <size>1</size>
+        <unmodifiable>0</unmodifiable>
+        <values>long|short|default|forbid</values>
+        <classType>com.xpn.xwiki.objects.classes.StaticListClass</classType>
+      </cache>
+      <code>
+        <disabled>0</disabled>
+        <name>code</name>
+        <number>2</number>
+        <prettyName>Code</prettyName>
+        <rows>20</rows>
+        <size>50</size>
+        <unmodifiable>0</unmodifiable>
+        <classType>com.xpn.xwiki.objects.classes.TextAreaClass</classType>
+      </code>
+      <name>
+        <disabled>0</disabled>
+        <name>name</name>
+        <number>1</number>
+        <prettyName>Name</prettyName>
+        <size>30</size>
+        <unmodifiable>0</unmodifiable>
+        <classType>com.xpn.xwiki.objects.classes.StringClass</classType>
+      </name>
+      <parse>
+        <disabled>0</disabled>
+        <displayFormType>select</displayFormType>
+        <displayType>yesno</displayType>
+        <name>parse</name>
+        <number>4</number>
+        <prettyName>Parse content</prettyName>
+        <unmodifiable>0</unmodifiable>
+        <classType>com.xpn.xwiki.objects.classes.BooleanClass</classType>
+      </parse>
+      <use>
+        <cache>0</cache>
+        <disabled>0</disabled>
+        <displayType>select</displayType>
+        <multiSelect>0</multiSelect>
+        <name>use</name>
+        <number>3</number>
+        <prettyName>Use this extension</prettyName>
+        <relationalStorage>0</relationalStorage>
+        <separator> </separator>
+        <separators>|, </separators>
+        <size>1</size>
+        <unmodifiable>0</unmodifiable>
+        <values>currentPage|onDemand|always</values>
+        <classType>com.xpn.xwiki.objects.classes.StaticListClass</classType>
+      </use>
+    </class>
+    <property>
+      <cache>long</cache>
+    </property>
+    <property>
+      <code>document.observe("xwiki:dom:loaded", function(event){
+  $('sendNotification').observe('submit', function(event) {
+    this.request({
+        onSuccess: function(t) {
+          var status = t.responseJSON['status'];
+          var notification = t.responseJSON['notification'];
+          new XWiki.widgets.Notification(notification, status);
+        }
+    });
+    event.stop();
+  });
+});
+</code>
+    </property>
+    <property>
+      <name/>
     </property>
     <property>
       <parse>1</parse>
