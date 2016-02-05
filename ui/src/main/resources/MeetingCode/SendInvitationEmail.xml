@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ * See the NOTICE file distributed with this work for additional
+ * information regarding copyright ownership.
+ *
+ * This is free software; you can redistribute it and/or modify it
+ * under the terms of the GNU Lesser General Public License as
+ * published by the Free Software Foundation; either version 2.1 of
+ * the License, or (at your option) any later version.
+ *
+ * This software is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this software; if not, write to the Free
+ * Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
+ * 02110-1301 USA, or see the FSF site: http://www.fsf.org.
+-->
+
+<xwikidoc version="1.2" reference="MeetingCode.SendInvitationEmail" locale="">
+  <web>MeetingCode</web>
+  <name>SendInvitationEmail</name>
+  <language/>
+  <defaultLanguage/>
+  <translation>0</translation>
+  <creator>xwiki:XWiki.Admin</creator>
+  <creationDate>1454658503000</creationDate>
+  <author>xwiki:XWiki.Admin</author>
+  <contentAuthor>xwiki:XWiki.Admin</contentAuthor>
+  <date>1454674218000</date>
+  <contentUpdateDate>1454674218000</contentUpdateDate>
+  <version>1.1</version>
+  <title/>
+  <comment/>
+  <minorEdit>false</minorEdit>
+  <syntaxId>xwiki/2.1</syntaxId>
+  <hidden>true</hidden>
+  <content>{{include reference="Meeting.Macros" /}}
+{{velocity wiki='false'}}
+#set ($discard = $response.setContentType('application/json'))
+#if ($request.sendNotification == 'true')
+  #set ($meetingDoc = $xwiki.getDocument($request.doc))
+  #set ($message = $services.localization.render('contrib.meeting.notification.body', ["$xwiki.getUserName($xcontext.user)","&lt;strong&gt;$meetingDoc.getDisplayTitle()&lt;/strong&gt;"]))
+
+  #if ($request.additionalMessage != '')
+    #set ($message = "$message &lt;br&gt; $services.localization.render('contrib.hr.notification.additionalPart') $request.additionalMessage")
+  #end
+  #set ($title = $services.localization.render('contrib.meeting.notification.title', ["$meetingDoc.getDisplayTitle()"]))
+  #set ($link = $meetingDoc.getExternalURL())
+
+  ## Retrieve participants emails
+  #set ($to = '')
+  #set ($listParticipants = $meetingDoc.getValue('participants').split(','))
+  #set ($listGroups = $meetingDoc.getValue('groups').split(','))
+  #set ($list =[])
+  ## Add members to the recipient list
+  #foreach ($member in $listParticipants)
+    #if ($xwiki.exists("$member") &amp;&amp; !$list.contains("$member"))
+      #set ($discard = $list.add("$member"))
+    #end
+  #end
+  ## Add the users of the groups to the recipient list
+  #foreach ($group in $listGroups)
+    #if ($xwiki.exists($group))
+      #set ($curentGroupDoc = $xwiki.getDocument("$group"))
+      #foreach ($xGroup in $curentGroupDoc.getObjects('XWiki.XWikiGroups'))
+        #if ("$!xGroup.member" != '' &amp;&amp; $xwiki.exists("$!xGroup.member") &amp;&amp; !$list.contains("$!xGroup.member"))
+          #set ($discard = $list.add("$!xGroup.member"))
+        #end
+      #end
+    #end
+  #end
+  #foreach ($element in $list)
+    #set ($email = $xwiki.getUserName($element, '$email', false))
+    #if ("$!email" != '')
+      #set ($to = "$to $email,")
+    #end
+  #end
+  ## Retrieve default From email
+  #set ($serverName = "$!request.serverName")
+  #set ($curentUserName = $xwiki.getUserName($xcontext.user, false))
+  #if ($serverName != '')
+    #set ($sender = "$!{escapetool.xml($curentUserName)} &lt;no-reply@$!{serverName}&gt;")
+  #else
+    #set ($sender = "$!{escapetool.xml($curentUserName)} &lt;no-reply@xwiki.localdomain.com&gt;")
+  #end
+  #set ($defaultMail = $xwiki.getXWikiPreference('admin_email', "$sender"))
+  #set ($mailmsg = $services.mailsender.createMessage($defaultMail, $to, $title))
+  #set ($discard = $mailmsg.addPart('text/html', "$message &lt;br&gt; &lt;a href=$link&gt; $services.localization.render('contrib.meeting.notification.link') &lt;/a&gt;"))
+  #getVCalendarContent($meetingDoc, $vCalendar)
+  #set ($discard = $mailmsg.addPart('text/calendar;method=CANCEL', $vCalendar, {"headers" : {"Content-Class" : "urn:content-classes:calendarmessage"}}))
+  #set ($mailResult = $services.mailsender.send($mailmsg))
+  #if ($mailResult &amp;&amp; !$services.mailsender.lastError)
+    #set ($discard = $meetingDoc.set('lastEmailSent', $util.getDate()))
+    #set ($discard = $meetingDoc.saveAsAuthor())
+    #set ($response = {'status': 'done', 'notification': "$services.localization.render('contrib.meeting.notification.success')"})
+  #else
+    #set ($response = {'status': 'warning', 'notification': "$services.localization.render('contrib.meeting.notification.failure')"})
+  #end
+  $jsontool.serialize($response)
+#end
+{{/velocity}}
+</content>
+</xwikidoc>
