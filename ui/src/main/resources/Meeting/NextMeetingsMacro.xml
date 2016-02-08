@@ -281,7 +281,7 @@
           #set($status = "- $services.localization.render('contrib.meeting.field.status') : $document.display('status', 'view')")
         #end
         * (% class="glyphicon glyphicon-time text-muted" %)
-        (% class="text-muted" %) **[[$document.name&gt;&gt;$item]]** $document.display('startDate','view') $!status
+        (% class="text-muted" %) [[$document.name&gt;&gt;$item]] $document.display('startDate','view') $!status
     #end
   #end
 )))
