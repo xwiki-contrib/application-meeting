@@ -266,38 +266,37 @@
     <property>
       <code>{{velocity}}
 #set($discard = $xwiki.ssx.use('Meeting.NextMeetingsMacro'))
+#set($limit = $xcontext.macro.params.limit)
+#set($nowDate = $datetool.date)
+#set($query = "from doc.object(Meeting.MeetingClass) as meeting where doc.fullName &lt;&gt; 'Meeting.MeetingTemplate' and meeting.startDate &gt; :date and meeting.status in ('value1','value2') order by meeting.startDate asc")
+#set($results = $services.query.xwql($query).setLimit($limit).bindValue('date', $nowDate).execute())
 ##
-#set($sql = ", BaseObject as obj, DateProperty as startDate, StringProperty as status where obj.name=doc.fullName and obj.className='Meeting.MeetingClass' and obj.name&lt;&gt;'Meeting.MeetingTemplate' and obj.id=startDate.id.id and startDate.id.name='startDate' and obj.id=status.id.id and status.id.name='status' and status.value in ('value1','value2') order by startDate.value asc")
-#set($i = 0)
-##
-(% class="meetings-next" %)
-#foreach($item in $services.query.hql($sql).execute())
-  #set($document = $xwiki.getDocument($item))
-  #set($meetingDate = $document.getValue('startDate'))
-  #if($xwiki.getDocument($item).hasAccessLevel('view', $xcontext.user) == 'true' &amp;&amp; $meetingDate.compareTo($datetool.date)==1)
-    #if($xcontext.macro.params.status == 'show')
-      #set($status = "- $services.localization.render('contrib.meeting.field.status') : $document.display('status', 'view')")
-    #end
-    * $xwiki.getDocument($item).display('startDate','view') : [[$xwiki.getDocument($item).getDisplayTitle()&gt;&gt;$item]] $!status
-    #set($i = $i + 1)
-    #if($i == $xcontext.macro.params.limit)
-      #break
+(% class="meetings-next" %)(((
+  #foreach($item in $results)
+    #set($docReference = $services.model.resolveDocument($item))
+    #set($document = $xwiki.getDocument($item))
+    #if($services.security.authorization.hasAccess('view', $docReference))
+      (% class="list-unstyled" %)
+        #if($xcontext.macro.params.status == 'show')
+          #set($status = "- $services.localization.render('contrib.meeting.field.status') : $document.display('status', 'view')")
+        #end
+        * $services.icon.render('time') (% class="text-muted" %) [[$document.name&gt;&gt;$item]] $document.display('startDate','view') $!status
     #end
   #end
-#end
+)))
 ##
-#if($i == 0)
-  * $services.localization.render('contrib.meeting.panel.noMeetings')
+#if($results.size() == 0)
+  $services.localization.render('contrib.meeting.panel.noMeetings')
 #end
-##
+
 #if($xcontext.macro.params.homelink == 'show')
-  #if($i == 0)
-    #set($spaceReference = $services.model.resolveSpace("Meeting"))
-    #if($services.security.authorization.hasAccess("edit", $spaceReference))
-      * [[$services.localization.render('contrib.meeting.panel.addmeeting')&gt;&gt;Meeting.WebHome||class="homelink"]]
+  #if($results.size() == 0)
+    #set($spaceReference = $services.model.resolveSpace('Meeting'))
+    #if($services.security.authorization.hasAccess('edit', $spaceReference))
+      [[$services.localization.render('contrib.meeting.panel.addmeeting')&gt;&gt;Meeting.WebHome||class="homelink"]]
     #end
   #else
-    * [[$services.localization.render('contrib.meeting.panel.viewallmeetings')&gt;&gt;Meeting.WebHome||class="homelink"]]
+      [[$services.localization.render('contrib.meeting.panel.viewallmeetings')&gt;&gt;Meeting.WebHome||class="homelink"]]
   #end
 #end
 {{/velocity}}</code>
