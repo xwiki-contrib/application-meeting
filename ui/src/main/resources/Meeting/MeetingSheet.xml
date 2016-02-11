@@ -498,16 +498,33 @@ if(displayMap) {
     <property>
       <code>require(['jquery'], function ($) {
   $(document).ready(function() {
-    $("#sendNotification").submit(function(event) {
+    var notifForm = $("#sendNotification");
+    var notifSubmitInput = notifForm.find("input[type='submit']");
+    notifForm.submit(function(event) {
       event.preventDefault();
       $.ajax({
         type: $(this).attr('method'),
         url : $(this).attr('action'),
         data: $(this).serialize(),
-        success: function(data)
-          {
+        beforeSend: function() {
+          this.progressNotification = new XWiki.widgets.Notification("$services.localization.render('contrib.meeting.notification.sending')", 'inprogress');
+          notifSubmitInput.attr('disabled', 'disabled');
+        },
+        success: function(data) {
+          if (this.progressNotification) {
+            this.progressNotification.replace(new XWiki.widgets.Notification(data['notification'], data['status']));
+          } else {
             new XWiki.widgets.Notification(data['notification'], data['status']);
           }
+        },
+        error: function() {
+          if (this.progressNotification) {
+            this.progressNotification.replace(new XWiki.widgets.Notification(data['notification'], 'error'));
+          } else {
+            new XWiki.widgets.Notification("$services.localization.render('contrib.meeting.notification.requestError')", 'error');
+          }
+          notifSubmitInput.removeAttr('disabled');
+        }
       });
     });
   });

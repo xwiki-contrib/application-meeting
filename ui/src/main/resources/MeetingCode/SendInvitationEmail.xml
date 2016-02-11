@@ -46,7 +46,7 @@
   #set ($meetingDoc = $xwiki.getDocument($request.doc))
   #set ($message = $services.localization.render('contrib.meeting.notification.body', ["$xwiki.getUserName($xcontext.user)","&lt;strong&gt;$meetingDoc.getDisplayTitle()&lt;/strong&gt;"]))
 
-  #if ("$request.additionalMessage" != '')
+  #if ("$!request.additionalMessage" != '')
     #set ($message = "$message &lt;br&gt; $services.localization.render('contrib.hr.notification.additionalPart') $request.additionalMessage")
   #end
   #set ($title = $services.localization.render('contrib.meeting.notification.title', ["$meetingDoc.getDisplayTitle()"]))
