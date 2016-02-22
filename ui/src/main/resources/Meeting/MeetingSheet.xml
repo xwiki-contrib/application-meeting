@@ -510,19 +510,15 @@ if(displayMap) {
           this.progressNotification = new XWiki.widgets.Notification("$services.localization.render('contrib.meeting.notification.sending')", 'inprogress');
           notifSubmitInput.attr('disabled', 'disabled');
         },
-        success: function(data) {
-          if (this.progressNotification) {
-            this.progressNotification.replace(new XWiki.widgets.Notification(data['notification'], data['status']));
-          } else {
-            new XWiki.widgets.Notification(data['notification'], data['status']);
-          }
+        complete:function() {
+          // disable inprogress notification widget
+          this.progressNotification.hide();
         },
-        error: function() {
-          if (this.progressNotification) {
-            this.progressNotification.replace(new XWiki.widgets.Notification(data['notification'], 'error'));
-          } else {
-            new XWiki.widgets.Notification("$services.localization.render('contrib.meeting.notification.requestError')", 'error');
-          }
+        success: function(data) {
+          new XWiki.widgets.Notification(data['notification'], data['status']);
+        },
+        error: function(data) {
+          new XWiki.widgets.Notification("$services.localization.render('contrib.meeting.notification.requestError')", 'error');
           notifSubmitInput.removeAttr('disabled');
         }
       });

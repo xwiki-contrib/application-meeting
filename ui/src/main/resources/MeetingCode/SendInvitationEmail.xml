@@ -97,11 +97,10 @@
   #if ($mailResult &amp;&amp; !$services.mailsender.lastError)
     #set ($discard = $meetingDoc.set('lastEmailSent', $util.getDate()))
     #set ($discard = $meetingDoc.saveAsAuthor())
-    #set ($response = {'status': 'done', 'notification': "$services.localization.render('contrib.meeting.notification.success')"})
+    #set ($jsonRes = {'status': 'done', 'notification': "$services.localization.render('contrib.meeting.notification.success')"})
+    $jsontool.serialize($jsonRes)
   #else
-    #set ($response = {'status': 'error', 'notification': "$services.localization.render('contrib.meeting.notification.failure') $exceptiontool.getRootCauseMessage($services.mailsender.lastError)"})
-  #end
-  $jsontool.serialize($response)
-#end
-{{/velocity}}</content>
+    $response.setStatus(503)
+    #end
+#end{{/velocity}}</content>
 </xwikidoc>
