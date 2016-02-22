@@ -518,7 +518,11 @@ if(displayMap) {
           new XWiki.widgets.Notification(data['notification'], data['status']);
         },
         error: function(data) {
-          new XWiki.widgets.Notification("$services.localization.render('contrib.meeting.notification.requestError')", 'error');
+          if(data.responseJSON) {
+            new XWiki.widgets.Notification(data.responseJSON['notification'], data.responseJSON['status']);
+          } else {
+            new XWiki.widgets.Notification("$services.localization.render('contrib.meeting.notification.requestError')", 'error');
+          }
           notifSubmitInput.removeAttr('disabled');
         }
       });

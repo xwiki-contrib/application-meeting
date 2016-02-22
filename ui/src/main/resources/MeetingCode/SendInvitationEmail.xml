@@ -98,9 +98,10 @@
     #set ($discard = $meetingDoc.set('lastEmailSent', $util.getDate()))
     #set ($discard = $meetingDoc.saveAsAuthor())
     #set ($jsonRes = {'status': 'done', 'notification': "$services.localization.render('contrib.meeting.notification.success')"})
-    $jsontool.serialize($jsonRes)
   #else
-    $response.setStatus(503)
-    #end
+    #set ($jsonRes = {'status': 'error', 'notification': "$services.localization.render('contrib.meeting.notification.failure') $exceptiontool.getRootCauseMessage($services.mailsender.lastError)"})
+    $response.setStatus(500)
+  #end
+    $jsontool.serialize($jsonRes)
 #end{{/velocity}}</content>
 </xwikidoc>
