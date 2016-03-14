@@ -68,7 +68,7 @@
     #if ($xwiki.exists($group))
       #set ($curentGroupDoc = $xwiki.getDocument("$group"))
       #foreach ($xGroup in $curentGroupDoc.getObjects('XWiki.XWikiGroups'))
-        #if ("$!xGroup.member" != '' &amp;&amp; $xwiki.exists("$!xGroup.member") &amp;&amp; !$list.contains("$!xGroup.member"))
+        #if ("$!xGroup.member" != '' &amp;&amp; !$list.contains("$!xGroup.member"))
           #set ($discard = $list.add("$!xGroup.member"))
         #end
       #end
