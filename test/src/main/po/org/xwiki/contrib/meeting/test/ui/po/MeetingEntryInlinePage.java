@@ -256,9 +256,9 @@ public class MeetingEntryInlinePage extends InlinePage
     {
         leaderInput.clear();
         leaderInput.sendKeys(leader);
-        waitUntilElementIsVisible(By.className("suggestItem"));
-        getUtil().findElementWithoutWaiting(getDriver(), By.className("suggestItem")).click();
-        waitUntilElementDisappears(By.className("suggestItem"));
+        getDriver().waitUntilElementIsVisible(By.className("suggestItem"));
+        getDriver().findElementWithoutWaiting(By.className("suggestItem")).click();
+        getDriver().waitUntilElementDisappears(By.className("suggestItem"));
     }
 
     /**
@@ -270,9 +270,9 @@ public class MeetingEntryInlinePage extends InlinePage
     {
         for (String participant : participants) {
             participantsInput.sendKeys(participant);
-            waitUntilElementIsVisible(By.className("suggestItem"));
-            getUtil().findElementWithoutWaiting(getDriver(), By.className("suggestItem")).click();
-            waitUntilElementDisappears(By.className("suggestItem"));
+            getDriver().waitUntilElementIsVisible(By.className("suggestItem"));
+            getDriver().findElementWithoutWaiting(By.className("suggestItem")).click();
+            getDriver().waitUntilElementDisappears(By.className("suggestItem"));
         }
     }
 }

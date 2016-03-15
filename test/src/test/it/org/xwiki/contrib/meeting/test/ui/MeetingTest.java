@@ -44,7 +44,7 @@ import com.icegreen.greenmail.util.ServerSetupTest;
 public class MeetingTest extends AbstractTest
 {
     @Rule
-    public SuperAdminAuthenticationRule authenticationRule = new SuperAdminAuthenticationRule(getUtil(), getDriver());
+    public SuperAdminAuthenticationRule authenticationRule = new SuperAdminAuthenticationRule(getUtil());
 
     private GreenMail mail;
 
@@ -114,15 +114,16 @@ public class MeetingTest extends AbstractTest
             "eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua");
         meetingEntryPage.sendMessage();
 
-        Assert.assertTrue(meetingEntryPage.getContent()
+        // Verify that the mail has been sent.
+        Assert.assertTrue(meetingEntryPage.getNotification()
             .contains("A notification email has successfully been sent to the participants."));
-
+        
         // Verify that the mail has been received.
         this.mail.waitForIncomingEmail(10000L, 2);
         Assert.assertEquals(2, this.mail.getReceivedMessages().length);
-        Assert.assertEquals("You are invited to participate in a meeting",
+        Assert.assertEquals("You are invited to participate in a meeting: Meeting 01",
             this.mail.getReceivedMessages()[0].getSubject());
-        Assert.assertEquals("You are invited to participate in a meeting",
+        Assert.assertEquals("You are invited to participate in a meeting: Meeting 01",
             this.mail.getReceivedMessages()[1].getSubject());
     }
 

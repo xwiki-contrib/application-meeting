@@ -27,8 +27,8 @@
   <parent>
     <groupId>org.xwiki.commons</groupId>
     <artifactId>xwiki-commons-pom</artifactId>
-    <!-- The application meeting use the new Mail Sender API which bundled by default in XWiki Enterprise since 6.2M1 -->
-    <version>6.2</version>
+    <!-- The application meeting use the new Mail Sender API which bundled by default in XWiki Enterprise since 6.2M1 but a better version since 7.4.2-->
+    <version>7.4.2</version>
   </parent>
   <groupId>org.xwiki.contrib</groupId>
   <artifactId>application-meeting</artifactId>

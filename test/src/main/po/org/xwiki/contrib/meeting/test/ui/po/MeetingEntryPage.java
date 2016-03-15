@@ -34,12 +34,23 @@ public class MeetingEntryPage extends ViewPage
     @FindBy(xpath = "//form[@id= 'sendNotification']//input[@type='submit']")
     private WebElement sendMessageAppButton;
 
+    @FindBy(className = "xnotification-done")
+    private WebElement notification;
+
     /**
      * @return the value of the message
      */
     public String getMessage()
     {
         return messageTexarea.getText();
+    }
+
+    /**
+     * @return the value of the notification
+     */
+    public String getNotification()
+    {
+        return notification.getText();
     }
 
     /**

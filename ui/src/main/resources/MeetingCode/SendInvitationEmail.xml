@@ -102,7 +102,7 @@
   #set ($discard = $mailmsg.addPart('text/calendar;method=CANCEL', $vCalendar, {'headers' : {'Content-Class' : 'urn:content-classes:calendarmessage'}}))
   #set ($mailResult = $services.mailsender.send($mailmsg))
   #if ($mailResult &amp;&amp; !$services.mailsender.lastError)
-    #set ($discard = $meetingDoc.set('lastEmailSent', $util.getDate()))
+    #set ($discard = $meetingDoc.set('lastEmailSent', $datetool.date))
     #set ($discard = $meetingDoc.saveAsAuthor())
     #set ($jsonRes = {'status': 'done', 'notification': "$services.localization.render('contrib.meeting.notification.success')"})
   #else

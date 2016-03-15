@@ -50,16 +50,16 @@ public class MeetingHomePage extends ViewPage
 
     public void setEntryName(String name)
     {
-        WebElement nameInput = getUtil()
-            .findElementWithoutWaiting(getDriver(), By.xpath("//div[@id = 'entryNamePopup']//input[@type = 'text']"));
+        WebElement nameInput = getDriver()
+            .findElementWithoutWaiting(By.xpath("//div[@id = 'entryNamePopup']//input[@type = 'text']"));
         nameInput.clear();
         nameInput.sendKeys(name);
     }
 
     public MeetingEntryInlinePage clickAddEntry()
     {
-        WebElement addButton = getUtil()
-            .findElementWithoutWaiting(getDriver(), By.xpath("//div[@id = 'entryNamePopup']//input[@type = 'image']"));
+        WebElement addButton = getDriver()
+            .findElementWithoutWaiting(By.xpath("//div[@id = 'entryNamePopup']//input[@type = 'image']"));
         addButton.click();
         return new MeetingEntryInlinePage();
     }
