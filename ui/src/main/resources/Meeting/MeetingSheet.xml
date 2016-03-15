@@ -39,18 +39,18 @@
   <minorEdit>false</minorEdit>
   <syntaxId>xwiki/2.1</syntaxId>
   <hidden>true</hidden>
-  <content>{{include reference="Meeting.Macros" /}}
+  <content>{{include reference='Meeting.Macros' /}}
 
 {{velocity}}
-{{html wiki="true"}}
-$xwiki.ssx.use('AppWithinMinutes.ClassSheetGenerator')
-$xwiki.ssx.use('Meeting.SkinExtension')
-$xwiki.jsx.use('Meeting.MeetingSheet')
+{{html wiki='true'}}
+#set($discard = $xwiki.ssx.use('AppWithinMinutes.ClassSheetGenerator'))
+#set($discard = $xwiki.ssx.use('Meeting.SkinExtension'))
+#set($discard = $xwiki.jsx.use('Meeting.MeetingSheet'))
 #set($discard = $doc.use('Meeting.MeetingClass'))
-#set($previousDurationHour = $doc.getValue("durationHour"))
-#set($previousDurationMinutes = $doc.getValue("durationMinutes"))
-#set($previousDuration = $doc.getValue("duration"))
-#set($previousDurationString = $doc.getValue("durationString"))
+#set($previousDurationHour = $doc.getValue('durationHour'))
+#set($previousDurationMinutes = $doc.getValue('durationMinutes'))
+#set($previousDuration = $doc.getValue('duration'))
+#set($previousDurationString = $doc.getValue('durationString'))
 #set($durationHour = $mathtool.floor($mathtool.div($doc.getValue('duration'),60)))
 #set($durationMinutes = $mathtool.sub($doc.getValue('duration'),$mathtool.mul(60,$durationHour)))
 #if($xcontext.action=='view' &amp;&amp; $doc.get('hasBeenEdited') == 1) ## editing via inline mode
@@ -60,36 +60,36 @@ $xwiki.jsx.use('Meeting.MeetingSheet')
   ## Create durationString from the durationHour, durationMinutes properties
   #if($durationHour != 0)
     #if($durationMinutes != 0)
-      #set($durationString = "$durationHour h $durationMinutes min")
+      #set($durationString = "$!durationHour h $!durationMinutes min")
     #else
-      #set($durationString = "$durationHour h")
+      #set($durationString = "$!durationHour h")
     #end
   #else
-    #set($durationString = "$durationMinutes min")
+    #set($durationString = "$!durationMinutes min")
   #end
   #if($previousDuration != $duration.toString() || $previousDurationString != $durationString)
-    $doc.set('duration', "$duration.toString()")
-    $doc.set('durationString', "$durationString")
-    $doc.set('hasBeenEdited', 0)
-    $doc.saveAsAuthor()
+    #set($discard = $doc.set('duration', "$duration.toString()"))
+    #set($discard = $doc.set('durationString', "$durationString"))
+    #set($discard = $doc.set('hasBeenEdited', 0))
+    #set($discard = $doc.saveAsAuthor())
   #end
-#elseif($xcontext.action!='view' &amp;&amp; !$tdoc.isNew())
+#elseif($xcontext.action != 'view' &amp;&amp; !$tdoc.isNew())
   #if($previousDurationHour != $durationHour.toString() || $previousDurationMinutes != $durationMinutes.toString())
-    $doc.set('durationHour', $durationHour.toString())
-    $doc.set('durationMinutes', $durationMinutes.toString())
-    $doc.saveAsAuthor()
+    #set($discard = $doc.set('durationHour', $durationHour.toString()))
+    #set($discard = $doc.set('durationMinutes', $durationMinutes.toString()))
+    #set($discard = $doc.saveAsAuthor())
   #end
 #elseif(!$tdoc.isNew()) ## editing via calendar view
   #if($previousDurationHour != $durationHour.toString() || $previousDurationMinutes != $durationMinutes.toString())
-    $doc.set('durationString', $doc.get('calc'))
-    $doc.set('durationHour', $durationHour.toString())
-    $doc.set('durationMinutes', $durationMinutes.toString())
-    $doc.saveAsAuthor()
+    #set($discard = $doc.set('durationString', $doc.get('calc')))
+    #set($discard = $doc.set('durationHour', $durationHour.toString()))
+    #set($discard = $doc.set('durationMinutes', $durationMinutes.toString()))
+    #set($discard = $doc.saveAsAuthor())
   #end
 #end
 #if($request.createPoll == 'true')
-  $doc.set('hasPoll', 1)
-  $doc.saveAsAuthor()
+  #set($discard = $doc.set('hasPoll', 1))
+  #set($discard = $doc.saveAsAuthor())
   #set($title="XPoll for the Meeting $doc.name")
   #set($newPollReference = $services.model.createDocumentReference('', 'XPoll', $title))
   $response.sendRedirect($xwiki.getURL($newPollReference, 'edit', "$!{request.queryString}"))
@@ -103,11 +103,11 @@ $xwiki.jsx.use('Meeting.MeetingSheet')
     (% class="col-md-12 col-sm-12 col-xs-12" %)
     (((
     ## Set the edit flag
-    #if ($xcontext.action=='edit')
+    #if ($xcontext.action == 'edit')
       &lt;input name="Meeting.MeetingClass_0_hasBeenEdited" type="hidden" value="1" /&gt;
     #end
     ## Add a title of event in edit modetime
-    #if($xcontext.action=='edit')
+    #if($xcontext.action == 'edit')
         ; &lt;label for="Meeting.MeetingClass_0_meetingTitle"&gt;#if($services.icon)$services.icon.render('font') #end $escapetool.xml($doc.displayPrettyName('meetingTitle', false, false))&lt;/label&gt;
         : $doc.display('meetingTitle')
     #end
@@ -118,27 +118,27 @@ $xwiki.jsx.use('Meeting.MeetingSheet')
   (((
     (% class="col-xs-12 col-sm-4" %)
     (((
-    ; &lt;label for="Meeting.MeetingClass_0_startDate"&gt;#if($services.icon)$services.icon.render('calendar') #end $services.localization.render('contrib.meeting.field.startDate')&lt;/label&gt;##
+    ; &lt;label for="Meeting.MeetingClass_0_startDate"&gt;$!services.icon.render('calendar') $services.localization.render('contrib.meeting.field.startDate')&lt;/label&gt;##
       (% class="xHint" %)$services.localization.render('')
     : $doc.display('startDate')
     )))
     (% class="col-xs-12 col-sm-4" %)
     (((
-    ; &lt;label for="Meeting.MeetingClass_0_calc"&gt;#if($services.icon)$services.icon.render('clock') #end $services.localization.render('contrib.meeting.field.duration')&lt;/label&gt;##
+    ; &lt;label for="Meeting.MeetingClass_0_calc"&gt;$!services.icon.render('clock') $services.localization.render('contrib.meeting.field.duration')&lt;/label&gt;##
       (% class="xHint" %)$services.localization.render('')
-    #if($xcontext.action=='view')
+    #if($xcontext.action == 'view')
       : $doc.display('durationString')
     #else
       ##: $doc.display('duration')
       ##; &lt;label for="Meeting.MeetingClass_0_durationHour"&gt;$services.localization.render('contrib.meeting.field.duration')&lt;/label&gt;
-      : &lt;div id="durationEdit"&gt; $doc.display('durationHour') h $doc.display('durationMinutes') min&lt;/div&gt;
+      : &lt;div id="durationEdit"&gt; $!doc.display('durationHour') h $!doc.display('durationMinutes') min&lt;/div&gt;
     #end
     )))
     (% class="col-xs-12 col-sm-4" %)
     (((
-    ; &lt;label for="Meeting.MeetingClass_0_status"&gt;#if($services.icon)$services.icon.render('control_play') #end $services.localization.render('contrib.meeting.field.status')&lt;/label&gt;##
+    ; &lt;label for="Meeting.MeetingClass_0_status"&gt;$!services.icon.render('control_play') $services.localization.render('contrib.meeting.field.status')&lt;/label&gt;##
       (% class="xHint" %)$services.localization.render('')
-    #if($xcontext.action=='view')
+    #if($xcontext.action == 'view')
       : &lt;span class="label label-warning"&gt;$doc.display('status')&lt;/span&gt;
     #else
       : $doc.display('status')
@@ -155,15 +155,15 @@ $xwiki.jsx.use('Meeting.MeetingSheet')
         (% class="col-md-6 col-sm-6 col-xs-12" %)
         (((
           #if ("$!doc.display('place')" != '')
-            ; &lt;label for="Meeting.MeetingClass_0_place"&gt;#if($services.icon)$services.icon.render('map') #end $services.localization.render('contrib.meeting.field.place')&lt;/label&gt;##
+            ; &lt;label for="Meeting.MeetingClass_0_place"&gt;$!services.icon.render('map') $services.localization.render('contrib.meeting.field.place')&lt;/label&gt;##
             (% class="xHint" %)$services.localization.render('')
             : $doc.display('place')
           #end
         )))
         (% class="col-md-6 col-sm-6 col-xs-12" %)
         (((
-          #if($xcontext.action=="edit")
-            ; &lt;label for="Meeting.MeetingClass_0_displayMap"&gt;#if($services.icon)$services.icon.render('map') #end $services.localization.render('contrib.meeting.field.displayMap')&lt;/label&gt;##
+          #if($xcontext.action == 'edit')
+            ; &lt;label for="Meeting.MeetingClass_0_displayMap"&gt;$!services.icon.render('map') $services.localization.render('contrib.meeting.field.displayMap')&lt;/label&gt;##
             (% class="xHint" %)$services.localization.render('')
             : $doc.display('displayMap') $doc.display('displayMapError')
           #end
@@ -173,29 +173,29 @@ $xwiki.jsx.use('Meeting.MeetingSheet')
       (((
         (% class="col-sm-12 col-xs-12" %)
         (((
-          #if($xcontext.action=="view" &amp;&amp; $doc.getValue('displayMap') == 1 &amp;&amp; "${doc.getValue('place')}"!="")
+          #if($xcontext.action == 'view' &amp;&amp; $doc.getValue('displayMap') == 1 &amp;&amp; "${doc.getValue('place')}" != '')
             ((({{map location="$doc.getValue('place')" width="500" height="300" errors="hide"}}$doc.display('place'){{/map}})))&lt;br/&gt;
           #end
-          #if (("$!doc.getValue('description').trim()" != '') &amp;&amp; ($xcontext.action=="view"))
-            ; &lt;label for="Meeting.MeetingClass_0_description"&gt;#if($services.icon)$services.icon.render('application_view_list') #end     $services.localization.render('contrib.meeting.field.description')&lt;/label&gt;
+          #if (("$!doc.getValue('description').trim()" != '') &amp;&amp; ($xcontext.action == 'view'))
+            ; &lt;label for="Meeting.MeetingClass_0_description"&gt;$!services.icon.render('application_view_list') $services.localization.render('contrib.meeting.field.description')&lt;/label&gt;
             : $doc.display('description')
           #end
-          #if ($xcontext.action=="edit")
-            ; &lt;label for="Meeting.MeetingClass_0_description"&gt;#if($services.icon)$services.icon.render('application_view_list') #end     $services.localization.render('contrib.meeting.field.description')&lt;/label&gt;##
+          #if ($xcontext.action == 'edit')
+            ; &lt;label for="Meeting.MeetingClass_0_description"&gt;$!services.icon.render('application_view_list') $services.localization.render('contrib.meeting.field.description')&lt;/label&gt;##
             (% class="xHint" %)$services.localization.render('')
             : $doc.display('description')
           #end
-          #if (("$!doc.getValue('notes').trim()" != '') &amp;&amp; ($xcontext.action=="view"))
-            ; &lt;label for="Meeting.MeetingClass_0_notes"&gt;#if($services.icon)$services.icon.render('application_view_list') #end $services.localization.render('contrib.meeting.field.notes')&lt;/label&gt;
+          #if (("$!doc.getValue('notes').trim()" != '') &amp;&amp; ($xcontext.action == 'view'))
+            ; &lt;label for="Meeting.MeetingClass_0_notes"&gt;$!services.icon.render('application_view_list') $services.localization.render('contrib.meeting.field.notes')&lt;/label&gt;
             : $doc.display('notes')
           #end
-          #if ($xcontext.action=="edit")
-            ; &lt;label for="Meeting.MeetingClass_0_notes"&gt;#if($services.icon)$services.icon.render('application_view_list') #end $services.localization.render('contrib.meeting.field.notes')&lt;/label&gt;##
+          #if ($xcontext.action == 'edit')
+            ; &lt;label for="Meeting.MeetingClass_0_notes"&gt;$!services.icon.render('application_view_list') $services.localization.render('contrib.meeting.field.notes')&lt;/label&gt;##
             (% class="xHint" %)$services.localization.render('')
             : $doc.display('notes')
           #end
-          #if($doc.isCurrentUserCreator() &amp;&amp; $xwiki.exists('XPoll.WebHome') &amp;&amp; $doc.getValue('status')=='value1' &amp;&amp; $xcontext.action=='view')
-            #if($doc.getValue('hasPoll')==0)
+          #if($doc.isCurrentUserCreator() &amp;&amp; $xwiki.exists('XPoll.WebHome') &amp;&amp; $doc.getValue('status') == 'value1' &amp;&amp; $xcontext.action == 'view')
+            #if($doc.getValue('hasPoll') == 0)
               &lt;form id="createXPoll" action='' method='get'&gt;
                 &lt;div class='presentation'&gt;
                   &lt;input type='hidden' name='createPoll' value='true'&gt;
@@ -208,14 +208,14 @@ $xwiki.jsx.use('Meeting.MeetingSheet')
               &lt;/form&gt;
             #else
               #set($url = $xwiki.getURL("XPoll.XPoll for the Meeting $doc.name"))
-                &lt;form action=$url method='post'&gt;
-                  &lt;div class='presentation'&gt;
-                    &lt;p&gt;&lt;label&gt;$services.localization.render('contrib.meeting.poll.explanation')&lt;/label&gt;&lt;/p&gt;
-                    &lt;span class='buttonwrapper'&gt;
-                      &lt;input type='submit' class='button' value="$services.localization.render('contrib.meeting.poll.go')"/&gt;
-                    &lt;/span&gt;
-                  &lt;/div&gt;
-                &lt;/form&gt;
+              &lt;form action=$url method='post'&gt;
+                &lt;div class='presentation'&gt;
+                  &lt;p&gt;&lt;label&gt;$services.localization.render('contrib.meeting.poll.explanation')&lt;/label&gt;&lt;/p&gt;
+                  &lt;span class='buttonwrapper'&gt;
+                    &lt;input type='submit' class='button' value="$services.localization.render('contrib.meeting.poll.go')"/&gt;
+                  &lt;/span&gt;
+                &lt;/div&gt;
+              &lt;/form&gt;
             #end
           #end
         )))
@@ -224,35 +224,35 @@ $xwiki.jsx.use('Meeting.MeetingSheet')
 
     (% class="col-xs-12 col-sm-4" %)
     (((
-      #if ("$!doc.getValue('leader')" != '' &amp;&amp; ($xcontext.action=="view"))
-        ; &lt;label for="Meeting.MeetingClass_0_leader"&gt;#if($services.icon)$services.icon.render('user') #end $services.localization.render('contrib.meeting.field.leader')&lt;/label&gt;
+      #if ("$!doc.getValue('leader')" != '' &amp;&amp; ($xcontext.action == 'view'))
+        ; &lt;label for="Meeting.MeetingClass_0_leader"&gt;$!services.icon.render('user') $services.localization.render('contrib.meeting.field.leader')&lt;/label&gt;
         : $doc.display('leader')
       #end
       #if($xcontext.action == 'edit')
-        ; &lt;label for="Meeting.MeetingClass_0_leader"&gt;#if($services.icon)$services.icon.render('user') #end $services.localization.render('contrib.meeting.field.leader')&lt;/label&gt;##
+        ; &lt;label for="Meeting.MeetingClass_0_leader"&gt;$!services.icon.render('user') $services.localization.render('contrib.meeting.field.leader')&lt;/label&gt;##
         (% class="xHint" %)$services.localization.render('')
         : $doc.display('leader')
       #end
-      #if ("$!doc.getValue('participants')" != '' &amp;&amp; ($xcontext.action=="view"))
-        ; &lt;label for="Meeting.MeetingClass_0_participants"&gt;#if($services.icon)$services.icon.render('user') #end $services.localization.render('contrib.meeting.field.participants')&lt;/label&gt;
+      #if ("$!doc.getValue('participants')" != '' &amp;&amp; ($xcontext.action == 'view'))
+        ; &lt;label for="Meeting.MeetingClass_0_participants"&gt;$!services.icon.render('user') $services.localization.render('contrib.meeting.field.participants')&lt;/label&gt;
         : $doc.display('participants')
       #end
       #if($xcontext.action == 'edit')
-        ; &lt;label for="Meeting.MeetingClass_0_participants"&gt;#if($services.icon)$services.icon.render('user') #end $services.localization.render('contrib.meeting.field.participants')&lt;/label&gt;##
+        ; &lt;label for="Meeting.MeetingClass_0_participants"&gt;$!services.icon.render('user') $services.localization.render('contrib.meeting.field.participants')&lt;/label&gt;##
         (% class="xHint" %)$services.localization.render('')
         : $doc.display('participants')
       #end
-       #if ("$!doc.getValue('groups')" != '' &amp;&amp; ($xcontext.action=="view"))
-        ; &lt;label for="Meeting.MeetingClass_0_groups"&gt;#if($services.icon)$services.icon.render('group') #end $services.localization.render('contrib.meeting.field.groups')&lt;/label&gt;##
+       #if ("$!doc.getValue('groups')" != '' &amp;&amp; ($xcontext.action == 'view'))
+        ; &lt;label for="Meeting.MeetingClass_0_groups"&gt;$!services.icon.render('group') $services.localization.render('contrib.meeting.field.groups')&lt;/label&gt;##
         (% class="xHint" %)$services.localization.render('')
         : $doc.display('groups')
       #end
-      #if ($xcontext.action=="edit")
-        ; &lt;label for="Meeting.MeetingClass_0_groups"&gt;#if($services.icon)$services.icon.render('group') #end $services.localization.render('contrib.meeting.field.groups')&lt;/label&gt;##
+      #if ($xcontext.action == 'edit')
+        ; &lt;label for="Meeting.MeetingClass_0_groups"&gt;$!services.icon.render('group') $services.localization.render('contrib.meeting.field.groups')&lt;/label&gt;##
         (% class="xHint" %)$services.localization.render('')
         : $doc.display('groups')
       #end
-      #if($doc.isCurrentUserCreator() &amp;&amp; $doc.getValue('participants')!='' &amp;&amp; $xcontext.action=='view')
+      #if($doc.isCurrentUserCreator() &amp;&amp; $doc.getValue('participants')!='' &amp;&amp; $xcontext.action == 'view')
         &lt;form id="sendNotification" action="$xwiki.getURL('MeetingCode.SendInvitationEmail', 'get', 'outputSyntax=plain')" method='post'&gt;
           &lt;div class='presentation'&gt;
             &lt;input type='hidden' name='sendNotification' value='true'&gt;
@@ -297,7 +297,7 @@ $xwiki.jsx.use('Meeting.MeetingSheet')
         <prettyName>Caching policy</prettyName>
         <relationalStorage>0</relationalStorage>
         <separator> </separator>
-        <separators> ,|</separators>
+        <separators>|, </separators>
         <size>1</size>
         <unmodifiable>0</unmodifiable>
         <values>long|short|default|forbid</values>
@@ -342,7 +342,7 @@ $xwiki.jsx.use('Meeting.MeetingSheet')
         <prettyName>Use this extension</prettyName>
         <relationalStorage>0</relationalStorage>
         <separator> </separator>
-        <separators> ,|</separators>
+        <separators>|, </separators>
         <size>1</size>
         <unmodifiable>0</unmodifiable>
         <values>currentPage|onDemand|always</values>
