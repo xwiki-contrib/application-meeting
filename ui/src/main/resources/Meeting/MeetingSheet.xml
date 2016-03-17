@@ -237,9 +237,14 @@
         (% class="xHint" %)$services.localization.render('')
       #end
       : $doc.display('groups')
+
       #set($participants = {})
       #getParticipants($doc $participants)
-      #if($doc.isCurrentUserCreator() &amp;&amp; !$participants.to.isEmpty() &amp;&amp; $xcontext.action == 'view')
+      #if($participants.to.isEmpty())
+        {{warning}}
+          $services.localization.render('contrib.meeting.notification.noEmails')
+        {{/warning}}
+      #elseif($doc.isCurrentUserCreator() &amp;&amp; !$participants.to.isEmpty() &amp;&amp; $xcontext.action == 'view')
         &lt;form id="sendNotification" action="$xwiki.getURL('MeetingCode.SendInvitationEmail', 'get', 'outputSyntax=plain')" method='post'&gt;
           &lt;div class='presentation'&gt;
             &lt;input type='hidden' name='sendNotification' value='true'&gt;

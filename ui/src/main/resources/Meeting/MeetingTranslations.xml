@@ -86,6 +86,7 @@ contrib.meeting.notification.link=See the meeting page on XWiki.
 contrib.meeting.notification.view.event = View your event at
 contrib.meeting.notification.submit=Send an invitation email to these users
 contrib.meeting.notification.additionalMessage=Type here the message you want to send to the participants (optional) :
+contrib.meeting.notification.noEmails=No member configured the email address on their profile page.
 contrib.hr.notification.additionalPart=His/her message:
 
 # Next Meetings panel
