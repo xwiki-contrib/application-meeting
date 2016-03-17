@@ -40,77 +40,91 @@
   <syntaxId>xwiki/2.1</syntaxId>
   <hidden>true</hidden>
   <content>{{velocity output=false}}
-#macro (getParticipants $meetingDoc $return)
-  #set($to = '')
-  #set($icsParticipants = '')
-  #set($participants = $meetingDoc.getValue('participants'))
-  #set($listParticipants = $participants.split(','))
-
-  #foreach($element in $listParticipants)
-    #set($email = $xwiki.getUserName($element, '$email', false))
-    #set($name = $xwiki.getUserName($element, false))
-    #if ("$!email" != '')
-      #set($to = "$to $email,")
-      #set($icsParticipants = $icsParticipants +"ATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;CN=${name};X-NUM-GUESTS=0:mailto:${email}")
-    #end
+#macro(addMember $member $memberReference $list)
+  #if ($member != '' &amp;&amp; $xwiki.exists($memberReference) &amp;&amp; !$list.contains($memberReference))
+    #set ($discard = $list.add($memberReference))
   #end
-  #setVariable("$return" {
-    'to': $!{to},
-    'icsParticipants': $!{icsParticipants}
-  })
 #end
 
-#macro (getMeetingDates $meetingDoc $return)
-  #set($creationDate = $meetingDoc.creationDate)
-  #set($modDate = $meetingDoc.date)
+#macro(addParticipantsInfo $list $participants)
+  #set ($to = '')
+  #set ($icsParticipants = '')
+  #foreach ($member in $list)
+    #set ($email = $xwiki.getUserName($member, '$email', false))
+    #set ($name = $xwiki.getUserName($member, false))
+    #if ("$!email" != '')
+      #set ($icsParticipantsString = "ATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;CN=${name};X-NUM-GUESTS=0:mailto:${email}")
+      #if ($foreach.index == 0)
+        #set ($to = "$email") 
+        #set ($icsParticipants = "$icsParticipantsString")
+      #else
+        #set ($to = "$to, $email")
+        #set ($icsParticipants = "$icsParticipants, $icsParticipantsString")
+      #end
+    #end
+  #end
+  #set ($discard = $participants.put('to', $!{to}))
+  #set ($discard = $participants.put('icsParticipants', $!{icsParticipants}))
+#end
+
+#macro(getParticipants $meetingDoc $participants)
+  #set ($listParticipants = $meetingDoc.getValue('participants').split(','))
+  #set ($listGroups = $meetingDoc.getValue('groups').split(','))
+  #set ($list = [])
+  ## Add members to the recipient list
+  #foreach ($member in $listParticipants)
+    #set ($memberReference = $services.model.resolveDocument($member))
+    #addMember($member $memberReference $list)
+  #end
+  ## Add the users of the groups to the recipient list
+  #foreach ($group in $listGroups)
+    #if ($xwiki.exists($group))
+      #set ($curentGroupDoc = $xwiki.getDocument($group))
+      #foreach ($xGroup in $curentGroupDoc.getObjects('XWiki.XWikiGroups'))
+        #set ($member = "$!xGroup.member")
+        #set ($memberReference = $services.model.resolveDocument($member, $curentGroupDoc.documentReference))
+        #addMember($member $memberReference $list)
+      #end
+    #end
+  #end
+  ## Prepare $to and $icsParticipants variables
+  #addParticipantsInfo($list $participants)
+#end
+
+#macro (getMeetingDates $meetingDoc $dates)
   #set($startDate = $meetingDoc.getValue('startDate'))
-  #set($duration = $meetingDoc.getValue('duration'))
 
   #set($calendar = $datetool.getCalendar())
   #set($discard = $calendar.setTime($startDate))
-  #set($discard = $calendar.add(12, $util.parseInt($duration)))
+  #set($discard = $calendar.add(12, $util.parseInt($meetingDoc.getValue('duration'))))
   #set($endDate = $calendar.getTime())
 
   #set($dateFormat = "yyyyMMdd'T'HHmmss'Z'")
-  #set($sstartDate = $datetool.format($dateFormat, $startDate))
-  #set($sendDate = $datetool.format($dateFormat, $endDate))
-  #set($smodDate = $datetool.format($dateFormat, $modDate))
-  #setVariable("$return" {
-    'smodDate': $!{smodDate},
-    'sstartDate': $!{sstartDate},
-    'sendDate': $!{sendDate}
-  })
+
+  #set($discard = $dates.put('smodDate', $!{datetool.format($dateFormat, $meetingDoc.date)}))
+  #set($discard = $dates.put('sstartDate', $!{datetool.format($dateFormat, $startDate)}))
+  #set($discard = $dates.put('sendDate', $!{datetool.format($dateFormat, $endDate)}))
 #end
 
-#macro (getMeetingInfos $meetingDoc $return)
-  #set($meetingTitle = $meetingDoc.title)
-  #set($place = $meetingDoc.getValue('place'))
+#macro (getMeetingInfos $meetingDoc $meeting)
   #set($leader = $meetingDoc.getValue('leader'))
-  #set($organizerEmail = $xwiki.getUserName($leader, '$email', false))
-  #set($organizer = $xwiki.getUserName($leader, false))
+  #set($discard = $meeting.put('place', $meetingDoc.getValue('place')))
+  #set($discard = $meeting.put('organizer', $xwiki.getUserName($leader, false)))
+  #set($discard = $meeting.put('organizerEmail', $xwiki.getUserName($leader, '$email', false)))
+  #set($discard = $meeting.put('description', "$services.localization.render('contrib.meeting.notification.view.event') $!{meetingDoc.getExternalURL()}"))
 
+  #set($dates = {})
   #getMeetingDates($meetingDoc, $dates)
+  #set($discard = $meeting.put('dates', $dates))
+  #set($participants = {})
   #getParticipants($meetingDoc, $participants)
-  #setVariable("$return" {
-    'place': "$!{place}",
-    'organizer': "$!{organizer}",
-    'organizerEmail': "$!{organizerEmail}",
-    'dates': {
-      'smodDate': $!{dates.smodDate},
-      'sstartDate': $!{dates.sstartDate},
-      'sendDate': $!{dates.sendDate}
-    },
-    'participants' : {
-      'to': $!{participants.to},
-      'icsParticipants': $!{participants.icsParticipants}
-    }
-  })
+  #set($discard = $meeting.put('participants', $participants))
 #end
 
-#macro (getVCalendarContent $meetingDoc $return)
+#macro (getVCalendarContent $meetingDoc $vCalendar)
+  #set($meeting = {})
   #getMeetingInfos($meetingDoc, $meeting)
-  #set($description = "$services.localization.render('contrib.meeting.notification.view.event') $!{meetingDoc.getExternalURL()}")
-  #set($vcalendar = "
+  #set($vCalendar = "
     BEGIN:VCALENDAR
     METHOD:REQUEST
     PRODID: Meeting
@@ -119,12 +133,12 @@
     DTSTAMP:$!{meeting.dates.smodDate}
     DTSTART:$!{meeting.dates.sstartDate}
     DTEND:$!{meeting.dates.sendDate}
-    SUMMARY:$!{meetingTitle}
+    SUMMARY:$!{meetingDoc.title}
     UID:$!{meetingDoc.id}
-    $!{participants.icsParticipants}
+    $!{meeting.participants.icsParticipants}
     ORGANIZER;CN=$!{meeting.organizer}:MAILTO:$!{meeting.organizerEmail}
     LOCATION:$!{meeting.place}
-    DESCRIPTION:$!{description}
+    DESCRIPTION:$!{meeting.description}
     SEQUENCE:0
     PRIORITY:5
     CLASS:PUBLIC
@@ -138,7 +152,6 @@
     END:VEVENT
     END:VCALENDAR
   ")
-  #setVariable("$return" $vcalendar)
 #end
 {{/velocity}}</content>
 </xwikidoc>

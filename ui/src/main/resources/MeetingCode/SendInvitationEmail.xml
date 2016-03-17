@@ -52,41 +52,9 @@
   #set ($title = $services.localization.render('contrib.meeting.notification.title', ["$meetingDoc.title"]))
   #set ($link = $meetingDoc.getExternalURL())
 
-  ## Retrieve participants emails
-  #set ($to = '')
-  #set ($listParticipants = $meetingDoc.getValue('participants').split(','))
-  #set ($listGroups = $meetingDoc.getValue('groups').split(','))
-  #set ($list =[])
-  ## Add members to the recipient list
-  #foreach ($member in $listParticipants)
-    #set ($memberReference = $services.model.resolveDocument($member))
-    #if ($xwiki.exists($memberReference) &amp;&amp; !$list.contains($memberReference))
-      #set ($discard = $list.add($memberReference))
-    #end
-  #end
-  ## Add the users of the groups to the recipient list
-  #foreach ($group in $listGroups)
-    #if ($xwiki.exists($group))
-      #set ($curentGroupDoc = $xwiki.getDocument($group))
-      #foreach ($xGroup in $curentGroupDoc.getObjects('XWiki.XWikiGroups'))
-        #set ($groupMember = "$!xGroup.member")
-        #set ($memberReference = $services.model.resolveDocument($groupMember, $curentGroupDoc.documentReference))
-        #if ($groupMember != '' &amp;&amp; $xwiki.exists($memberReference) &amp;&amp; !$list.contains($memberReference))
-          #set ($discard = $list.add($memberReference))
-        #end
-      #end
-    #end
-  #end
-  #foreach ($member in $list)
-    #set ($email = $xwiki.getUserName($member, '$email', false))
-    #if ("$!email" != '')
-      #if ($foreach.index == 0)
-        #set ($to = "$email") 
-      #else
-        #set ($to = "$to, $email")
-      #end
-    #end
-  #end
+  ## Retrieve participants
+  #set($participants = {})
+  #getParticipants($meetingDoc, $participants)
   ## Retrieve default From email
   #set ($serverName = "$!request.serverName")
   #set ($curentUserName = $xwiki.getUserName($xcontext.user, false))
@@ -96,8 +64,9 @@
     #set ($sender = "$!{escapetool.xml($curentUserName)} &lt;no-reply@xwiki.localdomain.com&gt;")
   #end
   #set ($defaultMail = $xwiki.getXWikiPreference('admin_email', "$sender"))
-  #set ($mailmsg = $services.mailsender.createMessage($defaultMail, $to, $title))
+  #set ($mailmsg = $services.mailsender.createMessage($defaultMail, $participants.to, $title))
   #set ($discard = $mailmsg.addPart('text/html', "$message &lt;br&gt; &lt;a href=$link&gt; $services.localization.render('contrib.meeting.notification.link') &lt;/a&gt;"))
+  #set($vCalendar = '')
   #getVCalendarContent($meetingDoc, $vCalendar)
   #set ($discard = $mailmsg.addPart('text/calendar;method=CANCEL', $vCalendar, {'headers' : {'Content-Class' : 'urn:content-classes:calendarmessage'}}))
   #set ($mailResult = $services.mailsender.send($mailmsg))
