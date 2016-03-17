@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ * See the NOTICE file distributed with this work for additional
+ * information regarding copyright ownership.
+ *
+ * This is free software; you can redistribute it and/or modify it
+ * under the terms of the GNU Lesser General Public License as
+ * published by the Free Software Foundation; either version 2.1 of
+ * the License, or (at your option) any later version.
+ *
+ * This software is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this software; if not, write to the Free
+ * Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
+ * 02110-1301 USA, or see the FSF site: http://www.fsf.org.
+-->
+
+<xwikidoc version="1.2" reference="MeetingCode.Macros" locale="">
+  <web>MeetingCode</web>
+  <name>Macros</name>
+  <language/>
+  <defaultLanguage/>
+  <translation>0</translation>
+  <creator>xwiki:XWiki.Admin</creator>
+  <creationDate>1405645690000</creationDate>
+  <parent>Meeting.WebHome</parent>
+  <author>xwiki:XWiki.Admin</author>
+  <contentAuthor>xwiki:XWiki.Admin</contentAuthor>
+  <date>1458203449000</date>
+  <contentUpdateDate>1458203449000</contentUpdateDate>
+  <version>1.1</version>
+  <title/>
+  <comment/>
+  <minorEdit>false</minorEdit>
+  <syntaxId>xwiki/2.1</syntaxId>
+  <hidden>true</hidden>
+  <content>{{velocity output=false}}
+#macro (getParticipants $meetingDoc $return)
+  #set($to = '')
+  #set($icsParticipants = '')
+  #set($participants = $meetingDoc.getValue('participants'))
+  #set($listParticipants = $participants.split(','))
+
+  #foreach($element in $listParticipants)
+    #set($email = $xwiki.getUserName($element, '$email', false))
+    #set($name = $xwiki.getUserName($element, false))
+    #if ("$!email" != '')
+      #set($to = "$to $email,")
+      #set($icsParticipants = $icsParticipants +"ATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;CN=${name};X-NUM-GUESTS=0:mailto:${email}")
+    #end
+  #end
+  #setVariable("$return" {
+    'to': $!{to},
+    'icsParticipants': $!{icsParticipants}
+  })
+#end
+
+#macro (getMeetingDates $meetingDoc $return)
+  #set($creationDate = $meetingDoc.creationDate)
+  #set($modDate = $meetingDoc.date)
+  #set($startDate = $meetingDoc.getValue('startDate'))
+  #set($duration = $meetingDoc.getValue('duration'))
+
+  #set($calendar = $datetool.getCalendar())
+  #set($discard = $calendar.setTime($startDate))
+  #set($discard = $calendar.add(12, $util.parseInt($duration)))
+  #set($endDate = $calendar.getTime())
+
+  #set($dateFormat = "yyyyMMdd'T'HHmmss'Z'")
+  #set($sstartDate = $datetool.format($dateFormat, $startDate))
+  #set($sendDate = $datetool.format($dateFormat, $endDate))
+  #set($smodDate = $datetool.format($dateFormat, $modDate))
+  #setVariable("$return" {
+    'smodDate': $!{smodDate},
+    'sstartDate': $!{sstartDate},
+    'sendDate': $!{sendDate}
+  })
+#end
+
+#macro (getMeetingInfos $meetingDoc $return)
+  #set($meetingTitle = $meetingDoc.title)
+  #set($place = $meetingDoc.getValue('place'))
+  #set($leader = $meetingDoc.getValue('leader'))
+  #set($organizerEmail = $xwiki.getUserName($leader, '$email', false))
+  #set($organizer = $xwiki.getUserName($leader, false))
+
+  #getMeetingDates($meetingDoc, $dates)
+  #getParticipants($meetingDoc, $participants)
+  #setVariable("$return" {
+    'place': "$!{place}",
+    'organizer': "$!{organizer}",
+    'organizerEmail': "$!{organizerEmail}",
+    'dates': {
+      'smodDate': $!{dates.smodDate},
+      'sstartDate': $!{dates.sstartDate},
+      'sendDate': $!{dates.sendDate}
+    },
+    'participants' : {
+      'to': $!{participants.to},
+      'icsParticipants': $!{participants.icsParticipants}
+    }
+  })
+#end
+
+#macro (getVCalendarContent $meetingDoc $return)
+  #getMeetingInfos($meetingDoc, $meeting)
+  #set($description = "$services.localization.render('contrib.meeting.notification.view.event') $!{meetingDoc.getExternalURL()}")
+  #set($vcalendar = "
+    BEGIN:VCALENDAR
+    METHOD:REQUEST
+    PRODID: Meeting
+    VERSION:2.0
+    BEGIN:VEVENT
+    DTSTAMP:$!{meeting.dates.smodDate}
+    DTSTART:$!{meeting.dates.sstartDate}
+    DTEND:$!{meeting.dates.sendDate}
+    SUMMARY:$!{meetingTitle}
+    UID:$!{meetingDoc.id}
+    $!{participants.icsParticipants}
+    ORGANIZER;CN=$!{meeting.organizer}:MAILTO:$!{meeting.organizerEmail}
+    LOCATION:$!{meeting.place}
+    DESCRIPTION:$!{description}
+    SEQUENCE:0
+    PRIORITY:5
+    CLASS:PUBLIC
+    STATUS:CONFIRMED
+    TRANSP:OPAQUE
+    BEGIN:VALARM
+    ACTION:DISPLAY
+    DESCRIPTION:REMINDER
+    TRIGGER;RELATED=START:-PT00H15M00S
+    END:VALARM
+    END:VEVENT
+    END:VCALENDAR
+  ")
+  #setVariable("$return" $vcalendar)
+#end
+{{/velocity}}</content>
+</xwikidoc>
