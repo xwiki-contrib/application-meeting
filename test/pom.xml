@@ -45,11 +45,6 @@
     </dependency>
     <dependency>
       <groupId>org.xwiki.platform</groupId>
-      <artifactId>xwiki-platform-mail-send-default</artifactId>
-      <version>${platform.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>org.xwiki.platform</groupId>
       <artifactId>xwiki-platform-test-ui</artifactId>
       <version>${platform.version}</version>
     </dependency>
