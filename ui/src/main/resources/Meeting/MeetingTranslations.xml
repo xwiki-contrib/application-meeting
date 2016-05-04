@@ -100,9 +100,9 @@ rendering.macro.nextmeetings.description=Displays a defined number of upcoming m
 rendering.macro.nextmeetings.parameter.limit.name=Limit
 rendering.macro.nextmeetings.parameter.limit.description=Number of maximum entries.
 rendering.macro.nextmeetings.parameter.homelink.name=Home Link
-rendering.macro.nextmeetings.parameter.homelink.description=Show a link pointing to the Meetings homepage.
+rendering.macro.nextmeetings.parameter.homelink.description=Show a link pointing to the Meetings homepage. Possible values are "show" and "hide".
 rendering.macro.nextmeetings.parameter.status.name=Status
-rendering.macro.nextmeetings.parameter.status.description=Show the status of the meeting.
+rendering.macro.nextmeetings.parameter.status.description=Show the status of the meeting. Possible values are "show" and "hide".
 
 # XPoll Application
 contrib.meeting.createPoll=Create a poll for this meeting

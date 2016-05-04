@@ -98,13 +98,13 @@ meeting.livetable.leader=Responsable
 meeting.livetable.place=Lieu
 meeting.livetable.startDate=Horaire
 meeting.livetable.status=Statut
-rendering.macro.nextmeetings.description=Afficher un nombre défini de prochains réunions
+rendering.macro.nextmeetings.description=Afficher une liste des réunions à venir, triée par la date de début des réunions.
 rendering.macro.nextmeetings.name=Prochaines réunions
-rendering.macro.nextmeetings.parameter.homelink.description=Afficher un lien vers la page d'accueil des réunions
-rendering.macro.nextmeetings.parameter.homelink.name=Lien Accueil
-rendering.macro.nextmeetings.parameter.limit.description=Nombre maximum d'entrées.
-rendering.macro.nextmeetings.parameter.limit.name=Limite
-rendering.macro.nextmeetings.parameter.status.description=Afficher le status de la réunion.
+rendering.macro.nextmeetings.parameter.homelink.description=Afficher un lien vers la page d'accueil de l'application "Réunions". Les valeurs possibles sont "show" (afficher) et "hide" (cacher).
+rendering.macro.nextmeetings.parameter.homelink.name=Lien vers l'application "Réunions"
+rendering.macro.nextmeetings.parameter.limit.description=Nombre maximum de réunions à afficher
+rendering.macro.nextmeetings.parameter.limit.name=Nombre de réunions affichées
+rendering.macro.nextmeetings.parameter.status.description=Afficher le statut de la réunion. Les valeurs possibles sont "show" (afficher) et "hide" (cacher).
 rendering.macro.nextmeetings.parameter.status.name=Statut
 </content>
 </xwikidoc>
