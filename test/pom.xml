@@ -27,7 +27,7 @@
   <parent>
     <groupId>org.xwiki.contrib</groupId>
     <artifactId>application-meeting</artifactId>
-    <version>1.5.7-SNAPSHOT</version>
+    <version>1.7-SNAPSHOT</version>
   </parent>
   <artifactId>application-meeting-test</artifactId>
   <name>Meeting application - Test</name>
