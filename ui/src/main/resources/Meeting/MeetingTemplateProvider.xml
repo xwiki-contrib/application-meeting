@@ -152,7 +152,13 @@
       <action>edit</action>
     </property>
     <property>
-      <name>Meeting Template Provider</name>
+      <description>templateProvider.meeting.description</description>
+    </property>
+    <property>
+      <icon>calendar</icon>
+    </property>
+    <property>
+      <name>templateProvider.meeting.name</name>
     </property>
     <property>
       <spaces>

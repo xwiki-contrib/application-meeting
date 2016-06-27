@@ -116,7 +116,10 @@ contrib.meeting.map.error.overQueryLimit=exceeded quota!
 contrib.meeting.map.error.requestDenied=request denied!
 contrib.meeting.map.error.invalidRequest=invalid request!
 contrib.meeting.map.error.unknownError=unknown error!
-</content>
+
+# Template Provider
+templateProvider.meeting.name=Meeting
+templateProvider.meeting.description=Organise an event</content>
   <object>
     <name>Meeting.MeetingTranslations</name>
     <number>0</number>
