@@ -20,21 +20,24 @@
  * 02110-1301 USA, or see the FSF site: http://www.fsf.org.
 -->
 
-<xwikidoc version="1.2" reference="MeetingCode.SendInvitationEmail" locale="">
+<xwikidoc reference="MeetingCode.SendInvitationEmail" locale="">
   <web>MeetingCode</web>
   <name>SendInvitationEmail</name>
   <language/>
   <defaultLanguage/>
   <translation>0</translation>
-  <creator>xwiki:XWiki.Admin</creator>
   <creationDate>1455115654000</creationDate>
   <parent>MeetingCode.WebHome</parent>
+  <creator>xwiki:XWiki.Admin</creator>
   <author>xwiki:XWiki.Admin</author>
+  <customClass/>
   <contentAuthor>xwiki:XWiki.Admin</contentAuthor>
   <date>1455169696000</date>
   <contentUpdateDate>1455169564000</contentUpdateDate>
   <version>1.1</version>
   <title/>
+  <defaultTemplate/>
+  <validationScript/>
   <comment/>
   <minorEdit>false</minorEdit>
   <syntaxId>xwiki/2.1</syntaxId>

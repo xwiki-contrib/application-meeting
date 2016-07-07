@@ -20,32 +20,29 @@
  * 02110-1301 USA, or see the FSF site: http://www.fsf.org.
 -->
 
-<xwikidoc version="1.1">
+<xwikidoc reference="Meeting.MeetingTemplateProvider" locale="">
   <web>Meeting</web>
   <name>MeetingTemplateProvider</name>
   <language/>
   <defaultLanguage/>
   <translation>0</translation>
-  <creator>xwiki:XWiki.Admin</creator>
   <parent>XWiki.TemplateProviderClass</parent>
+  <creator>xwiki:XWiki.Admin</creator>
   <author>xwiki:XWiki.Admin</author>
+  <customClass/>
   <contentAuthor>xwiki:XWiki.Admin</contentAuthor>
   <creationDate>1355416566000</creationDate>
   <date>1355418901000</date>
   <contentUpdateDate>1355418901000</contentUpdateDate>
   <version>1.1</version>
   <title>MeetingTemplateProvider</title>
+  <defaultTemplate/>
+  <validationScript/>
   <comment/>
   <minorEdit>false</minorEdit>
   <syntaxId>xwiki/2.0</syntaxId>
   <hidden>true</hidden>
-  <content>{{include reference="XWiki.TemplateProviderSheet"/}}
-</content>
   <object>
-    <name>Meeting.MeetingTemplateProvider</name>
-    <number>0</number>
-    <className>XWiki.TemplateProviderClass</className>
-    <guid>00d98a57-d20e-44d5-9f58-7abf8bc3e8fd</guid>
     <class>
       <name>XWiki.TemplateProviderClass</name>
       <customClass/>
@@ -102,8 +99,8 @@
         <picker>0</picker>
         <prettyName>spaces</prettyName>
         <relationalStorage>0</relationalStorage>
-        <separator> </separator>
-        <separators/>
+        <separator>,</separator>
+        <separators>,</separators>
         <size>10</size>
         <sort>none</sort>
         <sql>select distinct doc.web from XWikiDocument doc order by doc.web</sql>
@@ -126,36 +123,27 @@
         <validationRegExp/>
         <classType>com.xpn.xwiki.objects.classes.StringClass</classType>
       </template>
-      <type>
-        <cache>0</cache>
+      <terminal>
         <customDisplay/>
+        <defaultValue/>
         <disabled>0</disabled>
-        <displayType>select</displayType>
-        <multiSelect>0</multiSelect>
-        <name>type</name>
-        <number>3</number>
-        <picker>0</picker>
-        <prettyName>type</prettyName>
-        <relationalStorage>0</relationalStorage>
-        <separator> </separator>
-        <separators> ,|</separators>
-        <size>1</size>
-        <sort>none</sort>
+        <displayFormType>select</displayFormType>
+        <displayType/>
+        <name>terminal</name>
+        <number>6</number>
+        <prettyName>terminal</prettyName>
         <unmodifiable>0</unmodifiable>
         <validationMessage/>
         <validationRegExp/>
-        <values>page|space</values>
-        <classType>com.xpn.xwiki.objects.classes.StaticListClass</classType>
-      </type>
+        <classType>com.xpn.xwiki.objects.classes.BooleanClass</classType>
+      </terminal>
     </class>
+    <name>Meeting.MeetingTemplateProvider</name>
+    <number>0</number>
+    <className>XWiki.TemplateProviderClass</className>
+    <guid>00d98a57-d20e-44d5-9f58-7abf8bc3e8fd</guid>
     <property>
       <action>edit</action>
-    </property>
-    <property>
-      <description>templateProvider.meeting.description</description>
-    </property>
-    <property>
-      <icon>calendar</icon>
     </property>
     <property>
       <name>templateProvider.meeting.name</name>
@@ -172,4 +160,6 @@
       <type>page</type>
     </property>
   </object>
+  <content>{{include reference="XWiki.TemplateProviderSheet"/}}
+</content>
 </xwikidoc>

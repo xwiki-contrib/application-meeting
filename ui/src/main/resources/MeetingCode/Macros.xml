@@ -20,21 +20,24 @@
  * 02110-1301 USA, or see the FSF site: http://www.fsf.org.
 -->
 
-<xwikidoc version="1.2" reference="MeetingCode.Macros" locale="">
+<xwikidoc reference="MeetingCode.Macros" locale="">
   <web>MeetingCode</web>
   <name>Macros</name>
   <language/>
   <defaultLanguage/>
   <translation>0</translation>
-  <creator>xwiki:XWiki.Admin</creator>
   <creationDate>1405645690000</creationDate>
   <parent>Meeting.WebHome</parent>
+  <creator>xwiki:XWiki.Admin</creator>
   <author>xwiki:XWiki.Admin</author>
+  <customClass/>
   <contentAuthor>xwiki:XWiki.Admin</contentAuthor>
   <date>1458203449000</date>
   <contentUpdateDate>1458203449000</contentUpdateDate>
   <version>1.1</version>
   <title/>
+  <defaultTemplate/>
+  <validationScript/>
   <comment/>
   <minorEdit>false</minorEdit>
   <syntaxId>xwiki/2.1</syntaxId>

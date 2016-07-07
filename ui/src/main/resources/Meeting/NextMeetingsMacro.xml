@@ -20,31 +20,29 @@
  * 02110-1301 USA, or see the FSF site: http://www.fsf.org.
 -->
 
-<xwikidoc version="1.1">
+<xwikidoc reference="Meeting.NextMeetingsMacro" locale="">
   <web>Meeting</web>
   <name>NextMeetingsMacro</name>
   <language/>
   <defaultLanguage/>
   <translation>0</translation>
-  <creator>xwiki:XWiki.Admin</creator>
   <creationDate>1421663841000</creationDate>
   <parent>Meeting.WebHome</parent>
+  <creator>xwiki:XWiki.Admin</creator>
   <author>xwiki:XWiki.Admin</author>
+  <customClass/>
   <contentAuthor>xwiki:XWiki.Admin</contentAuthor>
   <date>1421927801000</date>
   <contentUpdateDate>1421925248000</contentUpdateDate>
   <version>1.1</version>
   <title>Next Meetings Macro</title>
+  <defaultTemplate/>
+  <validationScript/>
   <comment/>
   <minorEdit>false</minorEdit>
   <syntaxId>xwiki/2.1</syntaxId>
   <hidden>true</hidden>
-  <content/>
   <object>
-    <name>Meeting.NextMeetingsMacro</name>
-    <number>0</number>
-    <className>XWiki.StyleSheetExtension</className>
-    <guid>ceec2aeb-117a-47ed-96e2-db126e57002b</guid>
     <class>
       <name>XWiki.StyleSheetExtension</name>
       <customClass/>
@@ -60,11 +58,11 @@
         <displayType>select</displayType>
         <multiSelect>0</multiSelect>
         <name>cache</name>
-        <number>5</number>
+        <number>6</number>
         <prettyName>Caching policy</prettyName>
         <relationalStorage>0</relationalStorage>
         <separator> </separator>
-        <separators> ,|</separators>
+        <separators>|, </separators>
         <size>1</size>
         <unmodifiable>0</unmodifiable>
         <values>long|short|default|forbid</values>
@@ -73,17 +71,33 @@
       <code>
         <disabled>0</disabled>
         <name>code</name>
-        <number>2</number>
+        <number>3</number>
         <prettyName>Code</prettyName>
         <rows>20</rows>
         <size>50</size>
         <unmodifiable>0</unmodifiable>
         <classType>com.xpn.xwiki.objects.classes.TextAreaClass</classType>
       </code>
+      <contentType>
+        <cache>0</cache>
+        <disabled>0</disabled>
+        <displayType>select</displayType>
+        <multiSelect>0</multiSelect>
+        <name>contentType</name>
+        <number>1</number>
+        <prettyName>Content Type</prettyName>
+        <relationalStorage>0</relationalStorage>
+        <separator> </separator>
+        <separators>|, </separators>
+        <size>1</size>
+        <unmodifiable>0</unmodifiable>
+        <values>CSS|LESS</values>
+        <classType>com.xpn.xwiki.objects.classes.StaticListClass</classType>
+      </contentType>
       <name>
         <disabled>0</disabled>
         <name>name</name>
-        <number>1</number>
+        <number>2</number>
         <prettyName>Name</prettyName>
         <size>30</size>
         <unmodifiable>0</unmodifiable>
@@ -94,7 +108,7 @@
         <displayFormType>select</displayFormType>
         <displayType>yesno</displayType>
         <name>parse</name>
-        <number>4</number>
+        <number>5</number>
         <prettyName>Parse content</prettyName>
         <unmodifiable>0</unmodifiable>
         <classType>com.xpn.xwiki.objects.classes.BooleanClass</classType>
@@ -105,17 +119,21 @@
         <displayType>select</displayType>
         <multiSelect>0</multiSelect>
         <name>use</name>
-        <number>3</number>
+        <number>4</number>
         <prettyName>Use this extension</prettyName>
         <relationalStorage>0</relationalStorage>
         <separator> </separator>
-        <separators> ,|</separators>
+        <separators>|, </separators>
         <size>1</size>
         <unmodifiable>0</unmodifiable>
         <values>currentPage|onDemand|always</values>
         <classType>com.xpn.xwiki.objects.classes.StaticListClass</classType>
       </use>
     </class>
+    <name>Meeting.NextMeetingsMacro</name>
+    <number>0</number>
+    <className>XWiki.StyleSheetExtension</className>
+    <guid>ceec2aeb-117a-47ed-96e2-db126e57002b</guid>
     <property>
       <cache>long</cache>
     </property>
@@ -150,10 +168,6 @@
     </property>
   </object>
   <object>
-    <name>Meeting.NextMeetingsMacro</name>
-    <number>0</number>
-    <className>XWiki.WikiMacroClass</className>
-    <guid>95764f7a-503d-4614-a233-f0d720557862</guid>
     <class>
       <name>XWiki.WikiMacroClass</name>
       <customClass/>
@@ -263,6 +277,10 @@
         <classType>com.xpn.xwiki.objects.classes.StaticListClass</classType>
       </visibility>
     </class>
+    <name>Meeting.NextMeetingsMacro</name>
+    <number>0</number>
+    <className>XWiki.WikiMacroClass</className>
+    <guid>95764f7a-503d-4614-a233-f0d720557862</guid>
     <property>
       <code>{{velocity}}
 #set($discard = $xwiki.ssx.use('Meeting.NextMeetingsMacro'))
@@ -327,10 +345,6 @@
     </property>
   </object>
   <object>
-    <name>Meeting.NextMeetingsMacro</name>
-    <number>0</number>
-    <className>XWiki.WikiMacroParameterClass</className>
-    <guid>bc059992-ae92-4b84-82b6-44adc45b8d22</guid>
     <class>
       <name>XWiki.WikiMacroParameterClass</name>
       <customClass/>
@@ -379,6 +393,10 @@
         <classType>com.xpn.xwiki.objects.classes.StringClass</classType>
       </name>
     </class>
+    <name>Meeting.NextMeetingsMacro</name>
+    <number>0</number>
+    <className>XWiki.WikiMacroParameterClass</className>
+    <guid>bc059992-ae92-4b84-82b6-44adc45b8d22</guid>
     <property>
       <defaultValue>5</defaultValue>
     </property>
@@ -393,10 +411,6 @@
     </property>
   </object>
   <object>
-    <name>Meeting.NextMeetingsMacro</name>
-    <number>1</number>
-    <className>XWiki.WikiMacroParameterClass</className>
-    <guid>20cbe232-08e5-4097-b32d-a84bff97d0d4</guid>
     <class>
       <name>XWiki.WikiMacroParameterClass</name>
       <customClass/>
@@ -445,6 +459,10 @@
         <classType>com.xpn.xwiki.objects.classes.StringClass</classType>
       </name>
     </class>
+    <name>Meeting.NextMeetingsMacro</name>
+    <number>1</number>
+    <className>XWiki.WikiMacroParameterClass</className>
+    <guid>20cbe232-08e5-4097-b32d-a84bff97d0d4</guid>
     <property>
       <defaultValue>hide</defaultValue>
     </property>
@@ -459,10 +477,6 @@
     </property>
   </object>
   <object>
-    <name>Meeting.NextMeetingsMacro</name>
-    <number>2</number>
-    <className>XWiki.WikiMacroParameterClass</className>
-    <guid>2fc0d232-124a-4d67-a3dd-c24886fcdb4b</guid>
     <class>
       <name>XWiki.WikiMacroParameterClass</name>
       <customClass/>
@@ -511,6 +525,10 @@
         <classType>com.xpn.xwiki.objects.classes.StringClass</classType>
       </name>
     </class>
+    <name>Meeting.NextMeetingsMacro</name>
+    <number>2</number>
+    <className>XWiki.WikiMacroParameterClass</className>
+    <guid>2fc0d232-124a-4d67-a3dd-c24886fcdb4b</guid>
     <property>
       <defaultValue>hide</defaultValue>
     </property>
@@ -524,4 +542,5 @@
       <name>status</name>
     </property>
   </object>
+  <content/>
 </xwikidoc>
