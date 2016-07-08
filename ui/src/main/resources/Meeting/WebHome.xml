@@ -112,10 +112,13 @@
     <className>AppWithinMinutes.LiveTableClass</className>
     <guid>b5e4b397-6e13-41e3-8c3c-7c768dc43b3c</guid>
     <property>
-      <class>Meeting.MeetingClass</class>
+      <class>Meeting.Code.MeetingClass</class>
     </property>
     <property>
       <columns>doc.name leader place startDate durationString status</columns>
+    </property>
+    <property>
+      <dataSpace/>
     </property>
     <property>
       <description>{{velocity}}
@@ -152,7 +155,7 @@
     <className>XWiki.DocumentSheetBinding</className>
     <guid>012f5714-5d63-442a-86ab-c81109414750</guid>
     <property>
-      <sheet>WebHomeSheet</sheet>
+      <sheet>Meeting.Code.WebHomeSheet</sheet>
     </property>
   </object>
   <object>
@@ -255,7 +258,7 @@ icon=icon:calendar</parameters>
   '_actions': {"sortable":false,"filterable":false,"html":true,"actions":["delete", "edit"]}
 })
 #set ($options = {
-  'className': 'Meeting.MeetingClass',
+  'className': 'Meeting.Code.MeetingClass',
   'translationPrefix': 'meeting.livetable.',
   'tagCloud': true,
   'rowCount': 15,

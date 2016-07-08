@@ -20,20 +20,20 @@
  * 02110-1301 USA, or see the FSF site: http://www.fsf.org.
 -->
 
-<xwikidoc reference="MeetingCode.RecentMeetingsPanel" locale="">
-  <web>MeetingCode</web>
-  <name>RecentMeetingsPanel</name>
+<xwikidoc reference="Meeting.Code.SkinExtension" locale="">
+  <web>Meeting.Code</web>
+  <name>SkinExtension</name>
   <language/>
   <defaultLanguage/>
   <translation>0</translation>
-  <creationDate>1355235669000</creationDate>
   <parent>Meeting.WebHome</parent>
   <creator>xwiki:XWiki.Admin</creator>
   <author>xwiki:XWiki.Admin</author>
   <customClass/>
   <contentAuthor>xwiki:XWiki.Admin</contentAuthor>
-  <date>1457948550000</date>
-  <contentUpdateDate>1457948528000</contentUpdateDate>
+  <creationDate>1355311770000</creationDate>
+  <date>1467892254000</date>
+  <contentUpdateDate>1467892254000</contentUpdateDate>
   <version>1.1</version>
   <title/>
   <defaultTemplate/>
@@ -44,7 +44,7 @@
   <hidden>true</hidden>
   <object>
     <class>
-      <name>Panels.PanelClass</name>
+      <name>XWiki.StyleSheetExtension</name>
       <customClass/>
       <customMapping/>
       <defaultViewSheet/>
@@ -52,94 +52,115 @@
       <defaultWeb/>
       <nameField/>
       <validationScript/>
-      <category>
+      <cache>
         <cache>0</cache>
         <disabled>0</disabled>
         <displayType>select</displayType>
         <multiSelect>0</multiSelect>
-        <name>category</name>
-        <number>5</number>
-        <prettyName>Category</prettyName>
+        <name>cache</name>
+        <number>6</number>
+        <prettyName>Caching policy</prettyName>
         <relationalStorage>0</relationalStorage>
         <separator> </separator>
-        <separators> ,|</separators>
+        <separators>|, </separators>
         <size>1</size>
         <unmodifiable>0</unmodifiable>
-        <values>Information|Navigation|Tools|Administration|Other</values>
+        <values>long|short|default|forbid</values>
         <classType>com.xpn.xwiki.objects.classes.StaticListClass</classType>
-      </category>
-      <content>
+      </cache>
+      <code>
         <disabled>0</disabled>
-        <editor>Text</editor>
-        <name>content</name>
-        <number>4</number>
-        <prettyName>Content</prettyName>
-        <rows>25</rows>
-        <size>120</size>
-        <unmodifiable>0</unmodifiable>
-        <classType>com.xpn.xwiki.objects.classes.TextAreaClass</classType>
-      </content>
-      <description>
-        <disabled>0</disabled>
-        <editor>Text</editor>
-        <name>description</name>
+        <name>code</name>
         <number>3</number>
-        <prettyName>Description</prettyName>
-        <rows>5</rows>
-        <size>40</size>
+        <prettyName>Code</prettyName>
+        <rows>20</rows>
+        <size>50</size>
         <unmodifiable>0</unmodifiable>
         <classType>com.xpn.xwiki.objects.classes.TextAreaClass</classType>
-      </description>
+      </code>
+      <contentType>
+        <cache>0</cache>
+        <disabled>0</disabled>
+        <displayType>select</displayType>
+        <multiSelect>0</multiSelect>
+        <name>contentType</name>
+        <number>1</number>
+        <prettyName>Content Type</prettyName>
+        <relationalStorage>0</relationalStorage>
+        <separator> </separator>
+        <separators>|, </separators>
+        <size>1</size>
+        <unmodifiable>0</unmodifiable>
+        <values>CSS|LESS</values>
+        <classType>com.xpn.xwiki.objects.classes.StaticListClass</classType>
+      </contentType>
       <name>
         <disabled>0</disabled>
         <name>name</name>
-        <number>1</number>
+        <number>2</number>
         <prettyName>Name</prettyName>
-        <size>40</size>
+        <size>30</size>
         <unmodifiable>0</unmodifiable>
         <classType>com.xpn.xwiki.objects.classes.StringClass</classType>
       </name>
-      <type>
+      <parse>
+        <disabled>0</disabled>
+        <displayFormType>select</displayFormType>
+        <displayType>yesno</displayType>
+        <name>parse</name>
+        <number>5</number>
+        <prettyName>Parse content</prettyName>
+        <unmodifiable>0</unmodifiable>
+        <classType>com.xpn.xwiki.objects.classes.BooleanClass</classType>
+      </parse>
+      <use>
         <cache>0</cache>
         <disabled>0</disabled>
         <displayType>select</displayType>
         <multiSelect>0</multiSelect>
-        <name>type</name>
-        <number>2</number>
-        <prettyName>Panel type</prettyName>
+        <name>use</name>
+        <number>4</number>
+        <prettyName>Use this extension</prettyName>
         <relationalStorage>0</relationalStorage>
         <separator> </separator>
-        <separators> ,|</separators>
+        <separators>|, </separators>
         <size>1</size>
         <unmodifiable>0</unmodifiable>
-        <values>view|edit</values>
+        <values>currentPage|onDemand|always</values>
         <classType>com.xpn.xwiki.objects.classes.StaticListClass</classType>
-      </type>
+      </use>
     </class>
-    <name>MeetingCode.RecentMeetingsPanel</name>
+    <name>Meeting.Code.SkinExtension</name>
     <number>0</number>
-    <className>Panels.PanelClass</className>
-    <guid>0d982d86-a46d-4d6b-8f71-2a0d782819aa</guid>
+    <className>XWiki.StyleSheetExtension</className>
+    <guid>a1229eb8-d840-46d7-97f2-df3ae40fe8d0</guid>
     <property>
-      <category>Navigation</category>
+      <cache>long</cache>
     </property>
     <property>
-      <content>{{velocity}}
-#if($xcontext.action != 'inline')
-  #panelheader("$services.localization.render('contrib.meeting.panel.title')")
-    {{nextmeetings /}}
-  #panelfooter()
-#end
-{{/velocity}}</content>
+      <code>form .presentation
+{
+  margin-top:15px;
+  
+}
+
+#sendNotification textarea
+{
+   width:90% ;
+}
+
+#durationEdit select{
+   width:auto ;
+}</code>
     </property>
     <property>
-      <description>To see the 5 next meetings</description>
+      <name>Presentation</name>
     </property>
     <property>
-      <name>Meeting Panel</name>
+      <parse>0</parse>
     </property>
     <property>
-      <type>view</type>
+      <use>onDemand</use>
     </property>
   </object>
   <content/>

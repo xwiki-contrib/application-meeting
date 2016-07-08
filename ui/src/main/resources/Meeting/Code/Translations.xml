@@ -20,9 +20,9 @@
  * 02110-1301 USA, or see the FSF site: http://www.fsf.org.
 -->
 
-<xwikidoc reference="Meeting.MeetingTranslations" locale="">
-  <web>Meeting</web>
-  <name>MeetingTranslations</name>
+<xwikidoc reference="Meeting.Code.Translations" locale="">
+  <web>Meeting.Code</web>
+  <name>Translations</name>
   <language/>
   <defaultLanguage>en</defaultLanguage>
   <translation>0</translation>
@@ -32,8 +32,8 @@
   <customClass/>
   <contentAuthor>xwiki:XWiki.Admin</contentAuthor>
   <creationDate>1405343909000</creationDate>
-  <date>1405677708000</date>
-  <contentUpdateDate>1405677708000</contentUpdateDate>
+  <date>1467895907000</date>
+  <contentUpdateDate>1467895892000</contentUpdateDate>
   <version>1.1</version>
   <title>Meetings Translations</title>
   <defaultTemplate/>
@@ -69,15 +69,15 @@
         <classType>com.xpn.xwiki.objects.classes.StaticListClass</classType>
       </scope>
     </class>
-    <name>Meeting.MeetingTranslations</name>
+    <name>Meeting.Code.Translations</name>
     <number>0</number>
     <className>XWiki.TranslationDocumentClass</className>
-    <guid>bcb86ee4-b4cc-4585-9851-e87d0b262954</guid>
+    <guid>999bab6e-26ce-4f49-8648-58be02187831</guid>
     <property>
       <scope>WIKI</scope>
     </property>
   </object>
-  <content>contrib.meeting.home.presentation=Welcome to the XWiki Meeting Application. Create your own meeting by clicking on "Add New Entry". You can also check out a [[**Calendar**&gt;&gt;calendarView]] of all the meetings.
+  <content>contrib.meeting.home.presentation=Welcome to the XWiki Meeting Application. Create your own meeting by clicking on "Add New Entry". You can also check out a [[**Calendar**&gt;&gt;Meeting.CalendarView]] of all the meetings.
 
 Meeting.MeetingClass_status_value1=In preparation
 Meeting.MeetingClass_status_value2=Active

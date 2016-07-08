@@ -20,8 +20,8 @@
  * 02110-1301 USA, or see the FSF site: http://www.fsf.org.
 -->
 
-<xwikidoc reference="Meeting.MeetingClass" locale="">
-  <web>Meeting</web>
+<xwikidoc reference="Meeting.Code.MeetingClass" locale="">
+  <web>Meeting.Code</web>
   <name>MeetingClass</name>
   <language/>
   <defaultLanguage/>
@@ -32,8 +32,8 @@
   <customClass/>
   <contentAuthor>xwiki:XWiki.Admin</contentAuthor>
   <creationDate>1356994800000</creationDate>
-  <date>1356994800000</date>
-  <contentUpdateDate>1356994800000</contentUpdateDate>
+  <date>1467892501000</date>
+  <contentUpdateDate>1467892254000</contentUpdateDate>
   <version>1.1</version>
   <title>Meeting Class</title>
   <defaultTemplate/>
@@ -43,7 +43,7 @@
   <syntaxId>xwiki/2.0</syntaxId>
   <hidden>true</hidden>
   <class>
-    <name>Meeting.MeetingClass</name>
+    <name>Meeting.Code.MeetingClass</name>
     <customClass/>
     <customMapping/>
     <defaultViewSheet/>
@@ -430,10 +430,10 @@ $durationString
         <classType>com.xpn.xwiki.objects.classes.StringClass</classType>
       </sheet>
     </class>
-    <name>Meeting.MeetingClass</name>
+    <name>Meeting.Code.MeetingClass</name>
     <number>0</number>
     <className>XWiki.ClassSheetBinding</className>
-    <guid>0b716cb2-e85c-4145-be43-a20a5cf685cc</guid>
+    <guid>889084bc-fc4e-4bba-bd03-843868b72431</guid>
     <property>
       <sheet>MeetingSheet</sheet>
     </property>
@@ -462,10 +462,10 @@ $durationString
         <classType>com.xpn.xwiki.objects.classes.StringClass</classType>
       </sheet>
     </class>
-    <name>Meeting.MeetingClass</name>
+    <name>Meeting.Code.MeetingClass</name>
     <number>0</number>
     <className>XWiki.DocumentSheetBinding</className>
-    <guid>af4eea65-245c-4807-8344-063f80b5ee8e</guid>
+    <guid>9e6f32ca-981f-4802-afdb-8d3e54195f1a</guid>
     <property>
       <sheet>AppWithinMinutes.ClassEditSheet</sheet>
     </property>
@@ -494,10 +494,10 @@ $durationString
         <classType>com.xpn.xwiki.objects.classes.StringClass</classType>
       </sheet>
     </class>
-    <name>Meeting.MeetingClass</name>
+    <name>Meeting.Code.MeetingClass</name>
     <number>1</number>
     <className>XWiki.DocumentSheetBinding</className>
-    <guid>080c76ae-231c-441d-a357-b840c6dab677</guid>
+    <guid>bb48c5f7-2267-4928-9af8-edcae511fee5</guid>
     <property>
       <sheet>XWiki.ClassSheet</sheet>
     </property>
