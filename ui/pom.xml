@@ -52,6 +52,30 @@
       <scope>runtime</scope>
     </dependency>
     <dependency>
+      <groupId>org.xwiki.contrib</groupId>
+      <artifactId>application-xpoll-ui</artifactId>
+      <version>1.6.5</version>
+      <!-- the packager plugin seems to forget to check if a jar dependency is already part of the mandatory jars
+           this exclusions should be removed when http://jira.xwiki.org/browse/XWIKI-12963 will be fixed
+       -->
+          <exclusions>
+            <exclusion>
+              <groupId>org.xwiki.platform</groupId>
+              <artifactId>xwiki-platform-wiki-script</artifactId>
+            </exclusion>
+            <exclusion>
+              <groupId>org.xwiki.platform</groupId>
+              <artifactId>xwiki-platform-uiextension-api</artifactId>
+            </exclusion>
+            <exclusion>
+              <groupId>org.xwiki.platform</groupId>
+              <artifactId>xwiki-platform-display-macro</artifactId>
+            </exclusion>
+          </exclusions>
+      <type>xar</type>
+      <scope>runtime</scope>
+    </dependency>
+    <dependency>
       <groupId>org.xwiki.platform</groupId>
       <artifactId>xwiki-platform-appwithinminutes-ui</artifactId>
       <version>${platform.version}</version>
