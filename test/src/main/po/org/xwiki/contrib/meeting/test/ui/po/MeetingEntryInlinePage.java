@@ -41,55 +41,55 @@ public class MeetingEntryInlinePage extends InlinePage
     /**
      * The meeting entry start date input field.
      */
-    @FindBy(id = "Meeting.MeetingClass_0_startDate")
+    @FindBy(id = "Meeting.Code.MeetingClass_0_startDate")
     private WebElement startDateInput;
 
     /**
      * The meeting entry duration hour input field.
      */
-    @FindBy(id = "Meeting.MeetingClass_0_durationHour")
+    @FindBy(id = "Meeting.Code.MeetingClass_0_durationHour")
     private WebElement durationHourInput;
 
     /**
      * The meeting entry duration minutes input field.
      */
-    @FindBy(id = "Meeting.MeetingClass_0_durationMinutes")
+    @FindBy(id = "Meeting.Code.MeetingClass_0_durationMinutes")
     private WebElement durationMinutesInput;
 
     /**
      * The meeting entry place input field.
      */
-    @FindBy(id = "Meeting.MeetingClass_0_place")
+    @FindBy(id = "Meeting.Code.MeetingClass_0_place")
     private WebElement placeInput;
 
     /**
      * The meeting entry description input field.
      */
-    @FindBy(id = "Meeting.MeetingClass_0_description")
+    @FindBy(id = "Meeting.Code.MeetingClass_0_description")
     private WebElement descriptionInput;
 
     /**
      * The meeting entry notes input field.
      */
-    @FindBy(id = "Meeting.MeetingClass_0_notes")
+    @FindBy(id = "Meeting.Code.MeetingClass_0_notes")
     private WebElement notesInput;
 
     /**
      * The meeting entry status input field.
      */
-    @FindBy(id = "Meeting.MeetingClass_0_status")
+    @FindBy(id = "Meeting.Code.MeetingClass_0_status")
     private WebElement statusInput;
 
     /**
      * The meeting entry leader input field.
      */
-    @FindBy(id = "Meeting.MeetingClass_0_leader")
+    @FindBy(id = "Meeting.Code.MeetingClass_0_leader")
     private WebElement leaderInput;
 
     /**
      * The meeting entry participants input field.
      */
-    @FindBy(id = "Meeting.MeetingClass_0_participants")
+    @FindBy(id = "Meeting.Code.MeetingClass_0_participants")
     private WebElement participantsInput;
 
     /**
