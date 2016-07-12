@@ -20,8 +20,8 @@
  * 02110-1301 USA, or see the FSF site: http://www.fsf.org.
 -->
 
-<xwikidoc reference="Meeting.SkinExtension" locale="">
-  <web>Meeting</web>
+<xwikidoc reference="Meeting.Code.SkinExtension" locale="">
+  <web>Meeting.Code</web>
   <name>SkinExtension</name>
   <language/>
   <defaultLanguage/>
@@ -130,10 +130,10 @@
         <classType>com.xpn.xwiki.objects.classes.StaticListClass</classType>
       </use>
     </class>
-    <name>Meeting.SkinExtension</name>
+    <name>Meeting.Code.SkinExtension</name>
     <number>0</number>
     <className>XWiki.StyleSheetExtension</className>
-    <guid>2fd5de2a-57a1-48d8-b4e0-1c5962e02f97</guid>
+    <guid>a1229eb8-d840-46d7-97f2-df3ae40fe8d0</guid>
     <property>
       <cache>long</cache>
     </property>

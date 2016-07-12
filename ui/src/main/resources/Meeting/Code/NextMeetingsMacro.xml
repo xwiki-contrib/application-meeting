@@ -20,8 +20,8 @@
  * 02110-1301 USA, or see the FSF site: http://www.fsf.org.
 -->
 
-<xwikidoc reference="Meeting.NextMeetingsMacro" locale="">
-  <web>Meeting</web>
+<xwikidoc reference="Meeting.Code.NextMeetingsMacro" locale="">
+  <web>Meeting.Code</web>
   <name>NextMeetingsMacro</name>
   <language/>
   <defaultLanguage/>
@@ -130,10 +130,10 @@
         <classType>com.xpn.xwiki.objects.classes.StaticListClass</classType>
       </use>
     </class>
-    <name>Meeting.NextMeetingsMacro</name>
+    <name>Meeting.Code.NextMeetingsMacro</name>
     <number>0</number>
     <className>XWiki.StyleSheetExtension</className>
-    <guid>ceec2aeb-117a-47ed-96e2-db126e57002b</guid>
+    <guid>8304d106-6dbe-428a-a139-f9283e6acbd4</guid>
     <property>
       <cache>long</cache>
     </property>
@@ -156,6 +156,9 @@
   display: inline-block;
   margin-top: 10px;
 }</code>
+    </property>
+    <property>
+      <contentType>CSS</contentType>
     </property>
     <property>
       <name/>
@@ -277,16 +280,16 @@
         <classType>com.xpn.xwiki.objects.classes.StaticListClass</classType>
       </visibility>
     </class>
-    <name>Meeting.NextMeetingsMacro</name>
+    <name>Meeting.Code.NextMeetingsMacro</name>
     <number>0</number>
     <className>XWiki.WikiMacroClass</className>
-    <guid>95764f7a-503d-4614-a233-f0d720557862</guid>
+    <guid>c1866743-90a5-425a-b24b-6e4a43b850a3</guid>
     <property>
       <code>{{velocity}}
-#set($discard = $xwiki.ssx.use('Meeting.NextMeetingsMacro'))
+#set($discard = $xwiki.ssx.use('Meeting.Code.NextMeetingsMacro'))
 #set($limit = $xcontext.macro.params.limit)
 #set($nowDate = $datetool.date)
-#set($query = "from doc.object(Meeting.MeetingClass) as meeting where doc.fullName &lt;&gt; 'Meeting.MeetingTemplate' and meeting.startDate &gt; :date and meeting.status in ('value1','value2') order by meeting.startDate asc")
+#set($query = "from doc.object(Meeting.Code.MeetingClass) as meeting where doc.fullName &lt;&gt; 'Meeting.Code.MeetingTemplate' and meeting.startDate &gt; :date and meeting.status in ('value1','value2') order by meeting.startDate asc")
 #set($results = $services.query.xwql($query).setLimit($limit).bindValue('date', $nowDate).execute())
 ##
 (% class="meetings-next" %)(((
@@ -393,10 +396,10 @@
         <classType>com.xpn.xwiki.objects.classes.StringClass</classType>
       </name>
     </class>
-    <name>Meeting.NextMeetingsMacro</name>
+    <name>Meeting.Code.NextMeetingsMacro</name>
     <number>0</number>
     <className>XWiki.WikiMacroParameterClass</className>
-    <guid>bc059992-ae92-4b84-82b6-44adc45b8d22</guid>
+    <guid>b0db335d-1dc9-4985-8027-8d0ca208eca4</guid>
     <property>
       <defaultValue>5</defaultValue>
     </property>
@@ -459,10 +462,10 @@
         <classType>com.xpn.xwiki.objects.classes.StringClass</classType>
       </name>
     </class>
-    <name>Meeting.NextMeetingsMacro</name>
+    <name>Meeting.Code.NextMeetingsMacro</name>
     <number>1</number>
     <className>XWiki.WikiMacroParameterClass</className>
-    <guid>20cbe232-08e5-4097-b32d-a84bff97d0d4</guid>
+    <guid>fd77ee27-aba9-40fd-ba0e-a00afc7f201f</guid>
     <property>
       <defaultValue>hide</defaultValue>
     </property>
@@ -525,10 +528,10 @@
         <classType>com.xpn.xwiki.objects.classes.StringClass</classType>
       </name>
     </class>
-    <name>Meeting.NextMeetingsMacro</name>
+    <name>Meeting.Code.NextMeetingsMacro</name>
     <number>2</number>
     <className>XWiki.WikiMacroParameterClass</className>
-    <guid>2fc0d232-124a-4d67-a3dd-c24886fcdb4b</guid>
+    <guid>956f59e6-0770-42a3-ae4d-2952ffbb72b7</guid>
     <property>
       <defaultValue>hide</defaultValue>
     </property>

@@ -20,8 +20,8 @@
  * 02110-1301 USA, or see the FSF site: http://www.fsf.org.
 -->
 
-<xwikidoc reference="Meeting.MeetingTemplate" locale="">
-  <web>Meeting</web>
+<xwikidoc reference="Meeting.Code.MeetingTemplate" locale="">
+  <web>Meeting.Code</web>
   <name>MeetingTemplate</name>
   <language/>
   <defaultLanguage/>
@@ -44,7 +44,7 @@
   <hidden>true</hidden>
   <object>
     <class>
-      <name>Meeting.MeetingClass</name>
+      <name>Meeting.Code.MeetingClass</name>
       <customClass/>
       <customMapping/>
       <defaultViewSheet/>
@@ -407,30 +407,39 @@ $durationString
         <classType>com.xpn.xwiki.objects.classes.StaticListClass</classType>
       </status>
     </class>
-    <name>Meeting.MeetingTemplate</name>
+    <name>Meeting.Code.MeetingTemplate</name>
     <number>0</number>
-    <className>Meeting.MeetingClass</className>
-    <guid>77b35ae0-721e-477a-bec7-e1c9e6201690</guid>
+    <className>Meeting.Code.MeetingClass</className>
+    <guid>4b0fbf1f-c7c9-4cc7-bab2-0d8823e88e76</guid>
     <property>
       <description/>
     </property>
     <property>
-      <duration>90</duration>
+      <displayMap>0</displayMap>
     </property>
     <property>
-      <durationHour>1</durationHour>
+      <duration>15</duration>
     </property>
     <property>
-      <durationMinutes>30</durationMinutes>
+      <durationHour>0</durationHour>
     </property>
     <property>
-      <durationString>{{html clean="false" wiki="false"}}&lt;p&gt;1 h 30 min&lt;/p&gt;{{/html}}</durationString>
+      <durationMinutes>15</durationMinutes>
+    </property>
+    <property>
+      <durationString>{{html clean="false" wiki="false"}}&lt;p&gt;15 min&lt;/p&gt;{{/html}}</durationString>
+    </property>
+    <property>
+      <groups/>
     </property>
     <property>
       <hasBeenEdited>0</hasBeenEdited>
     </property>
     <property>
-      <hasPoll>0</hasPoll>
+      <hasPoll/>
+    </property>
+    <property>
+      <lastEmailSent>2016-07-07 15:45:15.987</lastEmailSent>
     </property>
     <property>
       <leader/>
@@ -445,7 +454,7 @@ $durationString
       <place/>
     </property>
     <property>
-      <startDate/>
+      <startDate>2016-07-07 15:45:15.987</startDate>
     </property>
     <property>
       <status>value1</status>

@@ -20,8 +20,8 @@
  * 02110-1301 USA, or see the FSF site: http://www.fsf.org.
 -->
 
-<xwikidoc reference="Meeting.MeetingTemplateProvider" locale="">
-  <web>Meeting</web>
+<xwikidoc reference="Meeting.Code.MeetingTemplateProvider" locale="">
+  <web>Meeting.Code</web>
   <name>MeetingTemplateProvider</name>
   <language/>
   <defaultLanguage/>
@@ -73,6 +73,24 @@
         <values>edit|saveandedit</values>
         <classType>com.xpn.xwiki.objects.classes.StaticListClass</classType>
       </action>
+      <description>
+        <disabled>0</disabled>
+        <name>description</name>
+        <number>6</number>
+        <prettyName>description</prettyName>
+        <size>30</size>
+        <unmodifiable>0</unmodifiable>
+        <classType>com.xpn.xwiki.objects.classes.StringClass</classType>
+      </description>
+      <icon>
+        <disabled>0</disabled>
+        <name>icon</name>
+        <number>7</number>
+        <prettyName>icon</prettyName>
+        <size>30</size>
+        <unmodifiable>0</unmodifiable>
+        <classType>com.xpn.xwiki.objects.classes.StringClass</classType>
+      </icon>
       <name>
         <customDisplay/>
         <disabled>0</disabled>
@@ -138,12 +156,18 @@
         <classType>com.xpn.xwiki.objects.classes.BooleanClass</classType>
       </terminal>
     </class>
-    <name>Meeting.MeetingTemplateProvider</name>
+    <name>Meeting.Code.MeetingTemplateProvider</name>
     <number>0</number>
     <className>XWiki.TemplateProviderClass</className>
-    <guid>00d98a57-d20e-44d5-9f58-7abf8bc3e8fd</guid>
+    <guid>473d26ca-d4d8-4bb0-b906-5c449b694246</guid>
     <property>
       <action>edit</action>
+    </property>
+    <property>
+      <description/>
+    </property>
+    <property>
+      <icon/>
     </property>
     <property>
       <name>templateProvider.meeting.name</name>
@@ -154,7 +178,10 @@
       </spaces>
     </property>
     <property>
-      <template>Meeting.MeetingTemplate</template>
+      <template>Meeting.Code.MeetingTemplate</template>
+    </property>
+    <property>
+      <terminal/>
     </property>
     <property>
       <type>page</type>

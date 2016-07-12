@@ -20,9 +20,9 @@
  * 02110-1301 USA, or see the FSF site: http://www.fsf.org.
 -->
 
-<xwikidoc reference="Meeting.MeetingTranslations" locale="sk">
-  <web>Meeting</web>
-  <name>MeetingTranslations</name>
+<xwikidoc reference="Meeting.Code.Translations" locale="sk">
+  <web>Meeting.Code</web>
+  <name>Translations</name>
   <language>sk</language>
   <defaultLanguage>en</defaultLanguage>
   <translation>1</translation>

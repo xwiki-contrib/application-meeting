@@ -20,9 +20,9 @@
  * 02110-1301 USA, or see the FSF site: http://www.fsf.org.
 -->
 
-<xwikidoc reference="Meeting.calendarView" locale="">
+<xwikidoc reference="Meeting.CalendarView" locale="">
   <web>Meeting</web>
-  <name>calendarView</name>
+  <name>CalendarView</name>
   <language/>
   <defaultLanguage/>
   <translation>0</translation>
@@ -45,7 +45,7 @@
   <content>{{velocity}}
 #if($xwiki.exists('Calendar.Macro'))
 
-{{calendar classname="Meeting.MeetingClass" startfield="startDate" durationfield="duration" defaultView="agendaWeek" firstHour="8" minTime="8" maxTime="21" language="fr" editable="true" timeFormat="HH:mm" /}}
+{{calendar classname="Meeting.Code.MeetingClass" startfield="startDate" durationfield="duration" defaultView="agendaWeek" firstHour="8" minTime="8" maxTime="21" language="fr" editable="true" timeFormat="HH:mm" /}}
 
 #elseif($isAdmin)
   $services.localization.render('contrib.meeting.calendarView.noMacro.admin') : [[FullCalendar&gt;&gt;XWiki.XWikiPreferences||queryString="section=XWiki.AddExtensions&amp;search=FullCalendar&amp;repo="]]
