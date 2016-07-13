@@ -51,39 +51,12 @@
     <defaultWeb/>
     <nameField/>
     <validationScript/>
-    <calc>
-      <customDisplay/>
-      <disabled>0</disabled>
-      <name>calc</name>
-      <number>13</number>
-      <prettyName>calc</prettyName>
-      <script>{{velocity}}
-#set($durationHour = $mathtool.floor($mathtool.div($doc.getValue('duration'),60)))
-#set($durationMinutes = $mathtool.sub($doc.getValue('duration'),$mathtool.mul(60,$durationHour)))
-##
-#if($durationHour != 0)
-  #if($durationMinutes != 0)
-    #set($durationString = "$durationHour h $durationMinutes min")
-  #else
-    #set($durationString = "$durationHour h")
-  #end
-#else
-    #set($durationString = "$durationMinutes min")
-#end
-##
-$durationString
-{{/velocity}}</script>
-      <unmodifiable>0</unmodifiable>
-      <validationMessage/>
-      <validationRegExp/>
-      <classType>com.xpn.xwiki.objects.classes.ComputedFieldClass</classType>
-    </calc>
     <description>
       <customDisplay/>
       <disabled>0</disabled>
       <editor>---</editor>
       <name>description</name>
-      <number>6</number>
+      <number>7</number>
       <picker>0</picker>
       <prettyName>Description</prettyName>
       <rows>5</rows>
@@ -100,7 +73,7 @@ $durationString
       <displayFormType>checkbox</displayFormType>
       <displayType/>
       <name>displayMap</name>
-      <number>4</number>
+      <number>5</number>
       <prettyName>Display map</prettyName>
       <unmodifiable>0</unmodifiable>
       <validationMessage/>
@@ -120,7 +93,7 @@ $durationString
 {{/velocity}}</customDisplay>
       <disabled>0</disabled>
       <name>displayMapError</name>
-      <number>5</number>
+      <number>6</number>
       <picker>0</picker>
       <prettyName>Display map error</prettyName>
       <size>30</size>
@@ -129,84 +102,40 @@ $durationString
       <validationRegExp/>
       <classType>com.xpn.xwiki.objects.classes.StringClass</classType>
     </displayMapError>
-    <duration>
-      <cache>0</cache>
-      <customDisplay/>
+    <durationDisplay>
+      <customDisplay>{{velocity}}
+#set($durationDiff = $datetool.difference($object.getProperty('startDate').value, $object.getProperty('endDate').value))
+#if($durationDiff)
+  #set($fullHours = $durationDiff.hours)
+  #set($minutes = $mathtool.sub($durationDiff.minutes, $mathtool.mul($fullHours, 60)))
+  #if($fullHours &gt; 0)$fullHours h #{end}$minutes min
+#end
+{{/velocity}}</customDisplay>
       <disabled>0</disabled>
-      <displayType>select</displayType>
-      <multiSelect>0</multiSelect>
-      <name>duration</name>
-      <number>8</number>
-      <picker>0</picker>
-      <prettyName>Duration</prettyName>
-      <relationalStorage>0</relationalStorage>
-      <separator> </separator>
-      <separators> ,|</separators>
-      <size>1</size>
-      <sort>none</sort>
+      <name>durationDisplay</name>
+      <number>16</number>
+      <prettyName>Duration Display</prettyName>
+      <script/>
       <unmodifiable>0</unmodifiable>
       <validationMessage/>
       <validationRegExp/>
-      <values>15=15mn|30=30mn|45=45mn|60=1h|75=1h15|90=1h30|120=2h|180=3h|240=4h</values>
-      <classType>com.xpn.xwiki.objects.classes.StaticListClass</classType>
-    </duration>
-    <durationHour>
-      <cache>0</cache>
+      <classType>com.xpn.xwiki.objects.classes.ComputedFieldClass</classType>
+    </durationDisplay>
+    <endDate>
       <customDisplay/>
+      <dateFormat>dd/MM/yyyy HH:mm</dateFormat>
       <disabled>0</disabled>
-      <displayType>select</displayType>
-      <multiSelect>0</multiSelect>
-      <name>durationHour</name>
-      <number>14</number>
-      <picker>0</picker>
-      <prettyName>durationHour</prettyName>
-      <relationalStorage>0</relationalStorage>
-      <separator> </separator>
-      <separators> ,|</separators>
-      <size>1</size>
-      <sort>none</sort>
+      <emptyIsToday>1</emptyIsToday>
+      <name>endDate</name>
+      <number>3</number>
+      <picker>1</picker>
+      <prettyName>End Date</prettyName>
+      <size>20</size>
       <unmodifiable>0</unmodifiable>
       <validationMessage/>
       <validationRegExp/>
-      <values>0|1|2|3|4|5|6|7|8</values>
-      <classType>com.xpn.xwiki.objects.classes.StaticListClass</classType>
-    </durationHour>
-    <durationMinutes>
-      <cache>0</cache>
-      <customDisplay/>
-      <disabled>0</disabled>
-      <displayType>select</displayType>
-      <multiSelect>0</multiSelect>
-      <name>durationMinutes</name>
-      <number>15</number>
-      <picker>0</picker>
-      <prettyName>durationMinutes</prettyName>
-      <relationalStorage>0</relationalStorage>
-      <separator> </separator>
-      <separators> ,|</separators>
-      <size>1</size>
-      <sort>none</sort>
-      <unmodifiable>0</unmodifiable>
-      <validationMessage/>
-      <validationRegExp/>
-      <values>00|15|30|45</values>
-      <classType>com.xpn.xwiki.objects.classes.StaticListClass</classType>
-    </durationMinutes>
-    <durationString>
-      <customDisplay/>
-      <disabled>0</disabled>
-      <editor>---</editor>
-      <name>durationString</name>
-      <number>12</number>
-      <picker>0</picker>
-      <prettyName>durationString</prettyName>
-      <rows>5</rows>
-      <size>40</size>
-      <unmodifiable>0</unmodifiable>
-      <validationMessage/>
-      <validationRegExp/>
-      <classType>com.xpn.xwiki.objects.classes.TextAreaClass</classType>
-    </durationString>
+      <classType>com.xpn.xwiki.objects.classes.DateClass</classType>
+    </endDate>
     <groups>
       <cache>0</cache>
       <customDisplay/>
@@ -214,7 +143,7 @@ $durationString
       <displayType>input</displayType>
       <multiSelect>1</multiSelect>
       <name>groups</name>
-      <number>8</number>
+      <number>9</number>
       <picker>1</picker>
       <prettyName>Groups</prettyName>
       <relationalStorage>0</relationalStorage>
@@ -228,20 +157,6 @@ $durationString
       <validationRegExp/>
       <classType>com.xpn.xwiki.objects.classes.GroupsClass</classType>
     </groups>
-    <hasBeenEdited>
-      <customDisplay/>
-      <defaultValue>0</defaultValue>
-      <disabled>0</disabled>
-      <displayFormType>select</displayFormType>
-      <displayType>int</displayType>
-      <name>hasBeenEdited</name>
-      <number>16</number>
-      <prettyName>hasBeenEdited</prettyName>
-      <unmodifiable>0</unmodifiable>
-      <validationMessage/>
-      <validationRegExp/>
-      <classType>com.xpn.xwiki.objects.classes.BooleanClass</classType>
-    </hasBeenEdited>
     <hasPoll>
       <customDisplay/>
       <defaultValue/>
@@ -249,7 +164,7 @@ $durationString
       <displayFormType>select</displayFormType>
       <displayType/>
       <name>hasPoll</name>
-      <number>11</number>
+      <number>13</number>
       <prettyName>hasPoll</prettyName>
       <unmodifiable>0</unmodifiable>
       <validationMessage/>
@@ -262,7 +177,7 @@ $durationString
       <disabled>0</disabled>
       <emptyIsToday>1</emptyIsToday>
       <name>lastEmailSent</name>
-      <number>17</number>
+      <number>15</number>
       <picker>1</picker>
       <prettyName>Last mail sent date</prettyName>
       <size>20</size>
@@ -278,7 +193,7 @@ $durationString
       <displayType>select</displayType>
       <multiSelect>0</multiSelect>
       <name>leader</name>
-      <number>7</number>
+      <number>8</number>
       <picker>0</picker>
       <prettyName>Leader</prettyName>
       <relationalStorage>0</relationalStorage>
@@ -310,7 +225,7 @@ $durationString
       <disabled>0</disabled>
       <editor>---</editor>
       <name>notes</name>
-      <number>17</number>
+      <number>14</number>
       <picker>0</picker>
       <prettyName>notes</prettyName>
       <rows>5</rows>
@@ -342,7 +257,7 @@ $durationString
       <displayType>input</displayType>
       <multiSelect>1</multiSelect>
       <name>participants</name>
-      <number>9</number>
+      <number>11</number>
       <picker>1</picker>
       <prettyName>Participants</prettyName>
       <relationalStorage>0</relationalStorage>
@@ -360,7 +275,7 @@ $durationString
       <customDisplay/>
       <disabled>0</disabled>
       <name>place</name>
-      <number>3</number>
+      <number>4</number>
       <picker>0</picker>
       <prettyName>Place</prettyName>
       <size>30</size>
@@ -391,7 +306,7 @@ $durationString
       <displayType>select</displayType>
       <multiSelect>0</multiSelect>
       <name>status</name>
-      <number>10</number>
+      <number>12</number>
       <picker>0</picker>
       <prettyName>Status</prettyName>
       <relationalStorage>0</relationalStorage>

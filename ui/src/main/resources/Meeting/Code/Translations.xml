@@ -96,11 +96,13 @@ meeting.livetable.doc.name=Title
 meeting.livetable.leader=Leader
 meeting.livetable.place=Place
 meeting.livetable.durationString=Duration
+meeting.livetable.durationDisplay=Duration
 meeting.livetable.startDate=Start
 meeting.livetable.status=Status
 meeting.livetable.emptyvalue=-
 meeting.livetable._actions=Actions
 
+# Meeting Sheet
 contrib.meeting.field.meetingTitle=Title
 contrib.meeting.field.leader=Leader
 contrib.meeting.field.place=Place
@@ -113,6 +115,8 @@ contrib.meeting.field.groups=Participating groups
 contrib.meeting.field.notes=Meeting notes
 contrib.meeting.field.status=Status
 contrib.meeting.field.lastEmailSent=Last mail sent on the
+meeting.endDate.label=End Date
+meeting.durationDisplay.label=Meeting Duration
 
 contrib.meeting.notification.success=A notification email has successfully been sent to the participants.
 contrib.meeting.notification.failure=An error occured while sending the notification emails.

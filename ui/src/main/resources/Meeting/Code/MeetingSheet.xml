@@ -318,46 +318,6 @@ if(displayMap) {
 #set($discard = $xwiki.ssx.use('Meeting.Code.SkinExtension'))
 #set($discard = $xwiki.jsx.use('Meeting.Code.MeetingSheet'))
 #set($discard = $doc.use('Meeting.Code.MeetingClass'))
-#set($previousDurationHour = $doc.getValue('durationHour'))
-#set($previousDurationMinutes = $doc.getValue('durationMinutes'))
-#set($previousDuration = $doc.getValue('duration'))
-#set($previousDurationString = $doc.getValue('durationString'))
-#set($durationHour = $mathtool.floor($mathtool.div($doc.getValue('duration'),60)))
-#set($durationMinutes = $mathtool.sub($doc.getValue('duration'),$mathtool.mul(60,$durationHour)))
-#if($xcontext.action=='view' &amp;&amp; $doc.get('hasBeenEdited') == 1) ## editing via inline mode
-  #set($durationHour = $doc.getValue('durationHour'))
-  #set($durationMinutes = $doc.getValue('durationMinutes'))
-  #set($duration = $mathtool.add($mathtool.mul(60,$durationHour), $durationMinutes))
-  ## Create durationString from the durationHour, durationMinutes properties
-  #if($durationHour != 0)
-    #if($durationMinutes != 0)
-      #set($durationString = "$!durationHour h $!durationMinutes min")
-    #else
-      #set($durationString = "$!durationHour h")
-    #end
-  #else
-    #set($durationString = "$!durationMinutes min")
-  #end
-  #if($previousDuration != $duration.toString() || $previousDurationString != $durationString)
-    #set($discard = $doc.set('duration', "$duration.toString()"))
-    #set($discard = $doc.set('durationString', "$durationString"))
-    #set($discard = $doc.set('hasBeenEdited', 0))
-    #set($discard = $doc.saveAsAuthor())
-  #end
-#elseif($xcontext.action != 'view' &amp;&amp; !$tdoc.isNew())
-  #if($previousDurationHour != $durationHour.toString() || $previousDurationMinutes != $durationMinutes.toString())
-    #set($discard = $doc.set('durationHour', $durationHour.toString()))
-    #set($discard = $doc.set('durationMinutes', $durationMinutes.toString()))
-    #set($discard = $doc.saveAsAuthor())
-  #end
-#elseif(!$tdoc.isNew()) ## editing via calendar view
-  #if($previousDurationHour != $durationHour.toString() || $previousDurationMinutes != $durationMinutes.toString())
-    #set($discard = $doc.set('durationString', $doc.get('calc')))
-    #set($discard = $doc.set('durationHour', $durationHour.toString()))
-    #set($discard = $doc.set('durationMinutes', $durationMinutes.toString()))
-    #set($discard = $doc.saveAsAuthor())
-  #end
-#end
 #if($request.createPoll == 'true')
   #set($discard = $doc.set('hasPoll', 1))
   #set($discard = $doc.saveAsAuthor())
@@ -373,10 +333,6 @@ if(displayMap) {
   (((
     (% class="col-md-12 col-sm-12 col-xs-12" %)
     (((
-    ## Set the edit flag
-    #if ($xcontext.action == 'edit')
-      &lt;input name="Meeting.Code.MeetingClass_0_hasBeenEdited" type="hidden" value="1" /&gt;
-    #end
     ## Add a title of event in edit modetime
     #if($xcontext.action == 'edit')
         ; &lt;label for="Meeting.Code.MeetingClass_0_meetingTitle"&gt;#if($services.icon)$services.icon.render('font') #end $escapetool.xml($doc.displayPrettyName('meetingTitle', false, false))&lt;/label&gt;
@@ -395,14 +351,12 @@ if(displayMap) {
     )))
     (% class="col-xs-12 col-sm-4" %)
     (((
-    ; &lt;label for="Meeting.Code.MeetingClass_0_calc"&gt;$!services.icon.render('clock') $services.localization.render('contrib.meeting.field.duration')&lt;/label&gt;##
+    ; &lt;label for="Meeting.Code.MeetingClass_0_endDate"&gt;$!services.icon.render('calendar') $services.localization.render('meeting.endDate.label')&lt;/label&gt;##
       (% class="xHint" %)$services.localization.render('')
-    #if($xcontext.action == 'view')
-      : $doc.display('durationString')
-    #else
-      ##: $doc.display('duration')
-      ##; &lt;label for="Meeting.Code.MeetingClass_0_durationHour"&gt;$services.localization.render('contrib.meeting.field.duration')&lt;/label&gt;
-      : &lt;div id="durationEdit"&gt; $!doc.display('durationHour') h $!doc.display('durationMinutes') min&lt;/div&gt;
+    : $doc.display('endDate')
+    #if($xcontext.action != 'edit')
+      ; &lt;label for="Meeting.Code.MeetingClass_0_durationDisplay"&gt;$!services.icon.render('clock') $services.localization.render('meeting.durationDisplay.label')&lt;/label&gt;
+      : $doc.display('durationDisplay')
     #end
     )))
     (% class="col-xs-12 col-sm-4" %)
