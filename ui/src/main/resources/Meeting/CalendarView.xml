@@ -45,7 +45,7 @@
   <content>{{velocity}}
 #if($xwiki.exists('Calendar.Macro'))
 
-{{calendar classname="Meeting.Code.MeetingClass" startfield="startDate" endField="endDate" defaultView="agendaWeek" firstHour="8" minTime="8" maxTime="21" language="fr" editable="true" timeFormat="HH:mm" /}}
+{{calendar classname="Meeting.Code.MeetingClass" startfield="startDate" endfield="endDate" defaultView="agendaWeek" firstHour="8" minTime="8" maxTime="21" language="fr" editable="true" timeFormat="HH:mm" /}}
 
 #elseif($isAdmin)
   $services.localization.render('contrib.meeting.calendarView.noMacro.admin') : [[FullCalendar&gt;&gt;XWiki.XWikiPreferences||queryString="section=XWiki.AddExtensions&amp;search=FullCalendar&amp;repo="]]
