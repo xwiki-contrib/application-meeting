@@ -1328,7 +1328,7 @@
       <meta/>
     </property>
     <property>
-      <rightPanels>Meeting.Code.RecentMeetingsPanel</rightPanels>
+      <rightPanels>Meeting.Code.NextMeetingsPanel</rightPanels>
     </property>
     <property>
       <rightPanelsWidth>Medium</rightPanelsWidth>

@@ -20,29 +20,31 @@
  * 02110-1301 USA, or see the FSF site: http://www.fsf.org.
 -->
 
-<xwikidoc reference="Meeting.Code.RecentMeetingsPanel" locale="">
+<xwikidoc version="1.2" reference="Meeting.Code.NextMeetingsPanel" locale="">
   <web>Meeting.Code</web>
-  <name>RecentMeetingsPanel</name>
+  <name>NextMeetingsPanel</name>
   <language/>
   <defaultLanguage/>
   <translation>0</translation>
-  <creationDate>1355235669000</creationDate>
-  <parent>Meeting.WebHome</parent>
   <creator>xwiki:XWiki.Admin</creator>
+  <creationDate>1474549732000</creationDate>
+  <parent>Meeting.WebHome</parent>
   <author>xwiki:XWiki.Admin</author>
-  <customClass/>
   <contentAuthor>xwiki:XWiki.Admin</contentAuthor>
-  <date>1457948550000</date>
-  <contentUpdateDate>1457948528000</contentUpdateDate>
+  <date>1474549732000</date>
+  <contentUpdateDate>1474549732000</contentUpdateDate>
   <version>1.1</version>
-  <title>Recent Meeting Panel</title>
-  <defaultTemplate/>
-  <validationScript/>
+  <title>Next Meetings Panel</title>
   <comment/>
   <minorEdit>false</minorEdit>
   <syntaxId>xwiki/2.1</syntaxId>
   <hidden>true</hidden>
+  <content/>
   <object>
+    <name>Meeting.Code.NextMeetingsPanel</name>
+    <number>0</number>
+    <className>Panels.PanelClass</className>
+    <guid>52122e6c-efa0-4f97-b757-e047c67926ed</guid>
     <class>
       <name>Panels.PanelClass</name>
       <customClass/>
@@ -116,10 +118,6 @@
         <classType>com.xpn.xwiki.objects.classes.StaticListClass</classType>
       </type>
     </class>
-    <name>Meeting.Code.RecentMeetingsPanel</name>
-    <number>0</number>
-    <className>Panels.PanelClass</className>
-    <guid>02d782b7-6b3d-4795-9ba0-83b06decf391</guid>
     <property>
       <category>Navigation</category>
     </property>
@@ -142,5 +140,4 @@
       <type>view</type>
     </property>
   </object>
-  <content/>
 </xwikidoc>
