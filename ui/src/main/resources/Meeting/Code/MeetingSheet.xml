@@ -379,7 +379,7 @@ if(displayMap) {
     #end
     ## Add a title of event in edit modetime
     #if($xcontext.action == 'edit')
-        ; &lt;label for="Meeting.Code.MeetingClass_0_meetingTitle"&gt;#if($services.icon)$services.icon.render('font') #end $escapetool.xml($doc.displayPrettyName('meetingTitle', false, false))&lt;/label&gt;
+        ; &lt;label for="Meeting.Code.MeetingClass_0_meetingTitle"&gt;$!services.icon.render('font') $services.localization.render('contrib.meeting.field.meetingTitle')&lt;/label&gt;
         : $doc.display('meetingTitle')
     #end
     )))
