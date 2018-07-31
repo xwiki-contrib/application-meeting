@@ -81,8 +81,8 @@ contrib.meeting.field.lastEmailSent=Dernier mail envoyé sur le
 
 contrib.meeting.notification.success=Un courrier de notification a bien été envoyé aux participants.
 contrib.meeting.notification.failure=Une erreur est survenue lors de l'envoi des courriels de notification.
-### Missing: contrib.meeting.notification.sending=Sending notification...
-### Missing: contrib.meeting.notification.requestError=There was an error sending your request. Please try again.
+contrib.meeting.notification.sending=Envoi de notification...
+contrib.meeting.notification.requestError=Une erreur est survenue. Merci d'essayer à nouveau.
 contrib.meeting.notification.title=Vous êtes invités à participer à une réunion: {0}
 contrib.meeting.notification.body={0} vous invite a participer à la réunion {1}.
 contrib.meeting.notification.link=Voir la page de la réunion sur XWiki.
@@ -121,7 +121,7 @@ contrib.meeting.map.error.invalidRequest=demande invalide!
 contrib.meeting.map.error.unknownError=erreur inconnue!
 
 # Template Provider
-### Missing: templateProvider.meeting.name=Meeting
-### Missing: templateProvider.meeting.description=Organise an event
+templateProvider.meeting.name=Réunion
+templateProvider.meeting.description=Organiser un événement
 </content>
 </xwikidoc>
