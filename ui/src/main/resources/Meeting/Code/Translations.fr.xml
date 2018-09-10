@@ -53,7 +53,7 @@ contrib.meeting.app.title=Réunions
 contrib.meeting.home.title=Réunions
 contrib.meeting.calendarView=Vue calendaire
 contrib.meeting.calendarView.title=Vue calendaire
-contrib.meeting.calendarView.noMacro.admin=Pour pouvoir avoir une vue calendaire des réunions, il faut installer la Macro FullCalendar sur ce Wiki:
+contrib.meeting.calendarView.noMacro.admin=Pour afficher les réunions dans un Calendrier, vous devez installer la Macro Full Calendar sur ce wiki :
 contrib.meeting.calendarView.noMacro.noAdmin=Il manque la macro nécessaire à l'affichage calendaire. Demandez à l'administrateur de votre wiki d'installer la Macro "FullCalendar".
 
 meeting.livetable.doc.title=Réunion
@@ -88,8 +88,8 @@ contrib.meeting.notification.body={0} vous invite a participer à la réunion {1
 contrib.meeting.notification.link=Voir la page de la réunion sur XWiki.
 contrib.meeting.notification.view.event=Voir l'événement sur
 contrib.meeting.notification.submit=Envoyer un courriel d'invitation à ces utilisateurs
-contrib.meeting.notification.additionalMessage=Tapez ici le message que vous voulez envoyer à ces utilisateurs (optionnel):
-contrib.hr.notification.additionalPart=Son message:
+contrib.meeting.notification.additionalMessage=Indiquez le message que vous souhaitez envoyer aux participants (optionnel) :
+contrib.hr.notification.additionalPart=Son message :
 
 # Next Meetings panel
 contrib.meeting.panel.title=Prochaines réunions
@@ -99,7 +99,7 @@ contrib.meeting.panel.viewallmeetings=Voir toutes les réunions
 
 # Next Meetings macro
 rendering.macro.nextmeetings.name=Prochaines réunions
-rendering.macro.nextmeetings.description=Afficher une liste des réunions à venir, triée par la date de début des réunions.
+rendering.macro.nextmeetings.description=Afficher une nombre de réunions à venir
 rendering.macro.nextmeetings.parameter.limit.name=Nombre de réunions affichées
 rendering.macro.nextmeetings.parameter.limit.description=Nombre maximum de réunions à afficher
 rendering.macro.nextmeetings.parameter.homelink.name=Lien vers l'application "Réunions"
@@ -113,12 +113,12 @@ contrib.meeting.poll.explanation=Un sondage a été créé pour définir les mod
 contrib.meeting.poll.go=Aller au sondage
 
 # Map Macro
-contrib.meeting.map.error.deactivation=La carte n'a pas été affichée:
+contrib.meeting.map.error.deactivation=La carte n'a pu être affichée :
 contrib.meeting.map.error.zeroResults=Aucun résultat trouvé !
-contrib.meeting.map.error.overQueryLimit=quota dépassé!
-contrib.meeting.map.error.requestDenied=demande refusée!
-contrib.meeting.map.error.invalidRequest=demande invalide!
-contrib.meeting.map.error.unknownError=erreur inconnue!
+contrib.meeting.map.error.overQueryLimit=quota dépassé !
+contrib.meeting.map.error.requestDenied=demande refusée !
+contrib.meeting.map.error.invalidRequest=requête invalide !
+contrib.meeting.map.error.unknownError=erreur inconnue !
 
 # Template Provider
 templateProvider.meeting.name=Réunion
