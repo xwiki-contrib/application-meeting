@@ -116,7 +116,7 @@ contrib.meeting.poll.go=Aller au sondage
 contrib.meeting.map.error.deactivation=La carte n'a pu être affichée :
 contrib.meeting.map.error.zeroResults=Aucun résultat trouvé !
 contrib.meeting.map.error.overQueryLimit=quota dépassé !
-contrib.meeting.map.error.requestDenied=demande refusée !
+contrib.meeting.map.error.requestDenied=requête refusée !
 contrib.meeting.map.error.invalidRequest=requête invalide !
 contrib.meeting.map.error.unknownError=erreur inconnue !
 
