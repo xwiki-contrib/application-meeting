@@ -77,9 +77,9 @@ contrib.meeting.field.participants=Participants
 contrib.meeting.field.groups=Groupes participants
 contrib.meeting.field.notes=Compte rendu
 contrib.meeting.field.status=Statut
-contrib.meeting.field.lastEmailSent=Dernier mail envoyé sur le
+contrib.meeting.field.lastEmailSent=Dernier courriel envoyé le
 
-contrib.meeting.notification.success=Un courrier de notification a bien été envoyé aux participants.
+contrib.meeting.notification.success=Un courriel de notification a été envoyé avec succès aux participants.
 contrib.meeting.notification.failure=Une erreur est survenue lors de l'envoi des courriels de notification.
 contrib.meeting.notification.sending=Envoi de notification...
 contrib.meeting.notification.requestError=Une erreur est survenue. Merci d'essayer à nouveau.
