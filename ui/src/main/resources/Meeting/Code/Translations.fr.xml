@@ -103,9 +103,9 @@ rendering.macro.nextmeetings.description=Afficher une nombre de réunions à ven
 rendering.macro.nextmeetings.parameter.limit.name=Nombre de réunions affichées
 rendering.macro.nextmeetings.parameter.limit.description=Nombre maximum de réunions à afficher
 rendering.macro.nextmeetings.parameter.homelink.name=Lien vers l'application "Réunions"
-rendering.macro.nextmeetings.parameter.homelink.description=Afficher un lien vers la page d'accueil de l'application "Réunions". Les valeurs possibles sont "show" (afficher) et "hide" (cacher).
+rendering.macro.nextmeetings.parameter.homelink.description=Afficher un lien vers la page d'accueil de l'application "Réunions". Les valeurs possibles sont "show" (afficher) ou "hide" (masquer).
 rendering.macro.nextmeetings.parameter.status.name=Statut
-rendering.macro.nextmeetings.parameter.status.description=Afficher le statut de la réunion. Les valeurs possibles sont "show" (afficher) et "hide" (cacher).
+rendering.macro.nextmeetings.parameter.status.description=Afficher le statut de la réunion. Les valeurs possibles sont "show" (afficher) ou "hide" (masquer).
 
 # XPoll Application
 contrib.meeting.createPoll=Créer un sondage pour cette réunion
