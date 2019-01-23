@@ -42,85 +42,85 @@
   <minorEdit>false</minorEdit>
   <syntaxId>plain/1.0</syntaxId>
   <hidden>true</hidden>
-<content>### Missing: contrib.meeting.home.presentation=Welcome to the XWiki Meeting Application. Create your own meeting by clicking on "Add New Entry". You can also check out a [[**Calendar**&gt;&gt;Meeting.CalendarView]] of all the meetings.
+<content>contrib.meeting.home.presentation=Ласкаво просимо до додатка "Зустрічі". Створіть власну зустріч, натиснувши "Додати новий запис". Ви також можете переглянути [[**Календар**&gt;&gt;Meeting.CalendarView]] всіх зустрічей.
 
-### Missing: Meeting.MeetingClass_status_value1=In preparation
-### Missing: Meeting.MeetingClass_status_value2=Active
-### Missing: Meeting.MeetingClass_status_value3=Cancelled
-### Missing: Meeting.MeetingClass_status_value4=Finished
+Meeting.MeetingClass_status_value1=Готується
+Meeting.MeetingClass_status_value2=Активна
+Meeting.MeetingClass_status_value3=Відмінена
+Meeting.MeetingClass_status_value4=Завершена
 
-### Missing: contrib.meeting.app.title=Meetings
-### Missing: contrib.meeting.home.title=Meetings
-### Missing: contrib.meeting.calendarView=Calendar View
-### Missing: contrib.meeting.calendarView.title=Calendar View
-### Missing: contrib.meeting.calendarView.noMacro.admin=To display the calendar view of the meetings, you need to install the Full Calendar Macro on this wiki :
-### Missing: contrib.meeting.calendarView.noMacro.noAdmin=We are missing the macro displaying the calendar view. Ask this wiki administrator to install the "FullCalendar" Macro.
+contrib.meeting.app.title=Зустрічі
+contrib.meeting.home.title=Зустрічі
+contrib.meeting.calendarView=Перегляд календаря
+contrib.meeting.calendarView.title=Перегляд календаря
+contrib.meeting.calendarView.noMacro.admin=Щоб переглядати зустрічі у календарі, потрібно встановити макрос Full Calendar:
+contrib.meeting.calendarView.noMacro.noAdmin=Відсутній макрос, що відображає календар. Попросіть адміністратора вікі встановити макрос "FullCalendar".
 
-### Missing: meeting.livetable.doc.title=Meeting
-### Missing: meeting.livetable.doc.name=Title
-### Missing: meeting.livetable.leader=Leader
-### Missing: meeting.livetable.place=Place
-### Missing: meeting.livetable.durationString=Duration
-### Missing: meeting.livetable.startDate=Start
-### Missing: meeting.livetable.status=Status
-### Missing: meeting.livetable.emptyvalue=-
-### Missing: meeting.livetable._actions=Actions
+meeting.livetable.doc.title=Зустріч
+meeting.livetable.doc.name=Заголовок
+meeting.livetable.leader=Головуючий
+meeting.livetable.place=Місце
+meeting.livetable.durationString=Тривалість
+meeting.livetable.startDate=Початок
+meeting.livetable.status=Стан
+meeting.livetable.emptyvalue=-
+meeting.livetable._actions=Дії
 
-### Missing: contrib.meeting.field.meetingTitle=Title
-### Missing: contrib.meeting.field.leader=Leader
-### Missing: contrib.meeting.field.place=Place
-### Missing: contrib.meeting.field.displayMap=Display map
-### Missing: contrib.meeting.field.duration=Duration
-### Missing: contrib.meeting.field.startDate=Start Date
-### Missing: contrib.meeting.field.description=Description
-### Missing: contrib.meeting.field.participants=Participating members
-### Missing: contrib.meeting.field.groups=Participating groups
-### Missing: contrib.meeting.field.notes=Meeting notes
-### Missing: contrib.meeting.field.status=Status
-### Missing: contrib.meeting.field.lastEmailSent=Last mail sent on the
+contrib.meeting.field.meetingTitle=Заголовок
+contrib.meeting.field.leader=Головуючий
+contrib.meeting.field.place=Місце
+contrib.meeting.field.displayMap=Показати мапу
+contrib.meeting.field.duration=Тривалість
+contrib.meeting.field.startDate=Дата початку
+contrib.meeting.field.description=Опис
+contrib.meeting.field.participants=Учасники
+contrib.meeting.field.groups=Групи учасників
+contrib.meeting.field.notes=Примітки
+contrib.meeting.field.status=Стан
+contrib.meeting.field.lastEmailSent=Останнє поштове повідомлення надіслане на
 
-### Missing: contrib.meeting.notification.success=A notification email has successfully been sent to the participants.
-### Missing: contrib.meeting.notification.failure=An error occured while sending the notification emails.
-### Missing: contrib.meeting.notification.sending=Sending notification...
-### Missing: contrib.meeting.notification.requestError=There was an error sending your request. Please try again.
-### Missing: contrib.meeting.notification.title=You are invited to participate in a meeting: {0}
-### Missing: contrib.meeting.notification.body={0} invited you to participate in the meeting {1}.
-### Missing: contrib.meeting.notification.link=See the meeting page on XWiki.
-### Missing: contrib.meeting.notification.view.event=View your event at
-### Missing: contrib.meeting.notification.submit=Send an invitation email to these users
-### Missing: contrib.meeting.notification.additionalMessage=Type here the message you want to send to the participants (optional) :
-### Missing: contrib.hr.notification.additionalPart=His/her message:
+contrib.meeting.notification.success=Учасникам було надіслано сповіщення електронною поштою.
+contrib.meeting.notification.failure=Під час надсилання сповіщень сталася помилка.
+contrib.meeting.notification.sending=Надсилання сповіщення...
+contrib.meeting.notification.requestError=Під час надсилання запиту сталася помилка. Будь ласка, спробуйте ще раз.
+contrib.meeting.notification.title=Вас запрошено взяти участь у зустрічі: {0}
+contrib.meeting.notification.body={0} запрошує вас взяти участь у зустрічі {1}.
+contrib.meeting.notification.link=Див. сторінку зустрічі на XWiki.
+contrib.meeting.notification.view.event=Переглянути свою подію на
+contrib.meeting.notification.submit=Надіслати електронною поштою запрошення цим користувачам
+contrib.meeting.notification.additionalMessage=Введіть тут повідомлення, яке потрібно надіслати учасникам (необов'язково):
+contrib.hr.notification.additionalPart=Її/його повідомлення:
 
 # Next Meetings panel
-### Missing: contrib.meeting.panel.title=Next Meetings
-### Missing: contrib.meeting.panel.noMeetings=There are no upcoming meetings.
-### Missing: contrib.meeting.panel.addmeeting=Add meeting
-### Missing: contrib.meeting.panel.viewallmeetings=View all meetings
+contrib.meeting.panel.title=Наступна зустріч
+contrib.meeting.panel.noMeetings=Немає запланованих зустрічей.
+contrib.meeting.panel.addmeeting=Додати зустріч
+contrib.meeting.panel.viewallmeetings=Переглянути усі зустрічі
 
 # Next Meetings macro
-### Missing: rendering.macro.nextmeetings.name=Next Meetings
-### Missing: rendering.macro.nextmeetings.description=Displays a defined number of upcoming meetings
-### Missing: rendering.macro.nextmeetings.parameter.limit.name=Limit
-### Missing: rendering.macro.nextmeetings.parameter.limit.description=Number of maximum entries.
-### Missing: rendering.macro.nextmeetings.parameter.homelink.name=Home Link
-### Missing: rendering.macro.nextmeetings.parameter.homelink.description=Show a link pointing to the Meetings homepage. Possible values are "show" and "hide".
-### Missing: rendering.macro.nextmeetings.parameter.status.name=Status
-### Missing: rendering.macro.nextmeetings.parameter.status.description=Show the status of the meeting. Possible values are "show" and "hide".
+rendering.macro.nextmeetings.name=Наступна зустріч
+rendering.macro.nextmeetings.description=Відображає певну кількість запланованих зустрічей
+rendering.macro.nextmeetings.parameter.limit.name=Обмеження
+rendering.macro.nextmeetings.parameter.limit.description=Максимальна кількість записів.
+rendering.macro.nextmeetings.parameter.homelink.name=Посилання на головну сторінку
+rendering.macro.nextmeetings.parameter.homelink.description=Показати посилання, що веде на домашню сторінку зустрічей. Можливі значення: "show" і "hide".
+rendering.macro.nextmeetings.parameter.status.name=Стан
+rendering.macro.nextmeetings.parameter.status.description=Показати статус зустрічі. Можливі значення: "show" і "hide".
 
 # XPoll Application
-### Missing: contrib.meeting.createPoll=Create a poll for this meeting
-### Missing: contrib.meeting.poll.explanation=A poll has been created in order to define the meeting details. Click on the link below to access it.
-### Missing: contrib.meeting.poll.go=Go to the poll
+contrib.meeting.createPoll=Створити опитування для цієї зустрічі
+contrib.meeting.poll.explanation=Було створено опитування для визначення деталей зустрічі. Натисніть посилання нижче, щоб отримати доступ до нього.
+contrib.meeting.poll.go=Перейти до опитування
 
 # Map Macro
-### Missing: contrib.meeting.map.error.deactivation=Map could not be displayed:
-### Missing: contrib.meeting.map.error.zeroResults=no results found!
-### Missing: contrib.meeting.map.error.overQueryLimit=exceeded quota!
-### Missing: contrib.meeting.map.error.requestDenied=request denied!
-### Missing: contrib.meeting.map.error.invalidRequest=invalid request!
-### Missing: contrib.meeting.map.error.unknownError=unknown error!
+contrib.meeting.map.error.deactivation=Не вдалося відобразити карту:
+contrib.meeting.map.error.zeroResults=Не знайдено нічого!
+contrib.meeting.map.error.overQueryLimit=Перевищено квоту!
+contrib.meeting.map.error.requestDenied=запит відхилено!
+contrib.meeting.map.error.invalidRequest=неправильний запит!
+contrib.meeting.map.error.unknownError=невідома помилка!
 
 # Template Provider
-### Missing: templateProvider.meeting.name=Meeting
-### Missing: templateProvider.meeting.description=Organise an event</content>
+templateProvider.meeting.name=Зустріч
+templateProvider.meeting.description=Організувати подію</content>
 </xwikidoc>
