@@ -122,6 +122,5 @@ contrib.meeting.map.error.unknownError=neznáma chyba\!
 
 # Template Provider
 ### Missing: templateProvider.meeting.name=Meeting
-### Missing: templateProvider.meeting.description=Organise an event
-</content>
+### Missing: templateProvider.meeting.description=Organise an event</content>
 </xwikidoc>

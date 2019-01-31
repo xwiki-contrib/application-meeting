@@ -122,6 +122,5 @@ contrib.meeting.map.error.unknownError=erreur inconnue !
 
 # Template Provider
 templateProvider.meeting.name=Réunion
-templateProvider.meeting.description=Organiser un événement
-</content>
+templateProvider.meeting.description=Organiser un événement</content>
 </xwikidoc>
