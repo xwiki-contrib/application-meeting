@@ -43,5 +43,85 @@
   <syntaxId>plain/1.0</syntaxId>
   <hidden>true</hidden>
   
-  <content></content>
+  <content>contrib.meeting.home.presentation=Добро пожаловать в приложение XWiki "Собрания". Создайте ваше собственное собрание нажав "Добавить новую запись". Вы также можете просмотреть [[**Календарь**&gt;&gt;Meeting.CalendarView]] всех собраний.
+
+Meeting.MeetingClass_status_value1=Готовится
+Meeting.MeetingClass_status_value2=Активно
+Meeting.MeetingClass_status_value3=Отменено
+Meeting.MeetingClass_status_value4=Завершено
+
+contrib.meeting.app.title=Собрания
+contrib.meeting.home.title=Собрания
+contrib.meeting.calendarView=Просмотр календаря
+contrib.meeting.calendarView.title=Просмотр календаря
+contrib.meeting.calendarView.noMacro.admin=Для просмотра собраний в календаре, необходимо установить макрос Full Calendar для этой wiki :
+contrib.meeting.calendarView.noMacro.noAdmin=Отсутствует макрос, необходимый для отображения календаря. Попросите администратора данной wiki установить макрос "FullCalendar".
+
+meeting.livetable.doc.title=Собрание
+meeting.livetable.doc.name=Заголовок
+meeting.livetable.leader=Ведущий
+meeting.livetable.place=Место
+meeting.livetable.durationString=Продолжительность
+meeting.livetable.startDate=Начало
+meeting.livetable.status=Статус
+meeting.livetable.emptyvalue=-
+meeting.livetable._actions=Действия
+
+contrib.meeting.field.meetingTitle=Заголовок
+contrib.meeting.field.leader=Ведущий
+contrib.meeting.field.place=Место
+contrib.meeting.field.displayMap=Показать карту
+contrib.meeting.field.duration=Продолжительность
+contrib.meeting.field.startDate=Дата начала
+contrib.meeting.field.description=Описание
+contrib.meeting.field.participants=Участники
+contrib.meeting.field.groups=Участвующие группы
+contrib.meeting.field.notes=Протокол собрания
+contrib.meeting.field.status=Статус
+contrib.meeting.field.lastEmailSent=Последнее письмо отправлено
+
+contrib.meeting.notification.success=Email-уведомление было успешно отправлено участникам.
+contrib.meeting.notification.failure=Произошла ошибка при отправке email-уведомления.
+contrib.meeting.notification.sending=Отправка уведомления...
+contrib.meeting.notification.requestError=Произошла ошибка при отправке вашего запроса. Пожалуйста, попробуйте ещё раз.
+contrib.meeting.notification.title=Вы приглашены принять участие в собрании: {0}
+contrib.meeting.notification.body={0} пригласил вас принять участие в собрании {1}.
+contrib.meeting.notification.link=Смотрите страницу собрания на XWiki.
+contrib.meeting.notification.view.event=Просмотреть своё мероприятие на
+contrib.meeting.notification.submit=Отправить email-приглашение этим пользователям
+contrib.meeting.notification.additionalMessage=Напечатайте здесь сообщение, которое вы хотите отправить участникам (необязательно) :
+contrib.hr.notification.additionalPart=Его/её сообщение:
+
+# Next Meetings panel
+contrib.meeting.panel.title=Предстоящие собрания
+contrib.meeting.panel.noMeetings=Нет предстоящих собраний.
+contrib.meeting.panel.addmeeting=Добавить собрание
+contrib.meeting.panel.viewallmeetings=Просмотр всех собраний
+
+# Next Meetings macro
+rendering.macro.nextmeetings.name=Предстоящие собрания
+rendering.macro.nextmeetings.description=Отображает определенное количество предстоящих собраний
+rendering.macro.nextmeetings.parameter.limit.name=Лимит
+rendering.macro.nextmeetings.parameter.limit.description=Максимальное количество записей.
+rendering.macro.nextmeetings.parameter.homelink.name=Ссылка на главную страницу приложения
+rendering.macro.nextmeetings.parameter.homelink.description=Показывать ссылку на главную страницу приложения "Собрания". Возможные значения: "show" и "hide".
+rendering.macro.nextmeetings.parameter.status.name=Статус
+rendering.macro.nextmeetings.parameter.status.description=Показывать статус собрания. Возможные значения: "show" и "hide".
+
+# XPoll Application
+contrib.meeting.createPoll=Создать опрос для этого собрания
+contrib.meeting.poll.explanation=Был создан опрос для определения деталей собрания. Кликните по ссылке ниже, чтобы получить к нему доступ.
+contrib.meeting.poll.go=Перейти к опросу
+
+# Map Macro
+contrib.meeting.map.error.deactivation=Карта не может быть отображена:
+contrib.meeting.map.error.zeroResults=результаты не найдены!
+contrib.meeting.map.error.overQueryLimit=превышена квота!
+contrib.meeting.map.error.requestDenied=запрос отклонён!
+contrib.meeting.map.error.invalidRequest=неверный запрос!
+contrib.meeting.map.error.unknownError=неизвестная ошибка!
+
+# Template Provider
+templateProvider.meeting.name=Собрание
+templateProvider.meeting.description=Организовать мероприятие</content>
 </xwikidoc>
