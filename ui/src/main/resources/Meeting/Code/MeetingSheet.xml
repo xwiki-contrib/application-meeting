@@ -389,6 +389,10 @@ if(displayMap) {
   (((
     (% class="col-xs-12 col-sm-4" %)
     (((
+    ## Set the current date as start date if the page is not MeetingTemplate
+    #if ("$!doc.getValue('startDate')" == '' &amp;&amp; $doc.getFullName() != 'Meeting.Code.MeetingTemplate')
+      #set ($discard = $doc.set('startDate', $datetool.date))
+    #end
     ; &lt;label for="Meeting.Code.MeetingClass_0_startDate"&gt;$!services.icon.render('calendar') $services.localization.render('contrib.meeting.field.startDate')&lt;/label&gt;##
       (% class="xHint" %)$services.localization.render('')
     : $doc.display('startDate')
