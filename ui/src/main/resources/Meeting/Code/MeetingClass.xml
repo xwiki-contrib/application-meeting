@@ -373,7 +373,7 @@ $durationString
       <customDisplay/>
       <dateFormat>dd/MM/yyyy HH:mm</dateFormat>
       <disabled>0</disabled>
-      <emptyIsToday>1</emptyIsToday>
+      <emptyIsToday>0</emptyIsToday>
       <name>startDate</name>
       <number>2</number>
       <picker>1</picker>
