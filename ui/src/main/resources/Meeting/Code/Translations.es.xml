@@ -55,73 +55,73 @@ contrib.meeting.home.title=Reuniones
 contrib.meeting.calendarView=Vista de calendario
 contrib.meeting.calendarView.title=Vista de calendario
 contrib.meeting.calendarView.noMacro.admin=Para mostrar la vista de calendario de las reuniones, necesitas instalar la macro Calendar completa en esta wiki:
-### Missing: contrib.meeting.calendarView.noMacro.noAdmin=We are missing the macro displaying the calendar view. Ask this wiki administrator to install the "FullCalendar" Macro.
+contrib.meeting.calendarView.noMacro.noAdmin=Nos falta la macro que muestra la vista de calendario. Pide al administrador de la wiki que instale la macro "FullCalendar".
 
-### Missing: meeting.livetable.doc.title=Meeting
-### Missing: meeting.livetable.doc.name=Title
-### Missing: meeting.livetable.leader=Leader
-### Missing: meeting.livetable.place=Place
-### Missing: meeting.livetable.durationString=Duration
-### Missing: meeting.livetable.startDate=Start
-### Missing: meeting.livetable.status=Status
-### Missing: meeting.livetable.emptyvalue=-
-### Missing: meeting.livetable._actions=Actions
+meeting.livetable.doc.title=Reunión
+meeting.livetable.doc.name=Título
+meeting.livetable.leader=Lider
+meeting.livetable.place=Lugar
+meeting.livetable.durationString=Duración
+meeting.livetable.startDate=Inicio
+meeting.livetable.status=Situación
+meeting.livetable.emptyvalue=-
+meeting.livetable._actions=Acciones
 
-### Missing: contrib.meeting.field.meetingTitle=Title
-### Missing: contrib.meeting.field.leader=Leader
-### Missing: contrib.meeting.field.place=Place
-### Missing: contrib.meeting.field.displayMap=Display map
-### Missing: contrib.meeting.field.duration=Duration
-### Missing: contrib.meeting.field.startDate=Start Date
-### Missing: contrib.meeting.field.description=Description
-### Missing: contrib.meeting.field.participants=Participating members
-### Missing: contrib.meeting.field.groups=Participating groups
-### Missing: contrib.meeting.field.notes=Meeting notes
-### Missing: contrib.meeting.field.status=Status
-### Missing: contrib.meeting.field.lastEmailSent=Last mail sent on the
+contrib.meeting.field.meetingTitle=Título
+contrib.meeting.field.leader=Lider
+contrib.meeting.field.place=Lugar
+contrib.meeting.field.displayMap=Mostrar mapa
+contrib.meeting.field.duration=Duración
+contrib.meeting.field.startDate=Fecha de inicio
+contrib.meeting.field.description=Descripción
+contrib.meeting.field.participants=Miembros participantes
+contrib.meeting.field.groups=Grupos participantes
+contrib.meeting.field.notes=Notas de la reunión
+contrib.meeting.field.status=Situación
+contrib.meeting.field.lastEmailSent=Último correo electrónico enviado el
 
-### Missing: contrib.meeting.notification.success=A notification email has successfully been sent to the participants.
-### Missing: contrib.meeting.notification.failure=An error occured while sending the notification emails.
-### Missing: contrib.meeting.notification.sending=Sending notification...
-### Missing: contrib.meeting.notification.requestError=There was an error sending your request. Please try again.
-### Missing: contrib.meeting.notification.title=You are invited to participate in a meeting: {0}
-### Missing: contrib.meeting.notification.body={0} invited you to participate in the meeting {1}.
-### Missing: contrib.meeting.notification.link=See the meeting page on XWiki.
-### Missing: contrib.meeting.notification.view.event=View your event at
-### Missing: contrib.meeting.notification.submit=Send an invitation email to these users
-### Missing: contrib.meeting.notification.additionalMessage=Type here the message you want to send to the participants (optional) :
-### Missing: contrib.hr.notification.additionalPart=His/her message:
+contrib.meeting.notification.success=Se ha enviado un correo electrónico de notificación a todos los participantes.
+contrib.meeting.notification.failure=Se ha producido un error al enviar los correos electrónicos de notificación.
+contrib.meeting.notification.sending=Enviando notificación...
+contrib.meeting.notification.requestError=Se produjo un error al enviar tu solicitud. Por favor, inténtalo de nuevo.
+contrib.meeting.notification.title=Estás invitado a participar en la reunión: {0}
+contrib.meeting.notification.body={0} te invitó a participar en la reunión {1}.
+contrib.meeting.notification.link=Mira la página de la reunión en XWiki.
+contrib.meeting.notification.view.event=Ver tu evento a las
+contrib.meeting.notification.submit=Enviar un invitación por correo electrónico a estos usuarios
+contrib.meeting.notification.additionalMessage=Teclea aquí el mensaje que quieres enviar a los participantes (opcional):
+contrib.hr.notification.additionalPart=Su mensaje:
 
 # Next Meetings panel
-### Missing: contrib.meeting.panel.title=Next Meetings
-### Missing: contrib.meeting.panel.noMeetings=There are no upcoming meetings.
-### Missing: contrib.meeting.panel.addmeeting=Add meeting
-### Missing: contrib.meeting.panel.viewallmeetings=View all meetings
+contrib.meeting.panel.title=Próximas reuniones
+contrib.meeting.panel.noMeetings=No hay reuniones próximas.
+contrib.meeting.panel.addmeeting=Añadir reunión
+contrib.meeting.panel.viewallmeetings=Ver todas las reuniones
 
 # Next Meetings macro
-### Missing: rendering.macro.nextmeetings.name=Next Meetings
-### Missing: rendering.macro.nextmeetings.description=Displays a defined number of upcoming meetings
-### Missing: rendering.macro.nextmeetings.parameter.limit.name=Limit
-### Missing: rendering.macro.nextmeetings.parameter.limit.description=Number of maximum entries.
-### Missing: rendering.macro.nextmeetings.parameter.homelink.name=Home Link
-### Missing: rendering.macro.nextmeetings.parameter.homelink.description=Show a link pointing to the Meetings homepage. Possible values are "show" and "hide".
-### Missing: rendering.macro.nextmeetings.parameter.status.name=Status
-### Missing: rendering.macro.nextmeetings.parameter.status.description=Show the status of the meeting. Possible values are "show" and "hide".
+rendering.macro.nextmeetings.name=Próximas reuniones
+rendering.macro.nextmeetings.description=Muestra un número definido de reuniones cercanas
+rendering.macro.nextmeetings.parameter.limit.name=Límite
+rendering.macro.nextmeetings.parameter.limit.description=Máximo número de entradas.
+rendering.macro.nextmeetings.parameter.homelink.name=Enlace al punto de partida
+rendering.macro.nextmeetings.parameter.homelink.description=Muetra un enlace que apunta la página de inicio de Meetings. Valores posibles: "show" y "hide".
+rendering.macro.nextmeetings.parameter.status.name=Situación
+rendering.macro.nextmeetings.parameter.status.description=Muestra la situación de la reunión. Valores posibles: "mostrar" y "ocultar".
 
 # XPoll Application
-### Missing: contrib.meeting.createPoll=Create a poll for this meeting
-### Missing: contrib.meeting.poll.explanation=A poll has been created in order to define the meeting details. Click on the link below to access it.
-### Missing: contrib.meeting.poll.go=Go to the poll
+contrib.meeting.createPoll=Crear una encuesta para esta reunión
+contrib.meeting.poll.explanation=Se ha creado una encuesta para definir los detalles de la reunión. Clica en el siguiente enlace para acceder a la encuesta.
+contrib.meeting.poll.go=Ir a la encuesta
 
 # Map Macro
-### Missing: contrib.meeting.map.error.deactivation=Map could not be displayed:
-### Missing: contrib.meeting.map.error.zeroResults=no results found!
-### Missing: contrib.meeting.map.error.overQueryLimit=exceeded quota!
-### Missing: contrib.meeting.map.error.requestDenied=request denied!
-### Missing: contrib.meeting.map.error.invalidRequest=invalid request!
-### Missing: contrib.meeting.map.error.unknownError=unknown error!
+contrib.meeting.map.error.deactivation=No se puede mostrar el mapa:
+contrib.meeting.map.error.zeroResults=¡No se ha encontrado ningún resultado!
+contrib.meeting.map.error.overQueryLimit=¡Cuota excedida!
+contrib.meeting.map.error.requestDenied=¡Petición denegada!
+contrib.meeting.map.error.invalidRequest=¡Petición no válida!
+contrib.meeting.map.error.unknownError=¡Error desconocido!
 
 # Template Provider
-### Missing: templateProvider.meeting.name=Meeting
-### Missing: templateProvider.meeting.description=Organise an event</content>
+templateProvider.meeting.name=Reunión
+templateProvider.meeting.description=Organizar un evento</content>
 </xwikidoc>
