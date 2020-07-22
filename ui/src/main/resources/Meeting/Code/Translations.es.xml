@@ -78,10 +78,10 @@ contrib.meeting.field.participants=Miembros participantes
 contrib.meeting.field.groups=Grupos participantes
 contrib.meeting.field.notes=Notas de la reunión
 contrib.meeting.field.status=Situación
-contrib.meeting.field.lastEmailSent=Último correo electrónico enviado el
+contrib.meeting.field.lastEmailSent=Último mensaje de correo electrónico enviado el
 
-contrib.meeting.notification.success=Se ha enviado un correo electrónico de notificación a todos los participantes.
-contrib.meeting.notification.failure=Se ha producido un error al enviar los correos electrónicos de notificación.
+contrib.meeting.notification.success=Se ha enviado un mensaje de correo electrónico de notificación a todos los participantes.
+contrib.meeting.notification.failure=Se ha producido un error al enviar los mensajes de correo electrónico de notificación.
 contrib.meeting.notification.sending=Enviando notificación...
 contrib.meeting.notification.requestError=Se produjo un error al enviar tu solicitud. Por favor, inténtalo de nuevo.
 contrib.meeting.notification.title=Estás invitado a participar en la reunión: {0}
