@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.1" encoding="UTF-8"?>
 
 <!--
  * See the NOTICE file distributed with this work for additional
@@ -43,19 +43,16 @@
   <syntaxId>plain/1.0</syntaxId>
   <hidden>true</hidden>
   <content>contrib.meeting.home.presentation=Bienvenue sur l'application Réunion de XWiki. Vous pouvez créer votre propre réunion en cliquant sur "Ajouter une nouvelle entrée". Vous pouvez également consulter un [[**Calendrier**&gt;&gt;calendarView]] de toutes les réunions.
-
 Meeting.MeetingClass_status_value1=En cours de préparation
 Meeting.MeetingClass_status_value2=Actif
 Meeting.MeetingClass_status_value3=Annulé
 Meeting.MeetingClass_status_value4=Fini
-
 contrib.meeting.app.title=Réunions
 contrib.meeting.home.title=Réunions
 contrib.meeting.calendarView=Vue calendaire
 contrib.meeting.calendarView.title=Vue calendaire
 contrib.meeting.calendarView.noMacro.admin=Pour afficher les réunions dans un Calendrier, vous devez installer la Macro Full Calendar sur ce wiki :
 contrib.meeting.calendarView.noMacro.noAdmin=Il manque la macro nécessaire à l'affichage calendaire. Demandez à l'administrateur de votre wiki d'installer la Macro "FullCalendar".
-
 meeting.livetable.doc.title=Réunion
 meeting.livetable.doc.name=Titre
 meeting.livetable.leader=Responsable
@@ -65,7 +62,6 @@ meeting.livetable.startDate=Horaire
 meeting.livetable.status=Statut
 meeting.livetable.emptyvalue=-
 meeting.livetable._actions=Actions
-
 contrib.meeting.field.meetingTitle=Titre
 contrib.meeting.field.leader=Responsable
 contrib.meeting.field.place=Lieu
@@ -78,12 +74,11 @@ contrib.meeting.field.groups=Groupes participants
 contrib.meeting.field.notes=Compte rendu
 contrib.meeting.field.status=Statut
 contrib.meeting.field.lastEmailSent=Dernier courriel envoyé le
-
 contrib.meeting.notification.success=Un courriel de notification a été envoyé avec succès aux participants.
 contrib.meeting.notification.failure=Une erreur est survenue lors de l'envoi des courriels de notification.
 contrib.meeting.notification.sending=Envoi de notification...
 contrib.meeting.notification.requestError=Une erreur est survenue. Merci d'essayer à nouveau.
-contrib.meeting.notification.title=Vous êtes invités à participer à une réunion: {0}
+contrib.meeting.notification.title=Vous êtes invités à participer à la réunion : {0}
 contrib.meeting.notification.body={0} vous invite a participer à la réunion {1}.
 contrib.meeting.notification.link=Voir la page de la réunion sur XWiki.
 contrib.meeting.notification.view.event=Voir l'événement sur
@@ -122,5 +117,6 @@ contrib.meeting.map.error.unknownError=erreur inconnue !
 
 # Template Provider
 templateProvider.meeting.name=Réunion
-templateProvider.meeting.description=Organiser un événement</content>
+templateProvider.meeting.description=Organiser un événement
+</content>
 </xwikidoc>
