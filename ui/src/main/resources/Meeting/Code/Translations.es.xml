@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.1" encoding="UTF-8"?>
 
 <!--
  * See the NOTICE file distributed with this work for additional
@@ -44,29 +44,25 @@
   <hidden>true</hidden>
   
   <content>contrib.meeting.home.presentation=Bienvenido a la aplicación Meeting de XWiki. Crea tus propias reuniones clicando en "Añadir entrada nueva". También puedes consultar un [[**calendario**&gt;&gt;Meeting.CalendarView]] de todas las reuniones.
-
 Meeting.MeetingClass_status_value1=En preparación
 Meeting.MeetingClass_status_value2=Activa
 Meeting.MeetingClass_status_value3=Cancelada
 Meeting.MeetingClass_status_value4=Acabada
-
 contrib.meeting.app.title=Reuniones
 contrib.meeting.home.title=Reuniones
 contrib.meeting.calendarView=Vista de calendario
 contrib.meeting.calendarView.title=Vista de calendario
 contrib.meeting.calendarView.noMacro.admin=Para mostrar la vista de calendario de las reuniones, necesitas instalar la macro Calendar completa en esta wiki:
 contrib.meeting.calendarView.noMacro.noAdmin=Nos falta la macro que muestra la vista de calendario. Pide al administrador de la wiki que instale la macro "FullCalendar".
-
 meeting.livetable.doc.title=Reunión
 meeting.livetable.doc.name=Título
-meeting.livetable.leader=Lider
+meeting.livetable.leader=Líder
 meeting.livetable.place=Lugar
 meeting.livetable.durationString=Duración
 meeting.livetable.startDate=Inicio
 meeting.livetable.status=Situación
-meeting.livetable.emptyvalue=-
+meeting.livetable.emptyvalue=—
 meeting.livetable._actions=Acciones
-
 contrib.meeting.field.meetingTitle=Título
 contrib.meeting.field.leader=Lider
 contrib.meeting.field.place=Lugar
@@ -79,7 +75,6 @@ contrib.meeting.field.groups=Grupos participantes
 contrib.meeting.field.notes=Notas de la reunión
 contrib.meeting.field.status=Situación
 contrib.meeting.field.lastEmailSent=Último mensaje de correo electrónico enviado el
-
 contrib.meeting.notification.success=Se ha enviado un mensaje de correo electrónico de notificación a todos los participantes.
 contrib.meeting.notification.failure=Se ha producido un error al enviar los mensajes de correo electrónico de notificación.
 contrib.meeting.notification.sending=Enviando notificación...
@@ -123,5 +118,6 @@ contrib.meeting.map.error.unknownError=¡Error desconocido!
 
 # Template Provider
 templateProvider.meeting.name=Reunión
-templateProvider.meeting.description=Organizar un evento</content>
+templateProvider.meeting.description=Organizar un evento
+</content>
 </xwikidoc>
