@@ -494,6 +494,10 @@ if(displayMap) {
       ; &lt;label for="Meeting.Code.MeetingClass_0_leader"&gt;$!services.icon.render('user') $services.localization.render('contrib.meeting.field.leader')&lt;/label&gt;
       #if($xcontext.action == 'edit')
         (% class="xHint" %)$services.localization.render('')
+        ## on creation, set current user as leader if no leader is set
+        #if (!$xwiki.exists($doc.getDocumentReference()) &amp;&amp; "$!doc.getValue('leader')" == '')
+          #set ($discard = $doc.set('leader', $xcontext.user))
+        #end
       #end
       : $doc.display('leader')
       ## participants
