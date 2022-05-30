@@ -1,0 +1,122 @@
+<?xml version="1.1" encoding="UTF-8"?>
+
+<!--
+ * See the NOTICE file distributed with this work for additional
+ * information regarding copyright ownership.
+ *
+ * This is free software; you can redistribute it and/or modify it
+ * under the terms of the GNU Lesser General Public License as
+ * published by the Free Software Foundation; either version 2.1 of
+ * the License, or (at your option) any later version.
+ *
+ * This software is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this software; if not, write to the Free
+ * Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
+ * 02110-1301 USA, or see the FSF site: http://www.fsf.org.
+-->
+
+<xwikidoc reference="Meeting.Code.Translations" locale="de">
+  <web>Meeting.Code</web>
+  <name>Translations</name>
+  <language>de</language>
+  <defaultLanguage>en</defaultLanguage>
+  <translation>1</translation>
+  <parent>Meeting.WebHome</parent>
+  <creator>xwiki:XWiki.Admin</creator>
+  <author>xwiki:XWiki.Admin</author>
+  <customClass/>
+  <contentAuthor>xwiki:XWiki.Admin</contentAuthor>
+  <creationDate>1405343909000</creationDate>
+  <date>1405677708000</date>
+  <contentUpdateDate>1405677708000</contentUpdateDate>
+  <version>1.1</version>
+  <title>Meetings Translations</title>
+  <defaultTemplate/>
+  <validationScript/>
+  <comment/>
+  <minorEdit>false</minorEdit>
+  <syntaxId>plain/1.0</syntaxId>
+  <hidden>true</hidden>
+  <content>contrib.meeting.home.presentation=Willkommen bei der XWiki-Meeting-Anwendung. Erstellen Sie Ihre eigene Besprechung, indem Sie auf „Neuen Eintrag hinzufügen“ klicken. Sie können sich auch einen [[**Kalender**&gt;&gt;Meeting.CalendarView]] aller Meetings ansehen.
+Meeting.MeetingClass_status_value1=In Vorbereitung
+Meeting.MeetingClass_status_value2=Aktiv
+Meeting.MeetingClass_status_value3=Annulliert
+Meeting.MeetingClass_status_value4=Beendet
+contrib.meeting.app.title=Besprechungen
+contrib.meeting.home.title=Besprechungen
+contrib.meeting.calendarView=Kalenderansicht
+contrib.meeting.calendarView.title=Kalenderansicht
+contrib.meeting.calendarView.noMacro.admin=Um die Kalenderansicht der Besprechungen anzuzeigen, müssen Sie das "Full Calendar Macro" in diesem Wiki installieren:
+contrib.meeting.calendarView.noMacro.noAdmin=Es fehlt das Makro zur Anzeige der Kalenderansicht. Bitten Sie einen Wiki-Administrator, das "FullCalendar"-Makro zu installieren.
+meeting.livetable.doc.title=Besprechung
+meeting.livetable.doc.name=Titel
+meeting.livetable.leader=Vorsitz
+meeting.livetable.place=Ort
+meeting.livetable.durationString=Dauer
+meeting.livetable.startDate=Beginn
+meeting.livetable.status=Status
+meeting.livetable.emptyvalue=-
+meeting.livetable._actions=Aktionen
+contrib.meeting.field.meetingTitle=Titel
+contrib.meeting.field.leader=Vorsitz
+contrib.meeting.field.place=Ort
+contrib.meeting.field.displayMap=Karte anzeigen
+contrib.meeting.field.duration=Dauer
+contrib.meeting.field.startDate=Startdatum
+contrib.meeting.field.description=Beschreibung
+contrib.meeting.field.participants=Teilnehmende Mitglieder
+contrib.meeting.field.groups=Teilnehmende Gruppen
+contrib.meeting.field.notes=Besprechungsnotizen
+contrib.meeting.field.status=Status
+contrib.meeting.field.lastEmailSent=Letzte Mail gesendet am
+contrib.meeting.notification.success=Eine Benachrichtigungs-E-Mail wurde erfolgreich an die Teilnehmer gesendet.
+contrib.meeting.notification.failure=Beim Senden der Benachrichtigungs-E-Mails ist ein Fehler aufgetreten.
+contrib.meeting.notification.sending=Benachrichtigung senden...
+contrib.meeting.notification.requestError=Beim Senden der Anfrage ist ein Fehler aufgetreten. Bitte erneut versuchen.
+contrib.meeting.notification.title=Sie sind zur Teilnahme an einer Besprechung eingeladen: {0}
+contrib.meeting.notification.body={0} hat Sie zur Teilnahme an der Besprechung {1} eingeladen.
+contrib.meeting.notification.link=Siehe die Besprechungsseite im Wiki.
+contrib.meeting.notification.view.event=Sehen Sie sich Ihre Veranstaltung an unter
+contrib.meeting.notification.submit=Senden Sie eine Einladungs-E-Mail an diese Benutzer
+contrib.meeting.notification.additionalMessage=Geben Sie hier die Nachricht ein, die Sie an die Teilnehmer senden möchten (optional):
+contrib.hr.notification.additionalPart=Seine/ihre Nachricht:
+
+# Next Meetings panel
+contrib.meeting.panel.title=Nächste Besprechungen
+contrib.meeting.panel.noMeetings=Es gibt keine anstehenden Besprechungen.
+contrib.meeting.panel.addmeeting=Besprechung hinzufügen
+contrib.meeting.panel.viewallmeetings=Alle Besprechungen ansehen
+
+# Next Meetings macro
+rendering.macro.nextmeetings.name=Nächste Besprechung
+rendering.macro.nextmeetings.description=Zeigt eine definierte Anzahl an anstehenden Besprechungen
+rendering.macro.nextmeetings.parameter.limit.name=Beschränkung
+rendering.macro.nextmeetings.parameter.limit.description=Anzahl der maximalen Einträge.
+rendering.macro.nextmeetings.parameter.homelink.name=Link zur Besprechung
+rendering.macro.nextmeetings.parameter.homelink.description=Zeigen Sie einen Link an, der auf die Besprechungs-Homepage verweist. Mögliche Werte sind „anzeigen“ und „ausblenden“.
+rendering.macro.nextmeetings.parameter.status.name=Status
+rendering.macro.nextmeetings.parameter.status.description=Zeigen Sie den Status der Besprechung an. Mögliche Werte sind „anzeigen“ und „ausblenden“.
+
+# XPoll Application
+contrib.meeting.createPoll=Eine Umfrage für diese Besprechung erstellen
+contrib.meeting.poll.explanation=Es wurde eine Umfrage erstellt, um Besprechungsdetails zu definieren. Klicken Sie auf den unten stehenden Link, um darauf zuzugreifen.
+contrib.meeting.poll.go=Zur Umfrage gehen
+
+# Map Macro
+contrib.meeting.map.error.deactivation=Die Karte konnte nicht angezeigt werden:
+contrib.meeting.map.error.zeroResults=keine Ergebnisse gefunden!
+contrib.meeting.map.error.overQueryLimit=Quote überschritten!
+contrib.meeting.map.error.requestDenied=Anfrage abgelehnt!
+contrib.meeting.map.error.invalidRequest=ungültige Anfrage!
+contrib.meeting.map.error.unknownError=unbekannter Fehler!
+
+# Template Provider
+templateProvider.meeting.name=Besprechung
+templateProvider.meeting.description=Eine Veranstaltung organisieren
+</content>
+</xwikidoc>
