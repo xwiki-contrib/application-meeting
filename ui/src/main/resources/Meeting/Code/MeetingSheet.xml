@@ -507,11 +507,13 @@ if(displayMap) {
       #end
       : $doc.display('participants')
       ## groups
-      ; &lt;label for="Meeting.Code.MeetingClass_0_groups"&gt;$!services.icon.render('group') $services.localization.render('contrib.meeting.field.groups')&lt;/label&gt;##
-      #if ($xcontext.action == 'edit')
-        (% class="xHint" %)$services.localization.render('')
+      #if (($xcontext.action == 'view' &amp;&amp; "$!doc.getValue('groups')" != '') || $xcontext.action != 'view')
+        ; &lt;label for="Meeting.Code.MeetingClass_0_groups"&gt;$!services.icon.render('group') $services.localization.render('contrib.meeting.field.groups')&lt;/label&gt;##
+        #if ($xcontext.action == 'edit')
+          (% class="xHint" %)$services.localization.render('')
+        #end
+        : $doc.display('groups')
       #end
-      : $doc.display('groups')
       #set($participants = {})
       #getParticipants($doc $participants)
       #if($doc.isCurrentUserCreator() &amp;&amp; !$participants.to.isEmpty() &amp;&amp; $xcontext.action == 'view')
