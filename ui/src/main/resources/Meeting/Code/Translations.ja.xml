@@ -1,0 +1,122 @@
+<?xml version="1.1" encoding="UTF-8"?>
+
+<!--
+ * See the NOTICE file distributed with this work for additional
+ * information regarding copyright ownership.
+ *
+ * This is free software; you can redistribute it and/or modify it
+ * under the terms of the GNU Lesser General Public License as
+ * published by the Free Software Foundation; either version 2.1 of
+ * the License, or (at your option) any later version.
+ *
+ * This software is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this software; if not, write to the Free
+ * Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
+ * 02110-1301 USA, or see the FSF site: http://www.fsf.org.
+-->
+
+<xwikidoc reference="Meeting.Code.Translations" locale="ja">
+  <web>Meeting.Code</web>
+  <name>Translations</name>
+  <language>ja</language>
+  <defaultLanguage>en</defaultLanguage>
+  <translation>1</translation>
+  <parent>Meeting.WebHome</parent>
+  <creator>xwiki:XWiki.Admin</creator>
+  <author>xwiki:XWiki.Admin</author>
+  <customClass/>
+  <contentAuthor>xwiki:XWiki.Admin</contentAuthor>
+  <creationDate>1405343909000</creationDate>
+  <date>1405677708000</date>
+  <contentUpdateDate>1405677708000</contentUpdateDate>
+  <version>1.1</version>
+  <title>Meetings Translations</title>
+  <defaultTemplate/>
+  <validationScript/>
+  <comment/>
+  <minorEdit>false</minorEdit>
+  <syntaxId>plain/1.0</syntaxId>
+  <hidden>true</hidden>
+  <content>### Missing: contrib.meeting.home.presentation=Welcome to the XWiki Meeting Application. Create your own meeting by clicking on "Add New Entry". You can also check out a [[**Calendar**&gt;&gt;Meeting.CalendarView]] of all the meetings.
+### Missing: Meeting.MeetingClass_status_value1=In preparation
+Meeting.MeetingClass_status_value2=有効
+Meeting.MeetingClass_status_value3=キャンセル済
+Meeting.MeetingClass_status_value4=完了済
+contrib.meeting.app.title=ミーティング
+contrib.meeting.home.title=ミーティング
+contrib.meeting.calendarView=カレンダー表示
+contrib.meeting.calendarView.title=カレンダー表示
+### Missing: contrib.meeting.calendarView.noMacro.admin=To display the calendar view of the meetings, you need to install the Full Calendar Macro on this wiki :
+### Missing: contrib.meeting.calendarView.noMacro.noAdmin=We are missing the macro displaying the calendar view. Ask this wiki administrator to install the "FullCalendar" Macro.
+meeting.livetable.doc.title=ミーティング
+meeting.livetable.doc.name=タイトル
+meeting.livetable.leader=リーダー
+meeting.livetable.place=場所
+meeting.livetable.durationString=期間
+meeting.livetable.startDate=開始
+meeting.livetable.status=状態
+meeting.livetable.emptyvalue=-
+meeting.livetable._actions=アクション
+contrib.meeting.field.meetingTitle=タイトル
+contrib.meeting.field.leader=リーダー
+contrib.meeting.field.place=場所
+contrib.meeting.field.displayMap=地図を表示
+contrib.meeting.field.duration=期間
+contrib.meeting.field.startDate=開始日
+contrib.meeting.field.description=説明
+contrib.meeting.field.participants=参加者
+contrib.meeting.field.groups=参加グループ
+contrib.meeting.field.notes=ミーティングのメモ
+contrib.meeting.field.status=状態
+### Missing: contrib.meeting.field.lastEmailSent=Last mail sent on the
+### Missing: contrib.meeting.notification.success=A notification email has successfully been sent to the participants.
+### Missing: contrib.meeting.notification.failure=An error occured while sending the notification emails.
+contrib.meeting.notification.sending=通知を送信しています…
+### Missing: contrib.meeting.notification.requestError=There was an error sending your request. Please try again.
+### Missing: contrib.meeting.notification.title=You are invited to participate in a meeting: {0}
+### Missing: contrib.meeting.notification.body={0} invited you to participate in the meeting {1}.
+### Missing: contrib.meeting.notification.link=See the meeting page on XWiki.
+### Missing: contrib.meeting.notification.view.event=View your event at
+### Missing: contrib.meeting.notification.submit=Send an invitation email to these users
+### Missing: contrib.meeting.notification.additionalMessage=Type here the message you want to send to the participants (optional) :
+### Missing: contrib.hr.notification.additionalPart=His/her message:
+
+# Next Meetings panel
+contrib.meeting.panel.title=次のミーティング
+### Missing: contrib.meeting.panel.noMeetings=There are no upcoming meetings.
+contrib.meeting.panel.addmeeting=ミーティングを追加
+contrib.meeting.panel.viewallmeetings=全てのミーティングを表示
+
+# Next Meetings macro
+rendering.macro.nextmeetings.name=次のミーティング
+### Missing: rendering.macro.nextmeetings.description=Displays a defined number of upcoming meetings
+### Missing: rendering.macro.nextmeetings.parameter.limit.name=Limit
+### Missing: rendering.macro.nextmeetings.parameter.limit.description=Number of maximum entries.
+### Missing: rendering.macro.nextmeetings.parameter.homelink.name=Home Link
+### Missing: rendering.macro.nextmeetings.parameter.homelink.description=Show a link pointing to the Meetings homepage. Possible values are "show" and "hide".
+### Missing: rendering.macro.nextmeetings.parameter.status.name=Status
+### Missing: rendering.macro.nextmeetings.parameter.status.description=Show the status of the meeting. Possible values are "show" and "hide".
+
+# XPoll Application
+### Missing: contrib.meeting.createPoll=Create a poll for this meeting
+### Missing: contrib.meeting.poll.explanation=A poll has been created in order to define the meeting details. Click on the link below to access it.
+### Missing: contrib.meeting.poll.go=Go to the poll
+
+# Map Macro
+### Missing: contrib.meeting.map.error.deactivation=Map could not be displayed:
+### Missing: contrib.meeting.map.error.zeroResults=no results found!
+### Missing: contrib.meeting.map.error.overQueryLimit=exceeded quota!
+### Missing: contrib.meeting.map.error.requestDenied=request denied!
+### Missing: contrib.meeting.map.error.invalidRequest=invalid request!
+### Missing: contrib.meeting.map.error.unknownError=unknown error!
+
+# Template Provider
+### Missing: templateProvider.meeting.name=Meeting
+### Missing: templateProvider.meeting.description=Organise an event
+</content>
+</xwikidoc>
