@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.1" encoding="UTF-8"?>
 
 <!--
  * See the NOTICE file distributed with this work for additional
@@ -43,31 +43,27 @@
   <syntaxId>plain/1.0</syntaxId>
   <hidden>true</hidden>
 <content>contrib.meeting.home.presentation=Ласкаво просимо до додатка "Зустрічі". Створіть власну зустріч, натиснувши "Додати новий запис". Ви також можете переглянути [[**Календар**&gt;&gt;Meeting.CalendarView]] всіх зустрічей.
-
-Meeting.MeetingClass_status_value1=Готується
+Meeting.MeetingClass_status_value1=У підготовці
 Meeting.MeetingClass_status_value2=Активна
 Meeting.MeetingClass_status_value3=Відмінена
 Meeting.MeetingClass_status_value4=Завершена
-
 contrib.meeting.app.title=Зустрічі
 contrib.meeting.home.title=Зустрічі
 contrib.meeting.calendarView=Перегляд календаря
 contrib.meeting.calendarView.title=Перегляд календаря
 contrib.meeting.calendarView.noMacro.admin=Щоб переглядати зустрічі у календарі, потрібно встановити макрос Full Calendar:
-contrib.meeting.calendarView.noMacro.noAdmin=Відсутній макрос, що відображає календар. Попросіть адміністратора вікі встановити макрос "FullCalendar".
-
+contrib.meeting.calendarView.noMacro.noAdmin=Макрос, потрібний для відображення календаря, відсутній. Попросіть свого вікі-адміністратора встановити макрос «FullCalendar».
 meeting.livetable.doc.title=Зустріч
 meeting.livetable.doc.name=Заголовок
-meeting.livetable.leader=Головуючий
+meeting.livetable.leader=Голова
 meeting.livetable.place=Місце
 meeting.livetable.durationString=Тривалість
 meeting.livetable.startDate=Початок
-meeting.livetable.status=Стан
+meeting.livetable.status=Статус
 meeting.livetable.emptyvalue=-
 meeting.livetable._actions=Дії
-
 contrib.meeting.field.meetingTitle=Заголовок
-contrib.meeting.field.leader=Головуючий
+contrib.meeting.field.leader=Голова
 contrib.meeting.field.place=Місце
 contrib.meeting.field.displayMap=Показати мапу
 contrib.meeting.field.duration=Тривалість
@@ -75,10 +71,9 @@ contrib.meeting.field.startDate=Дата початку
 contrib.meeting.field.description=Опис
 contrib.meeting.field.participants=Учасники
 contrib.meeting.field.groups=Групи учасників
-contrib.meeting.field.notes=Примітки
-contrib.meeting.field.status=Стан
-contrib.meeting.field.lastEmailSent=Останнє поштове повідомлення надіслане на
-
+contrib.meeting.field.notes=Щоденники
+contrib.meeting.field.status=Статус
+contrib.meeting.field.lastEmailSent=Останній лист надіслано
 contrib.meeting.notification.success=Учасникам було надіслано сповіщення електронною поштою.
 contrib.meeting.notification.failure=Під час надсилання сповіщень сталася помилка.
 contrib.meeting.notification.sending=Надсилання сповіщення...
@@ -87,7 +82,7 @@ contrib.meeting.notification.title=Вас запрошено взяти учас
 contrib.meeting.notification.body={0} запрошує вас взяти участь у зустрічі {1}.
 contrib.meeting.notification.link=Див. сторінку зустрічі на XWiki.
 contrib.meeting.notification.view.event=Переглянути свою подію на
-contrib.meeting.notification.submit=Надіслати електронною поштою запрошення цим користувачам
+contrib.meeting.notification.submit=Надіслати запрошення електронною поштою цим користувачам
 contrib.meeting.notification.additionalMessage=Введіть тут повідомлення, яке потрібно надіслати учасникам (необов'язково):
 contrib.hr.notification.additionalPart=Її/його повідомлення:
 
@@ -104,7 +99,7 @@ rendering.macro.nextmeetings.parameter.limit.name=Обмеження
 rendering.macro.nextmeetings.parameter.limit.description=Максимальна кількість записів.
 rendering.macro.nextmeetings.parameter.homelink.name=Посилання на головну сторінку
 rendering.macro.nextmeetings.parameter.homelink.description=Показати посилання, що веде на домашню сторінку зустрічей. Можливі значення: "show" і "hide".
-rendering.macro.nextmeetings.parameter.status.name=Стан
+rendering.macro.nextmeetings.parameter.status.name=Статус
 rendering.macro.nextmeetings.parameter.status.description=Показати статус зустрічі. Можливі значення: "show" і "hide".
 
 # XPoll Application
@@ -114,13 +109,14 @@ contrib.meeting.poll.go=Перейти до опитування
 
 # Map Macro
 contrib.meeting.map.error.deactivation=Не вдалося відобразити карту:
-contrib.meeting.map.error.zeroResults=Не знайдено нічого!
-contrib.meeting.map.error.overQueryLimit=Перевищено квоту!
+contrib.meeting.map.error.zeroResults=не знайдено нічого!
+contrib.meeting.map.error.overQueryLimit=перевищено квоту!
 contrib.meeting.map.error.requestDenied=запит відхилено!
 contrib.meeting.map.error.invalidRequest=неправильний запит!
 contrib.meeting.map.error.unknownError=невідома помилка!
 
 # Template Provider
 templateProvider.meeting.name=Зустріч
-templateProvider.meeting.description=Організувати подію</content>
+templateProvider.meeting.description=Організувати подію
+</content>
 </xwikidoc>
