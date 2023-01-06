@@ -42,8 +42,8 @@
   <minorEdit>false</minorEdit>
   <syntaxId>plain/1.0</syntaxId>
   <hidden>true</hidden>
-  <content>### Missing: contrib.meeting.home.presentation=Welcome to the XWiki Meeting Application. Create your own meeting by clicking on "Add New Entry". You can also check out a [[**Calendar**&gt;&gt;Meeting.CalendarView]] of all the meetings.
-### Missing: Meeting.MeetingClass_status_value1=In preparation
+  <content>contrib.meeting.home.presentation=XWikiのミーティングアプリケーションにようこそ。「新しいエントリーを追加」をクリックすると、ミーティングを作成できます。全てのミーティングの[[**カレンダー**&gt;&gt;Meeting.CalendarView]]もご確認ください。
+Meeting.MeetingClass_status_value1=準備中
 Meeting.MeetingClass_status_value2=有効
 Meeting.MeetingClass_status_value3=キャンセル済
 Meeting.MeetingClass_status_value4=完了済
@@ -51,8 +51,8 @@ contrib.meeting.app.title=ミーティング
 contrib.meeting.home.title=ミーティング
 contrib.meeting.calendarView=カレンダー表示
 contrib.meeting.calendarView.title=カレンダー表示
-### Missing: contrib.meeting.calendarView.noMacro.admin=To display the calendar view of the meetings, you need to install the Full Calendar Macro on this wiki :
-### Missing: contrib.meeting.calendarView.noMacro.noAdmin=We are missing the macro displaying the calendar view. Ask this wiki administrator to install the "FullCalendar" Macro.
+contrib.meeting.calendarView.noMacro.admin=ミーティングのカレンダー表示を行うには、マクロ Full Calendar をこのウィキにインストールする必要があります：
+contrib.meeting.calendarView.noMacro.noAdmin=カレンダーを表示するマクロがありません。ウィキの管理者に"FullCalendar"のマクロをインストールするよう依頼してください。
 meeting.livetable.doc.title=ミーティング
 meeting.livetable.doc.name=タイトル
 meeting.livetable.leader=リーダー
@@ -74,17 +74,17 @@ contrib.meeting.field.groups=参加グループ
 contrib.meeting.field.notes=ミーティングのメモ
 contrib.meeting.field.status=状態
 ### Missing: contrib.meeting.field.lastEmailSent=Last mail sent on the
-### Missing: contrib.meeting.notification.success=A notification email has successfully been sent to the participants.
-### Missing: contrib.meeting.notification.failure=An error occured while sending the notification emails.
+contrib.meeting.notification.success=通知のEメールを参加者に送信しました。
+contrib.meeting.notification.failure=通知のEメールを送信する際にエラーが発生しました。
 contrib.meeting.notification.sending=通知を送信しています…
 contrib.meeting.notification.requestError=リクエストの送信中にエラーが発生しました。もう一度やり直してください。
-### Missing: contrib.meeting.notification.title=You are invited to participate in a meeting: {0}
-### Missing: contrib.meeting.notification.body={0} invited you to participate in the meeting {1}.
-### Missing: contrib.meeting.notification.link=See the meeting page on XWiki.
-### Missing: contrib.meeting.notification.view.event=View your event at
-### Missing: contrib.meeting.notification.submit=Send an invitation email to these users
-### Missing: contrib.meeting.notification.additionalMessage=Type here the message you want to send to the participants (optional) :
-### Missing: contrib.hr.notification.additionalPart=His/her message:
+contrib.meeting.notification.title=あなたはミーティング {0} に招待されています。
+contrib.meeting.notification.body={0}があなたをミーティング {1} に招待しました。
+contrib.meeting.notification.link=XWikiのミーティングページを参照。
+contrib.meeting.notification.view.event=イベントを で閲覧
+contrib.meeting.notification.submit=これらのユーザーに招待用のEメールを送信
+contrib.meeting.notification.additionalMessage=参加者に送信したいメッセージをここに入力してください（オプション）：
+contrib.hr.notification.additionalPart=メッセージ：
 
 # Next Meetings panel
 contrib.meeting.panel.title=次のミーティング
@@ -95,28 +95,28 @@ contrib.meeting.panel.viewallmeetings=全てのミーティングを表示
 # Next Meetings macro
 rendering.macro.nextmeetings.name=次のミーティング
 ### Missing: rendering.macro.nextmeetings.description=Displays a defined number of upcoming meetings
-### Missing: rendering.macro.nextmeetings.parameter.limit.name=Limit
-### Missing: rendering.macro.nextmeetings.parameter.limit.description=Number of maximum entries.
-### Missing: rendering.macro.nextmeetings.parameter.homelink.name=Home Link
-### Missing: rendering.macro.nextmeetings.parameter.homelink.description=Show a link pointing to the Meetings homepage. Possible values are "show" and "hide".
-### Missing: rendering.macro.nextmeetings.parameter.status.name=Status
-### Missing: rendering.macro.nextmeetings.parameter.status.description=Show the status of the meeting. Possible values are "show" and "hide".
+rendering.macro.nextmeetings.parameter.limit.name=制限
+rendering.macro.nextmeetings.parameter.limit.description=エントリーの最大数。
+rendering.macro.nextmeetings.parameter.homelink.name=トップページのリンク
+rendering.macro.nextmeetings.parameter.homelink.description=ミーティングのトップページへのリンクを表示。指定可能な値は"show"（表示）と"hide"（非表示）です。
+rendering.macro.nextmeetings.parameter.status.name=状態
+rendering.macro.nextmeetings.parameter.status.description=ミーティングの状態を表示。指定可能な値は"show"（表示）と"hide"（非表示）です。
 
 # XPoll Application
-### Missing: contrib.meeting.createPoll=Create a poll for this meeting
-### Missing: contrib.meeting.poll.explanation=A poll has been created in order to define the meeting details. Click on the link below to access it.
-### Missing: contrib.meeting.poll.go=Go to the poll
+contrib.meeting.createPoll=このミーティングのアンケートを作成
+contrib.meeting.poll.explanation=ミーティングの詳細を規定するアンケートが作成されました。以下のリンクをクリックするとアクセスできます。
+contrib.meeting.poll.go=アンケートに移動
 
 # Map Macro
-### Missing: contrib.meeting.map.error.deactivation=Map could not be displayed:
-### Missing: contrib.meeting.map.error.zeroResults=no results found!
+contrib.meeting.map.error.deactivation=地図を表示できませんでした：
+contrib.meeting.map.error.zeroResults=結果がありません！
 ### Missing: contrib.meeting.map.error.overQueryLimit=exceeded quota!
-### Missing: contrib.meeting.map.error.requestDenied=request denied!
-### Missing: contrib.meeting.map.error.invalidRequest=invalid request!
-### Missing: contrib.meeting.map.error.unknownError=unknown error!
+contrib.meeting.map.error.requestDenied=リクエストが拒否されました！
+contrib.meeting.map.error.invalidRequest=不正なリクエストです！
+contrib.meeting.map.error.unknownError=不明なエラーです！
 
 # Template Provider
-### Missing: templateProvider.meeting.name=Meeting
+templateProvider.meeting.name=ミーティング
 ### Missing: templateProvider.meeting.description=Organise an event
 </content>
 </xwikidoc>
