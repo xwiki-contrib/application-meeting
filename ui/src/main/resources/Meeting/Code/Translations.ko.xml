@@ -100,23 +100,23 @@ rendering.macro.nextmeetings.parameter.limit.description=이 저장되었지만,
 rendering.macro.nextmeetings.parameter.homelink.name=이 저장되었지만, 일부 새롭게 실패한 검사가 있습니다: 일치하지 않는 콜론(:)
 rendering.macro.nextmeetings.parameter.homelink.description=이 저장되었지만, 일부 새롭게 실패한 검사가 있습니다: 일치하지 않는 콜론(:)
 rendering.macro.nextmeetings.parameter.status.name=이 저장되었지만, 일부 새롭게 실패한 검사가 있습니다: 일치하지 않는 콜론(:)
-### Missing: rendering.macro.nextmeetings.parameter.status.description=Show the status of the meeting. Possible values are "show" and "hide".
+rendering.macro.nextmeetings.parameter.status.description=회의 상태를 표시합니다. 가능한 값은 "표시" 및 "숨기기"입니다.
 
 # XPoll Application
-### Missing: contrib.meeting.createPoll=Create a poll for this meeting
-### Missing: contrib.meeting.poll.explanation=A poll has been created in order to define the meeting details. Click on the link below to access it.
-### Missing: contrib.meeting.poll.go=Go to the poll
+contrib.meeting.createPoll=이 회의에 대한 설문조사 만들기
+contrib.meeting.poll.explanation=회의 세부정보를 정의하기 위해 설문조사가 생성되었습니다. 아래 링크를 클릭하시면 접속하실 수 있습니다.
+contrib.meeting.poll.go=설문조사로 이동
 
 # Map Macro
-### Missing: contrib.meeting.map.error.deactivation=Map could not be displayed:
-### Missing: contrib.meeting.map.error.zeroResults=no results found!
-### Missing: contrib.meeting.map.error.overQueryLimit=exceeded quota!
-### Missing: contrib.meeting.map.error.requestDenied=request denied!
-### Missing: contrib.meeting.map.error.invalidRequest=invalid request!
-### Missing: contrib.meeting.map.error.unknownError=unknown error!
+contrib.meeting.map.error.deactivation=지도를 표시할 수 없습니다:
+contrib.meeting.map.error.zeroResults=검색 결과가 없습니다!
+contrib.meeting.map.error.overQueryLimit=할당량을 초과했습니다!
+contrib.meeting.map.error.requestDenied=요청이 거부되었습니다!
+contrib.meeting.map.error.invalidRequest=잘못된 요청!
+contrib.meeting.map.error.unknownError=알수없는 오류!
 
 # Template Provider
-### Missing: templateProvider.meeting.name=Meeting
-### Missing: templateProvider.meeting.description=Organise an event
+templateProvider.meeting.name=회의
+templateProvider.meeting.description=이벤트 주최
 </content>
 </xwikidoc>
