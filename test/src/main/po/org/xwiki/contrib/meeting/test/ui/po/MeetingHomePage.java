@@ -26,6 +26,8 @@ import org.xwiki.test.ui.po.ViewPage;
 
 /**
  * Represents the meeting home page.
+ * 
+ * @version $Id$
  */
 public class MeetingHomePage extends ViewPage
 {
@@ -43,11 +45,17 @@ public class MeetingHomePage extends ViewPage
         return new MeetingHomePage();
     }
 
+    /**
+     * Add a new entry.
+     */
     public void clickAddNewEntryLink()
     {
         addMeetingAppButton.click();
     }
 
+    /**
+     * @param name the name of the entry
+     */
     public void setEntryName(String name)
     {
         WebElement nameInput = getDriver()
@@ -56,6 +64,9 @@ public class MeetingHomePage extends ViewPage
         nameInput.sendKeys(name);
     }
 
+    /**
+     * @return the meeting entry inline page
+     */
     public MeetingEntryInlinePage clickAddEntry()
     {
         WebElement addButton = getDriver()

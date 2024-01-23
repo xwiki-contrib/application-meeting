@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <!--
- *
  * See the NOTICE file distributed with this work for additional
  * information regarding copyright ownership.
  *
@@ -19,16 +18,15 @@
  * License along with this software; if not, write to the Free
  * Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
  * 02110-1301 USA, or see the FSF site: http://www.fsf.org.
- *
 -->
 
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <parent>
-    <groupId>org.xwiki.commons</groupId>
-    <artifactId>xwiki-commons-pom</artifactId>
+    <groupId>org.xwiki.contrib</groupId>
+    <artifactId>parent-platform</artifactId>
     <!-- The application meeting use the new Mail Sender API which bundled by default in XWiki Enterprise since 6.2M1 but a better version since 7.4.2-->
-    <version>7.4.2</version>
+    <version>8.4-11</version>
   </parent>
   <groupId>org.xwiki.contrib</groupId>
   <artifactId>application-meeting</artifactId>
@@ -37,12 +35,8 @@
   <version>1.7-SNAPSHOT</version>
   <description>Organise meetings (create, view, modify) and send invitations</description>
   <properties>
-    <platform.version>${commons.version}</platform.version>
-    <rendering.version>${commons.version}</rendering.version>
-    <!-- Old names of this module used for retro compatibility when resolving dependencies of old extensions -->
-    <xwiki.extension.features>tdelafosse:meeting-application</xwiki.extension.features>
-    <!-- Name to display by the Extension Manager -->
-    <xwiki.extension.name>Meeting Application</xwiki.extension.name>
+    <xwiki.release.jira.skip>false</xwiki.release.jira.skip>
+    <xwiki.issueManagement.jira.id>MEETING</xwiki.issueManagement.jira.id>
   </properties>
   <developers>
     <developer>
@@ -62,19 +56,6 @@
       <name>Gabriela Smeria</name>
     </developer>
   </developers>
-  <scm>
-    <connection>scm:git:git://github.com/xwiki-contrib/application-meeting.git</connection>
-    <developerConnection>scm:git:git@github.com:xwiki-contrib/application-meeting.git</developerConnection>
-    <url>https://github.com/xwiki-contrib/application-meeting/tree/master</url>
-    <tag>HEAD</tag>
-  </scm>
-  <distributionManagement>
-    <repository>
-      <id>xwiki-staging</id>
-      <name>XWiki Staging Repository</name>
-      <url>http://nexus.xwiki.org/nexus/service/local/staging/deploy/maven2/</url>
-    </repository>
-  </distributionManagement>
   <modules>
     <module>ui</module>
   </modules>
@@ -86,4 +67,10 @@
       </modules>
     </profile>
   </profiles>
+  <scm>
+    <connection>scm:git:git://github.com/xwiki-contrib/application-meeting.git</connection>
+    <developerConnection>scm:git:git@github.com:xwiki-contrib/application-meeting.git</developerConnection>
+    <url>https://github.com/xwiki-contrib/application-meeting/tree/master</url>
+    <tag>HEAD</tag>
+  </scm>
 </project>

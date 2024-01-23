@@ -25,6 +25,8 @@ import org.xwiki.test.ui.po.ViewPage;
 
 /**
  * Represents the meeting entry view page.
+ * 
+ * @version $Id$
  */
 public class MeetingEntryPage extends ViewPage
 {
@@ -64,6 +66,9 @@ public class MeetingEntryPage extends ViewPage
         messageTexarea.sendKeys(message);
     }
 
+    /**
+     * Send the message.
+     */
     public void sendMessage()
     {
         sendMessageAppButton.click();
