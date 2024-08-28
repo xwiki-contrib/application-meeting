@@ -1,0 +1,122 @@
+<?xml version="1.1" encoding="UTF-8"?>
+
+<!--
+ * See the NOTICE file distributed with this work for additional
+ * information regarding copyright ownership.
+ *
+ * This is free software; you can redistribute it and/or modify it
+ * under the terms of the GNU Lesser General Public License as
+ * published by the Free Software Foundation; either version 2.1 of
+ * the License, or (at your option) any later version.
+ *
+ * This software is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this software; if not, write to the Free
+ * Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
+ * 02110-1301 USA, or see the FSF site: http://www.fsf.org.
+-->
+
+<xwikidoc reference="Meeting.Code.Translations" locale="pt_BR">
+  <web>Meeting.Code</web>
+  <name>Translations</name>
+  <language>pt_BR</language>
+  <defaultLanguage>en</defaultLanguage>
+  <translation>1</translation>
+  <parent>Meeting.WebHome</parent>
+  <creator>xwiki:XWiki.Admin</creator>
+  <author>xwiki:XWiki.Admin</author>
+  <customClass/>
+  <contentAuthor>xwiki:XWiki.Admin</contentAuthor>
+  <creationDate>1405343909000</creationDate>
+  <date>1405677708000</date>
+  <contentUpdateDate>1405677708000</contentUpdateDate>
+  <version>1.1</version>
+  <title>Meetings Translations</title>
+  <defaultTemplate/>
+  <validationScript/>
+  <comment/>
+  <minorEdit>false</minorEdit>
+  <syntaxId>plain/1.0</syntaxId>
+  <hidden>true</hidden>
+  <content>contrib.meeting.home.presentation=Bem-vindo ao aplicativo de reunião XWiki. Crie sua própria reunião clicando em "Adicionar nova entrada". Você também pode conferir um [[**Calendar**&gt;&gt;Meeting.CalendarView]] de todas as reuniões.
+Meeting.MeetingClass_status_value1=Em preparação
+Meeting.MeetingClass_status_value2=Ativo
+Meeting.MeetingClass_status_value3=Cancelado
+Meeting.MeetingClass_status_value4=Finalizado
+contrib.meeting.app.title=Reuniões
+contrib.meeting.home.title=Reuniões
+contrib.meeting.calendarView=Visualização de calendário
+contrib.meeting.calendarView.title=Visualização de calendário
+contrib.meeting.calendarView.noMacro.admin=Para exibir a visualização do calendário das reuniões, você precisa instalar a macro de calendário completo neste wiki:
+contrib.meeting.calendarView.noMacro.noAdmin=Está faltando a macro que exibe a visualização do calendário. Peça a este administrador do wiki para instalar a macro "FullCalendar".
+meeting.livetable.doc.title=Reunião
+meeting.livetable.doc.name=Title
+meeting.livetable.leader=Líder
+meeting.livetable.place=Lugar
+meeting.livetable.durationString=Duração
+meeting.livetable.startDate=Começar
+meeting.livetable.status=Status
+meeting.livetable.emptyvalue=-
+meeting.livetable._actions=Ações
+contrib.meeting.field.meetingTitle=Título
+contrib.meeting.field.leader=Líder
+contrib.meeting.field.place=Lugar
+contrib.meeting.field.displayMap=Exibir mapa
+contrib.meeting.field.duration=Duração
+contrib.meeting.field.startDate=Data de início
+contrib.meeting.field.description=Descrição
+contrib.meeting.field.participants=Membros participantes
+contrib.meeting.field.groups=Grupos participantes
+contrib.meeting.field.notes=Notas da reunião
+contrib.meeting.field.status=Status
+contrib.meeting.field.lastEmailSent=Último e-mail enviado no
+contrib.meeting.notification.success=Um e-mail de notificação foi enviado com sucesso aos participantes.
+contrib.meeting.notification.failure=Ocorreu um erro ao enviar os e-mails de notificação.
+contrib.meeting.notification.sending=Enviando notificação...
+contrib.meeting.notification.requestError=Ocorreu um erro ao enviar sua solicitação. Por favor, tente novamente.
+contrib.meeting.notification.title=Você está convidado a participar de uma reunião: {0}
+contrib.meeting.notification.body={0} convidou você para participar da reunião {1}.
+contrib.meeting.notification.link=Veja a página da reunião no XWiki.
+contrib.meeting.notification.view.event=Veja seu evento em
+contrib.meeting.notification.submit=Envie um e-mail de convite para esses usuários
+contrib.meeting.notification.additionalMessage=Digite aqui a mensagem que deseja enviar aos participantes (opcional):
+contrib.hr.notification.additionalPart=Sua mensagem:
+
+# Next Meetings panel
+contrib.meeting.panel.title=Próximas reuniões
+contrib.meeting.panel.noMeetings=Não há reuniões futuras.
+contrib.meeting.panel.addmeeting=Adicionar reunião
+contrib.meeting.panel.viewallmeetings=Ver todas as reuniões
+
+# Next Meetings macro
+rendering.macro.nextmeetings.name=Próximas reuniões
+rendering.macro.nextmeetings.description=Exibe um número definido de reuniões futuras
+rendering.macro.nextmeetings.parameter.limit.name=Limite
+rendering.macro.nextmeetings.parameter.limit.description=Número máximo de entradas.
+rendering.macro.nextmeetings.parameter.homelink.name=Link inicial
+rendering.macro.nextmeetings.parameter.homelink.description=Mostre um link apontando para a página inicial do Meetings. Os valores possíveis são “mostrar” e “ocultar”.
+rendering.macro.nextmeetings.parameter.status.name=Status
+rendering.macro.nextmeetings.parameter.status.description=Mostre o status da reunião. Os valores possíveis são “mostrar” e “ocultar”.
+
+# XPoll Application
+contrib.meeting.createPoll=Crie uma enquete para esta reunião
+contrib.meeting.poll.explanation=Uma enquete foi criada para definir os detalhes da reunião. Clique no link abaixo para acessá-lo.
+contrib.meeting.poll.go=Vá para a enquete
+
+# Map Macro
+contrib.meeting.map.error.deactivation=Não foi possível exibir o mapa:
+contrib.meeting.map.error.zeroResults=Nenhum resultado encontrado!
+contrib.meeting.map.error.overQueryLimit=excedeu a cota!
+contrib.meeting.map.error.requestDenied=pedido negado!
+contrib.meeting.map.error.invalidRequest=pedido inválido!
+contrib.meeting.map.error.unknownError=erro desconhecido!
+
+# Template Provider
+templateProvider.meeting.name=Reunião
+templateProvider.meeting.description=Organize um evento
+</content>
+</xwikidoc>
