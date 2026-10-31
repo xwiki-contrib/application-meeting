@@ -42,81 +42,81 @@
   <minorEdit>false</minorEdit>
   <syntaxId>plain/1.0</syntaxId>
   <hidden>true</hidden>
-  <content>### Missing: contrib.meeting.home.presentation=
-### Missing: Meeting.MeetingClass_status_value1=
-### Missing: Meeting.MeetingClass_status_value2=
-### Missing: Meeting.MeetingClass_status_value3=
-### Missing: Meeting.MeetingClass_status_value4=
-### Missing: contrib.meeting.app.title=
-### Missing: contrib.meeting.home.title=
-### Missing: contrib.meeting.calendarView=
-### Missing: contrib.meeting.calendarView.title=
-### Missing: contrib.meeting.calendarView.noMacro.admin=
-### Missing: contrib.meeting.calendarView.noMacro.noAdmin=
-### Missing: meeting.livetable.doc.title=
-### Missing: meeting.livetable.doc.name=
-### Missing: meeting.livetable.leader=
-### Missing: meeting.livetable.place=
-### Missing: meeting.livetable.durationString=
-### Missing: meeting.livetable.startDate=
-### Missing: meeting.livetable.status=
-### Missing: meeting.livetable.emptyvalue=
-### Missing: meeting.livetable._actions=
-### Missing: contrib.meeting.field.meetingTitle=
-### Missing: contrib.meeting.field.leader=
-### Missing: contrib.meeting.field.place=
-### Missing: contrib.meeting.field.displayMap=
-### Missing: contrib.meeting.field.duration=
-### Missing: contrib.meeting.field.startDate=
-### Missing: contrib.meeting.field.description=
-### Missing: contrib.meeting.field.participants=
-### Missing: contrib.meeting.field.groups=
-### Missing: contrib.meeting.field.notes=
-### Missing: contrib.meeting.field.status=
-### Missing: contrib.meeting.field.lastEmailSent=
-### Missing: contrib.meeting.notification.success=
-### Missing: contrib.meeting.notification.failure=
-### Missing: contrib.meeting.notification.sending=
-### Missing: contrib.meeting.notification.requestError=
-### Missing: contrib.meeting.notification.title=
-### Missing: contrib.meeting.notification.body=
-### Missing: contrib.meeting.notification.link=
-### Missing: contrib.meeting.notification.view.event=
-### Missing: contrib.meeting.notification.submit=
-### Missing: contrib.meeting.notification.additionalMessage=
-### Missing: contrib.hr.notification.additionalPart=
+  <content>contrib.meeting.home.presentation=Velkommen til XWikis program til møder. Opret dit eget møde ved at klikke på "Tilføj ny post". Du kan også se en [[**kalender**&gt;&gt;Meeting.CalendarView]] over alle møderne.
+Meeting.MeetingClass_status_value1=Under forberedelse
+Meeting.MeetingClass_status_value2=Aktivt
+Meeting.MeetingClass_status_value3=Aflyst
+Meeting.MeetingClass_status_value4=Afsluttet
+contrib.meeting.app.title=Møder
+contrib.meeting.home.title=Møder
+contrib.meeting.calendarView=Kalendervisning
+contrib.meeting.calendarView.title=Kalendervisning
+contrib.meeting.calendarView.noMacro.admin=For at vise møderne i en kalendervisning skal du installere makroen Full Calendar på denne wiki:
+contrib.meeting.calendarView.noMacro.noAdmin=Den makro, der viser kalendervisningen, mangler. Bed wikiens administrator om at installere makroen "FullCalendar".
+meeting.livetable.doc.title=Møde
+meeting.livetable.doc.name=Titel
+meeting.livetable.leader=Mødeleder
+meeting.livetable.place=Sted
+meeting.livetable.durationString=Varighed
+meeting.livetable.startDate=Start
+meeting.livetable.status=Status
+meeting.livetable.emptyvalue=-
+meeting.livetable._actions=Handlinger
+contrib.meeting.field.meetingTitle=Titel
+contrib.meeting.field.leader=Mødeleder
+contrib.meeting.field.place=Sted
+contrib.meeting.field.displayMap=Vis kort
+contrib.meeting.field.duration=Varighed
+contrib.meeting.field.startDate=Startdato
+contrib.meeting.field.description=Beskrivelse
+contrib.meeting.field.participants=Deltagende medlemmer
+contrib.meeting.field.groups=Deltagende grupper
+contrib.meeting.field.notes=Mødenoter
+contrib.meeting.field.status=Status
+contrib.meeting.field.lastEmailSent=Seneste mail sendt den
+contrib.meeting.notification.success=Der er sendt en notifikationsmail til deltagerne.
+contrib.meeting.notification.failure=Der opstod en fejl, da notifikationsmailene skulle sendes.
+contrib.meeting.notification.sending=Sender notifikation...
+contrib.meeting.notification.requestError=Der opstod en fejl, da din anmodning skulle sendes. Prøv igen.
+contrib.meeting.notification.title=Du er inviteret til at deltage i et møde: {0}
+contrib.meeting.notification.body={0} har inviteret dig til at deltage i mødet {1}.
+contrib.meeting.notification.link=Se mødesiden i XWiki.
+contrib.meeting.notification.view.event=Se din begivenhed på
+contrib.meeting.notification.submit=Send en invitation pr. mail til disse brugere
+contrib.meeting.notification.additionalMessage=Skriv her den besked, du vil sende til deltagerne (valgfrit):
+contrib.hr.notification.additionalPart=Personens besked:
 
 # Next Meetings panel
-### Missing: contrib.meeting.panel.title=
-### Missing: contrib.meeting.panel.noMeetings=
-### Missing: contrib.meeting.panel.addmeeting=
-### Missing: contrib.meeting.panel.viewallmeetings=
+contrib.meeting.panel.title=Næste møder
+contrib.meeting.panel.noMeetings=Der er ingen kommende møder.
+contrib.meeting.panel.addmeeting=Tilføj møde
+contrib.meeting.panel.viewallmeetings=Se alle møder
 
 # Next Meetings macro
-### Missing: rendering.macro.nextmeetings.name=
-### Missing: rendering.macro.nextmeetings.description=
-### Missing: rendering.macro.nextmeetings.parameter.limit.name=
-### Missing: rendering.macro.nextmeetings.parameter.limit.description=
-### Missing: rendering.macro.nextmeetings.parameter.homelink.name=
-### Missing: rendering.macro.nextmeetings.parameter.homelink.description=
-### Missing: rendering.macro.nextmeetings.parameter.status.name=
-### Missing: rendering.macro.nextmeetings.parameter.status.description=
+rendering.macro.nextmeetings.name=Næste møder
+rendering.macro.nextmeetings.description=Viser et bestemt antal kommende møder
+rendering.macro.nextmeetings.parameter.limit.name=Grænse
+rendering.macro.nextmeetings.parameter.limit.description=Højeste antal poster.
+rendering.macro.nextmeetings.parameter.homelink.name=Link til startsiden
+rendering.macro.nextmeetings.parameter.homelink.description=Vis et link til mødeprogrammets startside. Mulige værdier er "show" og "hide".
+rendering.macro.nextmeetings.parameter.status.name=Status
+rendering.macro.nextmeetings.parameter.status.description=Vis mødets status. Mulige værdier er "show" og "hide".
 
 # XPoll Application
-### Missing: contrib.meeting.createPoll=
-### Missing: contrib.meeting.poll.explanation=
-### Missing: contrib.meeting.poll.go=
+contrib.meeting.createPoll=Opret en afstemning til dette møde
+contrib.meeting.poll.explanation=Der er oprettet en afstemning for at fastlægge mødets detaljer. Klik på linket nedenfor for at åbne den.
+contrib.meeting.poll.go=Gå til afstemningen
 
 # Map Macro
-### Missing: contrib.meeting.map.error.deactivation=
-### Missing: contrib.meeting.map.error.zeroResults=
-### Missing: contrib.meeting.map.error.overQueryLimit=
-### Missing: contrib.meeting.map.error.requestDenied=
-### Missing: contrib.meeting.map.error.invalidRequest=
-### Missing: contrib.meeting.map.error.unknownError=
+contrib.meeting.map.error.deactivation=Kortet kunne ikke vises:
+contrib.meeting.map.error.zeroResults=ingen resultater fundet!
+contrib.meeting.map.error.overQueryLimit=kvoten er overskredet!
+contrib.meeting.map.error.requestDenied=anmodningen er afvist!
+contrib.meeting.map.error.invalidRequest=ugyldig anmodning!
+contrib.meeting.map.error.unknownError=ukendt fejl!
 
 # Template Provider
-### Missing: templateProvider.meeting.name=
-### Missing: templateProvider.meeting.description=
+templateProvider.meeting.name=Møde
+templateProvider.meeting.description=Planlæg en begivenhed
 </content>
 </xwikidoc>
