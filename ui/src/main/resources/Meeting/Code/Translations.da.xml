@@ -1,0 +1,122 @@
+<?xml version="1.1" encoding="UTF-8"?>
+
+<!--
+ * See the NOTICE file distributed with this work for additional
+ * information regarding copyright ownership.
+ *
+ * This is free software; you can redistribute it and/or modify it
+ * under the terms of the GNU Lesser General Public License as
+ * published by the Free Software Foundation; either version 2.1 of
+ * the License, or (at your option) any later version.
+ *
+ * This software is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this software; if not, write to the Free
+ * Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
+ * 02110-1301 USA, or see the FSF site: http://www.fsf.org.
+-->
+
+<xwikidoc reference="Meeting.Code.Translations" locale="da">
+  <web>Meeting.Code</web>
+  <name>Translations</name>
+  <language>da</language>
+  <defaultLanguage>en</defaultLanguage>
+  <translation>1</translation>
+  <parent>Meeting.WebHome</parent>
+  <creator>xwiki:XWiki.Admin</creator>
+  <author>xwiki:XWiki.Admin</author>
+  <customClass/>
+  <contentAuthor>xwiki:XWiki.Admin</contentAuthor>
+  <creationDate>1405343909000</creationDate>
+  <date>1405677708000</date>
+  <contentUpdateDate>1405677708000</contentUpdateDate>
+  <version>1.1</version>
+  <title>Meetings Translations</title>
+  <defaultTemplate/>
+  <validationScript/>
+  <comment/>
+  <minorEdit>false</minorEdit>
+  <syntaxId>plain/1.0</syntaxId>
+  <hidden>true</hidden>
+  <content>### Missing: contrib.meeting.home.presentation=
+### Missing: Meeting.MeetingClass_status_value1=
+### Missing: Meeting.MeetingClass_status_value2=
+### Missing: Meeting.MeetingClass_status_value3=
+### Missing: Meeting.MeetingClass_status_value4=
+### Missing: contrib.meeting.app.title=
+### Missing: contrib.meeting.home.title=
+### Missing: contrib.meeting.calendarView=
+### Missing: contrib.meeting.calendarView.title=
+### Missing: contrib.meeting.calendarView.noMacro.admin=
+### Missing: contrib.meeting.calendarView.noMacro.noAdmin=
+### Missing: meeting.livetable.doc.title=
+### Missing: meeting.livetable.doc.name=
+### Missing: meeting.livetable.leader=
+### Missing: meeting.livetable.place=
+### Missing: meeting.livetable.durationString=
+### Missing: meeting.livetable.startDate=
+### Missing: meeting.livetable.status=
+### Missing: meeting.livetable.emptyvalue=
+### Missing: meeting.livetable._actions=
+### Missing: contrib.meeting.field.meetingTitle=
+### Missing: contrib.meeting.field.leader=
+### Missing: contrib.meeting.field.place=
+### Missing: contrib.meeting.field.displayMap=
+### Missing: contrib.meeting.field.duration=
+### Missing: contrib.meeting.field.startDate=
+### Missing: contrib.meeting.field.description=
+### Missing: contrib.meeting.field.participants=
+### Missing: contrib.meeting.field.groups=
+### Missing: contrib.meeting.field.notes=
+### Missing: contrib.meeting.field.status=
+### Missing: contrib.meeting.field.lastEmailSent=
+### Missing: contrib.meeting.notification.success=
+### Missing: contrib.meeting.notification.failure=
+### Missing: contrib.meeting.notification.sending=
+### Missing: contrib.meeting.notification.requestError=
+### Missing: contrib.meeting.notification.title=
+### Missing: contrib.meeting.notification.body=
+### Missing: contrib.meeting.notification.link=
+### Missing: contrib.meeting.notification.view.event=
+### Missing: contrib.meeting.notification.submit=
+### Missing: contrib.meeting.notification.additionalMessage=
+### Missing: contrib.hr.notification.additionalPart=
+
+# Next Meetings panel
+### Missing: contrib.meeting.panel.title=
+### Missing: contrib.meeting.panel.noMeetings=
+### Missing: contrib.meeting.panel.addmeeting=
+### Missing: contrib.meeting.panel.viewallmeetings=
+
+# Next Meetings macro
+### Missing: rendering.macro.nextmeetings.name=
+### Missing: rendering.macro.nextmeetings.description=
+### Missing: rendering.macro.nextmeetings.parameter.limit.name=
+### Missing: rendering.macro.nextmeetings.parameter.limit.description=
+### Missing: rendering.macro.nextmeetings.parameter.homelink.name=
+### Missing: rendering.macro.nextmeetings.parameter.homelink.description=
+### Missing: rendering.macro.nextmeetings.parameter.status.name=
+### Missing: rendering.macro.nextmeetings.parameter.status.description=
+
+# XPoll Application
+### Missing: contrib.meeting.createPoll=
+### Missing: contrib.meeting.poll.explanation=
+### Missing: contrib.meeting.poll.go=
+
+# Map Macro
+### Missing: contrib.meeting.map.error.deactivation=
+### Missing: contrib.meeting.map.error.zeroResults=
+### Missing: contrib.meeting.map.error.overQueryLimit=
+### Missing: contrib.meeting.map.error.requestDenied=
+### Missing: contrib.meeting.map.error.invalidRequest=
+### Missing: contrib.meeting.map.error.unknownError=
+
+# Template Provider
+### Missing: templateProvider.meeting.name=
+### Missing: templateProvider.meeting.description=
+</content>
+</xwikidoc>
