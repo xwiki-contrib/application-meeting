@@ -1,0 +1,122 @@
+<?xml version="1.1" encoding="UTF-8"?>
+
+<!--
+ * See the NOTICE file distributed with this work for additional
+ * information regarding copyright ownership.
+ *
+ * This is free software; you can redistribute it and/or modify it
+ * under the terms of the GNU Lesser General Public License as
+ * published by the Free Software Foundation; either version 2.1 of
+ * the License, or (at your option) any later version.
+ *
+ * This software is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this software; if not, write to the Free
+ * Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
+ * 02110-1301 USA, or see the FSF site: http://www.fsf.org.
+-->
+
+<xwikidoc reference="Meeting.Code.Translations" locale="da">
+  <web>Meeting.Code</web>
+  <name>Translations</name>
+  <language>da</language>
+  <defaultLanguage>en</defaultLanguage>
+  <translation>1</translation>
+  <parent>Meeting.WebHome</parent>
+  <creator>xwiki:XWiki.Admin</creator>
+  <author>xwiki:XWiki.Admin</author>
+  <customClass/>
+  <contentAuthor>xwiki:XWiki.Admin</contentAuthor>
+  <creationDate>1405343909000</creationDate>
+  <date>1405677708000</date>
+  <contentUpdateDate>1405677708000</contentUpdateDate>
+  <version>1.1</version>
+  <title>Meetings Translations</title>
+  <defaultTemplate/>
+  <validationScript/>
+  <comment/>
+  <minorEdit>false</minorEdit>
+  <syntaxId>plain/1.0</syntaxId>
+  <hidden>true</hidden>
+  <content>contrib.meeting.home.presentation=Velkommen til XWikis program til møder. Opret dit eget møde ved at klikke på "Tilføj ny post". Du kan også se en [[**kalender**&gt;&gt;Meeting.CalendarView]] over alle møderne.
+Meeting.MeetingClass_status_value1=Under forberedelse
+Meeting.MeetingClass_status_value2=Aktivt
+Meeting.MeetingClass_status_value3=Aflyst
+Meeting.MeetingClass_status_value4=Afsluttet
+contrib.meeting.app.title=Møder
+contrib.meeting.home.title=Møder
+contrib.meeting.calendarView=Kalendervisning
+contrib.meeting.calendarView.title=Kalendervisning
+contrib.meeting.calendarView.noMacro.admin=For at vise møderne i en kalendervisning skal du installere makroen Full Calendar på denne wiki:
+contrib.meeting.calendarView.noMacro.noAdmin=Den makro, der viser kalendervisningen, mangler. Bed wikiens administrator om at installere makroen "FullCalendar".
+meeting.livetable.doc.title=Møde
+meeting.livetable.doc.name=Titel
+meeting.livetable.leader=Mødeleder
+meeting.livetable.place=Sted
+meeting.livetable.durationString=Varighed
+meeting.livetable.startDate=Start
+meeting.livetable.status=Status
+meeting.livetable.emptyvalue=-
+meeting.livetable._actions=Handlinger
+contrib.meeting.field.meetingTitle=Titel
+contrib.meeting.field.leader=Mødeleder
+contrib.meeting.field.place=Sted
+contrib.meeting.field.displayMap=Vis kort
+contrib.meeting.field.duration=Varighed
+contrib.meeting.field.startDate=Startdato
+contrib.meeting.field.description=Beskrivelse
+contrib.meeting.field.participants=Deltagende medlemmer
+contrib.meeting.field.groups=Deltagende grupper
+contrib.meeting.field.notes=Mødenoter
+contrib.meeting.field.status=Status
+contrib.meeting.field.lastEmailSent=Seneste mail sendt den
+contrib.meeting.notification.success=Der er sendt en notifikationsmail til deltagerne.
+contrib.meeting.notification.failure=Der opstod en fejl, da notifikationsmailene skulle sendes.
+contrib.meeting.notification.sending=Sender notifikation...
+contrib.meeting.notification.requestError=Der opstod en fejl, da din anmodning skulle sendes. Prøv igen.
+contrib.meeting.notification.title=Du er inviteret til at deltage i et møde: {0}
+contrib.meeting.notification.body={0} har inviteret dig til at deltage i mødet {1}.
+contrib.meeting.notification.link=Se mødesiden i XWiki.
+contrib.meeting.notification.view.event=Se din begivenhed på
+contrib.meeting.notification.submit=Send en invitation pr. mail til disse brugere
+contrib.meeting.notification.additionalMessage=Skriv her den besked, du vil sende til deltagerne (valgfrit):
+contrib.hr.notification.additionalPart=Personens besked:
+
+# Next Meetings panel
+contrib.meeting.panel.title=Næste møder
+contrib.meeting.panel.noMeetings=Der er ingen kommende møder.
+contrib.meeting.panel.addmeeting=Tilføj møde
+contrib.meeting.panel.viewallmeetings=Se alle møder
+
+# Next Meetings macro
+rendering.macro.nextmeetings.name=Næste møder
+rendering.macro.nextmeetings.description=Viser et bestemt antal kommende møder
+rendering.macro.nextmeetings.parameter.limit.name=Grænse
+rendering.macro.nextmeetings.parameter.limit.description=Højeste antal poster.
+rendering.macro.nextmeetings.parameter.homelink.name=Link til startsiden
+rendering.macro.nextmeetings.parameter.homelink.description=Vis et link til mødeprogrammets startside. Mulige værdier er "show" og "hide".
+rendering.macro.nextmeetings.parameter.status.name=Status
+rendering.macro.nextmeetings.parameter.status.description=Vis mødets status. Mulige værdier er "show" og "hide".
+
+# XPoll Application
+contrib.meeting.createPoll=Opret en afstemning til dette møde
+contrib.meeting.poll.explanation=Der er oprettet en afstemning for at fastlægge mødets detaljer. Klik på linket nedenfor for at åbne den.
+contrib.meeting.poll.go=Gå til afstemningen
+
+# Map Macro
+contrib.meeting.map.error.deactivation=Kortet kunne ikke vises:
+contrib.meeting.map.error.zeroResults=ingen resultater fundet!
+contrib.meeting.map.error.overQueryLimit=kvoten er overskredet!
+contrib.meeting.map.error.requestDenied=anmodningen er afvist!
+contrib.meeting.map.error.invalidRequest=ugyldig anmodning!
+contrib.meeting.map.error.unknownError=ukendt fejl!
+
+# Template Provider
+templateProvider.meeting.name=Møde
+templateProvider.meeting.description=Planlæg en begivenhed
+</content>
+</xwikidoc>
