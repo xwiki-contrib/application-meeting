@@ -36,7 +36,7 @@
   <description>Organise meetings (create, view, modify) and send invitations</description>
   <properties>
     <xwiki.release.jira.skip>false</xwiki.release.jira.skip>
-    <xwiki.issueManagement.jira.id>MEETING</xwiki.issueManagement.jira.id>
+    <xwiki.issueManagement.jira.id>XAMEETINGS</xwiki.issueManagement.jira.id>
   </properties>
   <developers>
     <developer>
