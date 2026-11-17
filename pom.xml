@@ -32,7 +32,7 @@
   <artifactId>application-meeting</artifactId>
   <packaging>pom</packaging>
   <name>Meeting application</name>
-  <version>1.7-SNAPSHOT</version>
+  <version>1.6.2-SNAPSHOT</version>
   <description>Organise meetings (create, view, modify) and send invitations</description>
   <properties>
     <xwiki.release.jira.skip>false</xwiki.release.jira.skip>
